@@ -1,26 +1,337 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --color-brand-red: #d40000;
+  --color-brand-red-dark: #b80000;
+  --color-brand-dark: #191a1c;
+  --color-brand-deco-red: #bd0d16;
+  --color-page: #f8f8f8;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-page);
+  color: #222;
+}
+
+/* ── Site-wide layout container ─────────────────────────────── */
+/* Use this class on every section inner wrapper for consistent alignment */
+.site-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.footer {
+  position: relative;
+  background-color: #0a0a0a;
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.footer-deco {
+  position: relative;
+  width: 100%;
+  height: 74px;
+  background: var(--color-page);
+  overflow: hidden;
+}
+
+.footer-deco-red {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 31%;
+  height: 32px;
+  background: var(--color-brand-deco-red);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+}
+
+.footer-deco-dark {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 70%;
+  height: 26px;
+  background: #161616;
+  clip-path: polygon(0 0, calc(100% - 21px) 0, 100% 100%, 0 100%);
+}
+
+.footer-deco-dots {
+  position: absolute;
+  right: 32px;
+  top: 6px;
+  display: grid;
+  grid-template-columns: repeat(8, 4px);
+  gap: 11px;
+  z-index: 1;
+}
+
+.footer-deco-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #d21a25;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 20px 48px;
+}
+@media (min-width: 1024px) {
+  .footer-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+  gap: 40px 32px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  margin-bottom: 16px;
+}
+
+.footer-logo-img {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+.footer-tagline {
+  color: #b8b8b8;
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 280px;
+}
+
+.footer-brand-line {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--color-brand-red);
+  margin-top: 20px;
+}
+
+.footer-heading {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 36px;
+  height: 3px;
+  background: var(--color-brand-red);
+}
+
+.footer-links-list,
+.footer-expertise-list,
+.footer-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #c4c4c4;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.footer-link:hover {
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.footer-link-arrow {
+  color: var(--color-brand-red);
+  font-size: 16px;
+}
+
+.footer-expertise-item {
+  color: #c4c4c4;
+  font-size: 14px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #c4c4c4;
+  font-size: 14px;
+}
+
+.footer-contact-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.footer-contact-link {
+  color: #c4c4c4;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-contact-link:hover {
+  color: #fff;
+}
+
+.footer-contact-link--block {
+  display: block;
+}
+
+.footer-hours-line {
+  margin: 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-bottom-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer-copyright {
+  color: #999;
+  font-size: 13px;
+}
+
+.footer-brand-name {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-brand-name:hover {
+  color: var(--color-brand-red);
+}
+
+.footer-bottom-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-bottom-social-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  transition: background 0.2s, color 0.2s;
+}
+
+.footer-bottom-social-icon:hover {
+  background: var(--color-brand-red);
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 32px;
+  }
+
+  .footer-deco {
+    height: 60px;
+  }
+
+  .footer-deco-dots {
+    gap: 9px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-container {
+    padding: 48px 20px 36px;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+  }
+
+  .footer-deco {
+    height: 44px;
+  }
+
+  .footer-deco-red {
+    height: 24px;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 11px) 100%, 0 100%);
+  }
+
+  .footer-deco-dark {
+    height: 19px;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 100%, 0 100%);
+  }
+
+  .footer-deco-dots {
+    display: none;
+  }
 }

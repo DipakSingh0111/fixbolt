@@ -1,0 +1,666 @@
+{
+  "topbar": {
+    "phone": {
+      "display": "+1 (550) 250 5260",
+      "href": "tel:+15502505260"
+    },
+    "email": {
+      "display": "info@Fixpro24.com",
+      "href": "mailto:info@Fixpro24.com"
+    },
+    "address": {
+      "display": "4124 Cimmaron Road, CA 92806",
+      "href": "https://maps.google.com/?q=4124+Cimmaron+Road+CA+92806"
+    },
+    "socials": [
+      {
+        "id": "twitter",
+        "label": "Twitter / X",
+        "href": "#"
+      },
+      {
+        "id": "facebook",
+        "label": "Facebook",
+        "href": "#"
+      },
+      {
+        "id": "pinterest",
+        "label": "Pinterest",
+        "href": "#"
+      },
+      {
+        "id": "instagram",
+        "label": "Instagram",
+        "href": "#"
+      }
+    ]
+  },
+  "navbar": {
+    "logo": {
+      "src": "/images/logo.png",
+      "alt": "FixBolt - Mobile Repair Experts",
+      "width": 180,
+      "height": 60,
+      "href": "/"
+    },
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "Pages",
+        "href": "/pages"
+      },
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "Gallery",
+        "href": "/gallery"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog"
+      },
+      {
+        "label": "FAQS",
+        "href": "/faqs"
+      },
+      {
+        "label": "Contact Us",
+        "href": "/contact"
+      }
+    ],
+    "cta": {
+      "label": "Book A Repair",
+      "href": "/book-repair"
+    }
+  },
+  "hero": {
+    "autoplayMs": 6500,
+    "slides": [
+      {
+        "id": "we-fix-it",
+        "image": {
+          "src": "/images/Home_banner.png",
+          "alt": "Technician repairing a smartphone motherboard with a precision screwdriver"
+        },
+        "eyebrow": [
+          {
+            "text": "Fast.",
+            "accent": true
+          },
+          {
+            "text": "Reliable.",
+            "accent": false
+          },
+          {
+            "text": "Professional.",
+            "accent": true
+          }
+        ],
+        "titleLines": [
+          {
+            "text": "We Fix It."
+          },
+          {
+            "accent": "You",
+            "text": "Love It."
+          }
+        ],
+        "description": [
+          "From cracked screens to complex repairs,",
+          "we bring your device back to life."
+        ],
+        "cta": {
+          "label": "Get Your Device Fixed",
+          "href": "/book-repair"
+        }
+      },
+      {
+        "id": "cracked-screen",
+        "image": {
+          "src": "/images/Home_banner.png",
+          "alt": "Close-up of a phone screen replacement in progress"
+        },
+        "eyebrow": [
+          {
+            "text": "Screens.",
+            "accent": true
+          },
+          {
+            "text": "Batteries.",
+            "accent": false
+          },
+          {
+            "text": "Water Damage.",
+            "accent": true
+          }
+        ],
+        "titleLines": [
+          {
+            "text": "Cracked Screen?"
+          },
+          {
+            "accent": "Fixed",
+            "text": "Today."
+          }
+        ],
+        "description": [
+          "Most repairs finished within the hour,",
+          "with genuine parts and a real warranty."
+        ],
+        "cta": {
+          "label": "Book A Screen Repair",
+          "href": "/book-repair"
+        }
+      },
+      {
+        "id": "trusted-experts",
+        "image": {
+          "src": "/images/Home_banner.png",
+          "alt": "Certified technician working at a mobile repair workbench"
+        },
+        "eyebrow": [
+          {
+            "text": "Certified.",
+            "accent": true
+          },
+          {
+            "text": "Insured.",
+            "accent": false
+          },
+          {
+            "text": "Trusted.",
+            "accent": true
+          }
+        ],
+        "titleLines": [
+          {
+            "text": "Expert Care."
+          },
+          {
+            "accent": "Honest",
+            "text": "Pricing."
+          }
+        ],
+        "description": [
+          "No hidden charges, no guesswork — just a",
+          "clear quote before we touch your device."
+        ],
+        "cta": {
+          "label": "Get A Free Quote",
+          "href": "/contact"
+        }
+      }
+    ],
+    "features": [
+      {
+        "id": "warranty",
+        "icon": "shield",
+        "lines": [
+          "Warranty",
+          "On Repairs"
+        ]
+      },
+      {
+        "id": "parts",
+        "icon": "gear",
+        "lines": [
+          "Genuine",
+          "Parts Used"
+        ]
+      },
+      {
+        "id": "turnaround",
+        "icon": "stopwatch",
+        "lines": [
+          "Quick",
+          "Turnaround"
+        ]
+      },
+      {
+        "id": "experts",
+        "icon": "award",
+        "lines": [
+          "Expert",
+          "Technicians"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "ABOUT US",
+    "title": [
+      {
+        "text": "We're Here to ",
+        "accent": false
+      },
+      {
+        "text": "Fix",
+        "accent": true
+      },
+      {
+        "text": " What Matters.",
+        "accent": false
+      }
+    ],
+    "description": "At FixBolt, we specialize in fast, reliable, and affordable mobile repair solutions. With expert technicians and advanced tools, we bring your devices back to life—making technology work for you again.",
+    "features": [
+      {
+        "id": "expert",
+        "icon": "award",
+        "title": "Expert Technicians",
+        "description": "Certified professionals with years of hands-on experience."
+      },
+      {
+        "id": "quick",
+        "icon": "stopwatch",
+        "title": "Quick Turnaround",
+        "description": "Most repairs done in 30–60 minutes."
+      },
+      {
+        "id": "quality",
+        "icon": "shield",
+        "title": "Quality Parts",
+        "description": "We use genuine and high-quality parts for every repair."
+      },
+      {
+        "id": "customer",
+        "icon": "handshake",
+        "title": "Customer First",
+        "description": "Your satisfaction is our top priority."
+      }
+    ],
+    "cta": {
+      "label": "LEARN MORE ABOUT US",
+      "href": "/about"
+    },
+    "image": {
+      "src": "/images/Home_banner.png",
+      "alt": "Technician repairing a device"
+    }
+  },
+  "counters": [
+    {
+      "id": 1,
+      "icon": "target",
+      "target": 1.25,
+      "decimals": 2,
+      "suffix": "K",
+      "label": "Successful Projects"
+    },
+    {
+      "id": 2,
+      "icon": "userCog",
+      "target": 500,
+      "decimals": 0,
+      "suffix": "+",
+      "label": "Experts Staffs"
+    },
+    {
+      "id": 3,
+      "icon": "heartHandshake",
+      "target": 1.33,
+      "decimals": 2,
+      "suffix": "K",
+      "label": "Happy customer"
+    },
+    {
+      "id": 4,
+      "icon": "percent",
+      "target": 100,
+      "decimals": 0,
+      "suffix": "%",
+      "label": "Quality Products"
+    }
+  ],
+  "services": {
+    "eyebrow": "OUR SERVICES",
+    "title": "Expert Solutions for Every Device.",
+    "description": "From minor fixes to complex repairs, we provide reliable and efficient solutions to keep your devices running like new.",
+    "items": [
+      {
+        "id": 1,
+        "title": "Screen Repair",
+        "description": "Cracked or broken screen? We replace it with precision and care.",
+        "icon": "smartphone",
+        "image": "https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=600"
+      },
+      {
+        "id": 2,
+        "title": "Battery Replacement",
+        "description": "Low battery life? We use high-quality batteries to power your device.",
+        "icon": "batteryCharging",
+        "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=600"
+      },
+      {
+        "id": 3,
+        "title": "Charging Port Repair",
+        "description": "Loose or damaged port? We fix charging issues quickly and safely.",
+        "icon": "plugZap",
+        "image": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&q=80&w=600"
+      },
+      {
+        "id": 4,
+        "title": "Software Issues",
+        "description": "From crashes to performance problems, we've got you covered.",
+        "icon": "settings",
+        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600"
+      },
+      {
+        "id": 5,
+        "title": "Hardware Repair",
+        "description": "Faulty components? We repair or replace with expert precision.",
+        "icon": "cpu",
+        "image": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80&w=600"
+      }
+    ]
+  },
+  "workProcess": {
+    "eyebrow": "OUR WORK PROCESS",
+    "title": "Explore Our Effortless Work Process",
+    "description": "We follow a simple and transparent process to ensure the best service and customer satisfaction.",
+    "bgImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Send It To Us",
+        "description": "Define Requirements: Like IT Support & Maintenance",
+        "icon": "laptop"
+      },
+      {
+        "step": "02",
+        "title": "Damage Device",
+        "description": "Choose a Service: Like IT Support & Maintenance",
+        "icon": "send"
+      },
+      {
+        "step": "03",
+        "title": "Repair Device",
+        "description": "Request A Meeting: Like IT Support & Maintenance",
+        "icon": "cpu"
+      },
+      {
+        "step": "04",
+        "title": "Quick Return",
+        "description": "Final Solution: Like IT Support & Maintenance",
+        "icon": "packageCheck"
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "eyebrow": "WHY WE CHOOSE US",
+    "title": "Smart Electrical Solutions You Can Rely On",
+    "description": "We deliver safe, efficient, and high-quality electrical services tailored to your needs with professionalism you can trust.",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1000",
+      "alt": "Electrical Solutions and Tools"
+    },
+    "features": [
+      {
+        "id": 1,
+        "title": "Easy Payments",
+        "description": "Hassle-free and secure payment options for your convenience. Multiple methods, one simple experience.",
+        "icon": "creditCard"
+      },
+      {
+        "id": 2,
+        "title": "Expert Technicians",
+        "description": "Skilled and certified professionals delivering reliable electrical solutions with precision and care.",
+        "icon": "userCheck"
+      },
+      {
+        "id": 3,
+        "title": "Certificate Protect",
+        "description": "All our services come with certified assurance for quality work and your complete peace of mind.",
+        "icon": "award"
+      },
+      {
+        "id": 4,
+        "title": "Safety Installation",
+        "description": "We follow strict safety standards to ensure secure installations and long-lasting performance every time.",
+        "icon": "shieldCheck"
+      }
+    ]
+  },
+  "team": {
+    "eyebrow": "OUR TEAM",
+    "title": "Meet The Experts Behind FixBolt",
+    "description": "Our skilled technicians and support specialists are dedicated to providing reliable solutions and exceptional service every time.",
+    "members": [
+      {
+        "id": 1,
+        "name": "John Mirkwood",
+        "role": "Support Engineer",
+        "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
+        "socials": {
+          "twitter": "#",
+          "instagram": "#",
+          "facebook": "#"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Leslie Alexander",
+        "role": "Support Engineer",
+        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
+        "socials": {
+          "twitter": "#",
+          "instagram": "#",
+          "facebook": "#"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Brooklyn Simmons",
+        "role": "Support Engineer",
+        "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
+        "socials": {
+          "twitter": "#",
+          "instagram": "#",
+          "facebook": "#"
+        }
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "TESTIMONIALS",
+    "title": "What Our Customers Say",
+    "description": "We take pride in delivering trusted mobile repair solutions and excellent service. Here's what our happy customers have to say.",
+    "bgImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200",
+    "items": [
+      {
+        "id": 1,
+        "rating": 5,
+        "name": "Rahul Verma",
+        "service": "iPhone 14 Pro Repair",
+        "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300",
+        "review": "My phone screen was completely shattered and I thought I had to buy a new one. The team fixed it perfectly in just 30 minutes. Great service, genuine parts and very professional staff! Highly recommended!"
+      },
+      {
+        "id": 2,
+        "rating": 5,
+        "name": "Aman Sharma",
+        "service": "OnePlus 11 Battery Replacement",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
+        "review": "The battery of my phone was draining too fast. They replaced it with an original battery and now my phone works like new! Very quick response and reasonable pricing. I'm really satisfied!"
+      },
+      {
+        "id": 3,
+        "rating": 5,
+        "name": "Priya Patel",
+        "service": "MacBook Pro Motherboard Fix",
+        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300",
+        "review": "Excellent laptop repair service! They diagnosed the motherboard issue accurately and fixed it within 24 hours. Very transparent process and polite behavior. Will definitely visit again."
+      },
+      {
+        "id": 4,
+        "rating": 5,
+        "name": "Vikram Singh",
+        "service": "iPad Air Port Repair",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300",
+        "review": "Amazing experience! Fixed my iPad charging port on the same day. Very honest pricing without any hidden charges. Highly recommend FixBolt for quick repairs."
+      },
+      {
+        "id": 5,
+        "rating": 5,
+        "name": "Neha Gupta",
+        "service": "Samsung S23 Data Recovery",
+        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300",
+        "review": "My Samsung S23 water damage issue was solved easily. Thought all data was lost, but they recovered everything safely. Super skilled team!"
+      },
+      {
+        "id": 6,
+        "rating": 5,
+        "name": "Rohan Kapoor",
+        "service": "Vivo X90 Screen Replacement",
+        "image": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=300",
+        "review": "Best service center in town! Replaced my Vivo screen in front of me using genuine display. Fast, reliable, and authentic work."
+      }
+    ]
+  },
+  "blog": {
+    "eyebrow": "BLOGS",
+    "title": "Latest From Our Blog",
+    "description": "Tips, guides and insights on mobile repair, maintenance and technology to keep your devices running like new.",
+    "posts": [
+      {
+        "id": 1,
+        "date": "20",
+        "monthYear": "MAY 2024",
+        "category": "REPAIR TIPS",
+        "title": "5 Signs Your Phone Needs Professional Repair",
+        "description": "From battery drain to screen issues, learn the top signs your phone needs expert attention.",
+        "image": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80&w=600",
+        "slug": "#"
+      },
+      {
+        "id": 2,
+        "date": "15",
+        "monthYear": "MAY 2024",
+        "category": "MAINTENANCE",
+        "title": "How to Extend the Life of Your Smartphone",
+        "description": "Simple daily habits that can improve performance and help your device last longer.",
+        "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=600",
+        "slug": "#"
+      },
+      {
+        "id": 3,
+        "date": "10",
+        "monthYear": "MAY 2024",
+        "category": "TECH GUIDE",
+        "title": "Fast Charging: Myths vs Facts",
+        "description": "Separating facts from fiction about fast charging and its impact on your battery health.",
+        "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&q=80&w=600",
+        "slug": "#"
+      },
+      {
+        "id": 4,
+        "date": "05",
+        "monthYear": "MAY 2024",
+        "category": "REPAIR GUIDE",
+        "title": "DIY vs Professional Repair: What's Better?",
+        "description": "We compare DIY fixes vs professional repair to help you choose what's best for your device.",
+        "image": "https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=600",
+        "slug": "#"
+      }
+    ]
+  },
+  "footer": {
+    "logo": {
+      "src": "/images/logo.png",
+      "alt": "FixBolt - Mobile Repair Experts",
+      "width": 180,
+      "height": 60,
+      "href": "/"
+    },
+    "tagline": "Professional mobile repair services you can trust. Fast, reliable and affordable solutions for all your device problems.",
+    "quickLinks": {
+      "heading": "Quick Links",
+      "links": [
+        {
+          "label": "Home",
+          "href": "/"
+        },
+        {
+          "label": "About Us",
+          "href": "/about"
+        },
+        {
+          "label": "Our Services",
+          "href": "/services"
+        },
+        {
+          "label": "Blog",
+          "href": "/blog"
+        },
+        {
+          "label": "Our Team",
+          "href": "/team"
+        },
+        {
+          "label": "Locations",
+          "href": "/locations"
+        },
+        {
+          "label": "Latest Projects",
+          "href": "/projects"
+        }
+      ]
+    },
+    "expertise": {
+      "heading": "Our Expertise",
+      "services": [
+        "Screen Repair",
+        "Battery Replacement",
+        "Charging Port Repair",
+        "Water Damage Repair",
+        "Software Solutions",
+        "And More"
+      ]
+    },
+    "contact": {
+      "heading": "Contact Us",
+      "address": "3891 Ranchview Dr. Richardson, California 17",
+      "phone": "+01 456 785 889",
+      "emails": [
+        "support@fixbolt.com",
+        "info@fixbolt.com"
+      ],
+      "hours": [
+        "Mon - Sat: 9:00 AM - 7:00 PM",
+        "Sunday: Closed"
+      ]
+    },
+    "copyright": {
+      "year": 2026,
+      "brand": "FixBolt",
+      "brandHref": "/",
+      "text": "All Rights Reserved."
+    },
+    "bottomSocials": [
+      {
+        "id": "facebook",
+        "label": "Facebook",
+        "href": "#"
+      },
+      {
+        "id": "instagram",
+        "label": "Instagram",
+        "href": "#"
+      },
+      {
+        "id": "youtube",
+        "label": "YouTube",
+        "href": "#"
+      }
+    ]
+  }
+}
