@@ -2,6 +2,7 @@
 
 import { Settings, Laptop, Send, Cpu, PackageCheck } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
 import data from "@/data/data.json";
 
 const IconMap: Record<string, LucideIcon> = {
@@ -13,10 +14,23 @@ const IconMap: Record<string, LucideIcon> = {
 
 const { eyebrow, title, description, bgImage, steps: processSteps } = data.workProcess;
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
 
 export default function WorkProcessSection() {
   return (
-    <section className="relative w-full bg-gradient-to-r from-[#800000] via-[#a30000] to-[#520000] text-white py-20 px-5 lg:px-8 overflow-hidden">
+    <section className="relative w-full bg-gradient-to-r from-[#800000] via-[#a30000] to-[#520000] text-white py-10 md:py-20 px-5 lg:px-8 overflow-hidden">
       {/* Background Technology Circuit Overlay Pattern */}
       <div
         className="absolute inset-0 opacity-15 pointer-events-none bg-cover bg-center"
@@ -27,34 +41,57 @@ export default function WorkProcessSection() {
       />
 
       {/* Top Section Badge & Heading */}
-      <div className="relative z-10 max-w-[1280px] mx-auto text-center mb-16">
-        <div className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold uppercase tracking-wider text-white/90 mb-2">
-          <Settings size={16} className="text-white animate-spin-slow" />
-          <span>{eyebrow}</span>
-        </div>
-        <div className="w-10 h-[2px] bg-white/40 mx-auto mb-4" />
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+        className="relative z-10 max-w-[1280px] mx-auto text-center mb-10 md:mb-16"
+      >
+        <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4 mb-4">
+          <div className="hidden sm:block w-16 h-[2px] bg-white/60" />
+          <div className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold uppercase tracking-wider text-white/90">
+            <Settings size={16} className="text-white" />
+            <span>{eyebrow}</span>
+          </div>
+          <div className="hidden sm:block w-16 h-[2px] bg-white/60" />
+        </motion.div>
 
-        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
+        <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-extrabold tracking-tight">
           {title.split('Work Process')[0]}
           <span className="text-white">Work Process</span>
-        </h2>
+          <span className="text-red-500">.</span>
+        </motion.h2>
 
-        <p className="text-white/80 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
+        <motion.div variants={fadeInUp} className="flex items-center justify-center gap-2 mt-6 mb-6">
+          <div className="w-12 h-[2px] bg-white/40" />
+          <div className="w-14 h-[4px] bg-red-600 rounded-full" />
+          <div className="w-12 h-[2px] bg-white/40" />
+        </motion.div>
+
+        <motion.p variants={fadeInUp} className="text-white/80 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
           {description}
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
 
       {/* Process Cards Grid with Connecting Lines */}
-      <div className="relative z-10 max-w-[1280px] mx-auto">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+        className="relative z-10 max-w-[1280px] mx-auto"
+      >
         {/* Horizontal Dotted Connecting Line (Desktop) */}
-        <div className="hidden lg:block absolute top-[68px] left-[12%] right-[12%] h-[2px] border-t-2 border-dashed border-white/40 z-0" />
+        <motion.div variants={fadeInUp} className="hidden lg:block absolute top-[68px] left-[12%] right-[12%] h-[2px] border-t-2 border-dashed border-white/40 z-0" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative z-10">
           {processSteps.map((step, index) => {
             const IconComponent = IconMap[step.icon];
 
             return (
-              <div
+              <motion.div
+                variants={fadeInUp}
                 key={step.step}
                 className="group flex flex-col items-center text-center relative"
               >
@@ -85,11 +122,11 @@ export default function WorkProcessSection() {
                 <p className="text-white/70 text-xs md:text-sm max-w-[200px] leading-relaxed font-normal">
                   {step.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

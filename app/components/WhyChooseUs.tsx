@@ -1,118 +1,201 @@
 "use client";
 
-import { CreditCard, UserCheck, Award, ShieldCheck } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import Image from "next/image";
+import type { ReactNode } from "react";
+import { motion } from "framer-motion";
 import data from "@/data/data.json";
-
-const IconMap: Record<string, LucideIcon> = {
-  creditCard: CreditCard,
-  userCheck: UserCheck,
-  award: Award,
-  shieldCheck: ShieldCheck,
-};
 
 const { eyebrow, title, description, image, features } = data.whyChooseUs;
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+function CreditCardIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2.5" y="5" width="19" height="14" rx="2" />
+      <path d="M2.5 10h19M7 15h4" />
+      <path d="M16.5 3.5 18 5.2l2.5-2.2" />
+    </svg>
+  );
+}
+
+function TechnicianIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="8" r="3.2" />
+      <path d="M5.5 19.5c.8-3.2 3.3-5 6.5-5s5.7 1.8 6.5 5" />
+      <path d="M16.2 5.2 18 3.8M18.8 7.5h2.2" />
+    </svg>
+  );
+}
+
+function CertificateIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="10" r="5.2" />
+      <path d="m9.2 17.2-1.4 4.3 2.8-1.2L12 22l1.4-1.7 2.8 1.2-1.4-4.3" />
+      <path d="m9.8 10 1.5 1.5 3-3" />
+    </svg>
+  );
+}
+
+function ShieldIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 3 5 5.8v5.6c0 4.2 2.9 7.7 7 9.2 4.1-1.5 7-5 7-9.2V5.8L12 3Z" />
+      <path d="m8.8 12 2.2 2.2 4.2-4.2" />
+    </svg>
+  );
+}
+
+const FeatureIcon: Record<string, ReactNode> = {
+  creditCard: <CreditCardIcon />,
+  userCheck: <TechnicianIcon />,
+  award: <CertificateIcon />,
+  shieldCheck: <ShieldIcon />,
+};
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative w-full bg-[#f8f9fa] py-16 px-5 lg:px-12 overflow-hidden">
-      {/* Background Dot Patterns */}
-      <div className="absolute top-6 left-1/2 opacity-20 pointer-events-none hidden lg:block">
-        <div className="grid grid-cols-6 gap-2">
-          {[...Array(24)].map((_, i) => (
-            <div key={i} className="w-1 h-1 bg-gray-500 rounded-full" />
-          ))}
-        </div>
+    <section className="relative overflow-hidden bg-[#f5f5f5]">
+      {/* Top red accent slash (moved from image container to match design) */}
+      <div
+        aria-hidden="true"
+        className="absolute top-0 left-[55%] z-[1] hidden h-[180px] w-[40px] bg-brand-red md:block"
+        style={{ clipPath: "polygon(35% 0, 100% 0, 65% 100%, 0 100%)" }}
+      />
+
+      {/* Soft dot grid — top center-left */}
+      <div
+        aria-hidden="true"
+        className="absolute top-16 left-[18%] hidden h-20 w-36 opacity-50 md:block"
+        style={{
+          backgroundImage: "radial-gradient(circle, #b0b0b0 1.2px, transparent 1.3px)",
+          backgroundSize: "14px 14px",
+        }}
+      />
+
+      {/* Right image — full height, diagonal left cut */}
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 z-0 hidden w-[48%] lg:block"
+        style={{ clipPath: "polygon(18% 0, 100% 0, 100% 100%, 0 100%)" }}
+      >
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes="48vw"
+          className="object-cover object-center"
+        />
       </div>
-      <div className="absolute bottom-12 left-4 opacity-20 pointer-events-none hidden lg:block">
-        <div className="grid grid-cols-4 gap-2">
-          {[...Array(16)].map((_, i) => (
-            <div key={i} className="w-1 h-1 bg-gray-500 rounded-full" />
-          ))}
-        </div>
-      </div>
 
-      <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-        {/* Left Column: Text & 2x2 Feature Grid */}
-        <div className="lg:col-span-7 flex flex-col justify-center">
-          {/* Section Subtitle */}
-          <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-red-600 mb-2">
-            <span>{eyebrow}</span>
-            <div className="w-8 h-[2px] bg-red-600" />
-          </div>
+      <div className="relative z-[2] mx-auto grid max-w-[1280px] gap-8 px-5 py-10 md:px-8 md:py-16 lg:grid-cols-12 lg:gap-8 lg:py-24">
+        {/* Left content */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="lg:col-span-7"
+        >
+          <motion.div variants={fadeInUp} className="mb-3 flex items-center gap-3">
+            <p className="text-[13px] font-bold tracking-[0.08em] text-brand-red uppercase">
+              {eyebrow}
+            </p>
+            <span className="h-[2px] w-6 bg-brand-red" aria-hidden="true" />
+          </motion.div>
 
-          {/* Heading */}
-          <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-4 leading-tight">
-            {title.split('You Can')[0]}<br />
-            You Can <span className="text-red-600">Rely On</span>
-          </h2>
-          <div className="w-10 h-[3px] bg-red-600 mb-4" />
+          <motion.h2 variants={fadeInUp} className="max-w-xl text-[32px] leading-[1.15] font-extrabold text-[#111] md:text-[44px] lg:text-[48px] mb-5">
+            {title.map((part, i) => (
+              <span key={`${part.text}-${i}`} className={part.accent ? "text-brand-red" : undefined}>
+                {part.text}
+                {!part.accent && i === 0 ? <br /> : null}
+              </span>
+            ))}
+          </motion.h2>
 
-          {/* Description */}
-          <p className="text-gray-600 text-sm md:text-base max-w-xl mb-10 leading-relaxed font-normal">
+          <motion.p variants={fadeInUp} className="mb-10 max-w-[500px] text-[15px] leading-relaxed text-neutral-500">
             {description}
-          </p>
+          </motion.p>
 
-          {/* 2x2 Features Grid Card Container */}
-          <div className="relative bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-gray-100">
-            {/* Center Red Square Accent Dot */}
-            <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-red-600 rounded-sm z-20" />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 relative z-10">
-              {features.map((item, index) => {
-                const IconComponent = IconMap[item.icon];
-
-                return (
-                  <div
-                    key={item.id}
-                    className={`flex items-start gap-4 p-2 transition-all duration-300 hover:translate-x-1 ${
-                      /* Visual Divider Borders for 2x2 Desktop Layout */
-                      index === 0
-                        ? "md:border-r md:border-b md:border-gray-100 md:pb-8 md:pr-6"
-                        : index === 1
-                          ? "md:border-b md:border-gray-100 md:pb-8 md:pl-2"
-                          : index === 2
-                            ? "md:border-r md:border-gray-100 md:pt-4 md:pr-6"
-                            : "md:pt-4 md:pl-2"
-                    }`}
-                  >
-                    {/* Circle Icon Container */}
-                    <div className="w-14 h-14 rounded-full bg-red-50 text-red-600 flex items-center justify-center shrink-0 border border-red-100 shadow-sm">
-                      <IconComponent size={26} strokeWidth={1.8} />
-                    </div>
-
-                    {/* Text Details */}
-                    <div>
-                      <h3 className="text-base font-bold text-black mb-1.5">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-500 text-xs md:text-xs leading-relaxed font-normal">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column: Image with Red Diagonal Line Accent */}
-        <div className="lg:col-span-5 relative mt-8 lg:mt-0">
-          {/* Top Red Diagonal Slash Line Accent */}
-          <div className="absolute -top-10 left-4 w-3 h-40 bg-red-600 -rotate-12 transform origin-bottom z-20 hidden md:block" />
-          <div className="absolute -top-6 left-12 w-2 h-28 bg-gray-800 -rotate-12 transform origin-bottom z-20 hidden md:block" />
-
-          {/* Main Image Container */}
-          <div className="relative w-full h-[400px] md:h-[520px] rounded-3xl overflow-hidden shadow-2xl">
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="w-full h-full object-cover"
+          {/* Feature card */}
+          <motion.div variants={fadeInUp} className="relative max-w-[680px] rounded-[24px] bg-white p-6 shadow-[0_16px_40px_rgba(0,0,0,0.06)] md:p-10">
+            <span
+              aria-hidden="true"
+              className="absolute top-1/2 left-1/2 z-10 hidden size-2.5 -translate-x-1/2 -translate-y-1/2 bg-brand-red md:block"
             />
-          </div>
+
+            <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-0">
+              {features.map((feature, index) => (
+                <li
+                  key={feature.id}
+                  className={`relative flex items-start gap-5 ${
+                    index === 0
+                      ? "sm:border-r sm:border-b sm:border-gray-100 sm:pr-10 sm:pb-10"
+                      : index === 1
+                        ? "sm:border-b sm:border-gray-100 sm:pb-10 sm:pl-10"
+                        : index === 2
+                          ? "sm:border-r sm:border-gray-100 sm:pr-10 sm:pt-10"
+                          : "sm:pt-10 sm:pl-10"
+                  }`}
+                >
+                  <span className="grid size-[64px] shrink-0 place-items-center rounded-full bg-red-50 text-brand-red [&_svg]:h-[30px] [&_svg]:w-[30px] border border-red-100">
+                    {FeatureIcon[feature.icon]}
+                  </span>
+                  <div className="flex-1 pt-1.5">
+                    <h3 className="text-[17px] font-bold text-[#111] mb-2.5">{feature.title}</h3>
+                    <div className="w-8 h-[2px] bg-brand-red mb-3" />
+                    <p className="text-[13px] leading-[1.7] text-neutral-500 font-medium">
+                      {feature.description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </motion.div>
+
+        {/* Mobile / tablet image */}
+        <div className="relative h-[320px] overflow-hidden rounded-2xl lg:col-span-5 lg:hidden">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
         </div>
+
+        {/* Spacer so left column doesn't collide with absolute image on desktop */}
+        <div className="hidden lg:col-span-5 lg:block" aria-hidden="true" />
+      </div>
+
+      {/* Bottom red / black slanted bars */}
+      <div className="relative z-[2] h-[42px] w-full md:h-[52px]" aria-hidden="true">
+        <div
+          className="absolute inset-y-0 left-0 w-[42%] bg-brand-red"
+          style={{
+            clipPath: "polygon(0 0, 100% 0, 88% 100%, 0 100%)",
+            backgroundImage:
+              "radial-gradient(circle, rgba(255,255,255,0.28) 1.1px, transparent 1.2px), linear-gradient(#d40000, #d40000)",
+            backgroundSize: "12px 12px, auto",
+          }}
+        />
+        <div
+          className="absolute inset-y-0 right-0 w-[68%] bg-[#161616]"
+          style={{ clipPath: "polygon(8% 0, 100% 0, 100% 100%, 0 100%)" }}
+        />
       </div>
     </section>
   );

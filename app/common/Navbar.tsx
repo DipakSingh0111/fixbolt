@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import data from "@/data/data.json";
 
 const { logo, links, cta } = data.navbar;
@@ -28,6 +29,7 @@ function ArrowRight() {
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
   const pathname = usePathname();
 
   return (
@@ -48,24 +50,51 @@ export default function Navbar() {
         {/* Desktop links */}
         <ul className="hidden flex-1 items-center lg:flex">
           {links.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = pathname === link.href || link.dropdown?.some((dl) => dl.href === pathname);
+            
             return (
-              <li key={link.href}>
+              <li key={link.href} className="group relative">
                 <Link
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`group relative inline-block px-[18px] py-[26px] text-[15px] font-semibold transition-colors ${
+                  className={`group/link relative inline-block px-[18px] py-[26px] text-[15px] font-semibold transition-colors ${
                     isActive ? "text-brand-red" : "text-white hover:text-white/80"
                   }`}
                 >
-                  {link.label}
+                  <span className="flex items-center gap-1">
+                    {link.label}
+                    {link.dropdown && <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />}
+                  </span>
+                  
                   <span
                     aria-hidden="true"
                     className={`pointer-events-none absolute inset-x-[14px] bottom-[18px] h-[1.5px] bg-brand-red transition-transform duration-200 ${
-                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      isActive ? "scale-x-100" : "scale-x-0 group-hover/link:scale-x-100"
                     }`}
                   />
                 </Link>
+
+                {link.dropdown && (
+                  <div className="absolute left-0 top-full invisible w-48 translate-y-2 opacity-0 shadow-[0_10px_20px_rgba(0,0,0,0.1)] transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                    <ul className="flex flex-col overflow-hidden rounded-b-lg border-t-2 border-brand-red bg-white">
+                      {link.dropdown.map((dropLink) => {
+                        const isDropActive = pathname === dropLink.href;
+                        return (
+                          <li key={dropLink.href}>
+                            <Link
+                              href={dropLink.href}
+                              className={`block px-5 py-3 text-[14px] font-medium transition-colors hover:bg-neutral-50 hover:text-brand-red ${
+                                isDropActive ? "text-brand-red bg-neutral-50" : "text-[#111]"
+                              }`}
+                            >
+                              {dropLink.label}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                )}
               </li>
             );
           })}
@@ -101,19 +130,53 @@ export default function Navbar() {
         <div className="absolute inset-x-0 top-full border-t-2 border-brand-red bg-brand-dark px-6 pt-4 pb-6 shadow-[0_8px_24px_rgba(0,0,0,0.5)] lg:hidden">
           <ul className="mb-4 flex flex-col">
             {links.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = pathname === link.href || link.dropdown?.some((dl) => dl.href === pathname);
+              const isDropdownOpen = mobileDropdownOpen === link.label;
+
               return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`block border-b border-white/10 py-2.5 text-[15px] font-medium transition-colors hover:text-brand-red ${
-                      isActive ? "text-brand-red" : "text-neutral-300"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
+                <li key={link.href} className="border-b border-white/10">
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href={link.href}
+                      onClick={() => !link.dropdown && setMobileOpen(false)}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`block py-2.5 text-[15px] font-medium transition-colors hover:text-brand-red ${
+                        isActive && !link.dropdown ? "text-brand-red" : "text-neutral-300"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                    
+                    {link.dropdown && (
+                      <button
+                        onClick={() => setMobileDropdownOpen(isDropdownOpen ? null : link.label)}
+                        className="p-2 text-white hover:text-brand-red"
+                      >
+                        <ChevronDown size={18} className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
+                      </button>
+                    )}
+                  </div>
+                  
+                  {link.dropdown && isDropdownOpen && (
+                    <ul className="mb-2 flex flex-col gap-1 pl-4">
+                      {link.dropdown.map((dropLink) => {
+                        const isDropActive = pathname === dropLink.href;
+                        return (
+                          <li key={dropLink.href}>
+                            <Link
+                              href={dropLink.href}
+                              onClick={() => setMobileOpen(false)}
+                              className={`block py-2 text-[14px] transition-colors hover:text-brand-red ${
+                                isDropActive ? "text-brand-red" : "text-neutral-400"
+                              }`}
+                            >
+                              {dropLink.label}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
                 </li>
               );
             })}

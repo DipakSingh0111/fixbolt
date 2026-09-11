@@ -45,7 +45,11 @@ const FacebookIcon = ({ size = 16 }: { size?: number }) => (
 );
 
 
+import { useRouter } from "next/navigation";
+
 export default function TeamSection() {
+  const router = useRouter();
+
   return (
     <section className="bg-[#f8f9fa] py-20 px-4 md:px-8 text-center relative overflow-hidden">
       {/* Background Tech Line Decorators */}
@@ -86,6 +90,10 @@ export default function TeamSection() {
         {teamMembers.map((member) => (
           <div
             key={member.id}
+            onClick={() => {
+              const nameSlug = member.name.toLowerCase().replace(/\s+/g, '-');
+              router.push(`/ourteam/${nameSlug}`);
+            }}
             className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer text-left flex flex-col justify-between"
           >
             {/* Image Box */}
@@ -100,18 +108,21 @@ export default function TeamSection() {
               <div className="absolute right-3 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
                 <a
                   href={member.socials.twitter}
+                  onClick={(e) => e.stopPropagation()}
                   className="w-9 h-9 bg-white hover:bg-red-600 text-red-600 hover:text-white rounded-lg flex items-center justify-center shadow transition-colors duration-300"
                 >
                   <TwitterIcon size={16} />
                 </a>
                 <a
                   href={member.socials.instagram}
+                  onClick={(e) => e.stopPropagation()}
                   className="w-9 h-9 bg-white hover:bg-red-600 text-red-600 hover:text-white rounded-lg flex items-center justify-center shadow transition-colors duration-300"
                 >
                   <InstagramIcon size={16} />
                 </a>
                 <a
                   href={member.socials.facebook}
+                  onClick={(e) => e.stopPropagation()}
                   className="w-9 h-9 bg-white hover:bg-red-600 text-red-600 hover:text-white rounded-lg flex items-center justify-center shadow transition-colors duration-300"
                 >
                   <FacebookIcon size={16} />
@@ -135,7 +146,10 @@ export default function TeamSection() {
               </div>
 
               {/* Share Icon Button */}
-              <button className="w-10 h-10 rounded-xl bg-gray-50 group-hover:bg-white text-red-600 flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-105">
+              <button 
+                onClick={(e) => e.stopPropagation()}
+                className="w-10 h-10 rounded-xl bg-gray-50 group-hover:bg-white text-red-600 flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-105"
+              >
                 <Share2 size={18} />
               </button>
             </div>

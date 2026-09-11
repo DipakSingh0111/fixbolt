@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { type ReactNode } from "react";
+import { motion } from "framer-motion";
 import data from "@/data/data.json";
 
 const about = data.about;
@@ -53,9 +56,22 @@ type AboutSectionProps = {
   showCta?: boolean;
 };
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
 export default function AboutSection({ showCta = false }: AboutSectionProps) {
   return (
-    <section className="relative overflow-hidden bg-white py-16 md:py-24">
+    <section className="relative overflow-hidden bg-white py-10 md:py-16 lg:py-24 font-sans">
       {/* Full-bleed red panel behind the photo — slanted right edge */}
       <div
         aria-hidden="true"
@@ -79,62 +95,80 @@ export default function AboutSection({ showCta = false }: AboutSectionProps) {
         }}
       />
 
-      <div className="relative z-[1] mx-auto grid max-w-[1280px] items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
-        <div className="relative z-[1] pl-5 pt-8 md:pl-10 md:pt-12">
+      <div className="site-container relative z-[1] grid items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" as const }}
+          className="relative z-[1] pt-4 md:pt-6"
+        >
           <Image
             src={about.image.src}
             alt={about.image.alt}
             width={720}
-            height={560}
-            className="relative z-[1] h-[360px] w-full rounded-[28px] object-cover object-[72%_center] shadow-[0_18px_40px_rgba(0,0,0,0.18)] md:h-[480px]"
+            height={700}
+            className="relative z-[1] h-[450px] w-full rounded-[28px] object-cover object-[72%_center] shadow-[0_18px_40px_rgba(0,0,0,0.18)] md:h-[600px]"
           />
-        </div>
+        </motion.div>
 
-        <div>
-          <p className="text-[13px] font-bold tracking-[0.08em] text-brand-red uppercase">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+        >
+          <motion.p variants={fadeInUp} className="text-[13px] md:text-[14px] font-bold tracking-[0.05em] text-brand-red uppercase mb-1.5">
             {about.eyebrow}
-          </p>
-          <span className="mt-2 mb-5 block h-[3px] w-10 bg-brand-red" aria-hidden="true" />
+          </motion.p>
+          <motion.span variants={fadeInUp} className="mb-6 block h-[2.5px] w-12 bg-brand-red" aria-hidden="true" />
 
-          <h2 className="text-[32px] leading-tight font-extrabold text-[#111] md:text-[42px]">
+          <motion.h2 variants={fadeInUp} className="text-[34px] leading-[1.1] font-extrabold text-[#111] md:text-[46px] lg:text-[48px] tracking-tight mb-5">
             {about.title.map((part) => (
               <span key={part.text} className={part.accent ? "text-brand-red" : undefined}>
                 {part.text}
               </span>
             ))}
-          </h2>
+          </motion.h2>
 
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-neutral-500 md:text-base">
+          <motion.p variants={fadeInUp} className="mt-6 max-w-[540px] text-[15px] leading-relaxed text-neutral-500 md:text-[17px]">
             {about.description}
-          </p>
+          </motion.p>
 
-          <ul className="mt-9 grid grid-cols-1 gap-x-8 gap-y-7 sm:grid-cols-2">
+          <motion.ul variants={staggerContainer} className="mt-10 grid grid-cols-1 gap-x-8 gap-y-9 sm:grid-cols-2">
             {about.features.map((feature) => (
-              <li key={feature.id} className="flex items-start gap-3.5">
-                <span className="grid size-12 shrink-0 place-items-center rounded-lg bg-brand-red text-white [&_svg]:h-6 [&_svg]:w-6">
+              <motion.li variants={fadeInUp} key={feature.id} className="flex items-start gap-4">
+                <span className="grid size-[64px] shrink-0 place-items-center rounded-[18px] bg-brand-red text-white [&_svg]:h-[32px] [&_svg]:w-[32px] shadow-sm">
                   {FeatureIcon[feature.icon]}
                 </span>
-                <span>
-                  <span className="block text-[15px] font-bold text-[#111]">
+                <span className="pt-1 flex-1">
+                  <span className="block text-[16px] font-bold text-[#111] mb-1.5">
                     {feature.title}
                   </span>
-                  <span className="mt-1 block text-[13px] leading-snug text-neutral-500">
+                  <span className="block text-[14px] leading-[1.6] text-neutral-500 font-medium">
                     {feature.description}
                   </span>
                 </span>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
 
           {showCta ? (
-            <Link
-              href={about.cta.href}
-              className="mt-9 inline-flex h-12 items-center rounded-lg bg-brand-red px-6 text-[13px] font-bold tracking-wide text-white uppercase transition-colors hover:bg-brand-red-dark"
-            >
-              {about.cta.label}
-            </Link>
+            <motion.div variants={fadeInUp}>
+              <Link
+                href={about.cta.href}
+                className="mt-10 group inline-flex h-14 items-center gap-3 rounded-lg bg-brand-red pr-3 pl-7 text-[14px] font-bold tracking-wide text-white uppercase transition-colors hover:bg-brand-red-dark"
+              >
+                {about.cta.label}
+                <span className="grid size-9 place-items-center rounded-md text-white transition-transform duration-200 group-hover:translate-x-1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                    <path d="m9 18 6-6-6-6"/>
+                  </svg>
+                </span>
+              </Link>
+            </motion.div>
           ) : null}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -221,7 +221,7 @@ export default function HeroBanner() {
                   </div>
 
                   <ul
-                    className={`mt-10 flex items-stretch ${
+                    className={`mt-12 flex items-stretch ${
                       isActive
                         ? "motion-safe:animate-[heroRise_0.7s_0.4s_ease-out_both]"
                         : "opacity-0"
@@ -230,14 +230,14 @@ export default function HeroBanner() {
                     {features.map((feature, fi) => (
                       <li
                         key={feature.id}
-                        className={`flex flex-col items-center gap-2 px-3 text-center md:px-6 ${
+                        className={`flex flex-1 flex-col items-center justify-start gap-4 px-2 text-center sm:px-4 md:px-6 ${
                           fi === 0 ? "pl-0" : "border-l border-black/10"
                         }`}
                       >
-                        <span className="flex text-brand-red [&_svg]:h-7 [&_svg]:w-7">
+                        <span className="flex text-brand-red [&_svg]:h-12 [&_svg]:w-12 md:[&_svg]:h-14 md:[&_svg]:w-14 drop-shadow-sm">
                           {FeatureIcon[feature.icon]}
                         </span>
-                        <span className="text-xs leading-snug font-semibold text-[#16181a] md:text-sm">
+                        <span className="text-[13px] leading-snug font-bold text-[#111] md:text-[15px]">
                           {feature.lines.map((line) => (
                             <span key={line} className="block">
                               {line}

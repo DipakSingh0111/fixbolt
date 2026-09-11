@@ -4,6 +4,7 @@ import "./globals.css";
 import TopBar from "./common/TopBar";
 import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
+import SmoothScrollProvider from "./components/SmoothScrollProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,14 +20,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col font-sans">
-        <header>
-          <TopBar />
-          <Navbar />
-        </header>
-        <main className="flex-1">{children}</main>
-        <Footer />
+    <html lang="en" className={`${inter.variable} antialiased`}>
+      <body className="flex flex-col font-sans min-h-screen">
+        <SmoothScrollProvider>
+          <header className="sticky top-0 z-50">
+            <TopBar />
+            <Navbar />
+          </header>
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
