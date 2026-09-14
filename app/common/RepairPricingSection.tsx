@@ -20,50 +20,47 @@ import {
 import { site, SectionProps, PricingData } from "@/data";
 
 const CustomIcons = {
-  QualityService: (props: any) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      <path d="M9 12l2 2 4-4"/>
+  QualityService: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12 3 5 5.8v5.6c0 4.2 2.9 7.7 7 9.2 4.1-1.5 7-5 7-9.2V5.8L12 3Z" />
+      <path d="m8.7 11.8 2.3 2.3 4.4-4.4" />
     </svg>
   ),
-  ExpertTechnicians: (props: any) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <circle cx="12" cy="8" r="3" />
-      <path d="M8 6h8" /> 
-      <path d="M7 16c0-2.5 2-4.5 5-4.5s5 2 5 4.5" /> 
-      <path d="M5 19h14" /> 
-      <path d="M4 17v4c-1 0-1-4 0-4z" /> 
-      <path d="M20 17v4c1 0 1-4 0-4z" /> 
+  ExpertTechnicians: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="12" cy="9.2" r="2.6" />
+      <path d="M8.2 7.4h7.6" />
+      <path d="M7.4 7.4c0-2.2 2-3.6 4.6-3.6s4.6 1.4 4.6 3.6" />
+      <path d="M6.8 20.2c.7-3.2 3-5 5.2-5s4.5 1.8 5.2 5" />
     </svg>
   ),
-  AffordablePricing: (props: any) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12.5 3.5l7 7-8.5 8.5a2.828 2.828 0 01-4-4l8.5-8.5z" />
-      <circle cx="16" cy="7" r="1" />
-      <path d="M8 12h4m-4 2h4m-3 0l3 4" />
+  AffordablePricing: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12.2 3.4 20.4 11.6a1.6 1.6 0 0 1 0 2.3l-6.5 6.5a1.6 1.6 0 0 1-2.3 0L3.4 12.2V3.4h8.8Z" />
+      <circle cx="8.2" cy="8.2" r="1.1" />
+      <path d="M13.2 10.4c-.4-1.2-2.4-1.3-2.8 0-.3 1 1 1.5 1.8 1.8.9.3 2.1.8 1.8 1.9-.4 1.3-2.6 1.2-3.1 0" />
+      <path d="M12.2 9.2v.6M12.2 16.2v.6" />
     </svg>
   ),
-  RepairWarranty: (props: any) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-      <circle cx="12" cy="11" r="3" />
-      <path d="M10 13.5l-1 3.5 3-1 3 1-1-3.5" />
+  RepairWarranty: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="12" cy="9.2" r="5.2" />
+      <path d="m9.2 16.2-1.5 5.2 4.3-1.7 4.3 1.7-1.5-5.2" />
     </svg>
   ),
-  GenuineParts: (props: any) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12 22v-4m0-12V2m6.07 18.07l-2.83-2.83M8.76 8.76L5.93 5.93M22 12h-4M6 12H2m14.07-6.07l-2.83 2.83M8.76 15.24l-2.83 2.83" />
-      <circle cx="12" cy="12" r="6" />
-      <path d="M10 11l2 1 2-1v-2l-2-1-2 1v2z" />
+  GenuineParts: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12 8.2a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6Z" />
+      <path d="M12 3.2v2.2M12 18.6v2.2M20.8 12h-2.2M5.4 12H3.2M18.2 5.8l-1.6 1.6M7.4 16.6l-1.6 1.6M18.2 18.2l-1.6-1.6M7.4 7.4 5.8 5.8" />
     </svg>
   ),
-  Satisfaction: (props: any) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3z" />
-      <path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3" />
-      <path d="M3 4l1 1M7 2l1 1M11 1l1 1M16 2l-1 1M20 4l-1 1" />
+  Satisfaction: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="m4.6 3.4.8.8M8.2 2.2l.6.9M12 1.8v1.1M15.8 2.2l-.6.9M19.4 3.4l-.8.8" />
+      <path d="M14.2 10.2V6.8a2.2 2.2 0 0 0-2.3-2.1L8.4 12.6V21h8.4a1.8 1.8 0 0 0 1.8-1.5l1.1-7.2a1.8 1.8 0 0 0-1.8-2.1h-3.7Z" />
+      <path d="M8.4 21H5.6A1.8 1.8 0 0 1 3.8 19.2v-5.4A1.8 1.8 0 0 1 5.6 12h2.8" />
     </svg>
-  )
+  ),
 };
 
 const FeatureIconMap: Record<string, React.ElementType> = CustomIcons;
@@ -112,8 +109,8 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
                 key={idx}
                 className="bg-white rounded-xl p-4 flex flex-col items-center justify-center border border-gray-100 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.04)]"
               >
-                <div className="w-12 h-12 rounded-full bg-red-50 border border-red-100 flex items-center justify-center mb-2">
-                  <Icon className="w-6 h-6 text-[#d32f2f]" />
+                <div className="mb-3 grid size-12 place-items-center text-[#e11d24]">
+                  <Icon className="h-8 w-8" />
                 </div>
                 <span className="text-sm font-bold text-gray-900 text-center leading-tight">
                   {feat.title}
