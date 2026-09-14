@@ -69,7 +69,7 @@ export default function TeamSection() {
       </div>
 
       {/* Header Section */}
-      <div className="max-w-[1280px] mx-auto mb-14">
+      <div className="site-container mb-14">
         <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-red-600 mb-2">
           <Users size={18} className="text-red-600" />
           <span>{eyebrow}</span>
@@ -80,13 +80,13 @@ export default function TeamSection() {
           {title.split('Behind FixBolt')[0]}<span className="text-red-600">Behind FixBolt</span>
         </h2>
 
-        <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+        <p className="site-container text-gray-600 text-sm md:text-base leading-relaxed">
           {description}
         </p>
       </div>
 
       {/* Team Cards Grid */}
-      <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="site-container grid grid-cols-1 md:grid-cols-3 gap-8">
         {teamMembers.map((member) => (
           <div
             key={member.id}

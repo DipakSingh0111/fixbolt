@@ -2,7 +2,7 @@ import React from "react";
 import { Star, ShieldCheck } from "lucide-react";
 import data from "@/data/data.json";
 
-const { eyebrow, items: testimonials } = data.testimonials;
+const { eyebrow, title, description, items: testimonials } = data.testimonials;
 
 // A custom SVG for the big red quote marks
 function QuoteIcon() {
@@ -22,27 +22,26 @@ function QuoteIcon() {
 export default function TestimonialsGrid() {
   return (
     <section className="bg-white py-10 md:py-16 px-4 sm:px-6 lg:px-8 font-sans">
-      <div className="max-w-6xl mx-auto w-full">
+      <div className="site-container">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
           <div className="inline-flex items-center justify-center space-x-3">
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
             <span className="text-xs font-bold tracking-wider text-[#e51d25] uppercase">
-              {eyebrow || "TESTIMONIALS"}
+              {eyebrow}
             </span>
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-3">
-            What Our{" "}
+            {title.split(data.testimonials.titleHighlight)[0]}
             <span className="text-[#e51d25] relative inline-block">
-              Customers
+              {data.testimonials.titleHighlight}
               <span className="absolute -bottom-1 left-0 w-full h-1 bg-[#e51d25]"></span>
             </span>{" "}
-            Say
+            {title.split(data.testimonials.titleHighlight)[1]}
           </h2>
-          <p className="text-gray-500 text-sm max-w-lg mx-auto mt-4 leading-relaxed">
-            Real stories from real customers who trust us with their devices.
-            Quality service, honest prices, and reliable repairs every time.
+          <p className="site-container text-gray-500 text-sm mt-4 leading-relaxed">
+            {description}
           </p>
         </div>
 

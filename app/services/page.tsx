@@ -1,10 +1,11 @@
+import data from "@/data/data.json";
 import PageBanner from "../common/PageBanner";
-import ServicesSection from "../components/Services";
+import ServicesSection from "../common/Services";
 
 export default function Services() {
   return (
     <div>
-      <PageBanner title="Services" />
+      <PageBanner title={data.pages.services.bannerTitle} />
       <ServicesSection />
     </div>
   );

@@ -35,14 +35,14 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
       <PageBanner
         title={member.name}
         breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Our Team", href: "/ourteam" },
+          { label: data.pageBanner.homeLabel, href: "/" },
+          { label: data.pages.ourTeam.bannerTitle, href: "/ourteam" },
           { label: member.name }
         ]}
       />
 
       <main className="bg-[#fcfcfc] py-10 md:py-16 lg:py-24 px-5">
-        <div className="max-w-[1280px] mx-auto">
+        <div className="site-container">
           {/* Main Content Grid */}
           <div className="grid lg:grid-cols-[500px_1fr] xl:grid-cols-[560px_1fr] gap-8 lg:gap-16 items-start mb-10 md:mb-20">
             

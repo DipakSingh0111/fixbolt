@@ -46,7 +46,7 @@ export default function WorkProcessSection() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="relative z-10 max-w-[1280px] mx-auto text-center mb-10 md:mb-16"
+        className="site-container relative z-10 text-center mb-10 md:mb-16"
       >
         <motion.div variants={fadeInUp} className="flex items-center justify-center gap-4 mb-4">
           <div className="hidden sm:block w-16 h-[2px] bg-white/60" />
@@ -69,7 +69,7 @@ export default function WorkProcessSection() {
           <div className="w-12 h-[2px] bg-white/40" />
         </motion.div>
 
-        <motion.p variants={fadeInUp} className="text-white/80 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
+        <motion.p variants={fadeInUp} className="site-container text-white/80 text-sm md:text-base font-light leading-relaxed">
           {description}
         </motion.p>
       </motion.div>
@@ -80,7 +80,7 @@ export default function WorkProcessSection() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="relative z-10 max-w-[1280px] mx-auto"
+        className="site-container relative z-10"
       >
         {/* Horizontal Dotted Connecting Line (Desktop) */}
         <motion.div variants={fadeInUp} className="hidden lg:block absolute top-[68px] left-[12%] right-[12%] h-[2px] border-t-2 border-dashed border-white/40 z-0" />

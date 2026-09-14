@@ -16,22 +16,22 @@
       {
         "id": "twitter",
         "label": "Twitter / X",
-        "href": "www.X.com"
+        "href": "https://www.x.com"
       },
       {
         "id": "facebook",
         "label": "Facebook",
-        "href": "www.facebook.com"
+        "href": "https://www.facebook.com"
       },
       {
         "id": "pinterest",
         "label": "Pinterest",
-        "href": "www.pinterest.com"
+        "href": "https://www.pinterest.com"
       },
       {
         "id": "instagram",
         "label": "Instagram",
-        "href": "www.instagram.com"
+        "href": "https://www.instagram.com"
       }
     ]
   },
@@ -50,7 +50,7 @@
       },
       {
         "label": "About",
-        "href": "/about",
+        "href": "/#",
         "dropdown": [
           {
             "label": "About Us",
@@ -77,8 +77,8 @@
             "href": "/pricing"
           },
           {
-            "label":"Testimonial",
-            "href":"/testimonials"
+            "label": "Testimonial",
+            "href": "/testimonials"
           }
         ]
       },
@@ -156,7 +156,7 @@
       {
         "id": "cracked-screen",
         "image": {
-          "src": "/images/Home_banner.png",
+          "src": "/images/Home_banner_02.png",
           "alt": "Close-up of a phone screen replacement in progress"
         },
         "eyebrow": [
@@ -194,7 +194,7 @@
       {
         "id": "trusted-experts",
         "image": {
-          "src": "/images/Home_banner.png",
+          "src": "/images/Home_banner_03.png",
           "alt": "Certified technician working at a mobile repair workbench"
         },
         "eyebrow": [
@@ -221,7 +221,7 @@
           }
         ],
         "description": [
-          "No hidden charges, no guesswork — just a",
+          "No hidden charges, no guesswork â€” just a",
           "clear quote before we touch your device."
         ],
         "cta": {
@@ -281,7 +281,7 @@
         "accent": false
       }
     ],
-    "description": "At FixBolt, we specialize in fast, reliable, and affordable mobile repair solutions. With expert technicians and advanced tools, we bring your devices back to life—making technology work for you again.",
+    "description": "At FixBolt, we specialize in fast, reliable, and affordable mobile repair solutions. With expert technicians and advanced tools, we bring your devices back to lifeâ€”making technology work for you again.",
     "features": [
       {
         "id": "expert",
@@ -293,7 +293,7 @@
         "id": "quick",
         "icon": "stopwatch",
         "title": "Quick Turnaround",
-        "description": "Most repairs done in 30–60 minutes."
+        "description": "Most repairs done in 30â€“60 minutes."
       },
       {
         "id": "quality",
@@ -313,7 +313,7 @@
       "href": "/about"
     },
     "image": {
-      "src": "/images/Home_banner.png",
+      "src": "/images/fixbolt_04.jpg",
       "alt": "Technician repairing a device"
     }
   },
@@ -357,92 +357,96 @@
     "description": "From minor fixes to complex repairs, we provide reliable and efficient solutions to keep your devices running like new.",
     "items": [
       {
-        "id": 1,
+        "id": "1",
         "slug": "screen-repair",
         "title": "Screen Repair",
         "description": "Cracked or broken screen? We replace it with high-quality displays and restore full touch response with precision and care.",
         "icon": "smartphone",
-        "image": "https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=900"
+        "image": "/images/fixbolt_01.jpg"
       },
       {
-        "id": 2,
+        "id": "2",
         "slug": "battery-replacement",
         "title": "Battery Replacement",
         "description": "Low battery life or sudden shutdowns? We install genuine high-capacity batteries to power your device all day.",
         "icon": "batteryCharging",
-        "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=900"
+        "image": "/images/fixbolt_02.jpg"
       },
       {
-        "id": 3,
-        "slug": "charging-port-repair",
-        "title": "Charging Port Repair",
-        "description": "Loose, dirty, or damaged charging port? We fix charging issues quickly so your device powers up reliably again.",
-        "icon": "plugZap",
-        "image": "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&q=80&w=900"
-      },
-      {
-        "id": 4,
+        "id": "3",
         "slug": "water-damage-repair",
         "title": "Water Damage Repair",
         "description": "Spills and moisture damage need fast action. We clean, diagnose, and restore water-affected devices safely.",
         "icon": "droplet",
-        "image": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=900"
+        "image": "/images/fixbolt_03.jpg"
       },
       {
-        "id": 5,
+        "id": "4",
         "slug": "software-issues",
         "title": "Software Issues",
         "description": "From crashes and lag to update failures, we diagnose and fix software problems without wiping your data when possible.",
         "icon": "settings",
-        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=900"
+        "image": "/images/fixbolt_04.jpg"
       },
       {
-        "id": 6,
+        "id": "5",
+        "slug": "charging-port-repair",
+        "title": "Charging Port Repair",
+        "description": "Loose or damaged port? We fix charging issues quickly and safely with high-quality components.",
+        "icon": "plugZap",
+        "image": "/images/fixbolt_02.jpg"
+      },
+      {
+        "id": "6",
         "slug": "hardware-repair",
         "title": "Hardware Repair",
         "description": "Faulty boards, buttons, or internal components? Our technicians repair or replace hardware with expert precision.",
         "icon": "cpu",
-        "image": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80&w=900"
+        "image": "/images/fixbolt_05.jpg"
       },
       {
-        "id": 7,
-        "slug": "back-panel-replacement",
-        "title": "Back Panel Replacement",
-        "description": "Cracked or scratched back glass? We restore the look and feel of your phone with a clean panel replacement.",
+        "id": "7",
+        "title": "Screen Replacement",
+        "description": "High quality screen replacement with lifetime warranty.",
         "icon": "smartphone",
-        "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=900"
+        "image": "/images/fixbolt_05.jpg",
+        "slug": "screen-replacement"
       },
       {
-        "id": 8,
-        "slug": "camera-repair",
+        "id": "8",
+        "title": "Motherboard Repair",
+        "description": "Expert level chip repair and motherboard restoration.",
+        "icon": "cpu",
+        "image": "/images/fixbolt_06.jpg",
+        "slug": "motherboard-repair"
+      },
+      {
+        "id": "9",
         "title": "Camera Repair",
-        "description": "Blurry photos, black screen, or broken lenses? We repair front and rear cameras for clear shots again.",
+        "description": "Front and rear camera lens replacement and repair.",
         "icon": "camera",
-        "image": "https://images.unsplash.com/photo-1516035069371-29a1b824cc2f?auto=format&fit=crop&q=80&w=900"
-      },
-      {
-        "id": 9,
-        "slug": "speaker-mic-repair",
-        "title": "Speaker & Mic Repair",
-        "description": "Can't hear calls or be heard clearly? We fix speakers, earpieces, and microphones for crisp audio.",
-        "icon": "volume2",
-        "image": "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=900"
-      },
-      {
-        "id": 10,
-        "slug": "data-recovery",
-        "title": "Data Recovery",
-        "description": "Lost photos, contacts, or files? We help recover important data from damaged or unresponsive devices.",
-        "icon": "hardDrive",
-        "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=900"
+        "image": "/images/fixbolt_07.jpg",
+        "slug": "camera-repair"
       }
     ],
     "details": {
       "highlights": [
-        { "title": "High Quality Parts", "icon": "parts" },
-        { "title": "Quick Turnaround", "icon": "clock" },
-        { "title": "Expert Technicians", "icon": "experts" },
-        { "title": "Warranty Assured", "icon": "warranty" }
+        {
+          "title": "High Quality Parts",
+          "icon": "parts"
+        },
+        {
+          "title": "Quick Turnaround",
+          "icon": "clock"
+        },
+        {
+          "title": "Expert Technicians",
+          "icon": "experts"
+        },
+        {
+          "title": "Warranty Assured",
+          "icon": "warranty"
+        }
       ],
       "overviewTitle": "Service Overview",
       "overviewText": "A damaged screen not only affects the look of your device but also its performance and safety. Our repair service restores your phone's display to perfect condition using premium quality parts and advanced tools.",
@@ -490,28 +494,55 @@
       "devicesTitle": "Devices We Repair",
       "devicesText": "We repair screens for all major brands, including:",
       "devices": [
-        { "name": "Apple", "color": "#111111" },
-        { "name": "SAMSUNG", "color": "#1428A0" },
-        { "name": "MI", "color": "#FF6900" },
-        { "name": "vivo", "color": "#415FFF" },
-        { "name": "oppo", "color": "#1BA784" },
-        { "name": "realme", "color": "#F2C94C" },
-        { "name": "OnePlus", "color": "#F5010C" },
-        { "name": "Google", "color": "#4285F4" }
+        {
+          "name": "Apple",
+          "color": "#111111"
+        },
+        {
+          "name": "SAMSUNG",
+          "color": "#1428A0"
+        },
+        {
+          "name": "MI",
+          "color": "#FF6900"
+        },
+        {
+          "name": "vivo",
+          "color": "#415FFF"
+        },
+        {
+          "name": "oppo",
+          "color": "#1BA784"
+        },
+        {
+          "name": "realme",
+          "color": "#F2C94C"
+        },
+        {
+          "name": "OnePlus",
+          "color": "#F5010C"
+        },
+        {
+          "name": "Google",
+          "color": "#4285F4"
+        }
       ],
       "help": {
         "title": "Need Help?",
-        "text": "Talk to our experts for the best solution.",
+        "text": "Talk to our experts for the best solution. Whether you need a quick screen replacement, complex motherboard repair, or data recovery, our certified technicians are ready to assist you.",
         "ctaLabel": "Contact Us",
         "ctaHref": "/contact"
-      }
-    }
+      },
+      "sidebarTitle": "Our Services",
+      "serviceSuffix": "Service"
+    },
+    "titleHighlight": "Every Device."
   },
   "workProcess": {
     "eyebrow": "OUR WORK PROCESS",
     "title": "Explore Our Effortless Work Process",
     "description": "We follow a simple and transparent process to ensure the best service and customer satisfaction.",
-    "bgImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
+    "bgImage": "/images/fixbolt_06.jpg",
     "steps": [
       {
         "step": "01",
@@ -542,13 +573,22 @@
   "whyChooseUs": {
     "eyebrow": "WHY WE CHOOSE US",
     "title": [
-      { "text": "Smart Electrical Solutions", "accent": false },
-      { "text": "You Can ", "accent": false },
-      { "text": "Rely On", "accent": true }
+      {
+        "text": "Smart Electrical Solutions",
+        "accent": false
+      },
+      {
+        "text": "You Can ",
+        "accent": false
+      },
+      {
+        "text": "Rely On",
+        "accent": true
+      }
     ],
     "description": "We deliver safe, efficient, and high-quality electrical services tailored to your needs with professionalism you can trust.",
     "image": {
-      "src": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1200",
+      "src": "/images/why-choose.png",
       "alt": "Electrical tools and circuit components on a technical blueprint"
     },
     "features": [
@@ -587,18 +627,34 @@
         "id": 1,
         "name": "John Mirkwood",
         "role": "Support Engineer",
-        "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
+        "image": "/images/team_01.jpg",
         "bio": "John is a skilled and certified mobile repair specialist with over 5 years of hands-on experience in diagnosing and fixing a wide range of smartphone issues. He is passionate about technology and committed to delivering high-quality repairs with precision and care.",
         "socials": {
-          "twitter": "#",
-          "instagram": "#",
-          "facebook": "#"
+          "twitter": "www.twitter.com/",
+          "instagram": "www.instagram.com/",
+          "facebook": "www.facebook.com/"
         },
         "stats": [
-          { "value": "5+", "label": "Years Experience", "icon": "Award" },
-          { "value": "1500+", "label": "Devices Repaired", "icon": "Smartphone" },
-          { "value": "98%", "label": "Happy Clients", "icon": "Users" },
-          { "value": "Certified", "label": "Technician", "icon": "ShieldCheck" }
+          {
+            "value": "5+",
+            "label": "Years Experience",
+            "icon": "Award"
+          },
+          {
+            "value": "1500+",
+            "label": "Devices Repaired",
+            "icon": "Smartphone"
+          },
+          {
+            "value": "98%",
+            "label": "Happy Clients",
+            "icon": "Users"
+          },
+          {
+            "value": "Certified",
+            "label": "Technician",
+            "icon": "ShieldCheck"
+          }
         ],
         "contact": {
           "email": "john@fixbolt.com",
@@ -607,29 +663,60 @@
           "experience": "5+ Years"
         },
         "skills": [
-          { "name": "Screen Repair", "percentage": 98 },
-          { "name": "Battery Replacement", "percentage": 90 },
-          { "name": "Board-Level Repair", "percentage": 90 },
-          { "name": "Software Troubleshooting", "percentage": 88 },
-          { "name": "Water Damage Repair", "percentage": 85 }
+          {
+            "name": "Screen Repair",
+            "percentage": 98
+          },
+          {
+            "name": "Battery Replacement",
+            "percentage": 90
+          },
+          {
+            "name": "Board-Level Repair",
+            "percentage": 90
+          },
+          {
+            "name": "Software Troubleshooting",
+            "percentage": 88
+          },
+          {
+            "name": "Water Damage Repair",
+            "percentage": 85
+          }
         ]
       },
       {
         "id": 2,
         "name": "Leslie Alexander",
         "role": "Support Engineer",
-        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
+        "image": "/images/team_02.jpg",
         "bio": "Leslie is a skilled and certified mobile repair specialist with over 4 years of hands-on experience in diagnosing and fixing a wide range of smartphone issues. She is passionate about technology and committed to delivering high-quality repairs with precision and care.",
         "socials": {
-          "twitter": "#",
-          "instagram": "#",
-          "facebook": "#"
+          "twitter": "www.twitter.com/",
+          "instagram": "www.instagram.com/",
+          "facebook": "www.facebook.com/"
         },
         "stats": [
-          { "value": "4+", "label": "Years Experience", "icon": "Award" },
-          { "value": "1200+", "label": "Devices Repaired", "icon": "Smartphone" },
-          { "value": "95%", "label": "Happy Clients", "icon": "Users" },
-          { "value": "Certified", "label": "Technician", "icon": "ShieldCheck" }
+          {
+            "value": "4+",
+            "label": "Years Experience",
+            "icon": "Award"
+          },
+          {
+            "value": "1200+",
+            "label": "Devices Repaired",
+            "icon": "Smartphone"
+          },
+          {
+            "value": "95%",
+            "label": "Happy Clients",
+            "icon": "Users"
+          },
+          {
+            "value": "Certified",
+            "label": "Technician",
+            "icon": "ShieldCheck"
+          }
         ],
         "contact": {
           "email": "leslie@fixbolt.com",
@@ -638,29 +725,60 @@
           "experience": "4+ Years"
         },
         "skills": [
-          { "name": "Screen Repair", "percentage": 95 },
-          { "name": "Battery Replacement", "percentage": 92 },
-          { "name": "Board-Level Repair", "percentage": 85 },
-          { "name": "Software Troubleshooting", "percentage": 90 },
-          { "name": "Water Damage Repair", "percentage": 80 }
+          {
+            "name": "Screen Repair",
+            "percentage": 95
+          },
+          {
+            "name": "Battery Replacement",
+            "percentage": 92
+          },
+          {
+            "name": "Board-Level Repair",
+            "percentage": 85
+          },
+          {
+            "name": "Software Troubleshooting",
+            "percentage": 90
+          },
+          {
+            "name": "Water Damage Repair",
+            "percentage": 80
+          }
         ]
       },
       {
         "id": 3,
         "name": "Brooklyn Simmons",
         "role": "Support Engineer",
-        "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
+        "image": "/images/team_03.jpg",
         "bio": "Brooklyn is a skilled and certified mobile repair specialist with over 3 years of hands-on experience in diagnosing and fixing a wide range of smartphone issues. She is passionate about technology and committed to delivering high-quality repairs with precision and care.",
         "socials": {
-          "twitter": "#",
-          "instagram": "#",
-          "facebook": "#"
+          "twitter": "www.twitter.com/",
+          "instagram": "www.instagram.com/",
+          "facebook": "www.facebook.com/"
         },
         "stats": [
-          { "value": "3+", "label": "Years Experience", "icon": "Award" },
-          { "value": "900+", "label": "Devices Repaired", "icon": "Smartphone" },
-          { "value": "99%", "label": "Happy Clients", "icon": "Users" },
-          { "value": "Certified", "label": "Technician", "icon": "ShieldCheck" }
+          {
+            "value": "3+",
+            "label": "Years Experience",
+            "icon": "Award"
+          },
+          {
+            "value": "900+",
+            "label": "Devices Repaired",
+            "icon": "Smartphone"
+          },
+          {
+            "value": "99%",
+            "label": "Happy Clients",
+            "icon": "Users"
+          },
+          {
+            "value": "Certified",
+            "label": "Technician",
+            "icon": "ShieldCheck"
+          }
         ],
         "contact": {
           "email": "brooklyn@fixbolt.com",
@@ -669,11 +787,26 @@
           "experience": "3+ Years"
         },
         "skills": [
-          { "name": "Screen Repair", "percentage": 99 },
-          { "name": "Battery Replacement", "percentage": 95 },
-          { "name": "Board-Level Repair", "percentage": 80 },
-          { "name": "Software Troubleshooting", "percentage": 85 },
-          { "name": "Water Damage Repair", "percentage": 90 }
+          {
+            "name": "Screen Repair",
+            "percentage": 99
+          },
+          {
+            "name": "Battery Replacement",
+            "percentage": 95
+          },
+          {
+            "name": "Board-Level Repair",
+            "percentage": 80
+          },
+          {
+            "name": "Software Troubleshooting",
+            "percentage": 85
+          },
+          {
+            "name": "Water Damage Repair",
+            "percentage": 90
+          }
         ]
       }
     ]
@@ -682,14 +815,14 @@
     "eyebrow": "TESTIMONIALS",
     "title": "What Our Customers Say",
     "description": "We take pride in delivering trusted mobile repair solutions and excellent service. Here's what our happy customers have to say.",
-    "bgImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200",
+    "bgImage": "/images/fixbolt_11.jpg",
     "items": [
       {
         "id": 1,
         "rating": 5,
         "name": "Rahul Verma",
         "service": "iPhone 14 Pro Repair",
-        "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300",
+        "image": "/images/fixbolt_01.jpg",
         "review": "My phone screen was completely shattered and I thought I had to buy a new one. The team fixed it perfectly in just 30 minutes. Great service, genuine parts and very professional staff! Highly recommended!"
       },
       {
@@ -697,7 +830,7 @@
         "rating": 5,
         "name": "Aman Sharma",
         "service": "OnePlus 11 Battery Replacement",
-        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
+        "image": "/images/fixbolt_02.jpg",
         "review": "The battery of my phone was draining too fast. They replaced it with an original battery and now my phone works like new! Very quick response and reasonable pricing. I'm really satisfied!"
       },
       {
@@ -705,7 +838,7 @@
         "rating": 5,
         "name": "Priya Patel",
         "service": "MacBook Pro Motherboard Fix",
-        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300",
+        "image": "/images/fixbolt_03.jpg",
         "review": "Excellent laptop repair service! They diagnosed the motherboard issue accurately and fixed it within 24 hours. Very transparent process and polite behavior. Will definitely visit again."
       },
       {
@@ -713,7 +846,7 @@
         "rating": 5,
         "name": "Vikram Singh",
         "service": "iPad Air Port Repair",
-        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300",
+        "image": "/images/fixbolt_04.jpg",
         "review": "Amazing experience! Fixed my iPad charging port on the same day. Very honest pricing without any hidden charges. Highly recommend FixBolt for quick repairs."
       },
       {
@@ -721,7 +854,7 @@
         "rating": 5,
         "name": "Neha Gupta",
         "service": "Samsung S23 Data Recovery",
-        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300",
+        "image": "/images/fixbolt_05.jpg",
         "review": "My Samsung S23 water damage issue was solved easily. Thought all data was lost, but they recovered everything safely. Super skilled team!"
       },
       {
@@ -729,10 +862,11 @@
         "rating": 5,
         "name": "Rohan Kapoor",
         "service": "Vivo X90 Screen Replacement",
-        "image": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=300",
+        "image": "/images/fixbolt_06.jpg",
         "review": "Best service center in town! Replaced my Vivo screen in front of me using genuine display. Fast, reliable, and authentic work."
       }
-    ]
+    ],
+    "titleHighlight": "Customers"
   },
   "blog": {
     "eyebrow": "BLOGS",
@@ -746,7 +880,7 @@
         "category": "REPAIR TIPS",
         "title": "5 Signs Your Phone Needs Professional Repair",
         "description": "From battery drain to screen issues, learn the top signs your phone needs expert attention.",
-        "image": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80&w=600",
+        "image": "/images/fixbolt_07.jpg",
         "slug": "5-signs-your-phone-needs-repair"
       },
       {
@@ -756,7 +890,7 @@
         "category": "MAINTENANCE",
         "title": "How to Extend the Life of Your Smartphone",
         "description": "Simple daily habits that can improve performance and help your device last longer.",
-        "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=600",
+        "image": "/images/fixbolt_08.jpg",
         "slug": "extend-smartphone-life"
       },
       {
@@ -766,7 +900,7 @@
         "category": "TECH GUIDE",
         "title": "Fast Charging: Myths vs Facts",
         "description": "Separating facts from fiction about fast charging and its impact on your battery health.",
-        "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&q=80&w=600",
+        "image": "/images/fixbolt_09.jpg",
         "slug": "fast-charging-myths-vs-facts"
       },
       {
@@ -776,10 +910,113 @@
         "category": "REPAIR GUIDE",
         "title": "DIY vs Professional Repair: What's Better?",
         "description": "We compare DIY fixes vs professional repair to help you choose what's best for your device.",
-        "image": "https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=600",
+        "image": "/images/fixbolt_10.jpg",
         "slug": "diy-vs-professional-repair"
+      },
+      {
+        "id": 5,
+        "date": "20",
+        "monthYear": "MAR 2025",
+        "category": "ACCESSORIES",
+        "title": "Best Accessories for Your Phone in 2025",
+        "description": "Explore the top accessories to enhance and protect your smartphone this year.",
+        "image": "/images/fixbolt_05.jpg",
+        "slug": "best-accessories-2025"
+      },
+      {
+        "id": 6,
+        "date": "25",
+        "monthYear": "MAR 2025",
+        "category": "DATA RECOVERY",
+        "title": "How to Recover Lost Data Safely",
+        "description": "A comprehensive guide to recovering deleted photos and contacts without risking further data loss.",
+        "image": "/images/fixbolt_06.jpg",
+        "slug": "recover-lost-data"
+      },
+      {
+        "id": 7,
+        "date": "10",
+        "monthYear": "APR 2025",
+        "category": "SOFTWARE UPDATES",
+        "title": "Should You Always Update Your OS?",
+        "description": "Understanding the pros and cons of installing software updates immediately after release.",
+        "image": "/images/fixbolt_07.jpg",
+        "slug": "should-you-update-os"
+      },
+      {
+        "id": 8,
+        "date": "15",
+        "monthYear": "APR 2025",
+        "category": "HARDWARE",
+        "title": "When to Replace Your Phone Battery",
+        "description": "Key indicators that your smartphone battery is failing and needs a replacement.",
+        "image": "/images/fixbolt_08.jpg",
+        "slug": "when-to-replace-battery"
       }
-    ]
+    ],
+    "detail": {
+      "readTime": "6 min read",
+      "saveLabel": "Save Article",
+      "recentPostsTitle": "Recent Posts",
+      "categoriesTitle": "Categories",
+      "cta": {
+        "title": "Need a Repair?",
+        "description": "We're here to help you with fast, reliable and affordable repairs.",
+        "buttonText": "Book a Repair",
+        "href": "/contact"
+      },
+      "introExtra": " A few smart habits can significantly extend your phone's battery life and keep it running smoothly throughout the day.",
+      "bodyIntro": "Smartphones have become an essential part of our daily lives. But there's nothing more frustrating than running out of battery when you need your phone the most. The good news is, with the right habits and settings, you can improve your battery performance and make it last much longer.",
+      "sections": [
+        {
+          "title": "1. Lower Your Screen Brightness",
+          "text": "The display is one of the biggest battery drainers. Reducing screen brightness or turning on auto-brightness can make a noticeable difference in battery life."
+        },
+        {
+          "title": "2. Turn On Battery Saver Mode",
+          "text": "Most smartphones come with a Battery Saver mode that limits background activity, reduces performance, and helps your phone last longerâ€”especially when your battery is low."
+        },
+        {
+          "title": "3. Close Unused Background Apps",
+          "text": "Apps running in the background consume battery even when you're not using them. Close apps you're not using and restrict unnecessary background activity from settings."
+        },
+        {
+          "title": "4. Avoid Extreme Temperatures",
+          "text": "Heat is a battery's worst enemy. Avoid using your phone in very hot conditions or leaving it in direct sunlight for long periods."
+        },
+        {
+          "title": "5. Use the Right Charger",
+          "text": "Always use original or certified chargers. Cheap or incompatible chargers can not only damage your battery but also reduce its overall lifespan."
+        }
+      ],
+      "categories": [
+        {
+          "name": "Smartphone Tips",
+          "count": "12",
+          "icon": "smartphone"
+        },
+        {
+          "name": "Device Repair",
+          "count": "10",
+          "icon": "wrench"
+        },
+        {
+          "name": "Battery & Charging",
+          "count": "08",
+          "icon": "batteryCharging"
+        },
+        {
+          "name": "Maintenance",
+          "count": "07",
+          "icon": "settings"
+        },
+        {
+          "name": "Tech News",
+          "count": "06",
+          "icon": "monitorSmartphone"
+        }
+      ]
+    }
   },
   "footer": {
     "logo": {
@@ -812,14 +1049,6 @@
         {
           "label": "Our Team",
           "href": "/team"
-        },
-        {
-          "label": "Locations",
-          "href": "/locations"
-        },
-        {
-          "label": "Latest Projects",
-          "href": "/projects"
         },
         {
           "label": "Refund Policy",
@@ -878,16 +1107,22 @@
   "career": {
     "hero": {
       "title": "Career",
-      "bgImage": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=2000"
+      "bgImage": "/images/fixbolt_11.jpg"
     },
     "buildFuture": {
       "eyebrow": "CAREERS",
       "title": [
-        { "text": "Build Your Future ", "accent": false },
-        { "text": "With FixBolt", "accent": true }
+        {
+          "text": "Build Your Future ",
+          "accent": false
+        },
+        {
+          "text": "With FixBolt",
+          "accent": true
+        }
       ],
       "description": "We're always looking for passionate, talented, and motivated people to join our team and help us deliver exceptional repair experiences.",
-      "image": "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80&w=1000",
+      "image": "/images/career_right.png",
       "features": [
         {
           "title": "Great Team",
@@ -904,7 +1139,10 @@
           "description": "Be part of a team that makes a difference every day.",
           "icon": "ShieldCheck"
         }
-      ]
+      ],
+      "imageAlt": "FixBolt Technician",
+      "mobileBrand": "FixBolt",
+      "mobileTagline": "Repair. Restore. Relieve."
     },
     "whyJoin": {
       "title": "Why Join FixBolt?",
@@ -944,10 +1182,6 @@
     "openPositions": {
       "title": "Open Positions",
       "description": "Explore current job openings and find the role\nthat's right for you.",
-      "cta": {
-        "label": "Don't See a Fit? Send Us Your Resume",
-        "href": "#"
-      },
       "jobs": [
         {
           "title": "Mobile Repair Technician",
@@ -955,7 +1189,7 @@
           "location": "Bangalore, India",
           "type": "Full-time",
           "slug": "mobile-repair-technician",
-          "salary": "₹3.4 - ₹3.6 LPA"
+          "salary": "â‚¹3.4 - â‚¹3.6 LPA"
         },
         {
           "title": "Laptop Repair Engineer",
@@ -963,7 +1197,7 @@
           "location": "Bangalore, India",
           "type": "Full-time",
           "slug": "laptop-repair-engineer",
-          "salary": "₹4.0 - ₹4.5 LPA"
+          "salary": "â‚¹4.0 - â‚¹4.5 LPA"
         },
         {
           "title": "Customer Support Executive",
@@ -971,7 +1205,7 @@
           "location": "Bangalore, India",
           "type": "Full-time",
           "slug": "customer-support-executive",
-          "salary": "₹2.5 - ₹3.0 LPA"
+          "salary": "â‚¹2.5 - â‚¹3.0 LPA"
         },
         {
           "title": "Store Manager",
@@ -979,7 +1213,7 @@
           "location": "Bangalore, India",
           "type": "Full-time",
           "slug": "store-manager",
-          "salary": "₹5.0 - ₹6.0 LPA"
+          "salary": "â‚¹5.0 - â‚¹6.0 LPA"
         },
         {
           "title": "Digital Marketing Executive",
@@ -987,24 +1221,122 @@
           "location": "Bangalore, India",
           "type": "Full-time",
           "slug": "digital-marketing-executive",
-          "salary": "₹3.0 - ₹4.0 LPA"
+          "salary": "â‚¹3.0 - â‚¹4.0 LPA"
         }
-      ]
+      ],
+      "applyLabel": "Apply Now"
     },
     "bottomCta": {
       "title": "Don't See the Right Role?",
       "description": "We're always excited to connect with talented people. Send us your resume and tell us how you can contribute to the FixBolt team.",
-      "bgImage": "https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=1200",
+      "bgImage": "/images/fixbolt_01.jpg",
       "cta": {
         "label": "Send Your Resume",
-        "href": "#"
+        "href": "/career"
+      },
+      "logo": {
+        "src": "/images/logo.png",
+        "alt": "FixBolt",
+        "width": 260,
+        "height": 86
       }
+    },
+    "jobDetail": {
+      "backLabel": "Back to All Jobs",
+      "salaryFallback": "Not specified",
+      "aboutTitle": "About FixBolt",
+      "aboutText": "FixBolt is a leading multi-brand device repair service provider committed to delivering fast, reliable, and affordable repair solutions. Our expert team and customer-first approach have earned the trust of thousands of customers. Join us and be a part of a brand that is fixing devices and building trust every day.",
+      "overviewTitle": "Job Overview",
+      "overviewText": "We are looking for a skilled and detail-oriented {jobTitle} to join our growing team. You will be responsible for diagnosing, repairing, and maintaining smartphones and other mobile devices while ensuring top-quality service and customer satisfaction.",
+      "responsibilitiesTitle": "Key Responsibilities",
+      "responsibilities": [
+        "Diagnose and repair hardware and software issues in smartphones and tablets.",
+        "Replace damaged parts such as screens, batteries, charging ports, cameras, etc.",
+        "Perform thorough testing to ensure the device is functioning properly.",
+        "Provide excellent customer service and explain repair solutions clearly.",
+        "Maintain a clean and organized workspace.",
+        "Follow company guidelines and ensure quality standards are met."
+      ],
+      "requirementsTitle": "Requirements",
+      "requirements": [
+        "2-4 years of experience in mobile repair.",
+        "Strong knowledge of Android and iOS devices.",
+        "Hands-on experience with mobile hardware and software troubleshooting.",
+        "Ability to work in a fast-paced environment.",
+        "Good communication skills and a customer-friendly attitude.",
+        "High school diploma or equivalent (Technical certification is a plus)."
+      ],
+      "offerTitle": "What We Offer",
+      "offers": [
+        {
+          "title": "Competitive Salary",
+          "description": "Attractive pay with performance-based incentives.",
+          "icon": "IndianRupee"
+        },
+        {
+          "title": "Learning & Growth",
+          "description": "Continuous training and career advancement opportunities.",
+          "icon": "GraduationCap"
+        },
+        {
+          "title": "Health Benefits",
+          "description": "Medical insurance and wellness programs.",
+          "icon": "HeartPulse"
+        },
+        {
+          "title": "Supportive Culture",
+          "description": "Be part of a friendly and inclusive work environment.",
+          "icon": "Users"
+        }
+      ],
+      "applyForm": {
+        "title": "Apply for This Position",
+        "description": "Fill out the form below and our team will get back to you.",
+        "placeholders": {
+          "name": "Full Name",
+          "email": "Email Address",
+          "phone": "Phone Number",
+          "experience": "Experience (Years)"
+        },
+        "experienceOptions": [
+          {
+            "value": "0-1",
+            "label": "0 - 1 Years"
+          },
+          {
+            "value": "1-3",
+            "label": "1 - 3 Years"
+          },
+          {
+            "value": "3-5",
+            "label": "3 - 5 Years"
+          },
+          {
+            "value": "5+",
+            "label": "5+ Years"
+          }
+        ],
+        "resumeLabel": "Upload Resume (PDF/DOC/DOCX)",
+        "resumeHint": "Click to upload or drag and drop",
+        "resumeMaxSize": "Max file size: 5MB",
+        "submitLabel": "Apply Now"
+      },
+      "summaryTitle": "Job Summary",
+      "summaryLabels": {
+        "jobTitle": "Job Title",
+        "location": "Location",
+        "jobType": "Job Type",
+        "experience": "Experience",
+        "salary": "Salary"
+      },
+      "shareTitle": "Share This Job",
+      "shareDescription": "Know someone who might be a great fit?"
     }
   },
   "refundPolicy": {
     "hero": {
       "title": "Refund Policy",
-      "bgImage": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=2000"
+      "bgImage": "/images/fixbolt_11.jpg"
     },
     "sections": [
       {
@@ -1079,83 +1411,152 @@
       "label": "Back to Home",
       "href": "/"
     },
-    "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200"
+    "image": "/images/fixbolt_02.jpg"
   },
   "sitemapPage": {
     "hero": {
       "title": "Sitemap",
-      "bgImage": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=2000"
+      "bgImage": "/images/fixbolt_11.jpg"
     },
     "groups": [
       {
         "id": "1",
         "title": "1. Main Pages",
         "links": [
-          { "label": "Home", "href": "/" },
-          { "label": "About Us", "href": "/about" },
-          { "label": "Why Choose Us", "href": "/whyChooseUs" },
-          { "label": "Our Team", "href": "/ourteam" },
-          { "label": "Team Detail", "href": "#" }
+          {
+            "label": "Home",
+            "href": "/"
+          },
+          {
+            "label": "About Us",
+            "href": "/about"
+          },
+          {
+            "label": "Why Choose Us",
+            "href": "/whyChooseUs"
+          },
+          {
+            "label": "Our Team",
+            "href": "/ourteam"
+          },
+          {
+            "label": "Team Detail",
+            "href": "#"
+          }
         ]
       },
       {
         "id": "2",
         "title": "2. Services",
         "links": [
-          { "label": "Repair Services", "href": "/services" },
-          { "label": "Service Detail", "href": "#" },
-          { "label": "Brands We Repair", "href": "/brands" },
-          { "label": "Book a Repair", "href": "/bookrepair" },
-          { "label": "Pricing / Repair Cost", "href": "/pricing" }
+          {
+            "label": "Repair Services",
+            "href": "/services"
+          },
+          {
+            "label": "Service Detail",
+            "href": "#"
+          },
+          {
+            "label": "Brands We Repair",
+            "href": "/brands"
+          },
+          {
+            "label": "Book a Repair",
+            "href": "/bookrepair"
+          },
+          {
+            "label": "Pricing / Repair Cost",
+            "href": "/pricing"
+          }
         ]
       },
       {
         "id": "3",
         "title": "3. Gallery & Reviews",
         "links": [
-          { "label": "Photo Gallery", "href": "/gallery" },
-          { "label": "Testimonials", "href": "/testimonials" },
-          { "label": "FAQs", "href": "/faq's" }
+          {
+            "label": "Photo Gallery",
+            "href": "/gallery"
+          },
+          {
+            "label": "Testimonials",
+            "href": "/testimonials"
+          },
+          {
+            "label": "FAQs",
+            "href": "/faq's"
+          }
         ]
       },
       {
         "id": "4",
         "title": "4. Blog",
         "links": [
-          { "label": "Blog", "href": "/blog" },
-          { "label": "Blog Detail", "href": "#" }
+          {
+            "label": "Blog",
+            "href": "/blog"
+          },
+          {
+            "label": "Blog Detail",
+            "href": "#"
+          }
         ]
       },
       {
         "id": "5",
         "title": "5. Contact",
         "links": [
-          { "label": "Contact Us", "href": "/contact" }
+          {
+            "label": "Contact Us",
+            "href": "/contact"
+          }
         ]
       },
       {
         "id": "6",
         "title": "6. Careers",
         "links": [
-          { "label": "Careers", "href": "/career" },
-          { "label": "Career Detail", "href": "#" }
+          {
+            "label": "Careers",
+            "href": "/career"
+          },
+          {
+            "label": "Career Detail",
+            "href": "#"
+          }
         ]
       },
       {
         "id": "7",
         "title": "7. Policies",
         "links": [
-          { "label": "Warranty Policy", "href": "#" },
-          { "label": "Cancellation / Refund Policy", "href": "/refund-policy" },
-          { "label": "Privacy Policy", "href": "#" },
-          { "label": "Terms & Conditions", "href": "#" }
+          {
+            "label": "Warranty Policy",
+            "href": "#"
+          },
+          {
+            "label": "Cancellation / Refund Policy",
+            "href": "/refund-policy"
+          },
+          {
+            "label": "Privacy Policy",
+            "href": "#"
+          },
+          {
+            "label": "Terms & Conditions",
+            "href": "#"
+          }
         ]
       },
       {
         "id": "8",
         "title": "8. Other Pages",
         "links": [
-          { "label": "404 Page", "href": "/404" }
+          {
+            "label": "404 Page",
+            "href": "/404"
+          }
         ]
       }
     ]
@@ -1163,18 +1564,34 @@
   "teamDetail": {
     "hero": {
       "title": "Team Member Detail",
-      "bgImage": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=2000"
+      "bgImage": "/images/fixbolt_11.jpg"
     },
     "member": {
       "name": "Rahul Verma",
       "role": "Senior Mobile Repair Technician",
       "bio": "Rahul is a skilled and certified mobile repair specialist with over 5 years of hands-on experience in diagnosing and fixing a wide range of smartphone issues. He is passionate about technology and committed to delivering high-quality repairs with precision and care.",
-      "image": "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80&w=800",
+      "image": "/images/fixbolt_03.jpg",
       "stats": [
-        { "value": "5+", "label": "Years Experience", "icon": "Award" },
-        { "value": "1500+", "label": "Devices Repaired", "icon": "Smartphone" },
-        { "value": "98%", "label": "Happy Clients", "icon": "Users" },
-        { "value": "Certified", "label": "Technician", "icon": "ShieldCheck" }
+        {
+          "value": "5+",
+          "label": "Years Experience",
+          "icon": "Award"
+        },
+        {
+          "value": "1500+",
+          "label": "Devices Repaired",
+          "icon": "Smartphone"
+        },
+        {
+          "value": "98%",
+          "label": "Happy Clients",
+          "icon": "Users"
+        },
+        {
+          "value": "Certified",
+          "label": "Technician",
+          "icon": "ShieldCheck"
+        }
       ],
       "contact": {
         "email": "rahul@fixbolt.com",
@@ -1183,11 +1600,26 @@
         "experience": "5+ Years"
       },
       "skills": [
-        { "name": "Screen Repair", "percentage": 98 },
-        { "name": "Battery Replacement", "percentage": 90 },
-        { "name": "Board-Level Repair", "percentage": 90 },
-        { "name": "Software Troubleshooting", "percentage": 88 },
-        { "name": "Water Damage Repair", "percentage": 85 }
+        {
+          "name": "Screen Repair",
+          "percentage": 98
+        },
+        {
+          "name": "Battery Replacement",
+          "percentage": 90
+        },
+        {
+          "name": "Board-Level Repair",
+          "percentage": 90
+        },
+        {
+          "name": "Software Troubleshooting",
+          "percentage": 88
+        },
+        {
+          "name": "Water Damage Repair",
+          "percentage": 85
+        }
       ]
     },
     "ctaBanner": {
@@ -1197,6 +1629,596 @@
         "label": "Book a Repair",
         "href": "/bookrepair"
       }
+    }
+  },
+  "brands": [
+    {
+      "name": "Apple",
+      "sub": "We Repair",
+      "logo": "/images/apple.jpg"
+    },
+    {
+      "name": "Samsung",
+      "sub": "We Repair",
+      "logo": "/images/samsung.png"
+    },
+    {
+      "name": "Xiaomi",
+      "sub": "We Repair",
+      "logo": "/images/Xiaomi.png"
+    },
+    {
+      "name": "Oppo",
+      "sub": "We Repair",
+      "logo": "/images/Oppo.png"
+    },
+    {
+      "name": "Vivo",
+      "sub": "We Repair",
+      "logo": "/images/Vivo.png"
+    },
+    {
+      "name": "Realme",
+      "sub": "We Repair",
+      "logo": "/images/Realme.png"
+    },
+    {
+      "name": "OnePlus",
+      "sub": "We Repair",
+      "logo": "/images/onePlus.jpg"
+    },
+    {
+      "name": "Google Pixel",
+      "sub": "We Repair",
+      "logo": "/images/google_pixel.webp"
+    },
+    {
+      "name": "Motorola",
+      "sub": "We Repair",
+      "logo": "/images/Motorola.svg"
+    },
+    {
+      "name": "Nokia",
+      "sub": "We Repair",
+      "logo": "/images/nokia.png"
+    },
+    {
+      "name": "Huawei",
+      "sub": "We Repair",
+      "logo": "/images/huawei.webp"
+    },
+    {
+      "name": "Honor",
+      "sub": "We Repair",
+      "logo": "/images/Honor.png"
+    }
+  ],
+  "brandsSection": {
+    "eyebrow": "BRANDS WE REPAIR",
+    "title": "We Repair All Major Brands",
+    "description": "No matter what brand or model you have, our experts have the tools and experience to get it back in perfect working condition.",
+    "titleHighlight": "All Major Brands"
+  },
+  "gallerySection": {
+    "eyebrow": "OUR GALLERY",
+    "title": "Precision in Every Repair",
+    "description": "Explore some of the devices we've repaired with care, expertise, and high-quality parts.",
+    "images": [
+      {
+        "src": "/images/fixbolt_01.jpg",
+        "alt": "FixBolt repair workshop"
+      },
+      {
+        "src": "/images/fixbolt_02.jpg",
+        "alt": "Device diagnostics"
+      },
+      {
+        "src": "/images/fixbolt_03.jpg",
+        "alt": "Screen replacement"
+      },
+      {
+        "src": "/images/fixbolt_04.jpg",
+        "alt": "Battery replacement"
+      },
+      {
+        "src": "/images/fixbolt_05.jpg",
+        "alt": "Precision soldering"
+      },
+      {
+        "src": "/images/fixbolt_06.jpg",
+        "alt": "Hardware inspection"
+      },
+      {
+        "src": "/images/fixbolt_07.jpg",
+        "alt": "Quality testing"
+      }
+    ],
+    "stats": [
+      {
+        "icon": "smartphone",
+        "title": "1000+",
+        "subtitle": "Devices Repaired",
+        "description": "Succesfully Fixed"
+      },
+      {
+        "icon": "users",
+        "title": "500+",
+        "subtitle": "Happy Customers",
+        "description": "Trust Our Service"
+      },
+      {
+        "icon": "award",
+        "title": "Premium Parts",
+        "description": "We use High Quality Genuine Components"
+      },
+      {
+        "icon": "shieldCheck",
+        "title": "Reliable Service",
+        "description": "Fast Turnaround & Work with Warranty"
+      }
+    ],
+    "banner": {
+      "title": "Need a Repair?",
+      "description": "Professional care for your devices. Book your repair today!",
+      "buttonText": "Book a Repair"
+    },
+    "titleHighlight": "Every Repair"
+  },
+  "faqSection": {
+    "eyebrow": "FAQS",
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to the most common questions about our repair services, process, pricing, and policies.",
+    "faqs": [
+      {
+        "question": "How long does a typical repair take?",
+        "answer": "Most repairs are completed within 30 minutes to 2 hours, depending on the issue and device. You'll receive an estimated time when we inspect your device."
+      },
+      {
+        "question": "Do you offer warranty on repairs?",
+        "answer": "Yes, we provide a standard warranty on all our repair services and replaced parts for your complete peace of mind."
+      },
+      {
+        "question": "Are your parts genuine?",
+        "answer": "Absolutely! We use 100% original and high-quality grade OEM components for all device repairs."
+      },
+      {
+        "question": "How much will my repair cost?",
+        "answer": "Our repair prices are transparent with no hidden charges. Check our pricing table or contact us for an instant quote."
+      },
+      {
+        "question": "Do you fix all brands and models?",
+        "answer": "We repair all major smartphone, tablet, and laptop brands including Apple, Samsung, Xiaomi, OnePlus, Google, and more."
+      },
+      {
+        "question": "Can I book a repair in advance?",
+        "answer": "Yes, you can schedule an appointment online via our 'Book a Repair' section to skip the wait time."
+      },
+      {
+        "question": "What if my device cannot be fixed?",
+        "answer": "If we are unable to fix your device, our 'No Fix, No Fee' policy ensures you won't be charged for the repair attempt."
+      },
+      {
+        "question": "Is there a diagnostic fee?",
+        "answer": "Initial diagnosis is completely free of charge when you proceed with the repair service with us."
+      },
+      {
+        "question": "Do you provide pickup and delivery?",
+        "answer": "Yes, we offer doorstep pickup and delivery services depending on your location."
+      },
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept Cash, Credit/Debit Cards, UPI, Net Banking, and major Digital Wallets."
+      },
+      {
+        "question": "Will I lose my data during the repair?",
+        "answer": "We take extreme care of your data, but we always recommend backing up your device before handing it over for service."
+      },
+      {
+        "question": "How can I track my repair status?",
+        "answer": "You can track your device status live by entering your Work Order / Booking ID on our website."
+      }
+    ],
+    "features": [
+      {
+        "title": "Transparent Pricing",
+        "description": "No hidden charges",
+        "icon": "shieldCheck"
+      },
+      {
+        "title": "Quality Parts",
+        "description": "100% genuine parts",
+        "icon": "award"
+      },
+      {
+        "title": "Certified Technicians",
+        "description": "Skilled & experienced",
+        "icon": "userCheck"
+      },
+      {
+        "title": "Customer Satisfaction",
+        "description": "Our top priority",
+        "icon": "heart"
+      }
+    ],
+    "support": {
+      "title": "Still have questions?",
+      "description": "We're here to help!",
+      "buttonText": "Contact Support",
+      "icon": "headphones"
+    },
+    "titleHighlight": "Questions"
+  },
+  "contactSection": {
+    "eyebrow": "CONTACT US",
+    "title": "Get in Touch with Us",
+    "description": "Have a question or need to schedule a repair? We're here to help. Reach out to us through any of the channels below.",
+    "contactCards": [
+      {
+        "icon": "phone",
+        "title": "Call Us",
+        "detail1": "+91 98765 43210",
+        "detail2": "+91 87654 32109"
+      },
+      {
+        "icon": "mail",
+        "title": "Email Us",
+        "detail1": "support@fixbolt.com",
+        "detail2": "info@fixbolt.com"
+      },
+      {
+        "icon": "mapPin",
+        "title": "Location",
+        "detail1": "123 FixBolt Street, Tech Park",
+        "detail2": "Bangalore - 560001"
+      },
+      {
+        "icon": "clock",
+        "title": "Business Hours",
+        "detail1": "Mon - Sat: 10:00 AM - 8:00 PM",
+        "detail2": "Sunday: Closed"
+      }
+    ],
+    "whyContact": {
+      "title": "Why Contact FixBolt?",
+      "bgImage": "/images/fixbolt_04.jpg",
+      "features": [
+        {
+          "icon": "timer",
+          "title": "Quick Response",
+          "description": "We respond to all inquiries as quickly as possible."
+        },
+        {
+          "icon": "shieldCheck",
+          "title": "Trusted Support",
+          "description": "Get expert help from our experienced team."
+        },
+        {
+          "icon": "tag",
+          "title": "Transparent Service",
+          "description": "Honest information and clear communication."
+        },
+        {
+          "icon": "headphones",
+          "title": "Dedicated Assistance",
+          "description": "We are here to assist you with any repair needs."
+        }
+      ]
+    },
+    "map": {
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15550.941324792015!2d77.6163351!3d12.9311681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae144ed898fc2d%3A0x1681f38e8c00ae56!2sKoramangala%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1709403487032!5m2!1sen!2sin",
+      "overlayTitle": "Our Main Center",
+      "overlayAddress1": "123 FixBolt Street, Tech Park",
+      "overlayAddress2": "Bangalore - 560001"
+    },
+    "bookRepairCard": {
+      "title": "Ready to fix your device?",
+      "description": "Book a repair now and get your device fixed quickly and affordably.",
+      "buttonText": "Book a Repair Now"
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "description": "Fill out the form and our team will get back to you as soon as possible.",
+      "placeholders": {
+        "name": "Your Name",
+        "email": "Your Email",
+        "phone": "Your Phone Number",
+        "subject": "Select Subject",
+        "message": "Your Message"
+      },
+      "subjectOptions": [
+        {
+          "value": "repair",
+          "label": "Repair Inquiry"
+        },
+        {
+          "value": "status",
+          "label": "Check Status"
+        },
+        {
+          "value": "feedback",
+          "label": "Feedback"
+        },
+        {
+          "value": "other",
+          "label": "Other"
+        }
+      ],
+      "submitButton": "Send Message"
+    }
+  },
+  "repairPricingSection": {
+    "eyebrow": "REPAIR COST",
+    "title": "Clear Prices. Trusted Repairs.",
+    "titleHighlight": "Trusted Repairs.",
+    "description": "We believe in honest pricing and quality repairs. No hidden charges, no surprises â€“ just complete peace of mind.",
+    "features": [
+      {
+        "title": "Quality Service",
+        "icon": "QualityService"
+      },
+      {
+        "title": "Expert Technicians",
+        "icon": "ExpertTechnicians"
+      },
+      {
+        "title": "Affordable Pricing",
+        "icon": "AffordablePricing"
+      },
+      {
+        "title": "Repair Warranty",
+        "icon": "RepairWarranty"
+      },
+      {
+        "title": "Genuine Parts",
+        "icon": "GenuineParts"
+      },
+      {
+        "title": "100% Satisfaction",
+        "icon": "Satisfaction"
+      }
+    ],
+    "columns": [
+      "SERVICE",
+      "DESCRIPTION",
+      "APPLE",
+      "SAMSUNG",
+      "ONEPLUS",
+      "XIAOMI",
+      "REALME"
+    ],
+    "rows": [
+      {
+        "service": "Screen Replacement",
+        "description": "Cracked or damaged screen",
+        "apple": "â‚¹12,999",
+        "samsung": "â‚¹8,499",
+        "oneplus": "â‚¹6,499",
+        "xiaomi": "â‚¹5,499",
+        "realme": "â‚¹4,499",
+        "icon": "smartphone"
+      },
+      {
+        "service": "Battery Replacement",
+        "description": "Battery draining fast or not charging",
+        "apple": "â‚¹3,499",
+        "samsung": "â‚¹2,499",
+        "oneplus": "â‚¹2,299",
+        "xiaomi": "â‚¹1,899",
+        "realme": "â‚¹1,799",
+        "icon": "batteryCharging"
+      },
+      {
+        "service": "Charging Port Repair",
+        "description": "Charging port loose or not working",
+        "apple": "â‚¹2,499",
+        "samsung": "â‚¹1,799",
+        "oneplus": "â‚¹1,699",
+        "xiaomi": "â‚¹1,499",
+        "realme": "â‚¹1,299",
+        "icon": "zap"
+      },
+      {
+        "service": "Camera Replacement",
+        "description": "Blurry or not working camera",
+        "apple": "â‚¹4,999",
+        "samsung": "â‚¹3,499",
+        "oneplus": "â‚¹2,999",
+        "xiaomi": "â‚¹2,499",
+        "realme": "â‚¹2,299",
+        "icon": "camera"
+      },
+      {
+        "service": "Speaker Repair",
+        "description": "Low or no sound issues",
+        "apple": "â‚¹2,299",
+        "samsung": "â‚¹1,499",
+        "oneplus": "â‚¹1,299",
+        "xiaomi": "â‚¹1,199",
+        "realme": "â‚¹999",
+        "icon": "volume2"
+      },
+      {
+        "service": "Water Damage Repair",
+        "description": "Water damage diagnosis & repair",
+        "apple": "â‚¹2,999",
+        "samsung": "â‚¹2,999",
+        "oneplus": "â‚¹2,999",
+        "xiaomi": "â‚¹2,999",
+        "realme": "â‚¹2,999",
+        "icon": "droplet"
+      },
+      {
+        "service": "Software Issue Fixing",
+        "description": "Software update, hang or lag issues",
+        "apple": "â‚¹999",
+        "samsung": "â‚¹999",
+        "oneplus": "â‚¹999",
+        "xiaomi": "â‚¹999",
+        "realme": "â‚¹999",
+        "icon": "cpu"
+      }
+    ],
+    "note": "Prices may vary based on device model and condition. Final cost will be confirmed after diagnosis.",
+    "help": {
+      "title": "Need Help?",
+      "description": "Our support team is here to help you choose the right repair.",
+      "phone": "+91 456 785 889",
+      "phoneHint": "Call us anytime",
+      "email": "support@fixbolt.com",
+      "emailHint": "We reply within 24hrs",
+      "ctaLabel": "Book a Repair",
+      "ctaHref": "/bookrepair"
+    }
+  },
+  "bookRepairSection": {
+    "eyebrow": "BOOK A REPAIR",
+    "title": "Book Your Repair In Minutes",
+    "description": "Fill out the form below and our team will get back to you as soon as possible to confirm your repair.",
+    "titleHighlight": "In Minutes",
+    "form": {
+      "fields": {
+        "name": {
+          "label": "Full Name",
+          "placeholder": "Enter your full name",
+          "required": true
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "Enter your phone number",
+          "required": true
+        },
+        "email": {
+          "label": "Email Address",
+          "placeholder": "Enter your email address",
+          "required": false
+        },
+        "deviceType": {
+          "label": "Device Type",
+          "placeholder": "Select device type",
+          "required": true
+        },
+        "issue": {
+          "label": "Issue / Problem",
+          "placeholder": "Briefly describe the issue",
+          "required": true
+        }
+      },
+      "deviceOptions": [
+        {
+          "value": "smartphone",
+          "label": "Smartphone"
+        },
+        {
+          "value": "tablet",
+          "label": "Tablet"
+        },
+        {
+          "value": "laptop",
+          "label": "Laptop"
+        }
+      ],
+      "submitLabel": "Book Repair",
+      "privacyNote": "Your information is safe with us. We will never share it."
+    },
+    "quickBooking": {
+      "title": "Quick & Easy Booking",
+      "description": "Select your device, describe the issue and choose a convenient time. We'll handle the rest!"
+    },
+    "whyBook": {
+      "title": "Why Book With Us?",
+      "items": [
+        {
+          "title": "Trusted Technicians",
+          "description": "Certified experts with years of experience.",
+          "icon": "shieldCheck"
+        },
+        {
+          "title": "Quick Turnaround",
+          "description": "Most repairs completed same day.",
+          "icon": "clock"
+        },
+        {
+          "title": "Quality Parts",
+          "description": "We use only high-quality and genuine parts.",
+          "icon": "settings"
+        },
+        {
+          "title": "Affordable Prices",
+          "description": "Top-quality service at honest prices.",
+          "icon": "dollarSign"
+        }
+      ]
+    },
+    "footerHelp": {
+      "title": "Need Help?",
+      "phone": "+01 456 785 889",
+      "email": "support@fixbolt.com",
+      "hoursTitle": "Working Hours",
+      "hours": "Mon - Sat: 9:00 AM - 7:00 PM\nSunday: Closed"
+    }
+  },
+  "testimonialsGridSection": {
+    "eyebrow": "TESTIMONIALS",
+    "title": "What Our Customers Say"
+  },
+  "site": {
+    "name": "FixBolt",
+    "metaTitle": "FixBolt - Mobile Repair Experts",
+    "metaDescription": "Professional mobile device repair services. Book your repair today at FixBolt â€” fast, reliable, and affordable."
+  },
+  "pageBanner": {
+    "bgImage": "/images/page_banner.jpg",
+    "homeLabel": "Home"
+  },
+  "pages": {
+    "about": {
+      "bannerTitle": "About Us",
+      "metaTitle": "About Us | FixBolt",
+      "metaDescription": "FixBolt specializes in fast, reliable, and affordable mobile repair â€” expert technicians, genuine parts, and a customer-first approach."
+    },
+    "whyChooseUs": {
+      "bannerTitle": "Why Choose Us",
+      "metaTitle": "Why Choose Us | FixBolt",
+      "metaDescription": "FixBolt specializes in fast, reliable, and affordable mobile repair â€” expert technicians, genuine parts, and a customer-first approach."
+    },
+    "contact": {
+      "bannerTitle": "Contact Us"
+    },
+    "gallery": {
+      "bannerTitle": "Gallery"
+    },
+    "blog": {
+      "bannerTitle": "Blogs"
+    },
+    "blogDetail": {
+      "bannerTitle": "Blogs Details"
+    },
+    "brands": {
+      "bannerTitle": "Brands"
+    },
+    "pricing": {
+      "bannerTitle": "Pricing"
+    },
+    "bookRepair": {
+      "bannerTitle": "Book a repair"
+    },
+    "testimonials": {
+      "bannerTitle": "Testimonials"
+    },
+    "ourTeam": {
+      "bannerTitle": "Our Team"
+    },
+    "services": {
+      "bannerTitle": "Services"
+    },
+    "servicesDetail": {
+      "bannerTitle": "Services Detail"
+    },
+    "faq": {
+      "bannerTitle": "Faq's"
+    },
+    "careerDetail": {
+      "bannerTitle": "Career Detail"
     }
   }
 }

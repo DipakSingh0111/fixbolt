@@ -35,19 +35,20 @@ export default async function BlogDetailsPage({ params }: Props) {
   return (
     <main className="bg-[#fbfbfb] min-h-screen font-sans pb-24">
       <PageBanner 
-        title="Blogs Details" 
+        title={data.pages.blogDetail.bannerTitle} 
         breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Blogs Details" }
+          { label: data.pageBanner.homeLabel, href: "/" },
+          { label: data.pages.blog.bannerTitle, href: "/blog" },
+          { label: post.title }
         ]} 
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 md:mt-16">
+      <div className="site-container mt-8 md:mt-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           
           {/* LEFT MAIN CONTENT */}
-          <div className="lg:col-span-8">
-            <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm">
+          <div className="lg:col-span-8 flex flex-col">
+            <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm flex-grow">
               {/* Category Badge */}
               <div className="inline-block px-3 py-1 bg-red-50 text-[#cc1616] border border-red-100 font-bold text-[10px] tracking-wider uppercase rounded mb-4">
                 {post.category}
@@ -60,7 +61,7 @@ export default async function BlogDetailsPage({ params }: Props) {
 
               {/* Intro summary */}
               <p className="text-gray-600 mb-6 leading-relaxed">
-                {post.description} A few smart habits can significantly extend your phone's battery life and keep it running smoothly throughout the day.
+                {post.description}{data.blog.detail.introExtra}
               </p>
 
               {/* Meta info row */}
@@ -72,12 +73,12 @@ export default async function BlogDetailsPage({ params }: Props) {
                 <div className="w-[1px] h-4 bg-red-200"></div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-gray-400" />
-                  <span>6 min read</span>
+                  <span>{data.blog.detail.readTime}</span>
                 </div>
                 <div className="w-[1px] h-4 bg-red-200"></div>
                 <button className="flex items-center gap-2 hover:text-[#cc1616] transition-colors">
                   <Bookmark className="w-4 h-4 text-gray-400" />
-                  <span>Save Article</span>
+                  <span>{data.blog.detail.saveLabel}</span>
                 </button>
               </div>
 
@@ -93,44 +94,18 @@ export default async function BlogDetailsPage({ params }: Props) {
               {/* Article Body */}
               <div className="prose prose-lg max-w-none text-gray-600">
                 <p className="mb-8">
-                  Smartphones have become an essential part of our daily lives. But there's nothing more frustrating than running out of battery when you need your phone the most. The good news is, with the right habits and settings, you can improve your battery performance and make it last much longer.
+                  {data.blog.detail.bodyIntro}
                 </p>
 
                 <div className="space-y-8">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 border-b-2 border-red-100 pb-2 inline-block">1. Lower Your Screen Brightness</h3>
-                    <p className="text-sm leading-relaxed">
-                      The display is one of the biggest battery drainers. Reducing screen brightness or turning on auto-brightness can make a noticeable difference in battery life.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 border-b-2 border-red-100 pb-2 inline-block">2. Turn On Battery Saver Mode</h3>
-                    <p className="text-sm leading-relaxed">
-                      Most smartphones come with a Battery Saver mode that limits background activity, reduces performance, and helps your phone last longer—especially when your battery is low.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 border-b-2 border-red-100 pb-2 inline-block">3. Close Unused Background Apps</h3>
-                    <p className="text-sm leading-relaxed">
-                      Apps running in the background consume battery even when you're not using them. Close apps you're not using and restrict unnecessary background activity from settings.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 border-b-2 border-red-100 pb-2 inline-block">4. Avoid Extreme Temperatures</h3>
-                    <p className="text-sm leading-relaxed">
-                      Heat is a battery's worst enemy. Avoid using your phone in very hot conditions or leaving it in direct sunlight for long periods.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 border-b-2 border-red-100 pb-2 inline-block">5. Use the Right Charger</h3>
-                    <p className="text-sm leading-relaxed">
-                      Always use original or certified chargers. Cheap or incompatible chargers can not only damage your battery but also reduce its overall lifespan.
-                    </p>
-                  </div>
+                  {data.blog.detail.sections.map((section) => (
+                    <div key={section.title}>
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 border-b-2 border-red-100 pb-2 inline-block">{section.title}</h3>
+                      <p className="text-sm leading-relaxed">
+                        {section.text}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -138,11 +113,11 @@ export default async function BlogDetailsPage({ params }: Props) {
           </div>
 
           {/* RIGHT SIDEBAR */}
-          <div className="lg:col-span-4 space-y-8">
+          <div className="lg:col-span-4 flex flex-col gap-8">
             
             {/* Recent Posts */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-              <h3 className="text-lg font-extrabold text-gray-900 mb-2">Recent Posts</h3>
+              <h3 className="text-lg font-extrabold text-gray-900 mb-2">{data.blog.detail.recentPostsTitle}</h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
               
               <div className="space-y-6">
@@ -173,45 +148,51 @@ export default async function BlogDetailsPage({ params }: Props) {
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-[#cc1616] shadow-sm">
                 <Wrench className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">Need a Repair?</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">{data.blog.detail.cta.title}</h4>
               <p className="text-sm text-gray-500 mb-6 leading-relaxed">
-                We're here to help you with fast, reliable and affordable repairs.
+                {data.blog.detail.cta.description}
               </p>
-              <Link href="/contact">
+              <Link href={data.blog.detail.cta.href}>
                 <button className="w-full bg-[#cc1616] hover:bg-[#a51212] text-white font-bold py-3.5 px-4 rounded-xl transition shadow-md flex items-center justify-center gap-2 text-sm">
-                  Book a Repair
+                  {data.blog.detail.cta.buttonText}
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </Link>
             </div>
 
             {/* Categories */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-              <h3 className="text-lg font-extrabold text-gray-900 mb-2">Categories</h3>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex-grow">
+              <h3 className="text-lg font-extrabold text-gray-900 mb-2">{data.blog.detail.categoriesTitle}</h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
               
               <div className="space-y-2">
-                {[
-                  { name: "Smartphone Tips", count: "12", icon: Smartphone },
-                  { name: "Device Repair", count: "10", icon: Wrench },
-                  { name: "Battery & Charging", count: "08", icon: BatteryCharging },
-                  { name: "Maintenance", count: "07", icon: Settings },
-                  { name: "Tech News", count: "06", icon: MonitorSmartphone },
-                ].map((cat, idx) => (
+                {Array.from(new Set(data.blog.posts.map(p => p.category))).map((catName, idx) => {
+                  const latestPost = data.blog.posts.find(p => p.category === catName);
+                  const count = data.blog.posts.filter(p => p.category === catName).length;
+                  const catNameLower = catName.toLowerCase();
+                  
+                  // Pick an icon based on category name
+                  let CategoryIcon = Settings;
+                  if (catNameLower.includes('repair')) CategoryIcon = Wrench;
+                  else if (catNameLower.includes('tech')) CategoryIcon = Smartphone;
+                  else if (catNameLower.includes('battery')) CategoryIcon = BatteryCharging;
+                  
+                  return (
                   <Link 
                     key={idx} 
-                    href="/blog"
+                    href={latestPost ? `/blog/${latestPost.slug}` : "/blog"}
                     className="flex items-center justify-between p-3 rounded-xl transition-all bg-gray-50 text-gray-700 hover:bg-red-50 hover:text-[#cc1616] group"
                   >
                     <div className="flex items-center gap-3">
-                      <cat.icon className="w-4 h-4 text-red-400 group-hover:text-[#cc1616]" />
-                      <span className="font-bold text-xs">{cat.name}</span>
+                      <CategoryIcon className="w-4 h-4 text-red-400 group-hover:text-[#cc1616]" />
+                      <span className="font-bold text-xs capitalize">{catName.toLowerCase()}</span>
                     </div>
                     <span className="bg-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-gray-500 shadow-sm border border-gray-100 group-hover:text-[#cc1616] group-hover:border-red-100">
-                      {cat.count}
+                      {count.toString().padStart(2, '0')}
                     </span>
                   </Link>
-                ))}
+                  );
+                })}
               </div>
             </div>
             

@@ -114,7 +114,7 @@ export default function HeroBanner() {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-page aspect-[1901/858] min-h-[430px] max-md:aspect-auto max-md:min-h-[580px]"
+      className="relative w-full overflow-hidden bg-page aspect-[1901/858] min-h-[430px] max-lg:aspect-auto max-lg:h-[600px] max-md:h-[650px]"
       aria-roledescription="carousel"
       aria-label="FixBolt highlights"
       onMouseEnter={() => setPaused(true)}
@@ -146,13 +146,14 @@ export default function HeroBanner() {
                 fill
                 sizes="100vw"
                 priority={i === 0}
-                className={`object-cover object-[center_right] max-md:object-[74%_center] motion-safe:transition-transform motion-safe:duration-[8s] motion-safe:ease-out ${
+                className={`object-cover object-[center_right] max-lg:object-[74%_center] motion-safe:transition-transform motion-safe:duration-[8s] motion-safe:ease-out ${
                   isActive ? "scale-100" : "scale-105"
                 }`}
               />
 
-              <div className="absolute inset-0 z-[2] flex items-center px-[8%] pb-6 max-lg:px-7 max-md:bg-linear-to-r max-md:from-page/95 max-md:via-page/80 max-md:to-transparent">
-                <div className="w-full max-w-[46%] max-lg:max-w-[58%] max-md:max-w-full">
+              <div className="absolute inset-0 z-[2] flex items-center pb-12 max-lg:pb-16 max-lg:bg-linear-to-r max-lg:from-page/95 max-lg:via-page/80 max-lg:to-transparent">
+                <div className="site-container w-full">
+                  <div className="w-full max-w-[46%] max-lg:max-w-[75%] max-md:max-w-full">
                   <p
                     className={`mb-3 flex flex-wrap gap-x-2 text-[13px] font-bold tracking-wide uppercase md:text-[15px] ${
                       isActive
@@ -230,8 +231,12 @@ export default function HeroBanner() {
                     {features.map((feature, fi) => (
                       <li
                         key={feature.id}
-                        className={`flex flex-1 flex-col items-center justify-start gap-4 px-2 text-center sm:px-4 md:px-6 ${
+                        className={`relative z-[1] flex flex-1 flex-col items-center justify-start gap-4 px-2 text-center sm:px-4 md:px-6 ${
                           fi === 0 ? "pl-0" : "border-l border-black/10"
+                        } ${
+                          (slide.image.src.includes("02") || slide.image.src.includes("03"))
+                            ? "before:absolute before:inset-[-20px] before:-z-10 before:backdrop-blur-md before:bg-white/10 before:[mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
+                            : ""
                         }`}
                       >
                         <span className="flex text-brand-red [&_svg]:h-12 [&_svg]:w-12 md:[&_svg]:h-14 md:[&_svg]:w-14 drop-shadow-sm">
@@ -247,6 +252,7 @@ export default function HeroBanner() {
                       </li>
                     ))}
                   </ul>
+                </div>
                 </div>
               </div>
             </div>

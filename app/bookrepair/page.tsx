@@ -1,10 +1,11 @@
+import data from "@/data/data.json";
 import PageBanner from "../common/PageBanner";
-import BookRepairSection from "../components/BookRepairSection";
+import BookRepairSection from "../common/BookRepairSection";
 
 export default function BookRepair() {
   return (
     <div>
-      <PageBanner title="Book a repair" />
+      <PageBanner title={data.pages.bookRepair.bannerTitle} />
       <BookRepairSection />
     </div>
   );

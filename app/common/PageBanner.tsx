@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import data from "@/data/data.json";
 
 type BreadcrumbItem = {
   label: string;
@@ -16,10 +17,10 @@ type PageBannerProps = {
 export default function PageBanner({
   title,
   breadcrumbs,
-  bgImage = "/images/Home_banner.png",
+  bgImage = data.pageBanner.bgImage,
 }: PageBannerProps) {
   const defaultBreadcrumbs: BreadcrumbItem[] = [
-    { label: "Home", href: "/" },
+    { label: data.pageBanner.homeLabel, href: "/" },
     { label: title },
   ];
 
@@ -33,8 +34,9 @@ export default function PageBanner({
         alt={title}
         fill
         priority
-        className="object-cover object-center opacity-40"
+        className="object-cover object-center"
       />
+      <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
 
       {/* Content */}
       <div className="site-container relative z-10 w-full">

@@ -61,7 +61,7 @@ const stats = data.counters;
 
 export default function CounterSection() {
   return (
-    <section className="relative w-full bg-[#161616] py-10 md:py-20 px-4">
+    <section className="relative w-full bg-[#161616] py-6 md:py-8 px-4">
       {/* Background overlay/image could go here to match texture */}
       <div 
         className="absolute inset-0 opacity-20 pointer-events-none"
@@ -84,7 +84,7 @@ export default function CounterSection() {
             transition: { staggerChildren: 0.15 },
           },
         }}
-        className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between relative z-10"
+        className="site-container flex flex-col md:flex-row items-center justify-between relative z-10"
       >
         {stats.map((item, index) => {
           const IconComponent = IconMap[item.icon] || HandGearIcon;
@@ -95,7 +95,7 @@ export default function CounterSection() {
                 visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" as const } },
               }}
               key={item.id}
-              className="flex items-center w-full md:w-auto flex-1 relative py-6"
+              className="flex items-center w-full md:w-auto flex-1 relative py-4"
             >
               {/* Stat Box */}
               <div className="flex-1 text-center flex flex-col items-center">

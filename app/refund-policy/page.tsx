@@ -14,7 +14,7 @@ export default function RefundPolicyPage() {
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{ backgroundImage: `url('${hero.bgImage}')` }}
         ></div>
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-white">
+        <div className="site-container relative z-10 text-white">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-2 text-left">{hero.title}</h1>
           <p className="text-sm font-medium flex items-center text-gray-300">
             <Link href="/" className="hover:text-white transition">Home</Link>
@@ -25,7 +25,7 @@ export default function RefundPolicyPage() {
       </section>
 
       {/* Content Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <section className="site-container py-16 sm:py-20">
         <div className="space-y-12 text-[#111111]">
           {sections.map((section) => (
             <div key={section.id} className="space-y-4">

@@ -1,69 +1,9 @@
 import React from "react";
 import { ShieldCheck, Award, Headphones } from "lucide-react";
 
-const brands = [
-  {
-    name: "Apple",
-    sub: "We Repair",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg",
-  },
-  {
-    name: "Samsung",
-    sub: "We Repair",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg",
-  },
-  {
-    name: "Xiaomi",
-    sub: "We Repair",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/29/Xiaomi_logo.svg",
-  },
-  {
-    name: "Oppo",
-    sub: "We Repair",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/OPPO_Logo.svg",
-  },
-  {
-    name: "Vivo",
-    sub: "We Repair",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Vivo_mobile_logo.svg",
-  },
-  {
-    name: "Realme",
-    sub: "We Repair",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Realme_logo.svg",
-  },
-  {
-    name: "OnePlus",
-    sub: "We Repair",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/f/f8/OnePlus_logo.svg",
-  },
-  {
-    name: "Google Pixel",
-    sub: "We Repair",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
-  },
-  {
-    name: "Motorola",
-    sub: "We Repair",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Motorola_new_logo.svg",
-  },
-  {
-    name: "Nokia",
-    sub: "We Repair",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/0/02/Nokia_wordmark.svg",
-  },
-  {
-    name: "Huawei",
-    sub: "We Repair",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/0/03/Huawei_building_logo.svg",
-  },
-  {
-    name: "Honor",
-    sub: "We Repair",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Honor_logo.svg",
-  },
-];
+import data from "@/data/data.json";
 
+const brands = data.brands;
 export default function BrandsSection() {
   return (
     <section className="relative bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col justify-center overflow-hidden font-sans">
@@ -85,25 +25,25 @@ export default function BrandsSection() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto w-full">
+      <div className="site-container">
         {/* Section Header */}
         <div className="text-center mb-12">
           <div className="inline-block relative">
             <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
-              BRANDS WE REPAIR
+              {data.brandsSection.eyebrow}
             </span>
             <div className="w-8 h-[2px] bg-[#d32f2f] mx-auto mt-1"></div>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-3">
-            We Repair <span className="text-[#d32f2f]">All Major Brands</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-[#111111] mt-3 tracking-tight">
+            {data.brandsSection.title.split(data.brandsSection.titleHighlight)[0]}
+            <span className="text-[#d32f2f]">{data.brandsSection.titleHighlight}</span>
           </h2>
-          <p className="text-gray-500 text-sm max-w-xl mx-auto mt-2 leading-relaxed">
-            No matter what brand or model you have, our experts have the tools
-            and experience to get it back in perfect working condition.
+          <p className="site-container text-gray-500 text-sm mt-2 leading-relaxed">
+            {data.brandsSection.description}
           </p>
         </div>
 
-        {/* Brands Grid (6 columns on desktop, 3 on tablet, 2 on mobile) */}
+        {/* Brands Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 mb-10">
           {brands.map((brand, idx) => (
             <div
@@ -111,11 +51,11 @@ export default function BrandsSection() {
               className="bg-white rounded-xl p-6 flex flex-col items-center justify-center border border-gray-100/80 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 group cursor-pointer"
             >
               {/* Logo Container */}
-              <div className="h-12 w-full flex items-center justify-center mb-4">
+              <div className="h-16 w-full flex items-center justify-center mb-4">
                 <img
                   src={brand.logo}
                   alt={brand.name}
-                  className="max-h-9 max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="max-h-14 max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
 

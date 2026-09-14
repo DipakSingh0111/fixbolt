@@ -53,7 +53,7 @@ export default function TestimonialsSection() {
         variants={staggerContainer}
       >
         {/* Top Header Section */}
-        <motion.div variants={fadeInUp} className="relative z-10 max-w-[1280px] mx-auto text-center mb-8 md:mb-12">
+        <motion.div variants={fadeInUp} className="site-container relative z-10 text-center mb-8 md:mb-12">
           <div className="flex flex-col items-center justify-center mb-5">
             {/* Top icon with grey lines */}
             <div className="flex items-center justify-center gap-6 mb-3">
@@ -96,13 +96,13 @@ export default function TestimonialsSection() {
             <div className="w-14 h-[4px] bg-[#c90f16] rounded-full" />
           </div>
 
-          <p className="text-gray-400 text-sm md:text-[15px] max-w-xl mx-auto font-normal leading-relaxed">
+          <p className="site-container text-gray-400 text-sm md:text-[15px] font-normal leading-relaxed">
             {description}
           </p>
         </motion.div>
 
         {/* Slider Container */}
-        <motion.div variants={fadeInUp} className="relative z-10 max-w-[1280px] mx-auto pb-12">
+        <motion.div variants={fadeInUp} className="site-container relative z-10 pb-12">
           <Swiper
             modules={[Pagination, Autoplay]}
             spaceBetween={24}

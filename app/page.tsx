@@ -1,12 +1,12 @@
 import HeroBanner from "./common/HeroBanner";
 import AboutSection from "./common/AboutSection";
 import CounterSection from "./common/CounterSection";
-import ServicesSection from "./components/ServicesSection";
-import WorkProcessSection from "./components/WorkProcessSection";
+import ServicesSection from "./common/ServicesSection";
+import WorkProcessSection from "./common/WorkProcessSection";
 import TeamSection from "./common/TeamSection";
-import TestimonialsSection from "./components/TestimonialsSection";
-import WhyChooseUs from "./components/WhyChooseUs";
-import BlogSection from "./components/BlogSection";
+import TestimonialsSection from "./common/TestimonialsSection";
+import WhyChooseUs from "./common/WhyChooseUs";
+import BlogSection from "./common/BlogSection";
 
 export default function Home() {
   return (
@@ -14,12 +14,12 @@ export default function Home() {
       <HeroBanner />
       <AboutSection showCta />
       <CounterSection />
-      <ServicesSection />
+      <ServicesSection limit={4} />
       <WorkProcessSection />
       <TeamSection />
       <TestimonialsSection />
       <WhyChooseUs />
-      <BlogSection />
+      <BlogSection limit={4} />
     </>
   );
 }

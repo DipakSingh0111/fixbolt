@@ -37,22 +37,25 @@ export default async function CareerDetailsPage({ params }: Props) {
     notFound();
   }
 
+  const detail = data.career.jobDetail;
+  const { applyForm } = detail;
+
   return (
     <main className="bg-[#fbfbfb] min-h-screen font-sans pb-12">
       <PageBanner 
-        title="Career Detail" 
+        title={data.pages.careerDetail.bannerTitle} 
         breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Career Detail" }
+          { label: data.pageBanner.homeLabel, href: "/" },
+          { label: data.pages.careerDetail.bannerTitle }
         ]} 
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 md:mt-12">
+      <div className="site-container mt-8 md:mt-12">
         
         {/* Back Link */}
         <Link href="/career" className="inline-flex items-center gap-2 text-sm font-bold text-[#cc1616] hover:text-[#a51212] transition-colors mb-8">
           <ArrowLeft className="w-4 h-4" />
-          Back to All Jobs
+          {detail.backLabel}
         </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
@@ -83,7 +86,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                     </div>
                     <div className="flex items-center gap-2">
                       <Banknote className="w-4 h-4 text-[#cc1616]" />
-                      {job.salary || "Not specified"}
+                      {job.salary || detail.salaryFallback}
                     </div>
                   </div>
                 </div>
@@ -94,18 +97,18 @@ export default async function CareerDetailsPage({ params }: Props) {
             <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm mb-8 space-y-8">
               
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4">About FixBolt</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-4">{detail.aboutTitle}</h3>
                 <div className="w-8 h-[2px] bg-[#cc1616] mb-4"></div>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  FixBolt is a leading multi-brand device repair service provider committed to delivering fast, reliable, and affordable repair solutions. Our expert team and customer-first approach have earned the trust of thousands of customers. Join us and be a part of a brand that is fixing devices and building trust every day.
+                  {detail.aboutText}
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Job Overview</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-4">{detail.overviewTitle}</h3>
                 <div className="w-8 h-[2px] bg-[#cc1616] mb-4"></div>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  We are looking for a skilled and detail-oriented {job.title} to join our growing team. You will be responsible for diagnosing, repairing, and maintaining smartphones and other mobile devices while ensuring top-quality service and customer satisfaction.
+                  {detail.overviewText.replace("{jobTitle}", job.title)}
                 </p>
               </div>
 
@@ -115,17 +118,10 @@ export default async function CareerDetailsPage({ params }: Props) {
             <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm mb-8 space-y-8">
               
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Key Responsibilities</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-4">{detail.responsibilitiesTitle}</h3>
                 <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
                 <ul className="space-y-4">
-                  {[
-                    "Diagnose and repair hardware and software issues in smartphones and tablets.",
-                    "Replace damaged parts such as screens, batteries, charging ports, cameras, etc.",
-                    "Perform thorough testing to ensure the device is functioning properly.",
-                    "Provide excellent customer service and explain repair solutions clearly.",
-                    "Maintain a clean and organized workspace.",
-                    "Follow company guidelines and ensure quality standards are met."
-                  ].map((item, i) => (
+                  {detail.responsibilities.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-[#cc1616] shrink-0" />
                       <span className="text-sm text-gray-600 leading-relaxed">{item}</span>
@@ -135,17 +131,10 @@ export default async function CareerDetailsPage({ params }: Props) {
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Requirements</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-4">{detail.requirementsTitle}</h3>
                 <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
                 <ul className="space-y-4">
-                  {[
-                    "2-4 years of experience in mobile repair.",
-                    "Strong knowledge of Android and iOS devices.",
-                    "Hands-on experience with mobile hardware and software troubleshooting.",
-                    "Ability to work in a fast-paced environment.",
-                    "Good communication skills and a customer-friendly attitude.",
-                    "High school diploma or equivalent (Technical certification is a plus)."
-                  ].map((item, i) => (
+                  {detail.requirements.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-[#cc1616] shrink-0" />
                       <span className="text-sm text-gray-600 leading-relaxed">{item}</span>
@@ -158,43 +147,22 @@ export default async function CareerDetailsPage({ params }: Props) {
 
             {/* What We Offer */}
             <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">What We Offer</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-4">{detail.offerTitle}</h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-8"></div>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                
-                <div className="flex flex-col items-center text-center p-4 border border-gray-100 rounded-xl bg-gray-50/50">
-                  <div className="w-12 h-12 bg-red-50 text-[#cc1616] rounded-full flex items-center justify-center mb-3">
-                    <IndianRupee className="w-5 h-5" />
-                  </div>
-                  <h4 className="text-xs font-bold text-gray-900 mb-2">Competitive Salary</h4>
-                  <p className="text-[10px] text-gray-500 leading-relaxed">Attractive pay with performance-based incentives.</p>
-                </div>
-
-                <div className="flex flex-col items-center text-center p-4 border border-gray-100 rounded-xl bg-gray-50/50">
-                  <div className="w-12 h-12 bg-red-50 text-[#cc1616] rounded-full flex items-center justify-center mb-3">
-                    <GraduationCap className="w-5 h-5" />
-                  </div>
-                  <h4 className="text-xs font-bold text-gray-900 mb-2">Learning & Growth</h4>
-                  <p className="text-[10px] text-gray-500 leading-relaxed">Continuous training and career advancement opportunities.</p>
-                </div>
-
-                <div className="flex flex-col items-center text-center p-4 border border-gray-100 rounded-xl bg-gray-50/50">
-                  <div className="w-12 h-12 bg-red-50 text-[#cc1616] rounded-full flex items-center justify-center mb-3">
-                    <HeartPulse className="w-5 h-5" />
-                  </div>
-                  <h4 className="text-xs font-bold text-gray-900 mb-2">Health Benefits</h4>
-                  <p className="text-[10px] text-gray-500 leading-relaxed">Medical insurance and wellness programs.</p>
-                </div>
-
-                <div className="flex flex-col items-center text-center p-4 border border-gray-100 rounded-xl bg-gray-50/50">
-                  <div className="w-12 h-12 bg-red-50 text-[#cc1616] rounded-full flex items-center justify-center mb-3">
-                    <Users className="w-5 h-5" />
-                  </div>
-                  <h4 className="text-xs font-bold text-gray-900 mb-2">Supportive Culture</h4>
-                  <p className="text-[10px] text-gray-500 leading-relaxed">Be part of a friendly and inclusive work environment.</p>
-                </div>
-
+                {detail.offers.map((offer) => {
+                  const OfferIcon = { IndianRupee, GraduationCap, HeartPulse, Users }[offer.icon] ?? Users;
+                  return (
+                    <div key={offer.title} className="flex flex-col items-center text-center p-4 border border-gray-100 rounded-xl bg-gray-50/50">
+                      <div className="w-12 h-12 bg-red-50 text-[#cc1616] rounded-full flex items-center justify-center mb-3">
+                        <OfferIcon className="w-5 h-5" />
+                      </div>
+                      <h4 className="text-xs font-bold text-gray-900 mb-2">{offer.title}</h4>
+                      <p className="text-[10px] text-gray-500 leading-relaxed">{offer.description}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -205,10 +173,10 @@ export default async function CareerDetailsPage({ params }: Props) {
             
             {/* Apply Form */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
-              <h3 className="text-xl font-extrabold text-gray-900 mb-2">Apply for This Position</h3>
+              <h3 className="text-xl font-extrabold text-gray-900 mb-2">{applyForm.title}</h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
               <p className="text-xs text-gray-500 mb-6 leading-relaxed">
-                Fill out the form below and our team will get back to you.
+                {applyForm.description}
               </p>
               
               <form className="space-y-4">
@@ -216,44 +184,43 @@ export default async function CareerDetailsPage({ params }: Props) {
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <User className="w-4 h-4 text-gray-400" />
                   </div>
-                  <input type="text" placeholder="Full Name" className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
+                  <input type="text" placeholder={applyForm.placeholders.name} className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
                 </div>
 
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <Mail className="w-4 h-4 text-gray-400" />
                   </div>
-                  <input type="email" placeholder="Email Address" className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
+                  <input type="email" placeholder={applyForm.placeholders.email} className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
                 </div>
 
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <Phone className="w-4 h-4 text-gray-400" />
                   </div>
-                  <input type="tel" placeholder="Phone Number" className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
+                  <input type="tel" placeholder={applyForm.placeholders.phone} className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
                 </div>
 
                 <div className="relative">
                   <select className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-500 appearance-none focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all">
-                    <option value="">Experience (Years)</option>
-                    <option value="0-1">0 - 1 Years</option>
-                    <option value="1-3">1 - 3 Years</option>
-                    <option value="3-5">3 - 5 Years</option>
-                    <option value="5+">5+ Years</option>
+                    <option value="">{applyForm.placeholders.experience}</option>
+                    {applyForm.experienceOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
                   </select>
                 </div>
 
                 <div className="pt-2">
-                  <p className="text-xs font-bold text-gray-700 mb-2">Upload Resume (PDF/DOC/DOCX)</p>
+                  <p className="text-xs font-bold text-gray-700 mb-2">{applyForm.resumeLabel}</p>
                   <div className="border-2 border-dashed border-red-200 bg-red-50/50 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:bg-red-50 transition-colors cursor-pointer group">
                     <UploadCloud className="w-8 h-8 text-[#cc1616] mb-3 group-hover:scale-110 transition-transform" />
-                    <span className="text-xs font-bold text-gray-900 mb-1">Click to upload or drag and drop</span>
-                    <span className="text-[10px] text-gray-500">Max file size: 5MB</span>
+                    <span className="text-xs font-bold text-gray-900 mb-1">{applyForm.resumeHint}</span>
+                    <span className="text-[10px] text-gray-500">{applyForm.resumeMaxSize}</span>
                   </div>
                 </div>
 
                 <button type="button" className="w-full bg-[#cc1616] hover:bg-[#a51212] text-white font-bold py-4 px-4 rounded-xl transition shadow-md flex items-center justify-center gap-2 text-sm mt-4">
-                  Apply Now
+                  {applyForm.submitLabel}
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </form>
@@ -261,43 +228,43 @@ export default async function CareerDetailsPage({ params }: Props) {
 
             {/* Job Summary */}
             <div className="bg-[#fff5f5] rounded-2xl shadow-sm border border-red-50 p-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Job Summary</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{detail.summaryTitle}</h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
               
               <div className="space-y-4">
                 <div className="flex gap-4">
                   <Briefcase className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
                   <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-xs font-bold text-gray-900">Job Title</span>
+                    <span className="text-xs font-bold text-gray-900">{detail.summaryLabels.jobTitle}</span>
                     <span className="text-xs text-gray-600">{job.title}</span>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <MapPin className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
                   <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-xs font-bold text-gray-900">Location</span>
+                    <span className="text-xs font-bold text-gray-900">{detail.summaryLabels.location}</span>
                     <span className="text-xs text-gray-600">{job.location}</span>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <Briefcase className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
                   <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-xs font-bold text-gray-900">Job Type</span>
+                    <span className="text-xs font-bold text-gray-900">{detail.summaryLabels.jobType}</span>
                     <span className="text-xs text-gray-600">{job.type}</span>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <Clock className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
                   <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-xs font-bold text-gray-900">Experience</span>
+                    <span className="text-xs font-bold text-gray-900">{detail.summaryLabels.experience}</span>
                     <span className="text-xs text-gray-600">{job.experience}</span>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <Banknote className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
                   <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-xs font-bold text-gray-900">Salary</span>
-                    <span className="text-xs text-gray-600">{job.salary || "Not specified"}</span>
+                    <span className="text-xs font-bold text-gray-900">{detail.summaryLabels.salary}</span>
+                    <span className="text-xs text-gray-600">{job.salary || detail.salaryFallback}</span>
                   </div>
                 </div>
               </div>
@@ -305,9 +272,9 @@ export default async function CareerDetailsPage({ params }: Props) {
 
             {/* Share This Job */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Share This Job</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{detail.shareTitle}</h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-4"></div>
-              <p className="text-xs text-gray-500 mb-6">Know someone who might be a great fit?</p>
+              <p className="text-xs text-gray-500 mb-6">{detail.shareDescription}</p>
               
               <div className="flex items-center gap-3">
                 <button className="w-10 h-10 rounded-full bg-[#cc1616] text-white flex items-center justify-center hover:bg-[#a51212] transition-colors">

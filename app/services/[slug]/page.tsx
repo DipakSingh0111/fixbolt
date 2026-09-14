@@ -113,19 +113,19 @@ export default async function ServiceDetailsPage({ params }: Props) {
   return (
     <div className="bg-white pb-20">
       <PageBanner
-        title="Services Detail"
+        title={data.pages.servicesDetail.bannerTitle}
         breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
-          { label: "Services Detail" },
+          { label: data.pageBanner.homeLabel, href: "/" },
+          { label: data.pages.services.bannerTitle, href: "/services" },
+          { label: data.pages.servicesDetail.bannerTitle },
         ]}
       />
 
-      <div className="mx-auto mt-8 lg:mt-16 grid max-w-[1200px] grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12 px-5 lg:px-6">
+      <div className="site-container mt-8 lg:mt-16 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12 lg:px-6">
         {/* ── Left sidebar ── */}
-        <aside className="space-y-7 lg:col-span-3">
+        <aside className="flex flex-col gap-7 lg:col-span-3">
           <div>
-            <h3 className="text-[20px] font-extrabold text-[#111]">Our Services</h3>
+            <h3 className="text-[20px] font-extrabold text-[#111]">{details.sidebarTitle}</h3>
             <span className="mt-2 mb-5 block h-[3px] w-9 bg-brand-red" aria-hidden="true" />
 
             <ul className="space-y-1.5">
@@ -164,7 +164,7 @@ export default async function ServiceDetailsPage({ params }: Props) {
             </ul>
           </div>
 
-          <div className="rounded-xl bg-[#fff5f5] px-6 py-8 text-center">
+          <div className="flex flex-col justify-center rounded-xl bg-[#fff5f5] px-6 py-8 text-center flex-grow">
             <div className="mx-auto mb-4 text-brand-red">
               <Headset className="mx-auto h-10 w-10" strokeWidth={1.6} />
             </div>
@@ -172,13 +172,15 @@ export default async function ServiceDetailsPage({ params }: Props) {
             <p className="mt-2 mb-6 text-[13px] leading-relaxed text-neutral-500">
               {details.help.text}
             </p>
-            <Link
-              href={details.help.ctaHref}
-              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-brand-red text-[13px] font-bold text-white transition-colors hover:bg-brand-red-dark"
-            >
-              {details.help.ctaLabel}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="mt-auto">
+              <Link
+                href={details.help.ctaHref}
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-brand-red text-[13px] font-bold text-white transition-colors hover:bg-brand-red-dark"
+              >
+                {details.help.ctaLabel}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </aside>
 
@@ -191,7 +193,7 @@ export default async function ServiceDetailsPage({ params }: Props) {
                 {service.title}
               </p>
               <h1 className="mt-2 text-[30px] leading-[1.15] font-extrabold text-[#111] md:text-[36px]">
-                {service.title} Service
+                {service.title} {details.serviceSuffix}
               </h1>
               <p className="mt-4 max-w-md text-[14px] leading-relaxed text-neutral-500">
                 {service.description}
@@ -244,7 +246,7 @@ export default async function ServiceDetailsPage({ params }: Props) {
               </ul>
             </section>
 
-            <section className="rounded-xl border border-neutral-200 bg-white p-6 lg:col-span-2">
+            <section className="flex flex-col rounded-xl border border-neutral-200 bg-white p-6 lg:col-span-2 h-full">
               <SectionTitle>{details.whyTitle}</SectionTitle>
               <ul className="space-y-3.5">
                 {details.whyPoints.map((point) => (
@@ -287,7 +289,7 @@ export default async function ServiceDetailsPage({ params }: Props) {
               </ol>
             </section>
 
-            <section className="rounded-xl border border-neutral-200 bg-white p-4 lg:col-span-2">
+            <section className="flex flex-col rounded-xl border border-neutral-200 bg-white p-4 lg:col-span-2 h-full">
               <SectionTitle>{details.devicesTitle}</SectionTitle>
               <p className="mb-3 text-[12px] text-neutral-500">{details.devicesText}</p>
               <ul className="grid grid-cols-2 gap-x-3 gap-y-2.5 sm:grid-cols-3">

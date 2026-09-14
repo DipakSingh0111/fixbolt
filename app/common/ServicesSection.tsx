@@ -1,33 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Smartphone,
-  BatteryCharging,
-  PlugZap,
-  Settings,
-  Cpu,
-  Droplet,
-  Camera,
-  Volume2,
-  HardDrive,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight, Settings } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import data from "@/data/data.json";
-
-const IconMap: Record<string, LucideIcon> = {
-  smartphone: Smartphone,
-  batteryCharging: BatteryCharging,
-  plugZap: PlugZap,
-  settings: Settings,
-  cpu: Cpu,
-  droplet: Droplet,
-  camera: Camera,
-  volume2: Volume2,
-  hardDrive: HardDrive,
-};
+import { CustomServiceIcons } from "./ServiceIcons";
 
 const { eyebrow, title, description, items: services } = data.services;
 
@@ -44,7 +22,9 @@ const staggerContainer = {
   },
 };
 
-export default function ServicesSection() {
+export default function ServicesSection({ limit }: { limit?: number }) {
+  const displayServices = limit ? services.slice(0, limit) : services;
+  
   return (
     <section className="bg-[#f8f9fa] py-10 md:py-16 px-5 lg:px-8 text-center relative overflow-hidden">
       {/* Background Dots Pattern */}
@@ -71,7 +51,7 @@ export default function ServicesSection() {
         className="relative z-10"
       >
         {/* Header */}
-        <div className="max-w-[1280px] mx-auto mb-8 md:mb-12">
+        <div className="site-container mb-8 md:mb-12">
           <motion.span
             variants={fadeInUp}
             className="text-red-600 font-bold text-sm tracking-wider uppercase block"
@@ -87,13 +67,13 @@ export default function ServicesSection() {
             variants={fadeInUp}
             className="text-3xl md:text-5xl font-extrabold text-black mb-4"
           >
-            {title.split("Every Device.")[0]}
-            <span className="text-red-600">Every Device.</span>
+            {title.split(data.services.titleHighlight)[0]}
+            <span className="text-red-600">{data.services.titleHighlight}</span>
           </motion.h2>
 
           <motion.p
             variants={fadeInUp}
-            className="text-gray-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed"
+            className="site-container text-gray-600 text-sm md:text-base leading-relaxed"
           >
             {description}
           </motion.p>
@@ -102,10 +82,10 @@ export default function ServicesSection() {
         {/* Services Grid */}
         <motion.div
           variants={staggerContainer}
-          className="max-w-[1280px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-stretch"
+          className="site-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 items-stretch"
         >
-          {services.map((service) => {
-            const IconComponent = IconMap[service.icon] ?? Settings;
+          {displayServices.map((service) => {
+            const IconComponent = CustomServiceIcons[service.icon] ?? Settings;
 
             return (
               <motion.div variants={fadeInUp} key={service.id}>

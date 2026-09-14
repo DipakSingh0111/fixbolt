@@ -1,79 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Smartphone,
-  BatteryCharging,
-  Zap,
-  Settings,
-  Cpu,
-  Droplet,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight, Settings } from "lucide-react";
+import data from "@/data/data.json";
+import { CustomServiceIcons } from "./ServiceIcons";
 
-const services = [
-  {
-    id: 1,
-    slug: "screen-repair",
-    title: "Screen Repair",
-    description:
-      "Cracked or broken screen?\nWe replace it with precision and care.",
-    image:
-      "https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=600",
-    icon: Smartphone,
-  },
-  {
-    id: 2,
-    slug: "battery-replacement",
-    title: "Battery Replacement",
-    description:
-      "Low battery life? We use high-quality batteries to power your device.",
-    image:
-      "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&q=80&w=600",
-    icon: BatteryCharging,
-  },
-  {
-    id: 3,
-    slug: "charging-port-repair",
-    title: "Charging Port Repair",
-    description:
-      "Loose or damaged port?\nWe fix charging issues quickly and safely.",
-    image:
-      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=600",
-    icon: Zap,
-  },
-  {
-    id: 4,
-    slug: "software-issues",
-    title: "Software Issues",
-    description: "From crashes to performance problems, we've got you covered.",
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600",
-    icon: Settings,
-    // You can set defaultHovered to true if you want the first card in bottom row red by default like screenshot
-    defaultHovered: true,
-  },
-  {
-    id: 5,
-    slug: "hardware-repair",
-    title: "Hardware Repair",
-    description:
-      "Faulty components?\nWe repair or replace with expert precision.",
-    image:
-      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80&w=600",
-    icon: Cpu,
-  },
-  {
-    id: 6,
-    slug: "water-damage-repair",
-    title: "Water Damage Repair",
-    description:
-      "Liquid damage?\nWe clean, restore and bring your device back to life.",
-    image:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600",
-    icon: Droplet,
-  },
-];
+const services = data.services.items;
 
 export default function ServicesSection() {
   return (
@@ -94,29 +26,28 @@ export default function ServicesSection() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto w-full">
+      <div className="site-container">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-12">
           <div className="inline-block relative">
             <span className="text-xs font-bold tracking-wider text-[#d32f2f] uppercase">
-              OUR SERVICES
+              {data.services.eyebrow}
             </span>
             <div className="w-8 h-[2px] bg-[#d32f2f] mx-auto mt-1"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-3">
-            Expert Solutions for{" "}
-            <span className="text-[#d32f2f]">Every Device.</span>
+            {data.services.title.split(data.services.titleHighlight)[0]}
+            <span className="text-[#d32f2f]">{data.services.titleHighlight}</span>
           </h2>
-          <p className="text-gray-500 text-sm max-w-xl mx-auto mt-2 leading-relaxed">
-            From minor fixes to complex repairs, we provide reliable and
-            efficient solutions to keep your devices running like new.
+          <p className="site-container text-gray-500 text-sm mt-2 leading-relaxed">
+            {data.services.description}
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => {
-            const Icon = service.icon;
+            const Icon = CustomServiceIcons[service.icon] ?? Settings;
             return (
               <Link
                 href={`/services/${service.slug}`}

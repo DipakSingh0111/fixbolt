@@ -20,9 +20,17 @@ const staggerContainer = {
   },
 };
 
-export default function BlogSection() {
+export default function BlogSection({ category, limit }: { category?: string; limit?: number }) {
+  let filteredPosts = category 
+    ? blogPosts.filter(post => post.category.toLowerCase() === category.toLowerCase())
+    : blogPosts;
+
+  if (limit) {
+    filteredPosts = filteredPosts.slice(0, limit);
+  }
+
   return (
-    <section className="bg-[#f8f9fa] pt-10 pb-20 px-4 md:pt-12 md:pb-24 md:px-8 relative overflow-hidden text-center">
+    <section className="bg-[#f8f9fa] pt-10 pb-10 px-4 md:pt-12 md:pb-12 md:px-8 relative overflow-hidden text-center">
       {/* Background Decorative Circuit/Dot Grid Accents */}
       <div className="absolute top-10 left-10 pointer-events-none hidden md:block">
         <div className="grid grid-cols-4 gap-3">
@@ -42,7 +50,7 @@ export default function BlogSection() {
         variants={staggerContainer}
       >
         {/* Header Section */}
-        <motion.div variants={fadeInUp} className="relative z-10 max-w-[1280px] mx-auto text-center mb-14">
+        <motion.div variants={fadeInUp} className="site-container relative z-10 text-center mb-14">
           <div className="flex items-center justify-center gap-4 mb-5">
             <div className="w-10 h-[2px] bg-[#c90f16]" />
             <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.08em] text-[#c90f16]">
@@ -61,14 +69,28 @@ export default function BlogSection() {
             <div className="w-2 h-[3px] bg-[#c90f16] rounded-full" />
           </div>
 
-          <p className="text-gray-500 text-[15px] max-w-[500px] mx-auto leading-relaxed">
+          <p className="site-container text-gray-500 text-[15px] leading-relaxed mb-6">
             {description}
           </p>
+
+          {category && (
+            <div className="inline-flex items-center gap-3 bg-red-50 text-[#c90f16] px-4 py-2 rounded-full border border-red-100">
+              <span className="font-bold text-sm">Category: {category}</span>
+              <Link href="/blog" className="text-gray-400 hover:text-[#c90f16] transition-colors" title="Clear filter">
+                &times;
+              </Link>
+            </div>
+          )}
         </motion.div>
 
         {/* 4 Cards Grid Container */}
-        <motion.div variants={fadeInUp} className="relative z-10 max-w-[1280px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-          {blogPosts.map((post) => (
+        {filteredPosts.length === 0 ? (
+          <div className="text-center py-10 text-gray-500">
+            No posts found in this category.
+          </div>
+        ) : (
+          <motion.div variants={fadeInUp} className="site-container relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+            {filteredPosts.map((post) => (
             <motion.div
               variants={fadeInUp}
               key={post.id}
@@ -132,6 +154,7 @@ export default function BlogSection() {
             </motion.div>
           ))}
         </motion.div>
+        )}
       </motion.div>
     </section>
   );

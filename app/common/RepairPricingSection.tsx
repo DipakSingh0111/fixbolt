@@ -1,11 +1,8 @@
+"use client";
+
 import React from "react";
+import Link from "next/link";
 import {
-  ShieldCheck,
-  UserCheck,
-  Tag,
-  Award,
-  Settings,
-  ThumbsUp,
   Smartphone,
   BatteryCharging,
   Zap,
@@ -20,118 +17,95 @@ import {
   Calendar,
   ArrowRight,
 } from "lucide-react";
+import data from "@/data/data.json";
 
-// Top Feature Badges Data
-const features = [
-  { title: "Quality Service", icon: ShieldCheck },
-  { title: "Expert Technicians", icon: UserCheck },
-  { title: "Affordable Pricing", icon: Tag },
-  { title: "Repair Warranty", icon: Award },
-  { title: "Genuine Parts", icon: Settings },
-  { title: "100% Satisfaction", icon: ThumbsUp },
-];
+const CustomIcons = {
+  QualityService: (props: any) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      <path d="M9 12l2 2 4-4"/>
+    </svg>
+  ),
+  ExpertTechnicians: (props: any) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="12" cy="8" r="3" />
+      <path d="M8 6h8" /> 
+      <path d="M7 16c0-2.5 2-4.5 5-4.5s5 2 5 4.5" /> 
+      <path d="M5 19h14" /> 
+      <path d="M4 17v4c-1 0-1-4 0-4z" /> 
+      <path d="M20 17v4c1 0 1-4 0-4z" /> 
+    </svg>
+  ),
+  AffordablePricing: (props: any) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12.5 3.5l7 7-8.5 8.5a2.828 2.828 0 01-4-4l8.5-8.5z" />
+      <circle cx="16" cy="7" r="1" />
+      <path d="M8 12h4m-4 2h4m-3 0l3 4" />
+    </svg>
+  ),
+  RepairWarranty: (props: any) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      <circle cx="12" cy="11" r="3" />
+      <path d="M10 13.5l-1 3.5 3-1 3 1-1-3.5" />
+    </svg>
+  ),
+  GenuineParts: (props: any) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12 22v-4m0-12V2m6.07 18.07l-2.83-2.83M8.76 8.76L5.93 5.93M22 12h-4M6 12H2m14.07-6.07l-2.83 2.83M8.76 15.24l-2.83 2.83" />
+      <circle cx="12" cy="12" r="6" />
+      <path d="M10 11l2 1 2-1v-2l-2-1-2 1v2z" />
+    </svg>
+  ),
+  Satisfaction: (props: any) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3z" />
+      <path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3" />
+      <path d="M3 4l1 1M7 2l1 1M11 1l1 1M16 2l-1 1M20 4l-1 1" />
+    </svg>
+  )
+};
 
-// Repair Pricing Table Rows
-const pricingData = [
-  {
-    service: "Screen Replacement",
-    description: "Cracked or damaged screen",
-    apple: "₹12,999",
-    samsung: "₹8,499",
-    oneplus: "₹6,499",
-    xiaomi: "₹5,499",
-    realme: "₹4,499",
-    icon: Smartphone,
-  },
-  {
-    service: "Battery Replacement",
-    description: "Battery draining fast or not charging",
-    apple: "₹3,499",
-    samsung: "₹2,499",
-    oneplus: "₹2,299",
-    xiaomi: "₹1,899",
-    realme: "₹1,799",
-    icon: BatteryCharging,
-  },
-  {
-    service: "Charging Port Repair",
-    description: "Charging port loose or not working",
-    apple: "₹2,499",
-    samsung: "₹1,799",
-    oneplus: "₹1,699",
-    xiaomi: "₹1,499",
-    realme: "₹1,299",
-    icon: Zap,
-  },
-  {
-    service: "Camera Replacement",
-    description: "Blurry or not working camera",
-    apple: "₹4,999",
-    samsung: "₹3,499",
-    oneplus: "₹2,999",
-    xiaomi: "₹2,499",
-    realme: "₹2,299",
-    icon: Camera,
-  },
-  {
-    service: "Speaker Repair",
-    description: "Low or no sound issues",
-    apple: "₹2,299",
-    samsung: "₹1,499",
-    oneplus: "₹1,299",
-    xiaomi: "₹1,199",
-    realme: "₹999",
-    icon: Volume2,
-  },
-  {
-    service: "Water Damage Repair",
-    description: "Water damage diagnosis & repair",
-    apple: "₹2,999",
-    samsung: "₹2,999",
-    oneplus: "₹2,999",
-    xiaomi: "₹2,999",
-    realme: "₹2,999",
-    icon: Droplet,
-  },
-  {
-    service: "Software Issue Fixing",
-    description: "Software update, hang or lag issues",
-    apple: "₹999",
-    samsung: "₹999",
-    oneplus: "₹999",
-    xiaomi: "₹999",
-    realme: "₹999",
-    icon: Cpu,
-  },
-];
+const FeatureIconMap: Record<string, React.ElementType> = CustomIcons;
+
+const RowIconMap: Record<string, React.ElementType> = {
+  smartphone: Smartphone,
+  batteryCharging: BatteryCharging,
+  zap: Zap,
+  camera: Camera,
+  volume2: Volume2,
+  droplet: Droplet,
+  cpu: Cpu,
+};
 
 export default function RepairPricingSection() {
+  const pricing = data.repairPricingSection;
+
   return (
     <section className="bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center font-sans">
-      <div className="max-w-6xl w-full mx-auto">
+      <div className="site-container">
         {/* Section Header */}
         <div className="text-center mb-10">
           <div className="inline-flex items-center space-x-2">
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
             <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
-              REPAIR COST
+              {data.repairPricingSection.eyebrow}
             </span>
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B132B] mt-2">
-            Clear Prices.{" "}
-            <span className="text-[#d32f2f]">Trusted Repairs.</span>
+            {pricing.title.split(pricing.titleHighlight)[0]}
+            <span className="text-[#d32f2f]">{pricing.titleHighlight}</span>
           </h2>
-          <p className="text-gray-500 text-xs sm:text-sm max-w-xl mx-auto mt-2 leading-relaxed">
-            We believe in honest pricing and quality repairs. No hidden charges,
-            no surprises – just complete peace of mind.
+          <p className="site-container text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed">
+            {pricing.description}
           </p>
         </div>
 
         {/* Top Feature Badges Row */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mb-8">
-          {features.map((feat, idx) => {
-            const Icon = feat.icon;
+          {pricing.features.map((feat, idx) => {
+            const Icon = FeatureIconMap[feat.icon] ?? CustomIcons.QualityService;
             return (
               <div
                 key={idx}
@@ -156,20 +130,27 @@ export default function RepairPricingSection() {
               {/* Table Header */}
               <thead>
                 <tr className="bg-[#0B142F] text-white text-[13px] font-bold tracking-wider uppercase">
-                  <th className="py-3.5 px-5 w-[22%]">SERVICE</th>
-                  <th className="py-3.5 px-4 w-[28%]">DESCRIPTION</th>
-                  <th className="py-3.5 px-4 text-center">APPLE</th>
-                  <th className="py-3.5 px-4 text-center">SAMSUNG</th>
-                  <th className="py-3.5 px-4 text-center">ONEPLUS</th>
-                  <th className="py-3.5 px-4 text-center">XIAOMI</th>
-                  <th className="py-3.5 px-4 text-center">REALME</th>
+                  {pricing.columns.map((col, i) => (
+                    <th
+                      key={col}
+                      className={
+                        i === 0
+                          ? "py-3.5 px-5 w-[22%]"
+                          : i === 1
+                            ? "py-3.5 px-4 w-[28%]"
+                            : "py-3.5 px-4 text-center"
+                      }
+                    >
+                      {col}
+                    </th>
+                  ))}
                 </tr>
               </thead>
 
               {/* Table Body */}
               <tbody className="divide-y divide-gray-100 text-sm">
-                {pricingData.map((row, idx) => {
-                  const RowIcon = row.icon;
+                {pricing.rows.map((row, idx) => {
+                  const RowIcon = RowIconMap[row.icon] ?? Smartphone;
                   return (
                     <tr
                       key={idx}
@@ -219,10 +200,7 @@ export default function RepairPricingSection() {
         {/* Info Note Box */}
         <div className="bg-[#edf2f9]/70 rounded-lg p-3 flex items-center justify-center space-x-2 text-sm text-gray-600 mb-6 border border-blue-50">
           <Info className="w-5 h-5 text-gray-500 shrink-0" />
-          <span>
-            Prices may vary based on device model and condition. Final cost will
-            be confirmed after diagnosis.
-          </span>
+          <span>{pricing.note}</span>
         </div>
 
         {/* Bottom Help & Booking Bar */}
@@ -234,9 +212,9 @@ export default function RepairPricingSection() {
                 <Headphones className="w-6 h-6 text-[#d32f2f]" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-gray-900">Need Help?</h4>
+                <h4 className="text-sm font-bold text-gray-900">{pricing.help.title}</h4>
                 <p className="text-xs text-gray-500 leading-tight">
-                  Our support team is here to help you choose the right repair.
+                  {pricing.help.description}
                 </p>
               </div>
             </div>
@@ -248,9 +226,9 @@ export default function RepairPricingSection() {
               </div>
               <div>
                 <h4 className="text-sm font-bold text-gray-900">
-                  +91 456 785 889
+                  {pricing.help.phone}
                 </h4>
-                <p className="text-xs text-gray-400">Call us anytime</p>
+                <p className="text-xs text-gray-400">{pricing.help.phoneHint}</p>
               </div>
             </div>
 
@@ -261,21 +239,24 @@ export default function RepairPricingSection() {
               </div>
               <div>
                 <h4 className="text-sm font-bold text-gray-900">
-                  support@fixbolt.com
+                  {pricing.help.email}
                 </h4>
                 <p className="text-xs text-gray-400">
-                  We reply within 24hrs
+                  {pricing.help.emailHint}
                 </p>
               </div>
             </div>
 
             {/* CTA Button Column */}
             <div className="md:col-span-2 flex justify-start md:justify-end">
-              <button className="w-full md:w-auto inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-5 py-2.5 rounded-xl text-sm font-bold transition shadow-sm">
+              <Link
+                href={pricing.help.ctaHref}
+                className="w-full md:w-auto inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-5 py-2.5 rounded-xl text-sm font-bold transition shadow-sm"
+              >
                 <Calendar className="w-5 h-5" />
-                <span>Book a Repair</span>
+                <span>{pricing.help.ctaLabel}</span>
                 <ArrowRight className="w-4 h-4 ml-0.5" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>

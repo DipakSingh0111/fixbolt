@@ -8,7 +8,7 @@ export default function NotFound() {
 
   return (
     <div className="min-h-screen bg-white font-sans flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl w-full mx-auto flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-24">
+      <div className="site-container flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-24">
         
         {/* Left Side: Text Content */}
         <div className="flex-1 space-y-6 max-w-lg">

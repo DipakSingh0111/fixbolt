@@ -13,16 +13,16 @@ import {
   ChevronRight
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import data from "@/data/data.json";
 
-const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800", alt: "Logic Board Precision Repair" },
-  { src: "https://images.unsplash.com/photo-1621252179027-94459d278660?auto=format&fit=crop&q=80&w=600", alt: "Battery Replacement" },
-  { src: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80&w=600", alt: "Micro Soldering" },
-  { src: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600", alt: "Chip Diagnostics" },
-  { src: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600", alt: "Water Damage Repair" },
-  { src: "https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&q=80&w=600", alt: "Internal Parts Replacement" },
-  { src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600", alt: "Motherboard Repair" }
-];
+const { images: galleryImages, stats, banner } = data.gallerySection;
+
+const StatIconMap: Record<string, React.ElementType> = {
+  smartphone: Smartphone,
+  users: Users,
+  award: Award,
+  shieldCheck: ShieldCheck
+};
 
 export default function GallerySection() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -43,22 +43,22 @@ export default function GallerySection() {
 
   return (
     <section className="bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center font-sans">
-      <div className="max-w-6xl w-full mx-auto relative">
+      <div className="site-container relative">
         {/* Section Header */}
         <div className="text-center mb-10">
           <div className="inline-flex items-center space-x-2">
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
             <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
-              OUR GALLERY
+              {data.gallerySection.eyebrow}
             </span>
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-2">
-            Precision in <span className="text-[#d32f2f]">Every Repair</span>
+            {data.gallerySection.title.split(data.gallerySection.titleHighlight)[0]}
+            <span className="text-[#d32f2f]">{data.gallerySection.titleHighlight}</span>
           </h2>
-          <p className="text-gray-500 text-xs sm:text-sm max-w-xl mx-auto mt-2 leading-relaxed">
-            Explore some of the devices we've repaired with care, expertise, and
-            high-quality parts.
+          <p className="site-container text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed">
+            {data.gallerySection.description}
           </p>
         </div>
 
@@ -145,67 +145,27 @@ export default function GallerySection() {
         {/* Stats & Trust Highlights Bar */}
         <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm mb-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
-            {/* Stat 1 */}
-            <div className="flex items-center space-x-4 pt-4 sm:pt-0 sm:px-4 first:pt-0 first:px-0">
-              <div className="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center shrink-0">
-                <Smartphone className="w-5 h-5 text-[#d32f2f]" />
-              </div>
-              <div>
-                <h3 className="text-base font-extrabold text-gray-900 leading-tight">
-                  1000+
-                </h3>
-                <p className="text-xs font-bold text-gray-700">
-                  Devices Repaired
-                </p>
-                <p className="text-[11px] text-gray-400">Succesfully Fixed</p>
-              </div>
-            </div>
-
-            {/* Stat 2 */}
-            <div className="flex items-center space-x-4 pt-4 sm:pt-0 sm:px-4">
-              <div className="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center shrink-0">
-                <Users className="w-5 h-5 text-[#d32f2f]" />
-              </div>
-              <div>
-                <h3 className="text-base font-extrabold text-gray-900 leading-tight">
-                  500+
-                </h3>
-                <p className="text-xs font-bold text-gray-700">
-                  Happy Customers
-                </p>
-                <p className="text-[11px] text-gray-400">Trust Our Service</p>
-              </div>
-            </div>
-
-            {/* Stat 3 */}
-            <div className="flex items-center space-x-4 pt-4 sm:pt-0 sm:px-4">
-              <div className="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center shrink-0">
-                <Award className="w-5 h-5 text-[#d32f2f]" />
-              </div>
-              <div>
-                <h3 className="text-xs font-bold text-gray-900 leading-tight">
-                  Premium Parts
-                </h3>
-                <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">
-                  We use High Quality Genuine Components
-                </p>
-              </div>
-            </div>
-
-            {/* Stat 4 */}
-            <div className="flex items-center space-x-4 pt-4 sm:pt-0 sm:px-4">
-              <div className="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-5 h-5 text-[#d32f2f]" />
-              </div>
-              <div>
-                <h3 className="text-xs font-bold text-gray-900 leading-tight">
-                  Reliable Service
-                </h3>
-                <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">
-                  Fast Turnaround & Work with Warranty
-                </p>
-              </div>
-            </div>
+            {stats.map((stat, index) => {
+              const Icon = StatIconMap[stat.icon] || ShieldCheck;
+              return (
+                <div key={index} className="flex items-center space-x-4 pt-4 sm:pt-0 sm:px-4 first:pt-0 first:px-0">
+                  <div className="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center shrink-0">
+                    <Icon className="w-5 h-5 text-[#d32f2f]" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-extrabold text-gray-900 leading-tight">
+                      {stat.title}
+                    </h3>
+                    {stat.subtitle && (
+                      <p className="text-xs font-bold text-gray-700">
+                        {stat.subtitle}
+                      </p>
+                    )}
+                    <p className="text-[11px] text-gray-400 mt-0.5 leading-tight">{stat.description}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -217,16 +177,16 @@ export default function GallerySection() {
             </div>
             <div>
               <h4 className="text-sm font-bold text-gray-900">
-                Need a Repair?
+                {banner.title}
               </h4>
               <p className="text-xs text-gray-500 mt-0.5">
-                Professional care for your devices. Book your repair today!
+                {banner.description}
               </p>
             </div>
           </div>
 
           <button className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-6 py-2.5 rounded-xl text-xs font-bold transition shadow-sm">
-            <span>Book a Repair</span>
+            <span>{banner.buttonText}</span>
             <ArrowRight className="w-4 h-4 ml-1" />
           </button>
         </div>

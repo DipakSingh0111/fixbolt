@@ -1,10 +1,11 @@
+import data from "@/data/data.json";
 import PageBanner from "../common/PageBanner";
-import ContactSection from "../components/ContactSection";
+import ContactSection from "../common/ContactSection";
 
 export default function ContactPage() {
   return (
     <div>
-      <PageBanner title="Contact Us" />
+      <PageBanner title={data.pages.contact.bannerTitle} />
       <ContactSection />
     </div>
   );

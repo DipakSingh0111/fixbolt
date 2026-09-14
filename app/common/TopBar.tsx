@@ -108,6 +108,8 @@ export default function TopBar() {
             <a
               key={social.id}
               href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={social.label}
               className="grid size-6 place-items-center rounded border border-white/40 transition-colors hover:border-white hover:bg-white/20"
             >

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import data from "@/data/data.json";
 import TopBar from "./common/TopBar";
 import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
@@ -13,9 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "FixBolt - Mobile Repair Experts",
-  description:
-    "Professional mobile device repair services. Book your repair today at FixBolt — fast, reliable, and affordable.",
+  title: data.site.metaTitle,
+  description: data.site.metaDescription,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
