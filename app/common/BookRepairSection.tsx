@@ -11,7 +11,7 @@ import {
   PhoneCall,
 } from "lucide-react";
 
-import data from "@/data/data.json";
+import { site, SectionProps, BookRepairData } from "@/data";
 
 const whyBookIcons: Record<string, React.ElementType> = {
   shieldCheck: ShieldCheck,
@@ -20,9 +20,9 @@ const whyBookIcons: Record<string, React.ElementType> = {
   dollarSign: DollarSign,
 };
 
-export default function BookRepairSection() {
-  const { bookRepairSection } = data;
-  const { form, quickBooking, whyBook, footerHelp, titleHighlight } = bookRepairSection;
+export default function BookRepairSection({ data, className }: SectionProps<BookRepairData> = {}) {
+  const content = data || site.bookRepair;
+  const { form, quickBooking, whyBook, footerHelp, titleHighlight } = content;
   const inputClass =
     "w-full px-4 py-2.5 text-xs text-gray-700 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#d32f2f] focus:border-[#d32f2f] placeholder-gray-400 transition";
 
@@ -35,17 +35,17 @@ export default function BookRepairSection() {
             <div>
               <div className="mb-2">
                 <span className="text-xs font-bold text-[#d32f2f] uppercase tracking-wider">
-                  {bookRepairSection.eyebrow}
+                  {content.eyebrow}
                 </span>
                 <div className="w-6 h-[2px] bg-[#d32f2f] mt-1"></div>
               </div>
 
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mb-2">
-                {bookRepairSection.title.split(titleHighlight)[0]}
+                {content.title.split(titleHighlight)[0]}
                 <span className="text-[#d32f2f]">{titleHighlight}</span>
               </h2>
               <p className="text-xs sm:text-sm text-gray-500 mb-8 leading-relaxed">
-                {bookRepairSection.description}
+                {content.description}
               </p>
 
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>

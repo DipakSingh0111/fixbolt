@@ -3,9 +3,8 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
-import data from "@/data/data.json";
+import { site, SectionProps, WhyChooseUsData } from "@/data";
 
-const { eyebrow, title, description, image, features } = data.whyChooseUs;
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -97,100 +96,12 @@ const FeatureIcon: Record<string, ReactNode> = {
   shieldCheck: <ShieldIcon />,
 };
 
-function FeatureCard() {
+export default function WhyChooseUs({ data, className }: SectionProps<WhyChooseUsData> = {}) {
+  const content = data || site.whyChooseUs;
+  const { tagline, eyebrow, title, description, image, features } = content;
+  const sectionEyebrow = eyebrow || tagline;
   return (
-    <div className="rounded-[20px] bg-white p-4 shadow-[0_16px_48px_rgba(15,15,15,0.08)] sm:p-5">
-      <ul className="grid grid-cols-1 sm:grid-cols-2">
-        {features.map((feature, index) => (
-          <li
-            key={feature.id}
-            className={`flex items-start gap-3 py-4 ${
-              index === 0
-                ? "sm:border-r sm:border-b sm:border-[#ececec] sm:pr-5 sm:pb-5 sm:pt-0"
-                : index === 1
-                  ? "sm:border-b sm:border-[#ececec] sm:pb-5 sm:pl-5 sm:pt-0"
-                  : index === 2
-                    ? "sm:border-r sm:border-[#ececec] sm:pr-5 sm:pt-5 sm:pb-0"
-                    : "sm:pl-5 sm:pt-5 sm:pb-0"
-            }`}
-          >
-            <span className="grid size-11 shrink-0 place-items-center rounded-full border border-brand-red text-brand-red [&_svg]:h-5 [&_svg]:w-5">
-              {FeatureIcon[feature.icon]}
-            </span>
-            <div className="min-w-0 pt-0.5">
-              <div className="mb-1.5 flex items-center gap-2">
-                <h3 className="text-[14px] font-bold text-[#111]">
-                  {feature.title}
-                </h3>
-                <span
-                  className="h-[2px] w-5 shrink-0 bg-brand-red"
-                  aria-hidden="true"
-                />
-              </div>
-              <p className="text-[12px] leading-[1.6] text-neutral-500">
-                {feature.description}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function CopyBlock() {
-  return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
-      variants={staggerContainer}
-    >
-      <motion.div variants={fadeInUp} className="mb-3 flex items-center gap-3">
-        <p className="text-[12px] font-bold tracking-[0.14em] text-brand-red uppercase">
-          {eyebrow}
-        </p>
-        <span className="h-[2px] w-7 bg-brand-red" aria-hidden="true" />
-      </motion.div>
-
-      <motion.h2
-        variants={fadeInUp}
-        className="text-[28px] leading-[1.15] font-extrabold tracking-tight text-[#111] md:text-[36px] xl:text-[40px]"
-      >
-        {title.map((part, i) => (
-          <span
-            key={`${part.text}-${i}`}
-            className={part.accent ? "text-brand-red" : undefined}
-          >
-            {part.text}
-            {!part.accent && i === 0 ? <br /> : null}
-          </span>
-        ))}
-      </motion.h2>
-
-      <motion.span
-        variants={fadeInUp}
-        className="mt-3 mb-4 block h-[3px] w-9 bg-brand-red"
-        aria-hidden="true"
-      />
-
-      <motion.p
-        variants={fadeInUp}
-        className="mb-6 max-w-[420px] text-[14px] leading-relaxed text-neutral-500"
-      >
-        {description}
-      </motion.p>
-
-      <motion.div variants={fadeInUp}>
-        <FeatureCard />
-      </motion.div>
-    </motion.div>
-  );
-}
-
-export default function WhyChooseUs() {
-  return (
-    <section className="relative w-full overflow-hidden bg-[#f7f8fa] pt-10 lg:pt-16 pb-12 lg:pb-16">
+    <section className={`relative w-full overflow-hidden bg-[#f7f8fa] pt-10 lg:pt-16 pb-12 lg:pb-16 ${className || ""}`}>
       {/* Background Dot Patterns */}
       <div className="absolute top-4 left-[45%] hidden lg:grid grid-cols-6 gap-1.5 opacity-20 pointer-events-none z-0">
         {Array.from({ length: 24 }).map((_, i) => (
@@ -233,7 +144,7 @@ export default function WhyChooseUs() {
                 className="mb-3 flex items-center gap-2"
               >
                 <p className="text-[12px] font-bold tracking-[0.14em] text-[#d31c24] uppercase">
-                  {eyebrow}
+                  {sectionEyebrow}
                 </p>
                 <span className="h-[2px] w-6 bg-[#d31c24]" />
               </motion.div>

@@ -17,10 +17,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-import data from "@/data/data.json";
-
-const { contactCards, whyContact, map, bookRepairCard, form } =
-  data.contactSection;
+import { site, SectionProps, ContactData } from "@/data";
 
 const CardIconMap: Record<string, React.ElementType> = {
   phone: Phone,
@@ -36,25 +33,28 @@ const FeatureIconMap: Record<string, React.ElementType> = {
   headphones: Headphones,
 };
 
-export default function ContactSection() {
+export default function ContactSection({ data, className }: SectionProps<ContactData> = {}) {
+  const content = data || site.contact;
+  const { contactCards, whyContact, map, bookRepairCard, form } = content;
+
   return (
-    <section className="bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen font-sans">
+    <section className={`bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen font-sans ${className || ""}`}>
       <div className="site-container">
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center space-x-3">
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
             <span className="text-xs font-bold tracking-wider text-[#e51d25] uppercase">
-              {data.contactSection.eyebrow}
+              {content.eyebrow}
             </span>
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-3">
-            {data.contactSection.title.split("Help")[0]}
+            {content.title.split("Help")[0]}
             <span className="text-[#e51d25]">Help</span>
           </h2>
           <p className="site-container text-gray-500 text-sm mt-4 leading-relaxed">
-            {data.contactSection.description}
+            {content.description}
           </p>
         </div>
 

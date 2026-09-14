@@ -3,7 +3,7 @@
 import { Settings, Laptop, Send, Cpu, PackageCheck } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import data from "@/data/data.json";
+import { site, SectionProps, WorkProcessData } from "@/data";
 
 const IconMap: Record<string, LucideIcon> = {
   laptop: Laptop,
@@ -12,7 +12,6 @@ const IconMap: Record<string, LucideIcon> = {
   packageCheck: PackageCheck,
 };
 
-const { eyebrow, title, description, bgImage, steps: processSteps } = data.workProcess;
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -28,7 +27,9 @@ const staggerContainer = {
 };
 
 
-export default function WorkProcessSection() {
+export default function WorkProcessSection({ data, className }: SectionProps<WorkProcessData> = {}) {
+  const content = data || site.workProcess;
+  const { eyebrow, title, description, bgImage, steps: processSteps } = content;
   return (
     <section className="relative w-full bg-gradient-to-r from-[#800000] via-[#a30000] to-[#520000] text-white py-10 md:py-20 px-5 lg:px-8 overflow-hidden">
       {/* Background Technology Circuit Overlay Pattern */}

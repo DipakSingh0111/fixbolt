@@ -2,7 +2,9 @@ import React from "react";
 import Link from "next/link";
 import { Briefcase, MapPin, ArrowRight } from "lucide-react";
 
-export default function OpenPositions({ openPositions }: { openPositions: any }) {
+import { CareerData } from "@/data";
+
+export default function OpenPositions({ openPositions }: { openPositions: CareerData['openPositions'] }) {
   return (
     <section className="site-container mb-10 md:mb-20">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">

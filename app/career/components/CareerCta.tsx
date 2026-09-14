@@ -2,8 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Send, ArrowRight } from "lucide-react";
+import { CareerData } from "@/data";
 
-export default function CareerCta({ bottomCta }: { bottomCta: any }) {
+export default function CareerCta({ bottomCta }: { bottomCta: CareerData['bottomCta'] }) {
   return (
     <section className="site-container mb-10 md:mb-20">
       <div className="grid items-center gap-8 rounded-2xl bg-[#0a0a0a] px-6 py-8 sm:px-8 md:grid-cols-2 md:px-10 md:py-9 lg:px-12">

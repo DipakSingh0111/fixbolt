@@ -4,9 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { type ReactNode } from "react";
 import { motion } from "framer-motion";
-import data from "@/data/data.json";
+import { site, SectionProps, AboutData } from "@/data";
 
-const about = data.about;
 
 function AwardIcon() {
   return (
@@ -84,7 +83,7 @@ const FeatureIcon: Record<string, ReactNode> = {
   handshake: <HandshakeIcon />,
 };
 
-type AboutSectionProps = {
+type AboutSectionProps = SectionProps<AboutData> & {
   showCta?: boolean;
 };
 
@@ -105,9 +104,12 @@ const staggerContainer = {
   },
 };
 
-export default function AboutSection({ showCta = false }: AboutSectionProps) {
+export default function AboutSection({ showCta = false, data, className }: AboutSectionProps) {
+  const content = data || site.about;
+  const { eyebrow, title, description, features, image, cta } = content;
+
   return (
-    <section className="relative overflow-hidden bg-white py-10 md:py-16 lg:py-24 font-sans">
+    <section className={`relative overflow-hidden bg-white py-10 md:py-16 lg:py-24 font-sans ${className || ""}`}>
       {/* Full-bleed red panel behind the photo — slanted right edge */}
       <div
         aria-hidden="true"
@@ -142,8 +144,8 @@ export default function AboutSection({ showCta = false }: AboutSectionProps) {
           className="relative z-[1] pt-4 md:pt-6"
         >
           <Image
-            src={about.image.src}
-            alt={about.image.alt}
+            src={image.src}
+            alt={image.alt}
             width={720}
             height={700}
             className="relative z-[1] h-[450px] w-full rounded-[28px] object-cover object-[72%_center] shadow-[0_18px_40px_rgba(0,0,0,0.18)] md:h-[600px] lg:h-[700px]"
@@ -160,7 +162,7 @@ export default function AboutSection({ showCta = false }: AboutSectionProps) {
             variants={fadeInUp}
             className="text-[13px] md:text-[14px] font-bold tracking-[0.05em] text-brand-red uppercase mb-1.5"
           >
-            {about.eyebrow}
+            {eyebrow}
           </motion.p>
           <motion.span
             variants={fadeInUp}
@@ -172,7 +174,7 @@ export default function AboutSection({ showCta = false }: AboutSectionProps) {
             variants={fadeInUp}
             className="text-[34px] leading-[1.1] font-extrabold text-[#111] md:text-[46px] lg:text-[48px] tracking-tight mb-5"
           >
-            {about.title.map((part) => (
+            {title.map((part) => (
               <span
                 key={part.text}
                 className={part.accent ? "text-brand-red" : undefined}
@@ -186,14 +188,14 @@ export default function AboutSection({ showCta = false }: AboutSectionProps) {
             variants={fadeInUp}
             className="mt-6 max-w-[540px] text-[15px] leading-relaxed text-neutral-500 md:text-[17px]"
           >
-            {about.description}
+            {description}
           </motion.p>
 
           <motion.ul
             variants={staggerContainer}
             className="mt-10 grid grid-cols-1 gap-x-8 gap-y-9 sm:grid-cols-2"
           >
-            {about.features.map((feature) => (
+            {features.map((feature) => (
               <motion.li
                 variants={fadeInUp}
                 key={feature.id}
@@ -217,10 +219,10 @@ export default function AboutSection({ showCta = false }: AboutSectionProps) {
           {showCta ? (
             <motion.div variants={fadeInUp}>
               <Link
-                href={about.cta.href}
+                href={cta.href}
                 className="mt-10 group inline-flex h-14 items-center gap-3 rounded-lg bg-brand-red pr-3 pl-7 text-[14px] font-bold tracking-wide text-white uppercase transition-colors hover:bg-brand-red-dark"
               >
-                {about.cta.label}
+                {cta.label}
                 <span className="grid size-9 place-items-center rounded-md text-white transition-transform duration-200 group-hover:translate-x-1">
                   <svg
                     viewBox="0 0 24 24"

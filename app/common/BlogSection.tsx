@@ -2,10 +2,9 @@
 
 import { Edit3, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import data from "@/data/data.json";
+import { site, SectionProps, BlogData } from "@/data";
 import Link from "next/link";
 
-const { eyebrow, title, description, posts: blogPosts } = data.blog;
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -20,7 +19,15 @@ const staggerContainer = {
   },
 };
 
-export default function BlogSection({ category, limit }: { category?: string; limit?: number }) {
+type BlogSectionProps = SectionProps<BlogData> & {
+  category?: string;
+  limit?: number;
+};
+
+export default function BlogSection({ category, limit, data, className }: BlogSectionProps) {
+  const content = data || site.blog;
+  const { eyebrow, title, description, posts: blogPosts = [] } = content;
+
   let filteredPosts = category 
     ? blogPosts.filter(post => post.category.toLowerCase() === category.toLowerCase())
     : blogPosts;
@@ -90,7 +97,7 @@ export default function BlogSection({ category, limit }: { category?: string; li
           </div>
         ) : (
           <motion.div variants={fadeInUp} className="site-container relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-            {filteredPosts.map((post) => (
+            {filteredPosts.map((post: any) => (
             <motion.div
               variants={fadeInUp}
               key={post.id}

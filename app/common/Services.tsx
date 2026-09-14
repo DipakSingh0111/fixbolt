@@ -2,12 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Settings } from "lucide-react";
-import data from "@/data/data.json";
+import { site, SectionProps, ServicesData } from "@/data";
 import { CustomServiceIcons } from "./ServiceIcons";
 
-const services = data.services.items;
 
-export default function ServicesSection() {
+export default function ServicesSection({ data, className }: SectionProps<ServicesData> = {}) {
+  const content = data || site.services;
+  const services = content.items;
   return (
     <section className="relative bg-[#fbfbfb] py-10 md:py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Subtle Grid Dot Background Pattern (Top Left & Top Right) */}
@@ -31,16 +32,16 @@ export default function ServicesSection() {
         <div className="text-center mb-8 md:mb-12">
           <div className="inline-block relative">
             <span className="text-xs font-bold tracking-wider text-[#d32f2f] uppercase">
-              {data.services.eyebrow}
+              {content.eyebrow}
             </span>
             <div className="w-8 h-[2px] bg-[#d32f2f] mx-auto mt-1"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-3">
-            {data.services.title.split(data.services.titleHighlight)[0]}
-            <span className="text-[#d32f2f]">{data.services.titleHighlight}</span>
+            {content.title.split(content.titleHighlight)[0]}
+            <span className="text-[#d32f2f]">{content.titleHighlight}</span>
           </h2>
           <p className="site-container text-gray-500 text-sm mt-2 leading-relaxed">
-            {data.services.description}
+            {content.description}
           </p>
         </div>
 

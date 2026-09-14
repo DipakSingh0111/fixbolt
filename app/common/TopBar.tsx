@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
-import data from "@/data/data.json";
+import { site, SectionProps, TopbarData } from "@/data";
 
-const { phone, email, address, socials } = data.topbar;
 
 // ── Contact icons ────────────────────────────────────────────
 function PhoneIcon() {
@@ -71,7 +70,9 @@ const itemClass =
 const dividerClass = "h-[15px] w-px shrink-0 bg-white/40";
 
 // ── Top Bar ──────────────────────────────────────────────────
-export default function TopBar() {
+export default function TopBar({ data, className }: SectionProps<TopbarData> = {}) {
+  const content = data || site.topbar;
+  const { phone, email, address, socialLinks } = content;
   return (
     <div className="w-full bg-brand-red text-white">
       <div className="site-container flex min-h-10 items-center gap-[22px]">
@@ -104,16 +105,16 @@ export default function TopBar() {
 
         {/* Socials */}
         <div className="ml-auto flex shrink-0 items-center gap-1.5">
-          {socials.map((social) => (
+          {socialLinks.map((social: any) => (
             <a
-              key={social.id}
+              key={social.platform}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.label}
               className="grid size-6 place-items-center rounded border border-white/40 transition-colors hover:border-white hover:bg-white/20"
             >
-              {SocialIcon[social.id]}
+              {SocialIcon[social.platform]}
             </a>
           ))}
         </div>

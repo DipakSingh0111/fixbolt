@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
-import data from "@/data/data.json";
+import { site, SectionProps, PageBannerData } from "@/data";
 
 type BreadcrumbItem = {
   label: string;
   href?: string;
 };
 
-type PageBannerProps = {
+type PageBannerProps = SectionProps<PageBannerData> & {
   title: string;
   breadcrumbs?: BreadcrumbItem[];
   bgImage?: string;
@@ -17,10 +17,17 @@ type PageBannerProps = {
 export default function PageBanner({
   title,
   breadcrumbs,
-  bgImage = data.pageBanner.bgImage,
+  bgImage,
+  data,
+  className
 }: PageBannerProps) {
+  const content = data || site.pageBanner;
+  
+  const finalBgImage =
+    bgImage || content.backgroundImage || "/images/page_banner.jpg";
+
   const defaultBreadcrumbs: BreadcrumbItem[] = [
-    { label: data.pageBanner.homeLabel, href: "/" },
+    { label: content.homeLabel, href: "/" },
     { label: title },
   ];
 
@@ -29,13 +36,15 @@ export default function PageBanner({
   return (
     <div className="relative flex min-h-[200px] md:min-h-[300px] items-center justify-center overflow-hidden bg-gray-900 py-12 md:py-20 lg:min-h-[360px]">
       {/* Background Image */}
-      <Image
-        src={bgImage}
-        alt={title}
-        fill
-        priority
-        className="object-cover object-center"
-      />
+      {finalBgImage && (
+        <Image
+          src={finalBgImage}
+          alt={title}
+          fill
+          priority
+          className="object-cover object-center"
+        />
+      )}
       <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
 
       {/* Content */}

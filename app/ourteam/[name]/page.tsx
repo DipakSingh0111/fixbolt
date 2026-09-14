@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, MapPin, CalendarDays, Award, Smartphone, Users, ShieldCheck, PhoneCall } from "lucide-react";
-import data from "@/data/data.json";
+import { site } from "@/data";
 import PageBanner from "@/app/common/PageBanner";
 
 const iconMap: Record<string, any> = {
@@ -20,23 +20,32 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
   const resolvedParams = await params;
   
   // Find member by comparing hyphenated names (e.g. "rahul-verma" === "rahul-verma")
-  const member = data.team.members.find(
-    (m) => m.name.toLowerCase().replace(/\s+/g, '-') === resolvedParams.name
+  const member = site.team.members.find(
+    (m: any) => m.name.toLowerCase().replace(/\s+/g, '-') === resolvedParams.name
   );
 
   if (!member) {
     notFound();
   }
 
-  const { ctaBanner } = data.teamDetail;
+  const { ctaBanner, shared } = site.teamDetail;
+  
+  const stats = shared.stats;
+  const skills = shared.skills;
+  const contact = {
+    email: `${member.name.split(" ")[0].toLowerCase()}@fixbolt.com`,
+    phone: "+1 (555) 123-4567",
+    location: "New York, USA",
+    experience: "5+ Years"
+  };
 
   return (
     <>
       <PageBanner
         title={member.name}
         breadcrumbs={[
-          { label: data.pageBanner.homeLabel, href: "/" },
-          { label: data.pages.ourTeam.bannerTitle, href: "/ourteam" },
+          { label: site.pageBanner.homeLabel, href: "/" },
+          { label: site.pages['our-team'].bannerTitle, href: "/ourteam" },
           { label: member.name }
         ]}
       />
@@ -60,13 +69,13 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
 
               {/* Black Stats Ribbon */}
               <div className="bg-[#161616] rounded-b-3xl py-6 px-4 flex justify-between shadow-2xl relative z-10 -mt-2">
-                {member.stats.map((stat, i) => {
+                {stats.map((stat: any, i: number) => {
                   const StatIcon = iconMap[stat.icon] || Award;
                   return (
                     <div 
                       key={i} 
                       className={`flex flex-1 flex-col sm:flex-row items-center gap-2 md:gap-3 text-center sm:text-left px-2 sm:px-4 ${
-                        i !== member.stats.length - 1 ? "border-r border-white/10" : ""
+                        i !== stats.length - 1 ? "border-r border-white/10" : ""
                       }`}
                     >
                       <StatIcon className="w-8 h-8 text-white/80 shrink-0" strokeWidth={1.5} />
@@ -112,7 +121,7 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
                     </div>
                     <div className="pt-1">
                       <h4 className="text-[15px] font-bold text-[#111] leading-tight mb-1">Email</h4>
-                      <p className="text-sm text-neutral-500">{member.contact.email}</p>
+                      <p className="text-sm text-neutral-500">{contact.email}</p>
                     </div>
                   </div>
                   
@@ -123,7 +132,7 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
                     </div>
                     <div className="pt-1">
                       <h4 className="text-[15px] font-bold text-[#111] leading-tight mb-1">Phone</h4>
-                      <p className="text-sm text-neutral-500">{member.contact.phone}</p>
+                      <p className="text-sm text-neutral-500">{contact.phone}</p>
                     </div>
                   </div>
 
@@ -134,7 +143,7 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
                     </div>
                     <div className="pt-1">
                       <h4 className="text-[15px] font-bold text-[#111] leading-tight mb-1">Location</h4>
-                      <p className="text-sm text-neutral-500">{member.contact.location}</p>
+                      <p className="text-sm text-neutral-500">{contact.location}</p>
                     </div>
                   </div>
 
@@ -145,7 +154,7 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
                     </div>
                     <div className="pt-1">
                       <h4 className="text-[15px] font-bold text-[#111] leading-tight mb-1">Experience</h4>
-                      <p className="text-sm text-neutral-500">{member.contact.experience}</p>
+                      <p className="text-sm text-neutral-500">{contact.experience}</p>
                     </div>
                   </div>
                 </div>
@@ -154,7 +163,7 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
                 <div>
                   <h3 className="text-xl font-bold text-[#111] mb-6 tracking-tight">Skills & Expertise</h3>
                   <div className="flex flex-col gap-5">
-                    {member.skills.map((skill, index) => (
+                    {skills.map((skill: any, index: number) => (
                       <div key={index}>
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-[13px] font-bold text-[#222]">{skill.name}</span>

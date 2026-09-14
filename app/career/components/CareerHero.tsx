@@ -1,13 +1,15 @@
 import React from "react";
 import { Users, TrendingUp, ShieldCheck } from "lucide-react";
 
+import { CareerData } from "@/data";
+
 const iconMap: Record<string, React.ElementType> = {
   Users,
   TrendingUp,
   ShieldCheck,
 };
 
-export default function CareerHero({ buildFuture }: { buildFuture: any }) {
+export default function CareerHero({ buildFuture }: { buildFuture: CareerData['buildFuture'] }) {
   return (
     <section className="relative flex flex-col lg:flex-row items-stretch w-full overflow-hidden bg-white min-h-[500px]">
       {/* Left Content */}

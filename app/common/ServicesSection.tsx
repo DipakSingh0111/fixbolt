@@ -4,10 +4,9 @@ import Link from "next/link";
 import { ArrowRight, Settings } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { motion, Variants } from "framer-motion";
-import data from "@/data/data.json";
+import { site, SectionProps, ServicesData } from "@/data";
 import { CustomServiceIcons } from "./ServiceIcons";
 
-const { eyebrow, title, description, items: services } = data.services;
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -22,7 +21,14 @@ const staggerContainer = {
   },
 };
 
-export default function ServicesSection({ limit }: { limit?: number }) {
+type ServicesSectionProps = SectionProps<ServicesData> & {
+  limit?: number;
+};
+
+export default function ServicesSection({ limit, data, className }: ServicesSectionProps) {
+  const content = data || site.services;
+  const { eyebrow, title, description, bgPattern, items: services } = content;
+
   const displayServices = limit ? services.slice(0, limit) : services;
   
   return (
@@ -67,8 +73,8 @@ export default function ServicesSection({ limit }: { limit?: number }) {
             variants={fadeInUp}
             className="text-3xl md:text-5xl font-extrabold text-black mb-4"
           >
-            {title.split(data.services.titleHighlight)[0]}
-            <span className="text-red-600">{data.services.titleHighlight}</span>
+            {title.split(content.titleHighlight)[0]}
+            <span className="text-red-600">{content.titleHighlight}</span>
           </motion.h2>
 
           <motion.p

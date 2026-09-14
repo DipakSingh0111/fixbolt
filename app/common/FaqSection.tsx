@@ -13,9 +13,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import data from "@/data/data.json";
+import { site, SectionProps, FAQData } from "@/data";
 
-const { faqs, features, support, titleHighlight } = data.faqSection;
 
 const FeatureIconMap: Record<string, React.ElementType> = {
   shieldCheck: ShieldCheck,
@@ -25,7 +24,9 @@ const FeatureIconMap: Record<string, React.ElementType> = {
   headphones: Headphones
 };
 
-export default function FaqSection() {
+export default function FaqSection({ data, className }: SectionProps<FAQData> = {}) {
+  const content = data || site.faq;
+  const { items: faqs, features, support, titleHighlight } = content;
   // Set the first item (index 0) open by default to match screenshot
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -41,16 +42,16 @@ export default function FaqSection() {
           <div className="inline-flex items-center space-x-2">
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
             <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
-              {data.faqSection.eyebrow}
+              {content.eyebrow}
             </span>
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-2">
-            {data.faqSection.title.split(titleHighlight)[0]}
+            {content.title.split(titleHighlight)[0]}
             <span className="text-[#d32f2f]">{titleHighlight}</span>
           </h2>
           <p className="site-container text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed">
-            {data.faqSection.description}
+            {content.description}
           </p>
         </div>
 

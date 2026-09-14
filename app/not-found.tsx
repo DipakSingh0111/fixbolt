@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import data from '@/data/data.json';
+import { site } from '@/data';
 import { ArrowRight } from 'lucide-react';
 
 export default function NotFound() {
-  const { notFound } = data;
+  const notFound = site.notFound;
 
   return (
     <div className="min-h-screen bg-white font-sans flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">

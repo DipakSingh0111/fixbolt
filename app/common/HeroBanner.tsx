@@ -9,9 +9,8 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import data from "@/data/data.json";
+import { site, SectionProps, HeroData } from "@/data";
 
-const heroData = data.hero;
 
 function ShieldIcon() {
   return (
@@ -64,7 +63,9 @@ function ArrowRight() {
 
 const SWIPE_THRESHOLD = 45;
 
-export default function HeroBanner() {
+export default function HeroBanner({ data, className }: SectionProps<HeroData> = {}) {
+  const content = data || site.hero;
+  const heroData = content;
   const { slides, features, autoplayMs } = heroData;
   const count = slides.length;
 

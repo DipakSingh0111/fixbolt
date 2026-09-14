@@ -1,11 +1,11 @@
-import data from "@/data/data.json";
+import { site } from "@/data";
 import PageBanner from "../common/PageBanner";
 import GallerySection from "../common/GallerySection";
 
 export default function GalleryPage() {
   return (
     <div>
-      <PageBanner title={data.pages.gallery.bannerTitle} />
+      <PageBanner title={site.pages.gallery.bannerTitle} />
       <GallerySection />
     </div>
   );

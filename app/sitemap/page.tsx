@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import data from '@/data/data.json';
+import { site } from "@/data";
 import { ChevronRight } from 'lucide-react';
 
 export default function SitemapPage() {
-  const { sitemapPage } = data;
-  const { hero, groups } = sitemapPage;
+  const { hero, categories } = site.sitemap;
+  const sitemapGroups = categories ?? [];
 
   return (
     <div className="font-sans min-h-screen bg-[#fafafa]">
@@ -28,7 +28,7 @@ export default function SitemapPage() {
       {/* Sitemap Grid */}
       <section className="site-container py-16 sm:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {groups.map((group) => (
+          {sitemapGroups.map((group) => (
             <div 
               key={group.id} 
               className="bg-white rounded-3xl p-8 border border-gray-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-lg transition-shadow"
@@ -39,7 +39,7 @@ export default function SitemapPage() {
               </h3>
               
               <ul className="space-y-4">
-                {group.links.map((link, idx) => (
+                {group.links.map((link: any, idx: number) => (
                   <li key={idx}>
                     <Link 
                       href={link.href}

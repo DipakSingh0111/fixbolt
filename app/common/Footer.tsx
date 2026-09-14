@@ -1,9 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
-import data from "@/data/data.json";
-
-const footerData = data.footer;
+import { site, SectionProps, FooterData } from "@/data";
 
 const SocialIcon: Record<string, ReactNode> = {
   twitter: (
@@ -64,9 +62,10 @@ function ClockIcon() {
   );
 }
 
-export default function Footer() {
-  const { logo, tagline, quickLinks, expertise, contact, copyright } = footerData;
-  const topbarSocials = data.topbar.socials; // Use the same socials array as TopBar
+export default function Footer({ data, className }: SectionProps<FooterData> = {}) {
+  const content = data || site.footer;
+  const { logo, tagline, quickLinks, expertise, contact, copyright } = content;
+  const topbarSocials = site.topbar.socialLinks; // Use the same socials array as TopBar
 
   return (
     <footer className="footer">
@@ -167,9 +166,9 @@ export default function Footer() {
             . {copyright.text}
           </p>
           <div className="footer-bottom-socials">
-            {topbarSocials.map((s) => (
-              <a key={s.id} href={s.href} target="_blank" rel="noopener noreferrer" className="footer-bottom-social-icon" aria-label={s.label}>
-                {SocialIcon[s.id]}
+            {topbarSocials.map((s: any, index: number) => (
+              <a key={index} href={s.href} target="_blank" rel="noopener noreferrer" className="footer-bottom-social-icon" aria-label={s.label}>
+                {SocialIcon[s.platform]}
               </a>
             ))}
           </div>

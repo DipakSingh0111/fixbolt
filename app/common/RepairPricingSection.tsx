@@ -12,12 +12,12 @@ import {
   Cpu,
   Info,
   Headphones,
-  PhoneCall,
+  Phone,
   Mail,
   Calendar,
   ArrowRight,
 } from "lucide-react";
-import data from "@/data/data.json";
+import { site, SectionProps, PricingData } from "@/data";
 
 const CustomIcons = {
   QualityService: (props: any) => (
@@ -78,18 +78,19 @@ const RowIconMap: Record<string, React.ElementType> = {
   cpu: Cpu,
 };
 
-export default function RepairPricingSection() {
-  const pricing = data.repairPricingSection;
+export default function RepairPricingSection({ data, className }: SectionProps<PricingData> = {}) {
+  const content = data || site.pricing;
+  const pricing = content;
 
   return (
-    <section className="bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center font-sans">
+    <section className={`bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center font-sans ${className || ""}`}>
       <div className="site-container">
         {/* Section Header */}
         <div className="text-center mb-10">
           <div className="inline-flex items-center space-x-2">
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
             <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
-              {data.repairPricingSection.eyebrow}
+              {content.eyebrow}
             </span>
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
           </div>
@@ -203,61 +204,48 @@ export default function RepairPricingSection() {
           <span>{pricing.note}</span>
         </div>
 
-        {/* Bottom Help & Booking Bar */}
-        <div className="bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-sm">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-            {/* Need Help Column */}
-            <div className="md:col-span-4 flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-full bg-red-50 border border-red-100 flex items-center justify-center shrink-0">
-                <Headphones className="w-6 h-6 text-[#d32f2f]" />
-              </div>
+        <div className="rounded-[28px] bg-white px-5 py-5 shadow-[0_10px_40px_rgba(15,15,15,0.06)] sm:px-8 sm:py-6">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex items-center gap-4">
+              <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#fff1f1] text-[#e11d24]">
+                <Headphones className="h-6 w-6" strokeWidth={1.7} />
+              </span>
               <div>
-                <h4 className="text-sm font-bold text-gray-900">{pricing.help.title}</h4>
-                <p className="text-xs text-gray-500 leading-tight">
+                <h4 className="text-[15px] font-bold text-[#111]">{pricing.help.title}</h4>
+                <p className="mt-0.5 max-w-[220px] text-[12px] leading-snug text-neutral-400">
                   {pricing.help.description}
                 </p>
               </div>
             </div>
 
-            {/* Phone Column */}
-            <div className="md:col-span-3 flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-full bg-red-50 border border-red-100 flex items-center justify-center shrink-0">
-                <PhoneCall className="w-5 h-5 text-[#d32f2f]" />
-              </div>
+            <div className="flex items-center gap-4">
+              <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#fff1f1] text-[#e11d24]">
+                <Phone className="h-5 w-5" strokeWidth={1.7} />
+              </span>
               <div>
-                <h4 className="text-sm font-bold text-gray-900">
-                  {pricing.help.phone}
-                </h4>
-                <p className="text-xs text-gray-400">{pricing.help.phoneHint}</p>
+                <h4 className="text-[15px] font-bold text-[#111]">{pricing.help.phone}</h4>
+                <p className="mt-0.5 text-[12px] text-neutral-400">{pricing.help.phoneHint}</p>
               </div>
             </div>
 
-            {/* Email Column */}
-            <div className="md:col-span-3 flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-full bg-red-50 border border-red-100 flex items-center justify-center shrink-0">
-                <Mail className="w-5 h-5 text-[#d32f2f]" />
-              </div>
+            <div className="flex items-center gap-4">
+              <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#fff1f1] text-[#e11d24]">
+                <Mail className="h-5 w-5" strokeWidth={1.7} />
+              </span>
               <div>
-                <h4 className="text-sm font-bold text-gray-900">
-                  {pricing.help.email}
-                </h4>
-                <p className="text-xs text-gray-400">
-                  {pricing.help.emailHint}
-                </p>
+                <h4 className="text-[15px] font-bold text-[#111]">{pricing.help.email}</h4>
+                <p className="mt-0.5 text-[12px] text-neutral-400">{pricing.help.emailHint}</p>
               </div>
             </div>
 
-            {/* CTA Button Column */}
-            <div className="md:col-span-2 flex justify-start md:justify-end">
-              <Link
-                href={pricing.help.ctaHref}
-                className="w-full md:w-auto inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-5 py-2.5 rounded-xl text-sm font-bold transition shadow-sm"
-              >
-                <Calendar className="w-5 h-5" />
-                <span>{pricing.help.ctaLabel}</span>
-                <ArrowRight className="w-4 h-4 ml-0.5" />
-              </Link>
-            </div>
+            <Link
+              href={pricing.help.ctaHref}
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-[#e11d24] px-5 py-3 text-[14px] font-bold text-white transition hover:bg-[#c8181e]"
+            >
+              <Calendar className="h-5 w-5" strokeWidth={1.8} />
+              <span>{pricing.help.ctaLabel}</span>
+              <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+            </Link>
           </div>
         </div>
       </div>

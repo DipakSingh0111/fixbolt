@@ -4,7 +4,7 @@ import { MessageSquare, Star, Quote } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
-import data from "@/data/data.json";
+import { site, SectionProps, TestimonialData } from "@/data";
 
 // Swiper Styles Import
 import "swiper/css";
@@ -16,7 +16,7 @@ const {
   description,
   bgImage,
   items: testimonials,
-} = data.testimonials;
+} = site.testimonial;
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -31,7 +31,8 @@ const staggerContainer = {
   },
 };
 
-export default function TestimonialsSection() {
+export default function TestimonialsSection({ data, className }: SectionProps<TestimonialData> = {}) {
+  const content = data || site.testimonial;
   return (
     <section className="relative w-full bg-[#0d0e12] text-white pt-12 pb-6 md:pt-16 md:pb-8 px-4 md:px-8 overflow-hidden">
       {/* Background Dark Overlay Image Pattern */}

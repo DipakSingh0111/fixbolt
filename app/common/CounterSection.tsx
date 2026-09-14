@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import data from "@/data/data.json";
+import { site, SectionProps, CountersData } from "@/data";
 
 // Custom SVG Icons that match the requested design
 const HandGearIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -57,11 +57,12 @@ const IconMap: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
   percent: HandGearIcon, // Same icon for the 4th item in the design
 };
 
-const stats = data.counters;
+export default function CounterSection({ data, className }: SectionProps<CountersData> = {}) {
+  const content = data || site.counters;
+  const stats = content.items || [];
 
-export default function CounterSection() {
   return (
-    <section className="relative w-full bg-[#161616] py-6 md:py-8 px-4">
+    <section className={`relative w-full bg-[#161616] py-6 md:py-8 px-4 ${className || ""}`}>
       {/* Background overlay/image could go here to match texture */}
       <div 
         className="absolute inset-0 opacity-20 pointer-events-none"

@@ -5,9 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import data from "@/data/data.json";
-
-const { logo, links, cta } = data.navbar;
+import { site, SectionProps, HeaderData } from "@/data";
 
 function ArrowRight() {
   return (
@@ -27,7 +25,10 @@ function ArrowRight() {
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ data, className }: SectionProps<HeaderData> = {}) {
+  const content = data || site.header;
+  const { logo, menuItems, cta } = content;
+  const links = menuItems;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
   const pathname = usePathname();
@@ -49,8 +50,8 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <ul className="hidden flex-1 items-center lg:flex">
-          {links.map((link) => {
-            const isActive = pathname === link.href || link.dropdown?.some((dl) => dl.href === pathname);
+          {links.map((link: any) => {
+            const isActive = pathname === link.href || link.dropdownItems?.some((dl: any) => dl.href === pathname);
             
             return (
               <li key={link.href} className="group relative">
@@ -63,7 +64,7 @@ export default function Navbar() {
                 >
                   <span className="flex items-center gap-1">
                     {link.label}
-                    {link.dropdown && <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />}
+                    {link.dropdownItems && <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />}
                   </span>
                   
                   <span
@@ -74,10 +75,10 @@ export default function Navbar() {
                   />
                 </Link>
 
-                {link.dropdown && (
+                {link.dropdownItems && (
                   <div className="absolute left-0 top-full invisible w-48 translate-y-2 opacity-0 shadow-[0_10px_20px_rgba(0,0,0,0.1)] transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                     <ul className="flex flex-col overflow-hidden rounded-b-lg border-t-2 border-brand-red bg-white">
-                      {link.dropdown.map((dropLink) => {
+                      {link.dropdownItems.map((dropLink: any) => {
                         const isDropActive = pathname === dropLink.href;
                         return (
                           <li key={dropLink.href}>
@@ -129,8 +130,8 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="absolute inset-x-0 top-full border-t-2 border-brand-red bg-brand-dark px-6 pt-4 pb-6 shadow-[0_8px_24px_rgba(0,0,0,0.5)] lg:hidden">
           <ul className="mb-4 flex flex-col">
-            {links.map((link) => {
-              const isActive = pathname === link.href || link.dropdown?.some((dl) => dl.href === pathname);
+            {links.map((link: any) => {
+              const isActive = pathname === link.href || link.dropdownItems?.some((dl: any) => dl.href === pathname);
               const isDropdownOpen = mobileDropdownOpen === link.label;
 
               return (
@@ -138,16 +139,16 @@ export default function Navbar() {
                   <div className="flex items-center justify-between">
                     <Link
                       href={link.href}
-                      onClick={() => !link.dropdown && setMobileOpen(false)}
+                      onClick={() => !link.dropdownItems && setMobileOpen(false)}
                       aria-current={isActive ? "page" : undefined}
                       className={`block py-2.5 text-[15px] font-medium transition-colors hover:text-brand-red ${
-                        isActive && !link.dropdown ? "text-brand-red" : "text-neutral-300"
+                        isActive && !link.dropdownItems ? "text-brand-red" : "text-neutral-300"
                       }`}
                     >
                       {link.label}
                     </Link>
                     
-                    {link.dropdown && (
+                    {link.dropdownItems && (
                       <button
                         onClick={() => setMobileDropdownOpen(isDropdownOpen ? null : link.label)}
                         className="p-2 text-white hover:text-brand-red"
@@ -157,9 +158,9 @@ export default function Navbar() {
                     )}
                   </div>
                   
-                  {link.dropdown && isDropdownOpen && (
+                  {link.dropdownItems && isDropdownOpen && (
                     <ul className="mb-2 flex flex-col gap-1 pl-4">
-                      {link.dropdown.map((dropLink) => {
+                      {link.dropdownItems.map((dropLink: any) => {
                         const isDropActive = pathname === dropLink.href;
                         return (
                           <li key={dropLink.href}>

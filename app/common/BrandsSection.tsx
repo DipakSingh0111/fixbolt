@@ -1,12 +1,16 @@
 import React from "react";
 import { ShieldCheck, Award, Headphones } from "lucide-react";
 
-import data from "@/data/data.json";
+import { site, SectionProps, BrandsSectionData } from "@/data";
 
-const brands = data.brands;
-export default function BrandsSection() {
+export default function BrandsSection({ data, className }: SectionProps<BrandsSectionData> = {}) {
+  const content = data || site.brandsSection;
+  const brands = site.brands.items;
+  const heading = content.title;
+  const highlight = content.titleHighlight;
+  const eyebrow = content.tagline || content.eyebrow;
   return (
-    <section className="relative bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col justify-center overflow-hidden font-sans">
+    <section className={`relative bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col justify-center overflow-hidden font-sans ${className || ""}`}>
       {/* Background Left Watermark Circles */}
       <div className="absolute -left-16 top-1/4 opacity-10 pointer-events-none hidden md:block">
         <div className="w-64 h-64 border-[1px] border-gray-400 rounded-full flex items-center justify-center">
@@ -30,16 +34,16 @@ export default function BrandsSection() {
         <div className="text-center mb-12">
           <div className="inline-block relative">
             <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
-              {data.brandsSection.eyebrow}
+              {eyebrow}
             </span>
             <div className="w-8 h-[2px] bg-[#d32f2f] mx-auto mt-1"></div>
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold text-[#111111] mt-3 tracking-tight">
-            {data.brandsSection.title.split(data.brandsSection.titleHighlight)[0]}
-            <span className="text-[#d32f2f]">{data.brandsSection.titleHighlight}</span>
+            {heading.split(highlight)[0]}
+            <span className="text-[#d32f2f]">{highlight}</span>
           </h2>
           <p className="site-container text-gray-500 text-sm mt-2 leading-relaxed">
-            {data.brandsSection.description}
+            {content.description}
           </p>
         </div>
 

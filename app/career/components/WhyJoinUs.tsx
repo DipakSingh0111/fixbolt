@@ -8,6 +8,8 @@ import {
   Award,
 } from "lucide-react";
 
+import { CareerData } from "@/data";
+
 const iconMap: Record<string, React.ElementType> = {
   Users,
   GraduationCap,
@@ -17,7 +19,7 @@ const iconMap: Record<string, React.ElementType> = {
   Award,
 };
 
-export default function WhyJoinUs({ whyJoin }: { whyJoin: any }) {
+export default function WhyJoinUs({ whyJoin }: { whyJoin: CareerData['whyJoin'] }) {
   return (
     <section className="site-container bg-[#fffafa] pt-4 sm:pt-6 pb-8 sm:pb-12 mb-10 rounded-xl">
       <div className="text-center mb-12">

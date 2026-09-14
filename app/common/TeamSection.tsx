@@ -1,9 +1,16 @@
 "use client";
 
 import { Users, Share2 } from "lucide-react";
-import data from "@/data/data.json";
+import { site } from "@/data";
 
-const { eyebrow, title, description, members: teamMembers } = data.team;
+const { tagline, eyebrow, title, description, members: teamMembers } = site.team;
+const sectionEyebrow = eyebrow || tagline;
+
+const defaultSocials = {
+  twitter: "https://twitter.com",
+  instagram: "https://instagram.com",
+  facebook: "https://facebook.com",
+};
 
 // Social Icons ke SVG Components (Zero Extra Dependencies)
 const TwitterIcon = ({ size = 16 }: { size?: number }) => (
@@ -72,7 +79,7 @@ export default function TeamSection() {
       <div className="site-container mb-14">
         <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-red-600 mb-2">
           <Users size={18} className="text-red-600" />
-          <span>{eyebrow}</span>
+          <span>{sectionEyebrow}</span>
         </div>
         <div className="w-8 h-[2px] bg-red-600 mx-auto mt-1 mb-4" />
 
@@ -86,8 +93,8 @@ export default function TeamSection() {
       </div>
 
       {/* Team Cards Grid */}
-      <div className="site-container grid grid-cols-1 md:grid-cols-3 gap-8">
-        {teamMembers.map((member) => (
+      <div className="site-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {teamMembers.map((member: any) => (
           <div
             key={member.id}
             onClick={() => {
@@ -104,29 +111,26 @@ export default function TeamSection() {
                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
 
-              {/* Floating Social Media Buttons (Right Side) */}
-              <div className="absolute right-3 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                <a
-                  href={member.socials.twitter}
-                  onClick={(e) => e.stopPropagation()}
-                  className="w-9 h-9 bg-white hover:bg-red-600 text-red-600 hover:text-white rounded-lg flex items-center justify-center shadow transition-colors duration-300"
-                >
-                  <TwitterIcon size={16} />
-                </a>
-                <a
-                  href={member.socials.instagram}
-                  onClick={(e) => e.stopPropagation()}
-                  className="w-9 h-9 bg-white hover:bg-red-600 text-red-600 hover:text-white rounded-lg flex items-center justify-center shadow transition-colors duration-300"
-                >
-                  <InstagramIcon size={16} />
-                </a>
-                <a
-                  href={member.socials.facebook}
-                  onClick={(e) => e.stopPropagation()}
-                  className="w-9 h-9 bg-white hover:bg-red-600 text-red-600 hover:text-white rounded-lg flex items-center justify-center shadow transition-colors duration-300"
-                >
-                  <FacebookIcon size={16} />
-                </a>
+              <div className="pointer-events-none absolute top-1/2 right-4 z-20 flex -translate-y-1/2 flex-col gap-3 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
+                {[
+                  { href: member.socials?.twitter || defaultSocials.twitter, icon: TwitterIcon },
+                  { href: member.socials?.instagram || defaultSocials.instagram, icon: InstagramIcon },
+                  { href: member.socials?.facebook || defaultSocials.facebook, icon: FacebookIcon },
+                ].map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.href + Icon.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="grid size-9 place-items-center rounded-full bg-white text-[#111] shadow-md transition-colors hover:bg-red-600 hover:text-white"
+                    >
+                      <Icon size={14} />
+                    </a>
+                  );
+                })}
               </div>
             </div>
 

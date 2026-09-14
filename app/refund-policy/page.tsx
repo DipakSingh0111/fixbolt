@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import data from '@/data/data.json';
+import { site } from '@/data';
 
 export default function RefundPolicyPage() {
-  const { refundPolicy } = data;
+  const refundPolicy = site.refundPolicy;
   const { hero, sections } = refundPolicy;
 
   return (
@@ -27,11 +27,11 @@ export default function RefundPolicyPage() {
       {/* Content Section */}
       <section className="site-container py-16 sm:py-20">
         <div className="space-y-12 text-[#111111]">
-          {sections.map((section) => (
+          {sections.map((section: any) => (
             <div key={section.id} className="space-y-4">
               <h2 className="text-2xl font-bold">{section.title}</h2>
               <div className="space-y-3">
-                {section.content.map((paragraph, idx) => (
+                {section.content.map((paragraph: string, idx: number) => (
                   <p key={idx} className="text-sm sm:text-[15px] leading-relaxed">
                     {paragraph}
                   </p>

@@ -1,5 +1,5 @@
 import PageBanner from "@/app/common/PageBanner";
-import data from "@/data/data.json";
+import { site } from "@/data";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { 
@@ -23,22 +23,22 @@ export default async function BlogDetailsPage({ params }: Props) {
   const { slug } = await params;
   
   // Find the requested post
-  const post = data.blog.posts.find(p => p.slug === slug);
+  const post = site.blog.posts.find(p => p.slug === slug);
 
   if (!post) {
     notFound();
   }
 
   // Get recent posts (excluding current one)
-  const recentPosts = data.blog.posts.filter(p => p.slug !== slug).slice(0, 4);
+  const recentPosts = site.blog.posts.filter(p => p.slug !== slug).slice(0, 4);
 
   return (
     <main className="bg-[#fbfbfb] min-h-screen font-sans pb-24">
       <PageBanner 
-        title={data.pages.blogDetail.bannerTitle} 
+        title={site.pages['blog-detail'].bannerTitle} 
         breadcrumbs={[
-          { label: data.pageBanner.homeLabel, href: "/" },
-          { label: data.pages.blog.bannerTitle, href: "/blog" },
+          { label: site.pageBanner.homeLabel, href: "/" },
+          { label: site.pages.blog.bannerTitle, href: "/blog" },
           { label: post.title }
         ]} 
       />
@@ -61,7 +61,7 @@ export default async function BlogDetailsPage({ params }: Props) {
 
               {/* Intro summary */}
               <p className="text-gray-600 mb-6 leading-relaxed">
-                {post.description}{data.blog.detail.introExtra}
+                {post.description}{site.blogDetail.shared.introExtra}
               </p>
 
               {/* Meta info row */}
@@ -73,12 +73,12 @@ export default async function BlogDetailsPage({ params }: Props) {
                 <div className="w-[1px] h-4 bg-red-200"></div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-gray-400" />
-                  <span>{data.blog.detail.readTime}</span>
+                  <span>{site.blogDetail.shared.readTime}</span>
                 </div>
                 <div className="w-[1px] h-4 bg-red-200"></div>
                 <button className="flex items-center gap-2 hover:text-[#cc1616] transition-colors">
                   <Bookmark className="w-4 h-4 text-gray-400" />
-                  <span>{data.blog.detail.saveLabel}</span>
+                  <span>{site.blogDetail.shared.saveLabel}</span>
                 </button>
               </div>
 
@@ -94,11 +94,11 @@ export default async function BlogDetailsPage({ params }: Props) {
               {/* Article Body */}
               <div className="prose prose-lg max-w-none text-gray-600">
                 <p className="mb-8">
-                  {data.blog.detail.bodyIntro}
+                  {site.blogDetail.shared.bodyIntro}
                 </p>
 
                 <div className="space-y-8">
-                  {data.blog.detail.sections.map((section) => (
+                  {site.blogDetail.shared.sections.map((section) => (
                     <div key={section.title}>
                       <h3 className="text-xl font-bold text-gray-900 mb-3 border-b-2 border-red-100 pb-2 inline-block">{section.title}</h3>
                       <p className="text-sm leading-relaxed">
@@ -117,7 +117,7 @@ export default async function BlogDetailsPage({ params }: Props) {
             
             {/* Recent Posts */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-              <h3 className="text-lg font-extrabold text-gray-900 mb-2">{data.blog.detail.recentPostsTitle}</h3>
+              <h3 className="text-lg font-extrabold text-gray-900 mb-2">{site.blogDetail.shared.recentPostsTitle}</h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
               
               <div className="space-y-6">
@@ -148,13 +148,13 @@ export default async function BlogDetailsPage({ params }: Props) {
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-[#cc1616] shadow-sm">
                 <Wrench className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">{data.blog.detail.cta.title}</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">{site.blogDetail.shared.cta.title}</h4>
               <p className="text-sm text-gray-500 mb-6 leading-relaxed">
-                {data.blog.detail.cta.description}
+                {site.blogDetail.shared.cta.description}
               </p>
-              <Link href={data.blog.detail.cta.href}>
+              <Link href={site.blogDetail.shared.cta.href}>
                 <button className="w-full bg-[#cc1616] hover:bg-[#a51212] text-white font-bold py-3.5 px-4 rounded-xl transition shadow-md flex items-center justify-center gap-2 text-sm">
-                  {data.blog.detail.cta.buttonText}
+                  {site.blogDetail.shared.cta.buttonText}
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </Link>
@@ -162,13 +162,13 @@ export default async function BlogDetailsPage({ params }: Props) {
 
             {/* Categories */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex-grow">
-              <h3 className="text-lg font-extrabold text-gray-900 mb-2">{data.blog.detail.categoriesTitle}</h3>
+              <h3 className="text-lg font-extrabold text-gray-900 mb-2">{site.blogDetail.shared.categoriesTitle}</h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
               
               <div className="space-y-2">
-                {Array.from(new Set(data.blog.posts.map(p => p.category))).map((catName, idx) => {
-                  const latestPost = data.blog.posts.find(p => p.category === catName);
-                  const count = data.blog.posts.filter(p => p.category === catName).length;
+                {Array.from(new Set(site.blog.posts.map(p => p.category))).map((catName, idx) => {
+                  const latestPost = site.blog.posts.find(p => p.category === catName);
+                  const count = site.blog.posts.filter(p => p.category === catName).length;
                   const catNameLower = catName.toLowerCase();
                   
                   // Pick an icon based on category name

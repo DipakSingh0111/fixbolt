@@ -23,7 +23,7 @@ import {
   Wrench,
 } from "lucide-react";
 import PageBanner from "@/app/common/PageBanner";
-import data from "@/data/data.json";
+import { site } from "@/data";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -82,12 +82,12 @@ function SectionTitle({ children }: { children: ReactNode }) {
 }
 
 export function generateStaticParams() {
-  return data.services.items.map((item) => ({ slug: item.slug }));
+  return site.services.items.map((item) => ({ slug: item.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const service = data.services.items.find((item) => item.slug === slug);
+  const service = site.services.items.find((item) => item.slug === slug);
 
   if (!service) {
     return { title: "Service Not Found | FixBolt" };
@@ -101,23 +101,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ServiceDetailsPage({ params }: Props) {
   const { slug } = await params;
-  const service = data.services.items.find((item) => item.slug === slug);
+  const service = site.services.items.find((item) => item.slug === slug);
 
   if (!service) {
     notFound();
   }
 
-  const allServices = data.services.items;
-  const details = data.services.details;
+  const allServices = site.services.items;
+  const details = site.serviceDetail.shared;
 
   return (
     <div className="bg-white pb-20">
       <PageBanner
-        title={data.pages.servicesDetail.bannerTitle}
+        title={site.pages['services-detail'].bannerTitle}
         breadcrumbs={[
-          { label: data.pageBanner.homeLabel, href: "/" },
-          { label: data.pages.services.bannerTitle, href: "/services" },
-          { label: data.pages.servicesDetail.bannerTitle },
+          { label: site.pageBanner.homeLabel, href: "/" },
+          { label: site.pages['services'].bannerTitle, href: "/services" },
+          { label: site.pages['services-detail'].bannerTitle },
         ]}
       />
 

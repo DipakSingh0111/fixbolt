@@ -13,9 +13,7 @@ import {
   ChevronRight
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import data from "@/data/data.json";
-
-const { images: galleryImages, stats, banner } = data.gallerySection;
+import { site, SectionProps, GalleryData } from "@/data";
 
 const StatIconMap: Record<string, React.ElementType> = {
   smartphone: Smartphone,
@@ -24,7 +22,9 @@ const StatIconMap: Record<string, React.ElementType> = {
   shieldCheck: ShieldCheck
 };
 
-export default function GallerySection() {
+export default function GallerySection({ data, className }: SectionProps<GalleryData> = {}) {
+  const content = data || site.gallery;
+  const { images: galleryImages, stats, banner } = content;
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const handleNext = (e: React.MouseEvent) => {
@@ -42,23 +42,23 @@ export default function GallerySection() {
   };
 
   return (
-    <section className="bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center font-sans">
+    <section className={`bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center font-sans ${className || ""}`}>
       <div className="site-container relative">
         {/* Section Header */}
         <div className="text-center mb-10">
           <div className="inline-flex items-center space-x-2">
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
             <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
-              {data.gallerySection.eyebrow}
+              {content.eyebrow}
             </span>
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-2">
-            {data.gallerySection.title.split(data.gallerySection.titleHighlight)[0]}
-            <span className="text-[#d32f2f]">{data.gallerySection.titleHighlight}</span>
+            {content.title.split(content.titleHighlight)[0]}
+            <span className="text-[#d32f2f]">{content.titleHighlight}</span>
           </h2>
           <p className="site-container text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed">
-            {data.gallerySection.description}
+            {content.description}
           </p>
         </div>
 

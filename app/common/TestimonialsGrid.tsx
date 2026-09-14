@@ -1,8 +1,7 @@
 import React from "react";
 import { Star, ShieldCheck } from "lucide-react";
-import data from "@/data/data.json";
+import { site, SectionProps, TestimonialData } from "@/data";
 
-const { eyebrow, title, description, items: testimonials } = data.testimonials;
 
 // A custom SVG for the big red quote marks
 function QuoteIcon() {
@@ -19,7 +18,9 @@ function QuoteIcon() {
   );
 }
 
-export default function TestimonialsGrid() {
+export default function TestimonialsGrid({ data, className }: SectionProps<TestimonialData> = {}) {
+  const content = data || site.testimonial;
+  const { eyebrow, title, description, items: testimonials } = content;
   return (
     <section className="bg-white py-10 md:py-16 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="site-container">
@@ -33,12 +34,12 @@ export default function TestimonialsGrid() {
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-3">
-            {title.split(data.testimonials.titleHighlight)[0]}
+            {title.split(content.titleHighlight)[0]}
             <span className="text-[#e51d25] relative inline-block">
-              {data.testimonials.titleHighlight}
+              {content.titleHighlight}
               <span className="absolute -bottom-1 left-0 w-full h-1 bg-[#e51d25]"></span>
             </span>{" "}
-            {title.split(data.testimonials.titleHighlight)[1]}
+            {title.split(content.titleHighlight)[1]}
           </h2>
           <p className="site-container text-gray-500 text-sm mt-4 leading-relaxed">
             {description}

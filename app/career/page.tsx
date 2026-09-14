@@ -1,5 +1,5 @@
 import React from "react";
-import data from "@/data/data.json";
+import { site } from "@/data";
 import PageBanner from "../common/PageBanner";
 
 import CareerHero from "./components/CareerHero";
@@ -8,8 +8,7 @@ import OpenPositions from "./components/OpenPositions";
 import CareerCta from "./components/CareerCta";
 
 export default function CareerPage() {
-  const { career } = data;
-  const { hero, buildFuture, whyJoin, openPositions, bottomCta } = career;
+  const { hero, buildFuture, whyJoin, openPositions, bottomCta } = site.career;
 
   return (
     <div className="font-sans min-h-screen bg-white">
