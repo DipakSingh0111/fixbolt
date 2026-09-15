@@ -136,7 +136,7 @@ export default async function ServiceDetailsPage({ params }: Props) {
                 return (
                   <li key={item.slug}>
                     <Link
-                      href={`/services/${item.slug}`}
+                      href={`/services/${item.slug}#service-content`}
                       className={`flex items-center justify-between rounded-lg px-3.5 py-3 transition-colors ${
                         isActive
                           ? "bg-brand-red text-white"
@@ -185,7 +185,7 @@ export default async function ServiceDetailsPage({ params }: Props) {
         </aside>
 
         {/* ── Main content ── */}
-        <div className="lg:col-span-9">
+        <div id="service-content" className="lg:col-span-9 scroll-mt-28">
           {/* Top: copy + image */}
           <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
             <div>
@@ -263,7 +263,7 @@ export default async function ServiceDetailsPage({ params }: Props) {
           <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-5">
             <section className="lg:col-span-3">
               <SectionTitle>{details.processTitle}</SectionTitle>
-              <ol className="mt-6 flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between sm:gap-1">
+              <ol className="mt-6 grid grid-cols-2 gap-8 sm:flex sm:flex-row sm:items-start sm:justify-between sm:gap-1">
                 {details.process.map((step, index) => (
                   <li
                     key={step.step}

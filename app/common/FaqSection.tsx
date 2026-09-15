@@ -42,7 +42,7 @@ export default function FaqSection({ data, className }: SectionProps<FAQData> = 
           <div className="inline-flex items-center space-x-2">
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
             <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
-              {content.eyebrow}
+              {content.eyebrow || content.tagline}
             </span>
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
           </div>

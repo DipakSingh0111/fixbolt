@@ -49,12 +49,12 @@ export default function PageBanner({
 
       {/* Content */}
       <div className="site-container relative z-10 w-full">
-        <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
+        <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl capitalize">
           {title}
         </h1>
 
         <nav aria-label="Breadcrumb">
-          <ol className="flex items-center space-x-2 text-sm font-medium text-white/80 md:text-base">
+          <ol className="flex items-center space-x-2 text-sm font-medium text-white/80 md:text-base capitalize">
             {crumbs.map((crumb, index) => {
               const isLast = index === crumbs.length - 1;
 

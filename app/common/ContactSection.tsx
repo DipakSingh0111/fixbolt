@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import React from "react";
 import {
@@ -45,7 +46,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
           <div className="inline-flex items-center justify-center space-x-3">
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
             <span className="text-xs font-bold tracking-wider text-[#e51d25] uppercase">
-              {content.eyebrow}
+              {content.eyebrow || content.tagline}
             </span>
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
           </div>
@@ -257,10 +258,10 @@ export default function ContactSection({ data, className }: SectionProps<Contact
             <p className="text-xs text-gray-500 mb-6 px-4">
               {bookRepairCard.description}
             </p>
-            <button className="inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-8 py-3 rounded-xl text-xs font-bold transition shadow-sm">
+            <Link href="/bookrepair" className="inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-8 py-3 rounded-xl text-xs font-bold transition shadow-sm">
               <span>{bookRepairCard.buttonText}</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

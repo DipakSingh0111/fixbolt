@@ -7,7 +7,7 @@ export type SectionProps<T = unknown> = {
 
 export const siteData = siteDataRaw.categories.FixBolt.sections;
 
-// We export a flattened 'site' object for easy default fallback in components
+// We export a flattened 
 export const site = {
   topbar: siteData.Topbar.variants.FixBoltTopbar1,
   header: siteData.Header.variants.FixBoltHeader1,

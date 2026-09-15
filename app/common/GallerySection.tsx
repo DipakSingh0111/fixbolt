@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import React, { useState } from "react";
 import {
@@ -49,7 +50,7 @@ export default function GallerySection({ data, className }: SectionProps<Gallery
           <div className="inline-flex items-center space-x-2">
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
             <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
-              {content.eyebrow}
+              {content.eyebrow || content.tagline}
             </span>
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
           </div>
@@ -185,10 +186,10 @@ export default function GallerySection({ data, className }: SectionProps<Gallery
             </div>
           </div>
 
-          <button className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-6 py-2.5 rounded-xl text-xs font-bold transition shadow-sm">
+          <Link href="/bookrepair" className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-6 py-2.5 rounded-xl text-xs font-bold transition shadow-sm">
             <span>{banner.buttonText}</span>
             <ArrowRight className="w-4 h-4 ml-1" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

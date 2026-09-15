@@ -7,7 +7,7 @@ import WhyChooseUs from "../common/WhyChooseUs";
 import WorkProcessSection from "../common/WorkProcessSection";
 
 export const metadata: Metadata = {
-  title: site.pages.about.metaTitle,
+  title: "About Us | FixBolt",
   description: site.pages.about.metaDescription,
 };
 

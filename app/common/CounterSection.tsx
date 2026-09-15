@@ -85,7 +85,7 @@ export default function CounterSection({ data, className }: SectionProps<Counter
             transition: { staggerChildren: 0.15 },
           },
         }}
-        className="site-container flex flex-col md:flex-row items-center justify-between relative z-10"
+        className="site-container grid grid-cols-2 gap-y-10 gap-x-4 md:flex md:flex-row items-center justify-between relative z-10"
       >
         {stats.map((item, index) => {
           const IconComponent = IconMap[item.icon] || HandGearIcon;

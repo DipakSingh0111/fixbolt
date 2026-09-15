@@ -1,10 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { site, SectionProps, WhyChooseUsData } from "@/data";
-
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -20,80 +18,11 @@ const staggerContainer = {
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-function PaymentIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="6.5" y="3.2" width="11" height="17.6" rx="2" />
-      <path d="M10 7h5M12 17.4h.01" />
-    </svg>
-  );
-}
-
-function HardHatIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M3.8 15.2h16.4" />
-      <path d="M5.2 15.2v-1.6c0-3.8 3-6.8 6.8-6.8s6.8 3 6.8 6.8v1.6" />
-      <path d="M12 6.8V4.6" />
-    </svg>
-  );
-}
-
-function CertificateIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="9" r="4.3" />
-      <path d="m9.5 13.2-1.5 6 4-1.6 1.5 2.8V17.6l4 1.6-1.5-6" />
-    </svg>
-  );
-}
-
-function ShieldIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M12 3.2 5 5.8v5.5c0 4.1 2.9 7.6 7 9.1 4.1-1.5 7-5 7-9.1V5.8L12 3.2Z" />
-      <path d="m8.7 11.7 2.3 2.3 4.4-4.4" />
-    </svg>
-  );
-}
-
-const FeatureIcon: Record<string, ReactNode> = {
-  creditCard: <PaymentIcon />,
-  userCheck: <HardHatIcon />,
-  award: <CertificateIcon />,
-  shieldCheck: <ShieldIcon />,
+const FeatureIconSrc: Record<string, string> = {
+  creditCard: "/images/why-icon-payment.png",
+  userCheck: "/images/why-icon-tech.png",
+  award: "/images/why-icon-cert.png",
+  shieldCheck: "/images/why-icon-shield.png",
 };
 
 export default function WhyChooseUs({ data, className }: SectionProps<WhyChooseUsData> = {}) {
@@ -189,7 +118,7 @@ export default function WhyChooseUs({ data, className }: SectionProps<WhyChooseU
                   {features.map((feature, index) => (
                     <div
                       key={feature.id}
-                      className={`flex items-start gap-4 py-4 ${
+                      className={`flex items-start gap-5 py-4 ${
                         index === 0
                           ? "sm:border-r sm:border-b sm:border-gray-100 sm:pr-6 sm:pb-6 sm:pt-0"
                           : index === 1
@@ -199,19 +128,23 @@ export default function WhyChooseUs({ data, className }: SectionProps<WhyChooseU
                               : "sm:pl-6 sm:pt-6 sm:pb-0"
                       }`}
                     >
-                      {/* Pink Circle for Icon */}
-                      <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#fdeaea]">
-                        {FeatureIcon[feature.icon]}
+                      {/* Exact icon from design screenshot */}
+                      <div className="relative h-[88px] w-[88px] shrink-0 overflow-hidden rounded-full">
+                        <Image
+                          src={FeatureIconSrc[feature.icon] || FeatureIconSrc.creditCard}
+                          alt={feature.title}
+                          fill
+                          sizes="88px"
+                          className="object-contain"
+                        />
                       </div>
 
-                      <div className="min-w-0 pt-0.5">
-                        <div className="mb-1.5 flex items-center gap-2">
-                          <h3 className="text-[15px] font-bold text-[#111]">
-                            {feature.title}
-                          </h3>
-                          <span className="h-[1.5px] w-4 bg-[#d31c24]" />
-                        </div>
-                        <p className="text-[11.5px] leading-[1.65] text-gray-500 m-0">
+                      <div className="min-w-0 pt-1">
+                        <h3 className="text-[16px] font-bold text-[#111] leading-tight">
+                          {feature.title}
+                        </h3>
+                        <span className="mt-2 mb-2.5 block h-[2.5px] w-8 bg-[#d31c24]" />
+                        <p className="text-[12.5px] leading-[1.7] text-gray-500 m-0">
                           {feature.description}
                         </p>
                       </div>

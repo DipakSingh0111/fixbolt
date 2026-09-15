@@ -824,6 +824,30 @@
                   "description": "Front and rear camera lens replacement and repair.",
                   "icon": "camera",
                   "image": "/images/fixbolt_07.jpg"
+                },
+                {
+                  "id": "10",
+                  "slug": "data-recovery",
+                  "title": "Data Recovery",
+                  "description": "Retrieve lost or deleted files with our secure and reliable data recovery services.",
+                  "icon": "hardDrive",
+                  "image": "/images/fixbolt_06.jpg"
+                },
+                {
+                  "id": "11",
+                  "slug": "speaker-repair",
+                  "title": "Speaker Repair",
+                  "description": "Fix muffled or broken audio to restore crisp, clear sound for your calls and media.",
+                  "icon": "volume2",
+                  "image": "/images/fixbolt_04.jpg"
+                },
+                {
+                  "id": "12",
+                  "slug": "diagnostic-services",
+                  "title": "Diagnostic Services",
+                  "description": "Complete system analysis to quickly identify and resolve any underlying device issues.",
+                  "icon": "settings",
+                  "image": "/images/fixbolt_02.jpg"
                 }
               ],
               "eyebrow": "",
@@ -1440,7 +1464,7 @@
                   "title": "Need a Repair?",
                   "description": "We're here to help you with fast, reliable and affordable repairs.",
                   "buttonText": "Book a Repair",
-                  "href": "/contact"
+                  "href": "/bookrepair"
                 },
                 "introExtra": " A few smart habits can significantly extend your phone's battery life and keep it running smoothly throughout the day.",
                 "bodyIntro": "Smartphones have become an essential part of our daily lives. But there's nothing more frustrating than running out of battery when you need your phone the most. The good news is, with the right habits and settings, you can improve your battery performance and make it last much longer.",

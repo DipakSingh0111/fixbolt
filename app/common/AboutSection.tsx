@@ -106,7 +106,7 @@ const staggerContainer = {
 
 export default function AboutSection({ showCta = false, data, className }: AboutSectionProps) {
   const content = data || site.about;
-  const { eyebrow, title, description, features, image, cta } = content;
+  const { eyebrow, tagline, title, description, features, image, cta } = content;
 
   return (
     <section className={`relative overflow-hidden bg-white py-10 md:py-16 lg:py-24 font-sans ${className || ""}`}>
@@ -162,7 +162,7 @@ export default function AboutSection({ showCta = false, data, className }: About
             variants={fadeInUp}
             className="text-[13px] md:text-[14px] font-bold tracking-[0.05em] text-brand-red uppercase mb-1.5"
           >
-            {eyebrow}
+            {eyebrow || tagline}
           </motion.p>
           <motion.span
             variants={fadeInUp}

@@ -29,9 +29,9 @@ const staggerContainer = {
 
 export default function WorkProcessSection({ data, className }: SectionProps<WorkProcessData> = {}) {
   const content = data || site.workProcess;
-  const { eyebrow, title, description, bgImage, steps: processSteps } = content;
+  const { eyebrow, tagline, title, description, bgImage, steps: processSteps } = content;
   return (
-    <section className="relative w-full bg-gradient-to-r from-[#800000] via-[#a30000] to-[#520000] text-white py-10 md:py-20 px-5 lg:px-8 overflow-hidden">
+    <section className="relative w-full bg-gradient-to-r from-[#800000] via-[#a30000] to-[#520000] text-white py-10 md:py-20 overflow-hidden">
       {/* Background Technology Circuit Overlay Pattern */}
       <div
         className="absolute inset-0 opacity-15 pointer-events-none bg-cover bg-center"
@@ -53,12 +53,12 @@ export default function WorkProcessSection({ data, className }: SectionProps<Wor
           <div className="hidden sm:block w-16 h-[2px] bg-white/60" />
           <div className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold uppercase tracking-wider text-white/90">
             <Settings size={16} className="text-white" />
-            <span>{eyebrow}</span>
+            <span>{eyebrow || tagline}</span>
           </div>
           <div className="hidden sm:block w-16 h-[2px] bg-white/60" />
         </motion.div>
 
-        <motion.h2 variants={fadeInUp} className="text-3xl md:text-5xl font-extrabold tracking-tight">
+        <motion.h2 variants={fadeInUp} className="text-[32px] sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.15]">
           {title.split('Work Process')[0]}
           <span className="text-white">Work Process</span>
           <span className="text-red-500">.</span>
@@ -70,7 +70,7 @@ export default function WorkProcessSection({ data, className }: SectionProps<Wor
           <div className="w-12 h-[2px] bg-white/40" />
         </motion.div>
 
-        <motion.p variants={fadeInUp} className="site-container text-white/80 text-sm md:text-base font-light leading-relaxed">
+        <motion.p variants={fadeInUp} className="max-w-[600px] mx-auto text-white/80 text-[14px] md:text-base font-light leading-relaxed">
           {description}
         </motion.p>
       </motion.div>
@@ -86,7 +86,7 @@ export default function WorkProcessSection({ data, className }: SectionProps<Wor
         {/* Horizontal Dotted Connecting Line (Desktop) */}
         <motion.div variants={fadeInUp} className="hidden lg:block absolute top-[68px] left-[12%] right-[12%] h-[2px] border-t-2 border-dashed border-white/40 z-0" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 sm:gap-8 lg:gap-6 relative z-10">
           {processSteps.map((step, index) => {
             const IconComponent = IconMap[step.icon];
 
@@ -104,15 +104,15 @@ export default function WorkProcessSection({ data, className }: SectionProps<Wor
                 )}
 
                 {/* White Card Container */}
-                <div className="relative w-36 h-36 md:w-40 md:h-40 bg-white rounded-3xl flex items-center justify-center shadow-2xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-red-900/50 mb-6">
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 bg-white rounded-3xl mx-auto flex items-center justify-center shadow-2xl transition-all duration-300 group-hover:scale-105 group-hover:shadow-red-900/50 mb-5 sm:mb-6">
                   {/* Floating Number Badge */}
-                  <div className="absolute -top-3 -left-3 bg-red-600 text-white text-xs font-extrabold px-3 py-1.5 rounded-xl shadow-md border-2 border-white">
+                  <div className="absolute -top-4 -left-4 sm:-top-5 sm:-left-5 bg-[#d31c24] text-white text-base sm:text-lg font-bold w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl rounded-br-md shadow-lg z-10">
                     {step.step}
                   </div>
 
                   {/* Main Red Outline Icon */}
-                  <div className="text-red-600 transition-transform duration-300 group-hover:scale-110">
-                    <IconComponent size={56} strokeWidth={1.4} />
+                  <div className="text-red-600 transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
+                    <IconComponent className="w-10 h-10 sm:w-14 sm:h-14" strokeWidth={1.4} />
                   </div>
                 </div>
 

@@ -115,7 +115,7 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-page aspect-[1901/858] min-h-[430px] max-lg:aspect-auto max-lg:h-[600px] max-md:h-[650px]"
+      className="relative w-full overflow-hidden bg-page aspect-[1901/858] min-h-[430px] max-lg:aspect-auto max-lg:h-[600px] max-md:h-[700px]"
       aria-roledescription="carousel"
       aria-label="FixBolt highlights"
       onMouseEnter={() => setPaused(true)}
@@ -152,7 +152,7 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
                 }`}
               />
 
-              <div className="absolute inset-0 z-[2] flex items-center pb-12 max-lg:pb-16 max-lg:bg-linear-to-r max-lg:from-page/95 max-lg:via-page/80 max-lg:to-transparent">
+              <div className="absolute inset-0 z-[2] flex items-center pb-12 max-lg:pb-16 max-md:pb-20 pt-16 max-md:pt-24 max-lg:bg-linear-to-r max-lg:from-page/95 max-lg:via-page/80 max-lg:to-transparent">
                 <div className="site-container w-full">
                   <div className="w-full max-w-[46%] max-lg:max-w-[75%] max-md:max-w-full">
                   <p
@@ -223,7 +223,7 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
                   </div>
 
                   <ul
-                    className={`mt-12 flex items-stretch ${
+                    className={`mt-8 md:mt-12 grid grid-cols-2 gap-y-6 sm:flex sm:items-stretch sm:gap-y-0 pb-4 sm:pb-0 ${
                       isActive
                         ? "motion-safe:animate-[heroRise_0.7s_0.4s_ease-out_both]"
                         : "opacity-0"
@@ -232,18 +232,20 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
                     {features.map((feature, fi) => (
                       <li
                         key={feature.id}
-                        className={`relative z-[1] flex flex-1 flex-col items-center justify-start gap-4 px-2 text-center sm:px-4 md:px-6 ${
-                          fi === 0 ? "pl-0" : "border-l border-black/10"
+                        className={`relative z-[1] flex flex-col sm:flex-1 items-center justify-start gap-3 md:gap-4 px-2 text-center sm:px-4 md:px-6 ${
+                          fi % 2 !== 0 ? "border-l border-black/10" : "max-sm:border-l-0 max-sm:pl-0"
+                        } ${
+                          fi > 0 ? "sm:border-l sm:border-black/10" : "sm:pl-0"
                         } ${
                           (slide.image.src.includes("02") || slide.image.src.includes("03"))
                             ? "before:absolute before:inset-[-20px] before:-z-10 before:backdrop-blur-md before:bg-white/10 before:[mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
                             : ""
                         }`}
                       >
-                        <span className="flex text-brand-red [&_svg]:h-12 [&_svg]:w-12 md:[&_svg]:h-14 md:[&_svg]:w-14 drop-shadow-sm">
+                        <span className="flex text-brand-red [&_svg]:h-10 [&_svg]:w-10 sm:[&_svg]:h-12 sm:[&_svg]:w-12 md:[&_svg]:h-14 md:[&_svg]:w-14 drop-shadow-sm">
                           {FeatureIcon[feature.icon]}
                         </span>
-                        <span className="text-[13px] leading-snug font-bold text-[#111] md:text-[15px]">
+                        <span className="text-[12px] sm:text-[13px] leading-snug font-bold text-[#111] md:text-[15px]">
                           {feature.lines.map((line) => (
                             <span key={line} className="block">
                               {line}
@@ -261,7 +263,7 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
         })}
       </div>
 
-      <div className="absolute bottom-[5.5%] left-1/2 z-[4] flex -translate-x-1/2 gap-3" role="tablist" aria-label="Choose slide">
+      <div className="absolute bottom-5 md:bottom-[5.5%] left-1/2 z-[4] flex -translate-x-1/2 gap-3" role="tablist" aria-label="Choose slide">
         {slides.map((slide, i) => (
           <button
             key={slide.id}

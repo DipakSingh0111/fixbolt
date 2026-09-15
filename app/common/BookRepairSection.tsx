@@ -35,7 +35,7 @@ export default function BookRepairSection({ data, className }: SectionProps<Book
             <div>
               <div className="mb-2">
                 <span className="text-xs font-bold text-[#d32f2f] uppercase tracking-wider">
-                  {content.eyebrow}
+                  {content.eyebrow || content.tagline}
                 </span>
                 <div className="w-6 h-[2px] bg-[#d32f2f] mt-1"></div>
               </div>

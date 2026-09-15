@@ -32,7 +32,7 @@ export default function ServicesSection({ data, className }: SectionProps<Servic
         <div className="text-center mb-8 md:mb-12">
           <div className="inline-block relative">
             <span className="text-xs font-bold tracking-wider text-[#d32f2f] uppercase">
-              {content.eyebrow}
+              {content.eyebrow || content.tagline}
             </span>
             <div className="w-8 h-[2px] bg-[#d32f2f] mx-auto mt-1"></div>
           </div>

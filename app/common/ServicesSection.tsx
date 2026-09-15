@@ -27,12 +27,13 @@ type ServicesSectionProps = SectionProps<ServicesData> & {
 
 export default function ServicesSection({ limit, data, className }: ServicesSectionProps) {
   const content = data || site.services;
-  const { eyebrow, title, description, bgPattern, items: services } = content;
+  const { eyebrow, tagline, title, description, bgPattern, items: services } = content;
+  const displayEyebrow = tagline || eyebrow;
 
   const displayServices = limit ? services.slice(0, limit) : services;
   
   return (
-    <section className="bg-[#f8f9fa] py-10 md:py-16 px-5 lg:px-8 text-center relative overflow-hidden">
+    <section className="bg-[#f8f9fa] py-10 md:py-16 text-center relative overflow-hidden">
       {/* Background Dots Pattern */}
       <div className="absolute top-6 left-6 opacity-20 pointer-events-none hidden md:block">
         <div className="grid grid-cols-4 gap-2">
@@ -57,29 +58,32 @@ export default function ServicesSection({ limit, data, className }: ServicesSect
         className="relative z-10"
       >
         {/* Header */}
-        <div className="site-container mb-8 md:mb-12">
-          <motion.span
-            variants={fadeInUp}
-            className="text-red-600 font-bold text-sm tracking-wider uppercase block"
-          >
-            {eyebrow}
-          </motion.span>
+        <div className="site-container mb-10 md:mb-16">
+          {displayEyebrow && (
+            <motion.span
+              variants={fadeInUp}
+              className="text-[#d31c24] font-bold text-xs md:text-sm tracking-wider uppercase block mb-2"
+            >
+              {displayEyebrow}
+            </motion.span>
+          )}
+          
           <motion.div
             variants={fadeInUp}
-            className="w-8 h-[2px] bg-red-600 mx-auto mt-2 mb-4"
+            className="w-10 h-[2px] bg-[#d31c24] mx-auto mb-6"
           />
 
           <motion.h2
             variants={fadeInUp}
-            className="text-3xl md:text-5xl font-extrabold text-black mb-4"
+            className="text-[32px] sm:text-4xl md:text-5xl font-extrabold text-[#111] mb-6 tracking-tight leading-[1.15]"
           >
             {title.split(content.titleHighlight)[0]}
-            <span className="text-red-600">{content.titleHighlight}</span>
+            <span className="text-[#d31c24]">{content.titleHighlight}</span>
           </motion.h2>
 
           <motion.p
             variants={fadeInUp}
-            className="site-container text-gray-600 text-sm md:text-base leading-relaxed"
+            className="text-gray-600 text-[14px] md:text-base leading-relaxed max-w-[600px] mx-auto font-medium"
           >
             {description}
           </motion.p>

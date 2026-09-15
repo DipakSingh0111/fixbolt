@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
+import ScrollToTopLink from "../components/ScrollToTopLink";
 import { site, SectionProps, FooterData } from "@/data";
 
 const SocialIcon: Record<string, ReactNode> = {
@@ -93,30 +94,54 @@ export default function Footer({ data, className }: SectionProps<FooterData> = {
             </Link>
             <p className="footer-tagline">{tagline}</p>
             <span className="footer-brand-line" aria-hidden="true" />
+            <div className="footer-bottom-socials" style={{ marginTop: '1.5rem', justifyContent: 'flex-start' }}>
+              {topbarSocials.map((s: any, index: number) => (
+                <a key={index} href={s.href} target="_blank" rel="noopener noreferrer" className="footer-bottom-social-icon" aria-label={s.label}>
+                  {SocialIcon[s.platform]}
+                </a>
+              ))}
+            </div>
           </div>
 
           <div className="footer-col">
             <h3 className="footer-heading">{quickLinks.heading}</h3>
             <ul className="footer-links-list">
-              {quickLinks.links.map((link) => (
-                <li key={link.href} className="footer-link-item">
-                  <Link href={link.href} className="footer-link">
-                    <span className="footer-link-arrow" aria-hidden="true">&#8250;</span>
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {quickLinks.links
+                .filter((link) => link.label !== "Refund Policy")
+                .map((link) => (
+                  <li key={link.href} className="footer-link-item">
+                    <Link href={link.href} className="footer-link">
+                      <span className="footer-link-arrow" aria-hidden="true">&#8250;</span>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </div>
 
           <div className="footer-col">
             <h3 className="footer-heading">{expertise.heading}</h3>
-            <ul className="footer-expertise-list">
-              {expertise.services.map((service) => (
-                <li key={service} className="footer-expertise-item">
-                  {service}
-                </li>
-              ))}
+            <ul className="footer-expertise-list flex flex-col gap-3">
+              {expertise.services.map((service) => {
+                let href = "/services";
+                if (service !== "And More") {
+                  if (service === "Software Solutions") {
+                    href = "/services/software-issues";
+                  } else {
+                    href = "/services/" + service.toLowerCase().replace(/\s+/g, "-");
+                  }
+                }
+                return (
+                  <li key={service} className="footer-expertise-item">
+                    <Link
+                      href={href}
+                      className="text-gray-400 hover:text-[#e51d25] transition-colors duration-300 block text-[15px]"
+                    >
+                      {service}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -165,11 +190,17 @@ export default function Footer({ data, className }: SectionProps<FooterData> = {
             </Link>
             . {copyright.text}
           </p>
-          <div className="footer-bottom-socials">
-            {topbarSocials.map((s: any, index: number) => (
-              <a key={index} href={s.href} target="_blank" rel="noopener noreferrer" className="footer-bottom-social-icon" aria-label={s.label}>
-                {SocialIcon[s.platform]}
-              </a>
+          <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-0 text-[13px] md:text-sm text-gray-400">
+            {[
+              { label: "Warranty Policy", href: "/refund-policy" },
+              { label: "Cancellation / Refund Policy", href: "/refund-policy" },
+              { label: "Privacy Policy", href: "/refund-policy" },
+              { label: "Terms & Conditions", href: "/refund-policy" },
+              { label: "Site-Map", href: "/sitemap" },
+            ].map((link, idx) => (
+              <ScrollToTopLink key={idx} href={link.href} className="hover:text-[#e51d25] transition-colors">
+                {link.label}
+              </ScrollToTopLink>
             ))}
           </div>
         </div>

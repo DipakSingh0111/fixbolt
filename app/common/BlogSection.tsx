@@ -26,7 +26,7 @@ type BlogSectionProps = SectionProps<BlogData> & {
 
 export default function BlogSection({ category, limit, data, className }: BlogSectionProps) {
   const content = data || site.blog;
-  const { eyebrow, title, description, posts: blogPosts = [] } = content;
+  const { eyebrow, tagline, title, description, posts: blogPosts = [] } = content;
 
   let filteredPosts = category 
     ? blogPosts.filter(post => post.category.toLowerCase() === category.toLowerCase())
@@ -37,7 +37,7 @@ export default function BlogSection({ category, limit, data, className }: BlogSe
   }
 
   return (
-    <section className="bg-[#f8f9fa] pt-10 pb-10 px-4 md:pt-12 md:pb-12 md:px-8 relative overflow-hidden text-center">
+    <section className="bg-[#f8f9fa] pt-10 pb-10 md:pt-12 md:pb-12 relative overflow-hidden text-center">
       {/* Background Decorative Circuit/Dot Grid Accents */}
       <div className="absolute top-10 left-10 pointer-events-none hidden md:block">
         <div className="grid grid-cols-4 gap-3">
@@ -62,12 +62,12 @@ export default function BlogSection({ category, limit, data, className }: BlogSe
             <div className="w-10 h-[2px] bg-[#c90f16]" />
             <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.08em] text-[#c90f16]">
               <Edit3 size={20} className="text-[#c90f16]" />
-              <span>{eyebrow}</span>
+              <span>{eyebrow || tagline}</span>
             </div>
             <div className="w-10 h-[2px] bg-[#c90f16]" />
           </div>
 
-          <h2 className="text-3xl md:text-[44px] font-extrabold text-[#111] mb-6 tracking-tight">
+          <h2 className="text-[32px] sm:text-4xl md:text-[44px] font-extrabold text-[#111] mb-6 tracking-tight leading-[1.15]">
             {title.split('Our Blog')[0]}<span className="text-[#c90f16]">Our Blog</span>
           </h2>
 
@@ -76,7 +76,7 @@ export default function BlogSection({ category, limit, data, className }: BlogSe
             <div className="w-2 h-[3px] bg-[#c90f16] rounded-full" />
           </div>
 
-          <p className="site-container text-gray-500 text-[15px] leading-relaxed mb-6">
+          <p className="max-w-[600px] mx-auto text-gray-500 text-[14px] md:text-[15px] leading-relaxed mb-6 font-medium">
             {description}
           </p>
 

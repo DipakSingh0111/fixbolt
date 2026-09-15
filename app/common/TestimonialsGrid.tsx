@@ -20,7 +20,7 @@ function QuoteIcon() {
 
 export default function TestimonialsGrid({ data, className }: SectionProps<TestimonialData> = {}) {
   const content = data || site.testimonial;
-  const { eyebrow, title, description, items: testimonials } = content;
+  const { eyebrow, tagline, title, description, items: testimonials } = content;
   return (
     <section className="bg-white py-10 md:py-16 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="site-container">
@@ -29,7 +29,7 @@ export default function TestimonialsGrid({ data, className }: SectionProps<Testi
           <div className="inline-flex items-center justify-center space-x-3">
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
             <span className="text-xs font-bold tracking-wider text-[#e51d25] uppercase">
-              {eyebrow}
+              {eyebrow || tagline}
             </span>
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
           </div>

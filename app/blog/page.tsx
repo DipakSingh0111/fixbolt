@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { site } from "@/data";
 import PageBanner from "../common/PageBanner";
 import BlogSection from "../common/BlogSection";

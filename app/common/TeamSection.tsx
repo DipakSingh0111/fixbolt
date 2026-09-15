@@ -58,7 +58,7 @@ export default function TeamSection() {
   const router = useRouter();
 
   return (
-    <section className="bg-[#f8f9fa] py-20 px-4 md:px-8 text-center relative overflow-hidden">
+    <section className="bg-[#f8f9fa] py-10 md:py-20 text-center relative overflow-hidden">
       {/* Background Tech Line Decorators */}
       <div className="absolute top-8 left-8 opacity-15 pointer-events-none hidden md:block">
         <div className="grid grid-cols-4 gap-2">
@@ -77,17 +77,17 @@ export default function TeamSection() {
 
       {/* Header Section */}
       <div className="site-container mb-14">
-        <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-red-600 mb-2">
-          <Users size={18} className="text-red-600" />
+        <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-[#d31c24] mb-2">
+          <Users size={18} className="text-[#d31c24]" />
           <span>{sectionEyebrow}</span>
         </div>
-        <div className="w-8 h-[2px] bg-red-600 mx-auto mt-1 mb-4" />
+        <div className="w-8 h-[2px] bg-[#d31c24] mx-auto mt-1 mb-4" />
 
-        <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-4">
-          {title.split('Behind FixBolt')[0]}<span className="text-red-600">Behind FixBolt</span>
+        <h2 className="text-[32px] sm:text-4xl md:text-5xl font-extrabold text-[#111] mb-6 tracking-tight leading-[1.15]">
+          {title.split('Behind FixBolt')[0]}<span className="text-[#d31c24]">Behind FixBolt</span>
         </h2>
 
-        <p className="site-container text-gray-600 text-sm md:text-base leading-relaxed">
+        <p className="max-w-[600px] mx-auto text-gray-600 text-[14px] md:text-base leading-relaxed font-medium">
           {description}
         </p>
       </div>

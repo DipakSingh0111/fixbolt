@@ -302,21 +302,40 @@ export default async function CareerDetailsPage({ params }: Props) {
               <p className="text-xs text-gray-500 mb-6">{detail.shareDescription}</p>
               
               <div className="flex items-center gap-3">
-                <button className="w-10 h-10 rounded-full bg-[#cc1616] text-white flex items-center justify-center hover:bg-[#a51212] transition-colors">
+                <a 
+                  href="https://www.facebook.com"
+                  target="_blank" rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-[#cc1616] text-white flex items-center justify-center hover:bg-[#a51212] transition-colors cursor-pointer"
+                >
                   <FacebookIcon className="w-4 h-4" />
-                </button>
-                <button className="w-10 h-10 rounded-full bg-[#cc1616] text-white flex items-center justify-center hover:bg-[#a51212] transition-colors">
+                </a>
+                <a 
+                  href="https://www.linkedin.com"
+                  target="_blank" rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-[#cc1616] text-white flex items-center justify-center hover:bg-[#a51212] transition-colors cursor-pointer"
+                >
                   <LinkedinIcon className="w-4 h-4" />
-                </button>
-                <button className="w-10 h-10 rounded-full bg-[#cc1616] text-white flex items-center justify-center hover:bg-[#a51212] transition-colors">
+                </a>
+                <a 
+                  href="https://www.x.com"
+                  target="_blank" rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-[#cc1616] text-white flex items-center justify-center hover:bg-[#a51212] transition-colors cursor-pointer"
+                >
                   <TwitterIcon className="w-4 h-4" />
-                </button>
-                <button className="w-10 h-10 rounded-full bg-[#cc1616] text-white flex items-center justify-center hover:bg-[#a51212] transition-colors">
+                </a>
+                <a 
+                  href="https://wa.me/15502505260"
+                  target="_blank" rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-[#cc1616] text-white flex items-center justify-center hover:bg-[#a51212] transition-colors cursor-pointer"
+                >
                   <MessageCircle className="w-4 h-4" />
-                </button>
-                <button className="w-10 h-10 rounded-full bg-[#cc1616] text-white flex items-center justify-center hover:bg-[#a51212] transition-colors">
+                </a>
+                <a 
+                  href="mailto:info@Fixpro24.com"
+                  className="w-10 h-10 rounded-full bg-[#cc1616] text-white flex items-center justify-center hover:bg-[#a51212] transition-colors cursor-pointer"
+                >
                   <Mail className="w-4 h-4" />
-                </button>
+                </a>
               </div>
             </div>
             

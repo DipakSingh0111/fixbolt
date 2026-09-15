@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import React from "react";
 import { site } from "@/data";
 import PageBanner from "../common/PageBanner";
@@ -6,6 +7,10 @@ import CareerHero from "./components/CareerHero";
 import WhyJoinUs from "./components/WhyJoinUs";
 import OpenPositions from "./components/OpenPositions";
 import CareerCta from "./components/CareerCta";
+
+export const metadata: Metadata = {
+  title: "Career | FixBolt",
+};
 
 export default function CareerPage() {
   const { hero, buildFuture, whyJoin, openPositions, bottomCta } = site.career;
