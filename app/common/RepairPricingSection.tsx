@@ -20,45 +20,129 @@ import {
 import { site, SectionProps, PricingData } from "@/data";
 
 const CustomIcons = {
+  // Shield with checkmark — Quality Service
   QualityService: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12 3 5 5.8v5.6c0 4.2 2.9 7.7 7 9.2 4.1-1.5 7-5 7-9.2V5.8L12 3Z" />
-      <path d="m8.7 11.8 2.3 2.3 4.4-4.4" />
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M32 6L10 16v16c0 13.3 9.3 25.7 22 29 12.7-3.3 22-15.7 22-29V16L32 6Z"
+        fill="#fde8e8"
+        stroke="#d31c24"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M22 32l7 7 13-13"
+        stroke="#d31c24"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
+
+  // Mechanic person with car — Expert Technicians
   ExpertTechnicians: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <circle cx="12" cy="9.2" r="2.6" />
-      <path d="M8.2 7.4h7.6" />
-      <path d="M7.4 7.4c0-2.2 2-3.6 4.6-3.6s4.6 1.4 4.6 3.6" />
-      <path d="M6.8 20.2c.7-3.2 3-5 5.2-5s4.5 1.8 5.2 5" />
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      {/* head */}
+      <circle cx="32" cy="14" r="7" fill="#fde8e8" stroke="#d31c24" strokeWidth="2.2" />
+      {/* helmet/cap */}
+      <path d="M25 14c0-3.9 3.1-7 7-7s7 3.1 7 7" fill="#d31c24" />
+      {/* body / torso */}
+      <rect x="23" y="24" width="18" height="14" rx="3" fill="#fde8e8" stroke="#d31c24" strokeWidth="2.2" />
+      {/* arms */}
+      <path d="M23 28l-7 4M41 28l7 4" stroke="#d31c24" strokeWidth="2.2" strokeLinecap="round" />
+      {/* wrench in right hand */}
+      <path d="M48 32l5 5-2 2-5-5" stroke="#d31c24" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="51" cy="30" r="3" stroke="#d31c24" strokeWidth="2" />
+      {/* car body */}
+      <rect x="10" y="44" width="44" height="10" rx="3" fill="#fde8e8" stroke="#d31c24" strokeWidth="2" />
+      <path d="M17 44l5-8h20l5 8" stroke="#d31c24" strokeWidth="2" strokeLinejoin="round" />
+      <circle cx="19" cy="55" r="4" fill="white" stroke="#d31c24" strokeWidth="2" />
+      <circle cx="45" cy="55" r="4" fill="white" stroke="#d31c24" strokeWidth="2" />
     </svg>
   ),
+
+  // Price tag with ₹ — Affordable Pricing
   AffordablePricing: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12.2 3.4 20.4 11.6a1.6 1.6 0 0 1 0 2.3l-6.5 6.5a1.6 1.6 0 0 1-2.3 0L3.4 12.2V3.4h8.8Z" />
-      <circle cx="8.2" cy="8.2" r="1.1" />
-      <path d="M13.2 10.4c-.4-1.2-2.4-1.3-2.8 0-.3 1 1 1.5 1.8 1.8.9.3 2.1.8 1.8 1.9-.4 1.3-2.6 1.2-3.1 0" />
-      <path d="M12.2 9.2v.6M12.2 16.2v.6" />
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M36 6H18a4 4 0 0 0-4 4v18l22 22 26-26L40 2l-4 4Z"
+        fill="#fde8e8"
+        stroke="#d31c24"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+      <circle cx="22" cy="22" r="3" fill="#d31c24" />
+      {/* ₹ symbol */}
+      <text x="28" y="38" fontSize="14" fill="#d31c24" fontWeight="bold" fontFamily="serif">₹</text>
     </svg>
   ),
+
+  // Shield with check medal — Repair Warranty
   RepairWarranty: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <circle cx="12" cy="9.2" r="5.2" />
-      <path d="m9.2 16.2-1.5 5.2 4.3-1.7 4.3 1.7-1.5-5.2" />
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M32 6L10 16v16c0 13.3 9.3 25.7 22 29 12.7-3.3 22-15.7 22-29V16L32 6Z"
+        fill="#fde8e8"
+        stroke="#d31c24"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M22 32l7 7 13-13"
+        stroke="#d31c24"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
+
+  // Gear / cog — Genuine Parts
   GenuineParts: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12 8.2a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6Z" />
-      <path d="M12 3.2v2.2M12 18.6v2.2M20.8 12h-2.2M5.4 12H3.2M18.2 5.8l-1.6 1.6M7.4 16.6l-1.6 1.6M18.2 18.2l-1.6-1.6M7.4 7.4 5.8 5.8" />
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path
+        d="M32 20a12 12 0 1 1 0 24 12 12 0 0 1 0-24Z"
+        fill="#fde8e8"
+        stroke="#d31c24"
+        strokeWidth="2.5"
+      />
+      <path
+        d="M32 4v6M32 54v6M4 32h6M54 32h6M10.1 10.1l4.2 4.2M49.7 49.7l4.2 4.2M10.1 53.9l4.2-4.2M49.7 14.3l4.2-4.2"
+        stroke="#d31c24"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+      <circle cx="32" cy="32" r="5" fill="#d31c24" />
     </svg>
   ),
+
+  // Stars + thumbs up — 100% Satisfaction
   Satisfaction: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="m4.6 3.4.8.8M8.2 2.2l.6.9M12 1.8v1.1M15.8 2.2l-.6.9M19.4 3.4l-.8.8" />
-      <path d="M14.2 10.2V6.8a2.2 2.2 0 0 0-2.3-2.1L8.4 12.6V21h8.4a1.8 1.8 0 0 0 1.8-1.5l1.1-7.2a1.8 1.8 0 0 0-1.8-2.1h-3.7Z" />
-      <path d="M8.4 21H5.6A1.8 1.8 0 0 1 3.8 19.2v-5.4A1.8 1.8 0 0 1 5.6 12h2.8" />
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      {/* stars row */}
+      {[6, 16, 26, 36, 46].map((x, i) => (
+        <path
+          key={i}
+          d={`M${x + 4} 6l1.2 3.6H${x + 10}l-3 2.2 1.1 3.4-3.3-2.4-3.3 2.4 1.1-3.4-3-2.2h4.8Z`}
+          fill="#d31c24"
+        />
+      ))}
+      {/* thumbs up */}
+      <path
+        d="M28 28v-8a4 4 0 0 0-4-4l-8 16v18h21a4 4 0 0 0 4-3.4l2.4-14A4 4 0 0 0 39.4 28H28Z"
+        fill="#fde8e8"
+        stroke="#d31c24"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16 32H11a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h5"
+        stroke="#d31c24"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
 };
@@ -109,8 +193,8 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
                 key={idx}
                 className="bg-white rounded-xl p-4 flex flex-col items-center justify-center border border-gray-100 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.04)]"
               >
-                <div className="mb-3 grid size-12 place-items-center text-[#e11d24]">
-                  <Icon className="h-8 w-8" />
+                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#fde8e8]">
+                  <Icon className="h-9 w-9" />
                 </div>
                 <span className="text-sm font-bold text-gray-900 text-center leading-tight">
                   {feat.title}
