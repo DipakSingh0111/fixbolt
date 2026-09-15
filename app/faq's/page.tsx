@@ -10,7 +10,14 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <div>
-      <PageBanner title={site.pages.faqs.bannerTitle} />
+      <PageBanner 
+            title={site.pages.faqs.bannerTitle} 
+            breadcrumbs={[
+            { label: site.pageBanner.homeLabel, href: "/" },
+            { label: "Resources", href: "/#" },
+            { label: site.pages.faqs.bannerTitle },
+            ]}
+        />
       <FaqSection />
     </div>
   );

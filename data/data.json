@@ -437,12 +437,31 @@
                       "href": "/brands"
                     },
                     {
-                      "label": "Book A Repair",
-                      "href": "/bookrepair"
-                    },
-                    {
                       "label": "Pricing",
                       "href": "/pricing"
+                    }
+                  ]
+                },
+                {
+                  "label": "Resources",
+                  "href": "/#",
+                  "hasDropdown": true,
+                  "dropdownItems": [
+                    {
+                      "label": "Services",
+                      "href": "/services"
+                    },
+                    {
+                      "label": "Gallery",
+                      "href": "/gallery"
+                    },
+                    {
+                      "label": "FAQS",
+                      "href": "/faq's"
+                    },
+                    {
+                      "label": "Book A Repair",
+                      "href": "/bookrepair"
                     },
                     {
                       "label": "Testimonial",
@@ -451,20 +470,8 @@
                   ]
                 },
                 {
-                  "label": "Services",
-                  "href": "/services"
-                },
-                {
-                  "label": "Gallery",
-                  "href": "/gallery"
-                },
-                {
                   "label": "Blog",
                   "href": "/blog"
-                },
-                {
-                  "label": "FAQS",
-                  "href": "/faq's"
                 },
                 {
                   "label": "Careers",

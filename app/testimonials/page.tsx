@@ -10,7 +10,14 @@ export const metadata: Metadata = {
 export default function TestimonialsPage() {
   return (
     <>
-      <PageBanner title={site.pages['testimonials'].bannerTitle} />
+      <PageBanner 
+        title={site.pages['testimonials'].bannerTitle} 
+        breadcrumbs={[
+          { label: site.pageBanner.homeLabel, href: "/" },
+          { label: "Resources", href: "/#" },
+          { label: site.pages['testimonials'].bannerTitle },
+        ]}
+      />
       <TestimonialsGrid />
     </>
   );

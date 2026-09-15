@@ -114,7 +114,7 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
               </div>
 
               {/* Grid for Contact & Skills */}
-              <div className="grid sm:grid-cols-2 gap-8 lg:gap-10 mt-auto">
+              <div className="grid sm:grid-cols-2 gap-8 lg:gap-10">
                 
                 {/* Contact Info List */}
                 <div className="flex flex-col gap-6 items-start w-fit mx-auto sm:w-auto sm:mx-0">

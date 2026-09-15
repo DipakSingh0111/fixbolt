@@ -10,7 +10,14 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <div>
-      <PageBanner title={site.pages.gallery.bannerTitle} />
+      <PageBanner 
+            title={site.pages.gallery.bannerTitle} 
+            breadcrumbs={[
+            { label: site.pageBanner.homeLabel, href: "/" },
+            { label: "Resources", href: "/#" },
+            { label: site.pages.gallery.bannerTitle },
+            ]}
+        />
       <GallerySection />
     </div>
   );

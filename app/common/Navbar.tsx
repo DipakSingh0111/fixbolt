@@ -54,7 +54,7 @@ export default function Navbar({ data, className }: SectionProps<HeaderData> = {
             const isActive = pathname === link.href || link.dropdownItems?.some((dl: any) => dl.href === pathname);
             
             return (
-              <li key={link.href} className="group relative">
+              <li key={link.label || link.href} className="group relative">
                 <Link
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
@@ -135,7 +135,7 @@ export default function Navbar({ data, className }: SectionProps<HeaderData> = {
               const isDropdownOpen = mobileDropdownOpen === link.label;
 
               return (
-                <li key={link.href} className="border-b border-white/10">
+                <li key={link.label || link.href} className="border-b border-white/10">
                   <div className="flex items-center justify-between">
                     <Link
                       href={link.href}

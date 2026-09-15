@@ -14,7 +14,14 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageBanner title={site.pages.about.bannerTitle} />
+      <PageBanner 
+            title={site.pages.about.bannerTitle} 
+            breadcrumbs={[
+            { label: site.pageBanner.homeLabel, href: "/" },
+            { label: "About", href: "/#" },
+            { label: site.pages.about.bannerTitle },
+            ]}
+        />
       <AboutSection />
       <CounterSection />
       <WhyChooseUs />

@@ -10,7 +10,14 @@ export const metadata: Metadata = {
 export default function OurTeam() {
   return (
     <div>
-      <PageBanner title={site.pages['our-team'].bannerTitle} />
+      <PageBanner 
+        title={site.pages['our-team'].bannerTitle} 
+        breadcrumbs={[
+          { label: site.pageBanner.homeLabel, href: "/" },
+          { label: "About", href: "/#" },
+          { label: site.pages['our-team'].bannerTitle },
+        ]}
+      />
       <TeamSection />
     </div>
   );

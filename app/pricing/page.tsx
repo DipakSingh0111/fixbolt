@@ -10,7 +10,14 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
-      <PageBanner title={site.pages.pricing.bannerTitle} />
+      <PageBanner 
+            title={site.pages.pricing.bannerTitle} 
+            breadcrumbs={[
+            { label: site.pageBanner.homeLabel, href: "/" },
+            { label: "About", href: "/#" },
+            { label: site.pages.pricing.bannerTitle },
+            ]}
+        />
       <RepairPricingSection />
     </>
   );

@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { site, SectionProps, PageBannerData } from "@/data";
 
 type BreadcrumbItem = {
@@ -49,11 +52,21 @@ export default function PageBanner({
 
       {/* Content */}
       <div className="site-container relative z-10 w-full">
-        <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl capitalize">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl capitalize"
+        >
           {title}
-        </h1>
+        </motion.h1>
 
-        <nav aria-label="Breadcrumb">
+        <motion.nav 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          aria-label="Breadcrumb"
+        >
           <ol className="flex items-center space-x-2 text-sm font-medium text-white/80 md:text-base capitalize">
             {crumbs.map((crumb, index) => {
               const isLast = index === crumbs.length - 1;
@@ -80,7 +93,7 @@ export default function PageBanner({
               );
             })}
           </ol>
-        </nav>
+        </motion.nav>
       </div>
     </div>
   );
