@@ -61,6 +61,22 @@ function ArrowRight() {
   );
 }
 
+function ChevronLeft() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
+      <path d="M15 6 9 12l6 6" />
+    </svg>
+  );
+}
+
+function ChevronRight() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
+      <path d="m9 6 6 6-6 6" />
+    </svg>
+  );
+}
+
 const SWIPE_THRESHOLD = 45;
 
 export default function HeroBanner({ data, className }: SectionProps<HeroData> = {}) {
@@ -115,7 +131,7 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-page aspect-[1901/858] min-h-[430px] max-lg:aspect-auto max-lg:h-[600px] max-md:h-[700px]"
+      className="relative w-full overflow-hidden bg-page min-h-[560px] h-[640px] md:h-[720px] lg:h-[min(860px,calc(100svh-6rem))] xl:h-[min(920px,calc(100svh-6rem))]"
       aria-roledescription="carousel"
       aria-label="FixBolt highlights"
       onMouseEnter={() => setPaused(true)}
@@ -152,11 +168,11 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
                 }`}
               />
 
-              <div className="absolute inset-0 z-[2] flex items-center pb-12 max-lg:pb-16 max-md:pb-20 pt-16 max-md:pt-24 max-lg:bg-linear-to-r max-lg:from-page/95 max-lg:via-page/80 max-lg:to-transparent">
+              <div className="absolute inset-0 z-[2] flex items-end pb-16 max-lg:pb-20 max-md:pb-24 pt-12 max-md:pt-20 max-lg:bg-linear-to-r max-lg:from-page/95 max-lg:via-page/80 max-lg:to-transparent">
                 <div className="site-container w-full">
                   <div className="w-full max-w-[46%] max-lg:max-w-[75%] max-md:max-w-full">
                   <p
-                    className={`mb-3 flex flex-wrap gap-x-2 text-[13px] font-bold tracking-wide uppercase md:text-[15px] ${
+                    className={`mb-2.5 flex flex-wrap gap-x-2 text-[13px] font-bold tracking-wide uppercase md:text-[15px] ${
                       isActive
                         ? "motion-safe:animate-[heroRise_0.7s_0.08s_ease-out_both]"
                         : "opacity-0"
@@ -173,7 +189,7 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
                   </p>
 
                   <h1
-                    className={`text-[40px] leading-none font-extrabold tracking-tight uppercase text-[#111] md:text-[56px] lg:text-[72px] ${
+                    className={`text-[36px] leading-[1.05] font-extrabold tracking-tight uppercase text-[#111] md:text-[52px] lg:text-[58px] xl:text-[68px] ${
                       isActive
                         ? "motion-safe:animate-[heroRise_0.7s_0.16s_ease-out_both]"
                         : "opacity-0"
@@ -190,7 +206,7 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
                   </h1>
 
                   <p
-                    className={`mt-5 text-base leading-relaxed font-medium text-[#1a1a1a] md:text-xl ${
+                    className={`mt-4 text-base leading-relaxed font-medium text-[#1a1a1a] md:text-lg xl:text-xl ${
                       isActive
                         ? "motion-safe:animate-[heroRise_0.7s_0.24s_ease-out_both]"
                         : "opacity-0"
@@ -204,7 +220,7 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
                   </p>
 
                   <div
-                    className={`mt-7 ${
+                    className={`mt-5 md:mt-6 ${
                       isActive
                         ? "motion-safe:animate-[heroRise_0.7s_0.32s_ease-out_both]"
                         : "opacity-0"
@@ -223,29 +239,35 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
                   </div>
 
                   <ul
-                    className={`mt-8 md:mt-12 grid grid-cols-2 gap-y-6 sm:flex sm:items-stretch sm:gap-y-0 pb-4 sm:pb-0 ${
+                    className={`mt-5 md:mt-7 grid grid-cols-2 gap-y-6 sm:flex sm:items-stretch sm:gap-y-0 ${
                       isActive
                         ? "motion-safe:animate-[heroRise_0.7s_0.4s_ease-out_both]"
                         : "opacity-0"
                     }`}
                   >
-                    {features.map((feature, fi) => (
+                    {features.map((feature, fi) => {
+                      const isLast = fi === features.length - 1;
+                      return (
                       <li
                         key={feature.id}
-                        className={`relative z-[1] flex flex-col sm:flex-1 items-center justify-start gap-3 md:gap-4 px-2 text-center sm:px-4 md:px-6 ${
+                        className={`relative z-[1] flex flex-col sm:flex-1 items-center justify-start gap-2.5 md:gap-3 px-2 text-center sm:px-4 md:px-5 ${
                           fi % 2 !== 0 ? "border-l border-black/10" : "max-sm:border-l-0 max-sm:pl-0"
                         } ${
                           fi > 0 ? "sm:border-l sm:border-black/10" : "sm:pl-0"
                         } ${
-                          (slide.image.src.includes("02") || slide.image.src.includes("03"))
-                            ? "before:absolute before:inset-[-20px] before:-z-10 before:backdrop-blur-md before:bg-white/10 before:[mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
+                          isLast || slide.image.src.includes("02") || slide.image.src.includes("03")
+                            ? "before:absolute before:inset-[-18px] before:-z-10 before:rounded-2xl before:backdrop-blur-[6px] before:bg-white/55 before:[mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_75%)]"
+                            : ""
+                        } ${
+                          isLast
+                            ? "before:backdrop-blur-md before:bg-white/70 before:inset-[-22px] before:[mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_78%)]"
                             : ""
                         }`}
                       >
-                        <span className="flex text-brand-red [&_svg]:h-10 [&_svg]:w-10 sm:[&_svg]:h-12 sm:[&_svg]:w-12 md:[&_svg]:h-14 md:[&_svg]:w-14 drop-shadow-sm">
+                        <span className="flex text-brand-red [&_svg]:h-9 [&_svg]:w-9 sm:[&_svg]:h-11 sm:[&_svg]:w-11 md:[&_svg]:h-12 md:[&_svg]:w-12 drop-shadow-sm">
                           {FeatureIcon[feature.icon]}
                         </span>
-                        <span className="text-[12px] sm:text-[13px] leading-snug font-bold text-[#111] md:text-[15px]">
+                        <span className="text-[12px] sm:text-[13px] leading-snug font-bold text-[#111] md:text-[14px]">
                           {feature.lines.map((line) => (
                             <span key={line} className="block">
                               {line}
@@ -253,7 +275,8 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
                           ))}
                         </span>
                       </li>
-                    ))}
+                      );
+                    })}
                   </ul>
                 </div>
                 </div>
@@ -263,7 +286,24 @@ export default function HeroBanner({ data, className }: SectionProps<HeroData> =
         })}
       </div>
 
-      <div className="absolute bottom-5 md:bottom-[5.5%] left-1/2 z-[4] flex -translate-x-1/2 gap-3" role="tablist" aria-label="Choose slide">
+      <button
+        type="button"
+        aria-label="Previous slide"
+        onClick={prev}
+        className="absolute top-1/2 left-4 z-[4] grid size-10 -translate-y-1/2 place-items-center rounded-md border-0 bg-brand-red text-white transition-colors hover:bg-brand-red-dark md:left-6 lg:left-8"
+      >
+        <ChevronLeft />
+      </button>
+      <button
+        type="button"
+        aria-label="Next slide"
+        onClick={next}
+        className="absolute top-1/2 right-4 z-[4] grid size-10 -translate-y-1/2 place-items-center rounded-md border-0 bg-brand-red text-white transition-colors hover:bg-brand-red-dark md:right-6 lg:right-8"
+      >
+        <ChevronRight />
+      </button>
+
+      <div className="absolute bottom-5 md:bottom-6 left-1/2 z-[4] flex -translate-x-1/2 gap-3" role="tablist" aria-label="Choose slide">
         {slides.map((slide, i) => (
           <button
             key={slide.id}
