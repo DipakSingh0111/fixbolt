@@ -84,14 +84,14 @@ export default function ServicesSection({ data }: SectionProps<ServicesData> = {
                   </div>
                 </div>
 
-                {/* RED HOVER CARD OVERLAY */}
+                {/* RED HOVER */}
                 <div className="absolute inset-0 bg-[#e51d25] text-white p-6 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
                   {/* Watermark Big Circular Icon */}
                   <div className="absolute top-8 left-1/2 -translate-x-1/2 w-20 h-20 bg-white/10 rounded-full flex items-center justify-center">
                     <Icon className="w-10 h-10 text-white" />
                   </div>
 
-                  {/* Top Header Placeholder spacing */}
+                  {/* Top Header */}
                   <div></div>
 
                   {/* Hover Content */}
@@ -106,7 +106,7 @@ export default function ServicesSection({ data }: SectionProps<ServicesData> = {
                     </p>
                   </div>
 
-                  {/* Arrow Action Button */}
+                  {/* Arrow Action */}
                   <div className="absolute bottom-5 right-5 z-10">
                     <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md text-[#e51d25] hover:scale-110 transition-transform">
                       <ArrowRight className="w-4 h-4" />
