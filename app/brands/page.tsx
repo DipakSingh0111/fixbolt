@@ -10,15 +10,10 @@ export const metadata: Metadata = {
 export default function Brands() {
   return (
     <div>
-      <PageBanner 
-            title={site.pages.brands.bannerTitle} 
-            breadcrumbs={[
-            { label: site.pageBanner.homeLabel, href: "/" },
-            { label: "About", href: "/#" },
-            { label: site.pages.brands.bannerTitle },
-            ]}
+      <PageBanner title="Brands" breadcrumbs={[ { label: "Home", href: "/" }, { label: "About", href: "/#" }, { label: "Brands" } ]} 
         />
       <BrandsSection />
     </div>
   );
 }
+

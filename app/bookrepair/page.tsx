@@ -11,14 +11,11 @@ export default function BookRepair() {
   return (
     <div>
       <PageBanner 
-        title={site.pages['book-repair'].bannerTitle} 
-        breadcrumbs={[
-          { label: site.pageBanner.homeLabel, href: "/" },
-          { label: "Resources", href: "/#" },
-          { label: site.pages['book-repair'].bannerTitle },
-        ]}
+        title={site.pages['book-repair'].bannerTitle}
+        breadcrumbs={[ { label: "Home", href: "/" }, { label: "Resources", href: "/#" }, { label: site.pages['book-repair'].bannerTitle } ]}
       />
       <BookRepairSection />
     </div>
   );
 }
+
