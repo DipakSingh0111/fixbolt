@@ -194,7 +194,7 @@ export default function HeroBanner({
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-page min-h-[560px] h-[640px] md:h-[720px] lg:h-[min(860px,calc(100svh-6rem))] xl:h-[min(920px,calc(100svh-6rem))]"
+      className="relative w-full overflow-hidden bg-page min-h-[580px] h-[580px] md:min-h-0 md:h-[480px] lg:h-[520px] xl:h-[560px] max-h-[700px]"
       aria-roledescription="carousel"
       aria-label="FixBolt highlights"
       onMouseEnter={() => setPaused(true)}
@@ -231,9 +231,9 @@ export default function HeroBanner({
                 }`}
               />
 
-              <div className="absolute inset-0 z-[2] flex items-end pb-16 max-lg:pb-20 max-md:pb-24 pt-24 max-md:pt-32 lg:pt-28 max-lg:bg-linear-to-r max-lg:from-page/95 max-lg:via-page/80 max-lg:to-transparent">
-                <div className="site-container w-full mt-8 md:mt-12">
-                  <div className="w-full max-w-[46%] max-lg:max-w-[75%] max-md:max-w-full">
+              <div className="absolute inset-0 z-[2] flex items-end md:items-start pb-12 md:pb-0 pt-0 max-md:pt-0 md:pt-6 lg:pt-8 xl:pt-10 max-lg:bg-linear-to-r max-lg:from-page/95 max-lg:via-page/80 max-lg:to-transparent">
+                <div className="site-container w-full mt-0">
+                  <div className="w-full max-w-[55%] xl:max-w-[50%] 2xl:max-w-[46%] max-lg:max-w-[75%] max-md:max-w-full">
                     <p
                       className={`mb-2.5 flex flex-wrap gap-x-2 text-[13px] font-bold tracking-wide uppercase md:text-[15px] ${
                         isActive
@@ -363,7 +363,7 @@ export default function HeroBanner({
         type="button"
         aria-label="Previous slide"
         onClick={prev}
-        className="absolute top-1/2 left-4 z-[4] grid size-10 -translate-y-1/2 place-items-center rounded-md border-0 bg-brand-red text-white transition-colors hover:bg-brand-red-dark md:left-6 lg:left-8"
+        className="absolute z-[4] grid size-10 place-items-center rounded-md border-0 bg-brand-red text-white transition-colors hover:bg-brand-red-dark bottom-5 left-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-6 lg:left-8"
       >
         <ChevronLeft />
       </button>
@@ -371,7 +371,7 @@ export default function HeroBanner({
         type="button"
         aria-label="Next slide"
         onClick={next}
-        className="absolute top-1/2 right-4 z-[4] grid size-10 -translate-y-1/2 place-items-center rounded-md border-0 bg-brand-red text-white transition-colors hover:bg-brand-red-dark md:right-6 lg:right-8"
+        className="absolute z-[4] grid size-10 place-items-center rounded-md border-0 bg-brand-red text-white transition-colors hover:bg-brand-red-dark bottom-5 right-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:right-6 lg:right-8"
       >
         <ChevronRight />
       </button>
