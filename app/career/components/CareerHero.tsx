@@ -78,7 +78,7 @@ export default function CareerHero({ buildFuture }: { buildFuture: CareerData['b
           <img
             src={buildFuture.image}
             alt={buildFuture.imageAlt}
-            className="w-full h-full object-cover object-left"
+            className="w-full h-full object-cover object-left max-lg:object-[85%_center]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent lg:hidden"></div>
           <div className="absolute bottom-8 left-8 lg:hidden">

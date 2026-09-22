@@ -194,7 +194,7 @@ export default function HeroBanner({
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-page min-h-[580px] h-[580px] md:min-h-0 md:h-[480px] lg:h-[520px] xl:h-[560px] max-h-[700px]"
+      className="relative w-full overflow-hidden bg-page min-h-[600px] h-[600px] md:min-h-0 md:h-[480px] lg:h-[520px] xl:h-[560px] max-h-[700px]"
       aria-roledescription="carousel"
       aria-label="FixBolt highlights"
       onMouseEnter={() => setPaused(true)}
@@ -231,7 +231,7 @@ export default function HeroBanner({
                 }`}
               />
 
-              <div className="absolute inset-0 z-[2] flex items-end md:items-start pb-12 md:pb-0 pt-0 max-md:pt-0 md:pt-6 lg:pt-8 xl:pt-10 max-lg:bg-linear-to-r max-lg:from-page/95 max-lg:via-page/80 max-lg:to-transparent">
+              <div className="absolute inset-0 z-[2] flex items-end md:items-start pb-20 md:pb-0 pt-0 max-md:pt-0 md:pt-6 lg:pt-8 xl:pt-10 max-lg:bg-linear-to-r max-lg:from-page/95 max-lg:via-page/80 max-lg:to-transparent">
                 <div className="site-container w-full mt-0">
                   <div className="w-full max-w-[55%] xl:max-w-[50%] 2xl:max-w-[46%] max-lg:max-w-[75%] max-md:max-w-full">
                     <p
@@ -359,6 +359,7 @@ export default function HeroBanner({
         })}
       </div>
 
+      {/* Slide Navigation Icons - Commented as requested
       <button
         type="button"
         aria-label="Previous slide"
@@ -397,6 +398,7 @@ export default function HeroBanner({
           />
         ))}
       </div>
+      */}
     </section>
   );
 }
