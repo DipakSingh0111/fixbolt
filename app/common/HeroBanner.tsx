@@ -359,12 +359,12 @@ export default function HeroBanner({
         })}
       </div>
 
-      {/* Slide Navigation Icons - Commented as requested
+      {/* Slide Navigation Icons */}
       <button
         type="button"
         aria-label="Previous slide"
         onClick={prev}
-        className="absolute z-[4] grid size-10 place-items-center rounded-md border-0 bg-brand-red text-white transition-colors hover:bg-brand-red-dark bottom-5 left-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-6 lg:left-8"
+        className="absolute z-[4] grid size-10 place-items-center rounded-md border-0 bg-brand-red text-white transition-colors hover:bg-brand-red-dark bottom-5 left-4 md:left-6 lg:left-8"
       >
         <ChevronLeft />
       </button>
@@ -372,7 +372,7 @@ export default function HeroBanner({
         type="button"
         aria-label="Next slide"
         onClick={next}
-        className="absolute z-[4] grid size-10 place-items-center rounded-md border-0 bg-brand-red text-white transition-colors hover:bg-brand-red-dark bottom-5 right-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:right-6 lg:right-8"
+        className="absolute z-[4] grid size-10 place-items-center rounded-md border-0 bg-brand-red text-white transition-colors hover:bg-brand-red-dark bottom-5 right-4 md:right-6 lg:right-8"
       >
         <ChevronRight />
       </button>
@@ -398,7 +398,6 @@ export default function HeroBanner({
           />
         ))}
       </div>
-      */}
     </section>
   );
 }
