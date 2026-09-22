@@ -98,15 +98,15 @@ export default function ServicesSection({ limit, data, className }: ServicesSect
             const IconComponent = CustomServiceIcons[service.icon] ?? Settings;
 
             return (
-              <motion.div variants={fadeInUp} key={service.id}>
+              <motion.div variants={fadeInUp} key={service.id} className="h-full">
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-[380px] block"
+                  className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer flex flex-col h-full min-h-[380px]"
                 >
                   {/* --- 1. DEFAULT STATE (Normal Layout) --- */}
                   <div className="flex flex-col h-full group-hover:opacity-0 transition-opacity duration-300">
                     {/* Image Box Wrapper */}
-                    <div className="relative">
+                    <div className="relative shrink-0">
                       <div className="h-44 w-full overflow-hidden bg-gray-900">
                         <img
                           src={service.image}
@@ -121,15 +121,13 @@ export default function ServicesSection({ limit, data, className }: ServicesSect
                     </div>
 
                     {/* Text Content */}
-                    <div className="pt-8 pb-6 px-4 text-left flex-1 flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-lg font-bold text-black mb-2">
-                          {service.title}
-                        </h3>
-                        <p className="text-gray-500 text-base md:text-base leading-relaxed">
-                          {service.description}
-                        </p>
-                      </div>
+                    <div className="pt-8 pb-6 px-4 text-left flex-1 flex flex-col">
+                      <h3 className="text-lg font-bold text-black mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-500 text-base md:text-base leading-relaxed flex-1">
+                        {service.description}
+                      </p>
                     </div>
                   </div>
 

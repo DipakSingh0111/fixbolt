@@ -189,7 +189,6 @@ export default function BookRepairSection({
                   </h3>
                   <div className="w-10 h-[3px] bg-[#d32f2f] mt-2"></div>
                 </div>
-
                 <div className="space-y-6">
                   {whyBook.items.map((item) => {
                     const Icon = whyBookIcons[item.icon] ?? ShieldCheck;

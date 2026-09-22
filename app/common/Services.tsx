@@ -6,12 +6,12 @@ import { site, SectionProps, ServicesData } from "@/data";
 import { CustomServiceIcons } from "./ServiceIcons";
 
 
-export default function ServicesSection({ data, className }: SectionProps<ServicesData> = {}) {
+export default function ServicesSection({ data }: SectionProps<ServicesData> = {}) {
   const content = data || site.services;
   const services = content.items;
   return (
     <section className="relative bg-[#fbfbfb] py-10 md:py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col justify-center overflow-hidden">
-      {/* Subtle Grid Dot Background Pattern (Top Left & Top Right) */}
+      {/* Subtle Grid Dot Background */}
       <div className="absolute top-10 left-10 opacity-20 pointer-events-none hidden md:block">
         <div className="grid grid-cols-6 gap-2">
           {Array.from({ length: 24 }).map((_, i) => (
@@ -46,14 +46,14 @@ export default function ServicesSection({ data, className }: SectionProps<Servic
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {services.map((service) => {
             const Icon = CustomServiceIcons[service.icon] ?? Settings;
             return (
               <Link
                 href={`/services/${service.slug}`}
                 key={service.id}
-                className="group relative bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer block"
+                className="group relative bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl cursor-pointer flex flex-col h-full"
               >
                 {/* STANDARD CARD VIEW */}
                 <div className="flex flex-col h-full transition-opacity duration-300 group-hover:opacity-0">
