@@ -132,9 +132,9 @@ export default function ServicesSection({ limit, data, className }: ServicesSect
                   </div>
 
                   {/* HOVER STATE  */}
-                  <div className="absolute inset-0 bg-blue-500 p-6 text-white flex flex-col items-center justify-between text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                  <div className="absolute inset-0 bg-[#e51d25] p-6 text-white flex flex-col items-center justify-between text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
                     <div className="my-auto flex flex-col items-center">
-                      <div className="w-16 h-16 rounded-full bg-red-500/50 flex items-center justify-center mb-6">
+                      <div className="w-16 h-16 rounded-full bg-white/15 flex items-center justify-center mb-6">
                         <IconComponent size={32} className="text-white" />
                       </div>
                       <h3 className="text-xl font-bold mb-3">
@@ -144,7 +144,7 @@ export default function ServicesSection({ limit, data, className }: ServicesSect
                         {service.description}
                       </p>
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-full bg-white text-[#e51d25] flex items-center justify-center shadow hover:scale-110 transition-transform duration-300">
                       <ArrowRight size={32} />
                     </div>
                   </div>

@@ -43,31 +43,31 @@ export default function GallerySection({ data, className }: SectionProps<Gallery
   };
 
   return (
-    <section className={`bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center font-sans ${className || ""}`}>
+    <section className={`bg-[#fbfbfb] py-10 md:py-14 px-4 sm:px-6 lg:px-8 overflow-hidden font-sans ${className || ""}`}>
       <div className="site-container relative">
         {/* Section Header */}
-        <div className="text-center mb-10">
-          <div className="inline-flex items-center space-x-2">
-            <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
-            <span className="text-base font-extrabold tracking-wider text-[#d32f2f] uppercase">
+        <div className="mx-auto mb-8 max-w-3xl text-center md:mb-10">
+          <div className="inline-flex items-center gap-2.5">
+            <span className="h-[1.5px] w-6 bg-[#d32f2f]" aria-hidden />
+            <span className="text-sm font-extrabold tracking-wider text-[#d32f2f] uppercase md:text-base">
               {content.eyebrow || content.tagline}
             </span>
-            <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
+            <span className="h-[1.5px] w-6 bg-[#d32f2f]" aria-hidden />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-2">
+          <h2 className="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-[#111111] sm:text-4xl md:text-[42px]">
             {content.title.split(content.titleHighlight)[0]}
             <span className="text-[#d32f2f]">{content.titleHighlight}</span>
           </h2>
-          <p className="site-container text-gray-500 text-base sm:text-base mt-2 leading-relaxed">
+          <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-gray-500">
             {content.description}
           </p>
         </div>
 
         {/* Gallery Grid Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mb-8">
+        <div className="mb-8 grid grid-cols-1 gap-4 lg:grid-cols-12">
           {/* LEFT SIDE: 1 Big Vertical Image (Occupies 4 cols out of 12 and full height) */}
           <div 
-            className="lg:col-span-4 h-80 lg:h-auto min-h-[400px] relative rounded-2xl overflow-hidden shadow-sm border border-gray-100 bg-gray-900 group cursor-pointer"
+            className="group relative h-80 min-h-[360px] cursor-pointer overflow-hidden rounded-2xl border border-gray-100 bg-gray-900 shadow-sm lg:col-span-4 lg:h-auto lg:min-h-[400px]"
             onClick={() => setSelectedIndex(0)}
           >
             <img

@@ -39,28 +39,32 @@ export default function ContactSection({ data, className }: SectionProps<Contact
   const { contactCards, whyContact, map, bookRepairCard, form } = content;
 
   return (
-    <section className={`bg-[#fbfbfb] py-16 px-4 sm:px-6 lg:px-8 min-h-screen font-sans ${className || ""}`}>
+    <section className={`bg-[#fbfbfb] py-10 md:py-14 px-4 sm:px-6 lg:px-8 overflow-hidden font-sans ${className || ""}`}>
       <div className="site-container">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center space-x-3">
-            <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
-            <span className="text-base font-bold tracking-wider text-[#e51d25] uppercase">
+        <div className="mx-auto mb-8 max-w-3xl text-center md:mb-10">
+          <div className="inline-flex items-center justify-center gap-2.5">
+            <span className="h-[1.5px] w-6 bg-[#e51d25]" aria-hidden />
+            <span className="text-sm font-bold tracking-wider text-[#e51d25] uppercase md:text-base">
               {content.eyebrow || content.tagline}
             </span>
-            <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
+            <span className="h-[1.5px] w-6 bg-[#e51d25]" aria-hidden />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mt-3">
-            {content.title.split("Help")[0]}
-            <span className="text-[#e51d25]">Help</span>
+          <h2 className="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-[#111111] sm:text-4xl md:text-[42px]">
+            {content.titleHighlight
+              ? <>
+                  {content.title.split(content.titleHighlight)[0]}
+                  <span className="text-[#e51d25]">{content.titleHighlight}</span>
+                </>
+              : content.title}
           </h2>
-          <p className="site-container text-gray-500 text-base mt-4 leading-relaxed">
+          <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-gray-500">
             {content.description}
           </p>
         </div>
 
         {/* 4 Info Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:mb-12 lg:grid-cols-4">
           {contactCards.map((card, idx) => {
             const Icon = CardIconMap[card.icon] || MapPin;
             return (
@@ -95,7 +99,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
               {form.description}
             </p>
 
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-4 [color-scheme:light]" onSubmit={(e) => e.preventDefault()}>
               {/* Row 1: Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="relative">
@@ -105,7 +109,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                   <input
                     type="text"
                     placeholder={form.placeholders.name}
-                    className="w-full pl-10 pr-4 py-3 text-base text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400"
+                    className="w-full pl-10 pr-4 py-3 text-base text-[#111] bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder:text-gray-500"
                   />
                 </div>
                 <div className="relative">
@@ -115,7 +119,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                   <input
                     type="email"
                     placeholder={form.placeholders.email}
-                    className="w-full pl-10 pr-4 py-3 text-base text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400"
+                    className="w-full pl-10 pr-4 py-3 text-base text-[#111] bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder:text-gray-500"
                   />
                 </div>
               </div>
@@ -128,7 +132,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                 <input
                   type="tel"
                   placeholder={form.placeholders.phone}
-                  className="w-full pl-10 pr-4 py-3 text-base text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400"
+                  className="w-full pl-10 pr-4 py-3 text-base text-[#111] bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder:text-gray-500"
                 />
               </div>
 
@@ -137,11 +141,16 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
                   <Tag className="w-4 h-4" />
                 </div>
-                <select className="w-full pl-10 pr-10 py-3 text-base text-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] appearance-none cursor-pointer">
-                  <option value="">{form.placeholders.subject}</option>
+                <select
+                  defaultValue=""
+                  className="w-full pl-10 pr-10 py-3 text-base text-[#111] bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] appearance-none cursor-pointer"
+                >
+                  <option value="" disabled className="text-gray-500">
+                    {form.placeholders.subject}
+                  </option>
                   {form.subjectOptions.map(
                     (opt: { value: string; label: string }, idx: number) => (
-                      <option key={idx} value={opt.value}>
+                      <option key={idx} value={opt.value} className="text-[#111] bg-white">
                         {opt.label}
                       </option>
                     ),
@@ -162,7 +171,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                 <textarea
                   rows={4}
                   placeholder={form.placeholders.message}
-                  className="w-full pl-10 pr-4 py-3 text-base text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400 resize-none"
+                  className="w-full pl-10 pr-4 py-3 text-base text-[#111] bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder:text-gray-500 resize-none"
                 ></textarea>
               </div>
 

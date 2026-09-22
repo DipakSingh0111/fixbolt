@@ -251,7 +251,7 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
                       </td>
 
                       {/* Description */}
-                      <td className="py-3.5 px-4 text-gray-500 text-[13px]">
+                      <td className="py-3.5 px-4 text-[#333] text-[15px] font-medium">
                         {row.description}
                       </td>
 
@@ -288,34 +288,44 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
         <div className="rounded-[28px] bg-white px-5 py-5 shadow-[0_10px_40px_rgba(15,15,15,0.06)] sm:px-8 sm:py-6">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-4">
-              <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#fff1f1] text-[#e11d24]">
-                <Headphones className="h-6 w-6" strokeWidth={1.7} />
+              <span className="grid size-14 shrink-0 place-items-center rounded-full bg-[#fff1f1] text-[#e11d24]">
+                <Headphones className="h-7 w-7" strokeWidth={1.7} />
               </span>
               <div>
-                <h4 className="text-[15px] font-bold text-[#111]">{pricing.help.title}</h4>
-                <p className="mt-0.5 max-w-[220px] text-[12px] leading-snug text-neutral-400">
+                <h4 className="text-lg font-extrabold text-[#111]">{pricing.help.title}</h4>
+                <p className="mt-1 max-w-[240px] text-[14px] leading-snug text-neutral-600">
                   {pricing.help.description}
                 </p>
               </div>
             </div>
 
             <div className="flex items-center gap-4">
-              <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#fff1f1] text-[#e11d24]">
-                <Phone className="h-5 w-5" strokeWidth={1.7} />
+              <span className="grid size-14 shrink-0 place-items-center rounded-full bg-[#fff1f1] text-[#e11d24]">
+                <Phone className="h-7 w-7" strokeWidth={1.7} />
               </span>
               <div>
-                <h4 className="text-[15px] font-bold text-[#111]">{pricing.help.phone}</h4>
-                <p className="mt-0.5 text-[12px] text-neutral-400">{pricing.help.phoneHint}</p>
+                <a
+                  href={`tel:${String(pricing.help.phone).replace(/\s+/g, "")}`}
+                  className="text-lg font-extrabold text-[#e11d24] hover:underline underline-offset-2"
+                >
+                  {pricing.help.phone}
+                </a>
+                <p className="mt-1 text-[14px] text-neutral-600">{pricing.help.phoneHint}</p>
               </div>
             </div>
 
             <div className="flex items-center gap-4">
-              <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#fff1f1] text-[#e11d24]">
-                <Mail className="h-5 w-5" strokeWidth={1.7} />
+              <span className="grid size-14 shrink-0 place-items-center rounded-full bg-[#fff1f1] text-[#e11d24]">
+                <Mail className="h-7 w-7" strokeWidth={1.7} />
               </span>
               <div>
-                <h4 className="text-[15px] font-bold text-[#111]">{pricing.help.email}</h4>
-                <p className="mt-0.5 text-[12px] text-neutral-400">{pricing.help.emailHint}</p>
+                <a
+                  href={`mailto:${pricing.help.email}`}
+                  className="text-lg font-extrabold text-[#e11d24] hover:underline underline-offset-2 break-all"
+                >
+                  {pricing.help.email}
+                </a>
+                <p className="mt-1 text-[14px] text-neutral-600">{pricing.help.emailHint}</p>
               </div>
             </div>
 
@@ -323,9 +333,9 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
               href={pricing.help.ctaHref}
               className="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-[#e11d24] px-5 py-3 text-[14px] font-bold text-white transition hover:bg-[#c8181e]"
             >
-              <Calendar className="h-5 w-5" strokeWidth={1.8} />
+              <Calendar className="h-6 w-6" strokeWidth={1.8} />
               <span>{pricing.help.ctaLabel}</span>
-              <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+              <ArrowRight className="h-5 w-5" strokeWidth={2.2} />
             </Link>
           </div>
         </div>

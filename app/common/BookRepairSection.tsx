@@ -34,27 +34,27 @@ export default function BookRepairSection({
   const content = data || site.bookRepair;
   const { form, quickBooking, whyBook, footerHelp, titleHighlight } = content;
   const inputClass =
-    "w-full px-4 py-3 text-base text-gray-700 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#d32f2f] focus:border-[#d32f2f] placeholder-gray-400 transition";
+    "w-full px-4 py-3 text-base text-[#111] bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#d32f2f] focus:border-[#d32f2f] placeholder:text-gray-500 transition [color-scheme:light]";
 
   return (
-    <section className="bg-[#fbfbfb] py-12 min-h-screen font-sans">
+    <section className={`bg-[#fbfbfb] py-10 md:py-14 font-sans ${className || ""}`}>
       <div className="site-container">
-        <div className="w-full bg-white rounded-3xl p-8 sm:p-12 shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-gray-100">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            <div className="lg:col-span-6 flex flex-col justify-between">
+        <div className="w-full rounded-3xl border border-gray-100 bg-white p-6 shadow-[0_4px_25px_rgba(0,0,0,0.03)] sm:p-8 lg:p-10">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
+            <div className="flex flex-col justify-between lg:col-span-6">
               <div>
-                <div className="mb-2">
-                  <span className="text-base font-bold text-[#d32f2f] uppercase tracking-wider">
+                <div className="mb-3">
+                  <span className="text-sm font-bold uppercase tracking-wider text-[#d32f2f] md:text-base">
                     {content.eyebrow || content.tagline}
                   </span>
-                  <div className="w-6 h-[2px] bg-[#d32f2f] mt-1"></div>
+                  <div className="mt-1.5 h-[2px] w-8 bg-[#d32f2f]"></div>
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111111] mb-2">
+                <h2 className="mb-3 text-3xl font-extrabold leading-[1.15] tracking-tight text-[#111111] sm:text-4xl md:text-[42px]">
                   {content.title.split(titleHighlight)[0]}
                   <span className="text-[#d32f2f]">{titleHighlight}</span>
                 </h2>
-                <p className="text-base sm:text-base text-gray-500 mb-8 leading-relaxed">
+                <p className="mb-6 max-w-xl text-base leading-relaxed text-gray-500 sm:mb-8">
                   {content.description}
                 </p>
 

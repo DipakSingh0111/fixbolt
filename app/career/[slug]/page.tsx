@@ -253,43 +253,43 @@ export default async function CareerDetailsPage({ params }: Props) {
 
             {/* Job Summary */}
             <div className="bg-[#fff5f5] rounded-2xl shadow-sm border border-red-50 p-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{detail.summaryTitle}</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{detail.summaryTitle}</h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
               
-              <div className="space-y-4">
-                <div className="flex gap-4">
-                  <Briefcase className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
-                  <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-sm font-bold text-gray-900">{detail.summaryLabels.jobTitle}</span>
-                    <span className="text-sm text-gray-600">{job.title}</span>
+              <div className="space-y-5">
+                <div className="flex gap-4 items-start">
+                  <Briefcase className="w-5 h-5 text-[#cc1616] shrink-0 mt-0.5" />
+                  <div className="grid grid-cols-2 w-full gap-2 items-start">
+                    <span className="text-base font-bold text-gray-900">{detail.summaryLabels.jobTitle}</span>
+                    <span className="text-base font-semibold text-[#cc1616]">{job.title}</span>
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  <MapPin className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
-                  <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-sm font-bold text-gray-900">{detail.summaryLabels.location}</span>
-                    <span className="text-sm text-gray-600">{job.location}</span>
+                <div className="flex gap-4 items-start">
+                  <MapPin className="w-5 h-5 text-[#cc1616] shrink-0 mt-0.5" />
+                  <div className="grid grid-cols-2 w-full gap-2 items-start">
+                    <span className="text-base font-bold text-gray-900">{detail.summaryLabels.location}</span>
+                    <span className="text-base font-semibold text-[#cc1616]">{job.location}</span>
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  <Briefcase className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
-                  <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-sm font-bold text-gray-900">{detail.summaryLabels.jobType}</span>
-                    <span className="text-sm text-gray-600">{job.type}</span>
+                <div className="flex gap-4 items-start">
+                  <Briefcase className="w-5 h-5 text-[#cc1616] shrink-0 mt-0.5" />
+                  <div className="grid grid-cols-2 w-full gap-2 items-start">
+                    <span className="text-base font-bold text-gray-900">{detail.summaryLabels.jobType}</span>
+                    <span className="text-base font-semibold text-[#cc1616]">{job.type}</span>
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  <Clock className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
-                  <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-sm font-bold text-gray-900">{detail.summaryLabels.experience}</span>
-                    <span className="text-sm text-gray-600">{job.experience}</span>
+                <div className="flex gap-4 items-start">
+                  <Clock className="w-5 h-5 text-[#cc1616] shrink-0 mt-0.5" />
+                  <div className="grid grid-cols-2 w-full gap-2 items-start">
+                    <span className="text-base font-bold text-gray-900">{detail.summaryLabels.experience}</span>
+                    <span className="text-base font-semibold text-[#cc1616]">{job.experience}</span>
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  <Banknote className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
-                  <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-sm font-bold text-gray-900">{detail.summaryLabels.salary}</span>
-                    <span className="text-sm text-gray-600">{job.salary || detail.salaryFallback}</span>
+                <div className="flex gap-4 items-start">
+                  <Banknote className="w-5 h-5 text-[#cc1616] shrink-0 mt-0.5" />
+                  <div className="grid grid-cols-2 w-full gap-2 items-start">
+                    <span className="text-base font-bold text-gray-900">{detail.summaryLabels.salary}</span>
+                    <span className="text-base font-semibold text-[#cc1616]">{job.salary || detail.salaryFallback}</span>
                   </div>
                 </div>
               </div>

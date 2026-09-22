@@ -188,21 +188,22 @@ export default function Footer({ data, className }: SectionProps<FooterData> = {
             <Link href={copyright.brandHref} className="footer-brand-name">
               {copyright.brand}
             </Link>
-            . {copyright.text}
+            .{" "}
+            <span className="footer-copyright-text">{copyright.text}</span>
           </p>
-          <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-0 text-[13px] md:text-base text-gray-400">
+          <nav className="footer-bottom-links" aria-label="Legal">
             {[
               { label: "Warranty Policy", href: "/warranty-policy" },
               { label: "Cancellation / Refund Policy", href: "/refund-policy" },
               { label: "Privacy Policy", href: "/privacy-policy" },
               { label: "Terms & Conditions", href: "/terms-conditions" },
-              { label: "Site-Map", href: "/sitemap" },
+              { label: "Sitemap", href: "/sitemap" },
             ].map((link, idx) => (
-              <ScrollToTopLink key={idx} href={link.href} className="hover:text-[#e51d25] transition-colors">
+              <ScrollToTopLink key={idx} href={link.href} className="footer-bottom-link">
                 {link.label}
               </ScrollToTopLink>
             ))}
-          </div>
+          </nav>
         </div>
       </div>
     </footer>

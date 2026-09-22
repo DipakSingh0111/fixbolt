@@ -23,33 +23,35 @@ export default function OpenPositions({ openPositions }: { openPositions: Career
           <Link
             href={`/career/${job.slug}`}
             key={index}
-            className="bg-white border border-gray-100 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] rounded-2xl p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:border-red-100 hover:shadow-lg transition-all group block cursor-pointer"
+            className="bg-white border border-gray-100 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] rounded-2xl p-4 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 hover:border-red-100 hover:shadow-lg transition-all group block cursor-pointer overflow-hidden"
           >
-            <div className="flex items-start gap-4 w-full md:w-auto">
-              <div className="w-12 h-12 rounded-xl bg-red-50 text-[#e51d25] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <Briefcase className="w-6 h-6" />
+            <div className="flex items-start gap-3 sm:gap-4 min-w-0 flex-1">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-red-50 text-[#e51d25] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Briefcase className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <div>
-                <h3 className="font-bold text-gray-900 text-base mb-1">
+              <div className="min-w-0">
+                <h3 className="font-bold text-gray-900 text-sm sm:text-base mb-1 break-words">
                   {job.title}
                 </h3>
-                <p className="text-sm text-gray-500">{job.experience}</p>
+                <p className="text-xs sm:text-sm text-gray-500">{job.experience}</p>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 w-full md:w-auto mt-4 md:mt-0 ml-16 md:ml-0">
-              <div className="flex items-center gap-2 text-gray-500 text-sm">
-                <MapPin className="w-4 h-4 text-gray-400" />
-                {job.location}
+            <div className="flex flex-col xs:flex-row sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-6 md:gap-8 w-full md:w-auto md:shrink-0 pl-0 sm:pl-14 md:pl-0">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-gray-500 text-xs sm:text-sm">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-gray-400 shrink-0" />
+                  <span>{job.location}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Briefcase className="w-4 h-4 text-gray-400 shrink-0" />
+                  <span>{job.type}</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2 text-gray-500 text-sm">
-                <Briefcase className="w-4 h-4 text-gray-400" />
-                {job.type}
-              </div>
-              <button className="text-[#e51d25] border border-[#e51d25] hover:bg-[#e51d25] hover:text-white text-sm font-bold py-2 px-6 rounded-lg transition ml-auto sm:ml-0 flex items-center gap-2">
+              <span className="inline-flex w-full sm:w-auto justify-center items-center gap-2 text-[#e51d25] border border-[#e51d25] group-hover:bg-[#e51d25] group-hover:text-white text-xs sm:text-sm font-bold py-2.5 px-4 sm:px-6 rounded-lg transition whitespace-nowrap">
                 {openPositions.applyLabel || "Apply Now"}
-                <ArrowRight className="w-3 h-3" />
-              </button>
+                <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+              </span>
             </div>
           </Link>
         ))}

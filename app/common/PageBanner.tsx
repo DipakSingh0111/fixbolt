@@ -57,30 +57,31 @@ export default function PageBanner({
           {title}
         </h1>
 
-        <nav 
-          aria-label="Breadcrumb"
-        >
-          <ol className="flex items-center space-x-2 text-base font-medium text-white/80 md:text-base capitalize">
+        <nav aria-label="Breadcrumb" className="max-w-full">
+          <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm font-medium text-white/80 sm:text-base capitalize">
             {crumbs.map((crumb, index) => {
               const isLast = index === crumbs.length - 1;
 
               return (
-                <li key={index} className="flex items-center">
+                <li key={index} className="inline-flex max-w-full items-center gap-1.5">
                   {crumb.href ? (
                     <Link
                       href={crumb.href}
-                      className="transition-colors hover:text-white"
+                      className="whitespace-nowrap transition-colors hover:text-white"
                     >
                       {crumb.label}
                     </Link>
                   ) : (
-                    <span className="text-white" aria-current="page">
+                    <span
+                      className={`text-white ${isLast ? "break-words" : "whitespace-nowrap"}`}
+                      aria-current="page"
+                    >
                       {crumb.label}
                     </span>
                   )}
 
                   {!isLast && (
-                    <ChevronRight className="mx-2 h-4 w-4 text-white/60" />
+                    <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/60 sm:h-4 sm:w-4" aria-hidden />
                   )}
                 </li>
               );

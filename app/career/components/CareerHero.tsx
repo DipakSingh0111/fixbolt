@@ -80,18 +80,6 @@ export default function CareerHero({ buildFuture }: { buildFuture: CareerData['b
             alt={buildFuture.imageAlt}
             className="w-full h-full object-cover object-left max-lg:object-[85%_center]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent lg:hidden"></div>
-          <div className="absolute bottom-8 left-8 lg:hidden">
-            <div className="text-white text-3xl font-bold mb-1">
-              {buildFuture.mobileBrand?.slice(0, 3)}
-              <span className="text-[#e51d25]">
-                {buildFuture.mobileBrand?.slice(3)}
-              </span>
-            </div>
-            <p className="text-gray-300 text-sm tracking-wider">
-              {buildFuture.mobileTagline}
-            </p>
-          </div>
         </div>
       </div>
     </section>

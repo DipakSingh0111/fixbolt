@@ -121,19 +121,19 @@ export default function FaqSection({ data, className }: SectionProps<FAQData> = 
         </div>
 
         {/* Bottom Feature & Support Bar */}
-        <div className="bg-[#f7f8fa] rounded-2xl p-6 border border-gray-100 shadow-sm">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 items-center">
+        <div className="rounded-2xl border border-gray-100 bg-[#f7f8fa] p-5 shadow-sm sm:p-6">
+          <div className="grid grid-cols-2 gap-5 sm:gap-6 lg:grid-cols-5 lg:items-center lg:gap-4">
             {features.map((feature, idx) => {
               const Icon = FeatureIconMap[feature.icon] || ShieldCheck;
               return (
                 <div key={idx} className="flex flex-col items-center text-center">
-                  <div className="w-10 h-10 rounded-full bg-red-50 border border-red-100 flex items-center justify-center mb-2">
-                    <Icon className="w-5 h-5 text-[#d32f2f]" />
+                  <div className="mb-2.5 flex h-14 w-14 items-center justify-center rounded-full border border-red-100 bg-red-50 sm:mb-3 sm:h-[72px] sm:w-[72px]">
+                    <Icon className="h-7 w-7 text-[#d32f2f] sm:h-10 sm:w-10" strokeWidth={1.6} />
                   </div>
-                  <h4 className="text-base font-bold text-gray-900">
+                  <h4 className="text-sm font-bold text-gray-900 sm:text-base">
                     {feature.title}
                   </h4>
-                  <p className="text-[10px] text-gray-400 mt-0.5">
+                  <p className="mt-0.5 text-[12px] text-gray-500 sm:text-[13px]">
                     {feature.description}
                   </p>
                 </div>
@@ -141,20 +141,23 @@ export default function FaqSection({ data, className }: SectionProps<FAQData> = 
             })}
 
             {/* Contact Support Action Card */}
-            <div className="flex flex-col items-center text-center pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-gray-200 md:pl-4">
-              <div className="w-8 h-8 rounded-full bg-red-50 border border-red-100 flex items-center justify-center mb-1">
-                {React.createElement(FeatureIconMap[support.icon] || Headphones, { className: "w-4 h-4 text-[#d32f2f]" })}
+            <div className="col-span-2 flex flex-col items-center border-t border-gray-200 pt-5 text-center sm:pt-6 lg:col-span-1 lg:border-l lg:border-t-0 lg:pl-4 lg:pt-0">
+              <div className="mb-2.5 flex h-14 w-14 items-center justify-center rounded-full border border-red-100 bg-red-50 sm:mb-3 sm:h-[72px] sm:w-[72px]">
+                {React.createElement(FeatureIconMap[support.icon] || Headphones, {
+                  className: "h-7 w-7 text-[#d32f2f] sm:h-10 sm:w-10",
+                  strokeWidth: 1.6,
+                })}
               </div>
-              <h4 className="text-base font-bold text-gray-900">
+              <h4 className="text-sm font-bold text-gray-900 sm:text-base">
                 {support.title}
               </h4>
-              <p className="text-[10px] text-gray-400 mb-2">
+              <p className="mb-2.5 mt-0.5 text-[12px] text-gray-500 sm:text-[13px]">
                 {support.description}
               </p>
 
-              <button className="inline-flex items-center space-x-1.5 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-4 py-2 rounded-lg text-base font-bold transition shadow-sm">
+              <button className="inline-flex items-center space-x-1.5 rounded-lg bg-[#d32f2f] px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-[#b71c1c] sm:text-base">
                 <span>{support.buttonText}</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </div>
           </div>
