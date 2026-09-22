@@ -192,10 +192,10 @@ export default function Footer({ data, className }: SectionProps<FooterData> = {
           </p>
           <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-0 text-[13px] md:text-base text-gray-400">
             {[
-              { label: "Warranty Policy", href: "/refund-policy" },
+              { label: "Warranty Policy", href: "/warranty-policy" },
               { label: "Cancellation / Refund Policy", href: "/refund-policy" },
-              { label: "Privacy Policy", href: "/refund-policy" },
-              { label: "Terms & Conditions", href: "/refund-policy" },
+              { label: "Privacy Policy", href: "/privacy-policy" },
+              { label: "Terms & Conditions", href: "/terms-conditions" },
               { label: "Site-Map", href: "/sitemap" },
             ].map((link, idx) => (
               <ScrollToTopLink key={idx} href={link.href} className="hover:text-[#e51d25] transition-colors">

@@ -1564,7 +1564,7 @@
                   },
                   {
                     "label": "Our Team",
-                    "href": "/team"
+                    "href": "/ourteam"
                   },
                   {
                     "label": "Refund Policy",
@@ -2100,16 +2100,6 @@
                     {
                       "label": "Terms & Conditions",
                       "href": "#"
-                    }
-                  ]
-                },
-                {
-                  "id": "8",
-                  "title": "8. Other Pages",
-                  "links": [
-                    {
-                      "label": "404 Page",
-                      "href": "/404"
                     }
                   ]
                 }
