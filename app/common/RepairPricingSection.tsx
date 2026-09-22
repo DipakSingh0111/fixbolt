@@ -170,7 +170,7 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
         <div className="text-center mb-10">
           <div className="inline-flex items-center space-x-2">
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
-            <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
+            <span className="text-base font-extrabold tracking-wider text-[#d32f2f] uppercase">
               {content.eyebrow || content.tagline}
             </span>
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
@@ -179,7 +179,7 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
             {pricing.title.split(pricing.titleHighlight)[0]}
             <span className="text-[#d32f2f]">{pricing.titleHighlight}</span>
           </h2>
-          <p className="site-container text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          <p className="site-container text-gray-500 text-base sm:text-base mt-2 leading-relaxed">
             {pricing.description}
           </p>
         </div>
@@ -196,7 +196,7 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
                 <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#fde8e8]">
                   <Icon className="h-9 w-9" />
                 </div>
-                <span className="text-sm font-bold text-gray-900 text-center leading-tight">
+                <span className="text-base font-bold text-gray-900 text-center leading-tight">
                   {feat.title}
                 </span>
                 <div className="w-4 h-[2px] bg-[#d32f2f] mt-2 opacity-80"></div>
@@ -230,7 +230,7 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
               </thead>
 
               {/* Table Body */}
-              <tbody className="divide-y divide-gray-100 text-sm">
+              <tbody className="divide-y divide-gray-100 text-base">
                 {pricing.rows.map((row, idx) => {
                   const RowIcon = RowIconMap[row.icon] ?? Smartphone;
                   return (
@@ -244,7 +244,7 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
                           <div className="w-10 h-10 rounded-md bg-red-50/80 border border-red-100 flex items-center justify-center shrink-0">
                             <RowIcon className="w-5 h-5 text-[#d32f2f]" />
                           </div>
-                          <span className="text-sm font-bold">
+                          <span className="text-base font-bold">
                             {row.service}
                           </span>
                         </div>
@@ -280,7 +280,7 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
         </div>
 
         {/* Info Note Box */}
-        <div className="bg-[#edf2f9]/70 rounded-lg p-3 flex items-center justify-center space-x-2 text-sm text-gray-600 mb-6 border border-blue-50">
+        <div className="bg-[#edf2f9]/70 rounded-lg p-3 flex items-center justify-center space-x-2 text-base text-gray-600 mb-6 border border-blue-50">
           <Info className="w-5 h-5 text-gray-500 shrink-0" />
           <span>{pricing.note}</span>
         </div>

@@ -1600,23 +1600,23 @@
                 "year": 2026,
                 "brand": "FixBolt",
                 "brandHref": "/",
-                "text": "All Rights Reserved."
+                "text": "All Rights Reserved. Powered by Lestow."
               },
               "bottomSocials": [
                 {
                   "id": "facebook",
                   "label": "Facebook",
-                  "href": "#"
+                  "href": "https://www.facebook.com"
                 },
                 {
                   "id": "instagram",
                   "label": "Instagram",
-                  "href": "#"
+                  "href": "https://www.instagram.com"
                 },
                 {
                   "id": "youtube",
                   "label": "YouTube",
-                  "href": "#"
+                  "href": "https://www.youtube.com"
                 }
               ],
               "eyebrow": "",

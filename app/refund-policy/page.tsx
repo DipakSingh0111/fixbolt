@@ -25,7 +25,7 @@ export default function RefundPolicyPage() {
               <h2 className="text-2xl font-bold">{section.title}</h2>
               <div className="space-y-3">
                 {section.content.map((paragraph: string, idx: number) => (
-                  <p key={idx} className="text-sm sm:text-[15px] leading-relaxed">
+                  <p key={idx} className="text-base sm:text-[15px] leading-relaxed">
                     {paragraph}
                   </p>
                 ))}

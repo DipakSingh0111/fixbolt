@@ -3,7 +3,13 @@
 import { Users, Share2 } from "lucide-react";
 import { site } from "@/data";
 
-const { tagline, eyebrow, title, description, members: teamMembers } = site.team;
+const {
+  tagline,
+  eyebrow,
+  title,
+  description,
+  members: teamMembers,
+} = site.team;
 const sectionEyebrow = eyebrow || tagline;
 
 const defaultSocials = {
@@ -12,7 +18,7 @@ const defaultSocials = {
   facebook: "https://facebook.com",
 };
 
-// Social Icons ke SVG Components (Zero Extra Dependencies)
+// Social Icons ke SVG
 const TwitterIcon = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -51,7 +57,6 @@ const FacebookIcon = ({ size = 16 }: { size?: number }) => (
   </svg>
 );
 
-
 import { useRouter } from "next/navigation";
 
 export default function TeamSection() {
@@ -77,14 +82,15 @@ export default function TeamSection() {
 
       {/* Header Section */}
       <div className="site-container mb-14">
-        <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-[#d31c24] mb-2">
-          <Users size={18} className="text-[#d31c24]" />
+        <div className="inline-flex items-center gap-2 text-base md:text-base font-bold uppercase tracking-wider text-[#d31c24] mb-2">
+          <Users size={32} className="text-[#d31c24]" />
           <span>{sectionEyebrow}</span>
         </div>
         <div className="w-8 h-[2px] bg-[#d31c24] mx-auto mt-1 mb-4" />
 
         <h2 className="text-[32px] sm:text-4xl md:text-5xl font-extrabold text-[#111] mb-6 tracking-tight leading-[1.15]">
-          {title.split('Behind FixBolt')[0]}<span className="text-[#d31c24]">Behind FixBolt</span>
+          {title.split("Behind FixBolt")[0]}
+          <span className="text-[#d31c24]">Behind FixBolt</span>
         </h2>
 
         <p className="max-w-[600px] mx-auto text-gray-600 text-[14px] md:text-base leading-relaxed font-medium">
@@ -98,7 +104,7 @@ export default function TeamSection() {
           <div
             key={member.id}
             onClick={() => {
-              const nameSlug = member.name.toLowerCase().replace(/\s+/g, '-');
+              const nameSlug = member.name.toLowerCase().replace(/\s+/g, "-");
               router.push(`/ourteam/${nameSlug}`);
             }}
             className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer text-left flex flex-col justify-between"
@@ -113,9 +119,18 @@ export default function TeamSection() {
 
               <div className="pointer-events-none absolute top-1/2 right-4 z-20 flex -translate-y-1/2 flex-col gap-3 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
                 {[
-                  { href: member.socials?.twitter || defaultSocials.twitter, icon: TwitterIcon },
-                  { href: member.socials?.instagram || defaultSocials.instagram, icon: InstagramIcon },
-                  { href: member.socials?.facebook || defaultSocials.facebook, icon: FacebookIcon },
+                  {
+                    href: member.socials?.twitter || defaultSocials.twitter,
+                    icon: TwitterIcon,
+                  },
+                  {
+                    href: member.socials?.instagram || defaultSocials.instagram,
+                    icon: InstagramIcon,
+                  },
+                  {
+                    href: member.socials?.facebook || defaultSocials.facebook,
+                    icon: FacebookIcon,
+                  },
                 ].map((social) => {
                   const Icon = social.icon;
                   return (
@@ -127,7 +142,7 @@ export default function TeamSection() {
                       onClick={(e) => e.stopPropagation()}
                       className="grid size-9 place-items-center rounded-full bg-white text-[#111] shadow-md transition-colors hover:bg-red-600 hover:text-white"
                     >
-                      <Icon size={14} />
+                      <Icon size={32} />
                     </a>
                   );
                 })}
@@ -144,18 +159,10 @@ export default function TeamSection() {
                 <h3 className="text-lg font-bold text-black group-hover:text-white transition-colors duration-300">
                   {member.name}
                 </h3>
-                <p className="text-xs md:text-sm text-red-600 group-hover:text-white/90 transition-colors duration-300 font-medium">
+                <p className="text-base md:text-base text-red-600 group-hover:text-white/90 transition-colors duration-300 font-medium">
                   {member.role}
                 </p>
               </div>
-
-              {/* Share Icon Button */}
-              <button 
-                onClick={(e) => e.stopPropagation()}
-                className="w-10 h-10 rounded-xl bg-gray-50 group-hover:bg-white text-red-600 flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-105"
-              >
-                <Share2 size={18} />
-              </button>
             </div>
           </div>
         ))}

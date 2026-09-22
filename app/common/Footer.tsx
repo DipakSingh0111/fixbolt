@@ -190,7 +190,7 @@ export default function Footer({ data, className }: SectionProps<FooterData> = {
             </Link>
             . {copyright.text}
           </p>
-          <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-0 text-[13px] md:text-sm text-gray-400">
+          <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-0 text-[13px] md:text-base text-gray-400">
             {[
               { label: "Warranty Policy", href: "/refund-policy" },
               { label: "Cancellation / Refund Policy", href: "/refund-policy" },

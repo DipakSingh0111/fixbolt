@@ -72,22 +72,32 @@ export default function TestimonialsSection({
               <div className="text-[#c90f16] flex items-center justify-center">
                 <svg
                   viewBox="0 0 64 64"
-                  fill="none"
                   stroke="currentColor"
                   strokeWidth="2.5"
-                  className="w-10 h-10"
+                  className="w-12 h-12"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  <path
-                    d="M42 22c0-5.5-5-10-12-10s-12 4.5-12 10c0 2 .6 3.8 1.5 5.2L18 30l4.5-1.5c2 1.2 4.5 1.8 7.5 1.8 7 0 12-4.5 12-10z"
-                    stroke="#666"
-                    strokeWidth="2"
-                    strokeDasharray="3 3"
+                  {/* Back Bubble */}
+                  <path 
+                    d="M26 14a6 6 0 0 1 6-6h16a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6h-2v7l-7-7h-7a6 6 0 0 1-6-6V14z" 
+                    fill="#0d0e12" 
                   />
-                  <path d="M46 36c0 6.6-6 12-14 12-3.5 0-6.6-1-8.8-2.5L16 48l2.2-5c-2-2-3.2-4.8-3.2-8 0-7.7 6.7-14 15-14s16 6.3 16 14z" />
-                  <path d="M25 32v2M33 32v2" />
-                  <path d="M25 38c0 2 2 3 4 3s4-1 4-3" />
+                  {/* Headset in back bubble */}
+                  <rect x="34" y="16" width="3" height="6" rx="1.5" fill="none" />
+                  <rect x="43" y="16" width="3" height="6" rx="1.5" fill="none" />
+                  <path d="M35.5 16v-1a4.5 4.5 0 0 1 9 0v1" fill="none" />
+                  <path d="M44.5 22v1a3 3 0 0 1-3 3h-2" fill="none" />
+
+                  {/* Front Bubble */}
+                  <path 
+                    d="M14 32a6 6 0 0 1 6-6h16a6 6 0 0 1 6 6v14a6 6 0 0 1-6 6h-6l-7 7v-7h-3a6 6 0 0 1-6-6V32z" 
+                    fill="#0d0e12" 
+                  />
+                  {/* Face in front bubble */}
+                  <path d="M21 34l2.5 2-2.5 2" fill="none" />
+                  <path d="M35 34l-2.5 2 2.5 2" fill="none" />
+                  <path d="M25 42c1.5 2 4.5 2 6 0" fill="none" />
                 </svg>
               </div>
               <div className="hidden sm:block w-20 h-[1px] bg-white/20" />
@@ -99,7 +109,7 @@ export default function TestimonialsSection({
                 <div className="w-8 h-[2px] bg-[#c90f16]" />
                 <div className="w-8 h-[2px] bg-[#c90f16]" />
               </div>
-              <span className="text-sm font-semibold uppercase tracking-[0.15em] text-[#c90f16]">
+              <span className="text-base font-semibold uppercase tracking-[0.15em] text-[#c90f16]">
                 {eyebrow || content?.tagline || ""}
               </span>
               <div className="flex flex-col gap-1.5">
@@ -120,7 +130,7 @@ export default function TestimonialsSection({
             <div className="w-14 h-[4px] bg-[#c90f16] rounded-full" />
           </div>
 
-          <p className="max-w-[600px] mx-auto text-gray-400 text-sm md:text-[15px] font-normal leading-relaxed">
+          <p className="max-w-[600px] mx-auto text-gray-400 text-base md:text-[15px] font-normal leading-relaxed">
             {description}
           </p>
         </motion.div>
@@ -154,7 +164,7 @@ export default function TestimonialsSection({
                       {[...Array(item.rating)].map((_, i) => (
                         <Star
                           key={i}
-                          size={18}
+                          size={32}
                           className="fill-red-600 text-red-600"
                         />
                       ))}
@@ -163,14 +173,14 @@ export default function TestimonialsSection({
                     {/* Quote Marks Top Bar */}
                     <div className="flex justify-between items-center text-red-500/30 mb-2">
                       <Quote
-                        size={28}
+                        size={32}
                         className="rotate-180 fill-red-500 text-red-500"
                       />
-                      <Quote size={28} className="fill-red-500 text-red-500" />
+                      <Quote size={32} className="fill-red-500 text-red-500" />
                     </div>
 
                     {/* Review Text Body (line-clamp-4 keeps height fixed) */}
-                    <p className="text-gray-600 text-xs md:text-sm leading-relaxed font-normal line-clamp-4">
+                    <p className="text-gray-600 text-base md:text-base leading-relaxed font-normal line-clamp-4">
                       {item.review}
                     </p>
                   </div>
@@ -185,7 +195,7 @@ export default function TestimonialsSection({
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute bottom-0 right-0 w-4 h-4 bg-red-600 rounded-full flex items-center justify-center text-white text-[8px]">
-                        <Quote size={8} className="fill-white" />
+                        <Quote size={32} className="fill-white" />
                       </div>
                     </div>
 
@@ -195,7 +205,7 @@ export default function TestimonialsSection({
                         {item.name}
                       </h3>
                       <div className="w-5 h-[2px] bg-red-600 my-1" />
-                      <p className="text-gray-500 text-xs font-medium">
+                      <p className="text-gray-500 text-base font-medium">
                         {item.service}
                       </p>
                     </div>

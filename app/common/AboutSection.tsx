@@ -109,7 +109,7 @@ export default function AboutSection({ showCta = false, data, className }: About
   const { eyebrow, tagline, title, description, features, image, cta } = content;
 
   return (
-    <section className={`relative overflow-hidden bg-white py-10 md:py-16 lg:py-24 font-sans ${className || ""}`}>
+    <section className={`relative overflow-hidden bg-white pt-6 pb-6 md:pt-10 md:pb-10 lg:pt-12 lg:pb-12 font-sans ${className || ""}`}>
       {/* Full-bleed red panel behind the photo — slanted right edge */}
       <div
         aria-hidden="true"

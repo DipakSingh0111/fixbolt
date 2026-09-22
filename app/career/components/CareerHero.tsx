@@ -16,7 +16,7 @@ export default function CareerHero({ buildFuture }: { buildFuture: CareerData['b
       <div className="w-full lg:w-1/2 pt-10 md:pt-16 lg:pt-20 pb-10 lg:pb-20 px-4 sm:px-6 lg:pl-8 xl:pl-40 lg:pr-10 z-10 flex items-center">
         <div className="max-w-xl w-full">
           <div className="flex items-center space-x-3 mb-6">
-            <span className="text-sm font-bold tracking-wider text-[#e51d25] uppercase">
+            <span className="text-base font-bold tracking-wider text-[#e51d25] uppercase">
               {buildFuture.eyebrow}
             </span>
             <span className="w-12 h-[2px] bg-[#e51d25]"></span>
@@ -88,7 +88,7 @@ export default function CareerHero({ buildFuture }: { buildFuture: CareerData['b
                 {buildFuture.mobileBrand?.slice(3)}
               </span>
             </div>
-            <p className="text-gray-300 text-xs tracking-wider">
+            <p className="text-gray-300 text-sm tracking-wider">
               {buildFuture.mobileTagline}
             </p>
           </div>

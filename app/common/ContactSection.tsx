@@ -45,7 +45,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center space-x-3">
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
-            <span className="text-xs font-bold tracking-wider text-[#e51d25] uppercase">
+            <span className="text-base font-bold tracking-wider text-[#e51d25] uppercase">
               {content.eyebrow || content.tagline}
             </span>
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
@@ -54,7 +54,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
             {content.title.split("Help")[0]}
             <span className="text-[#e51d25]">Help</span>
           </h2>
-          <p className="site-container text-gray-500 text-sm mt-4 leading-relaxed">
+          <p className="site-container text-gray-500 text-base mt-4 leading-relaxed">
             {content.description}
           </p>
         </div>
@@ -74,10 +74,10 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                 <h3 className="text-base font-bold text-gray-900 mb-2">
                   {card.title}
                 </h3>
-                <p className="text-xs text-gray-500 leading-relaxed mb-1">
+                <p className="text-base text-gray-500 leading-relaxed mb-1">
                   {card.detail1}
                 </p>
-                <p className="text-xs text-gray-500 leading-relaxed">
+                <p className="text-base text-gray-500 leading-relaxed">
                   {card.detail2}
                 </p>
               </div>
@@ -91,7 +91,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
             <h3 className="text-xl font-bold text-gray-900 mb-2">
               {form.title}
             </h3>
-            <p className="text-xs text-gray-500 mb-6 max-w-sm">
+            <p className="text-base text-gray-500 mb-6 max-w-sm">
               {form.description}
             </p>
 
@@ -105,7 +105,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                   <input
                     type="text"
                     placeholder={form.placeholders.name}
-                    className="w-full pl-10 pr-4 py-3 text-xs text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400"
+                    className="w-full pl-10 pr-4 py-3 text-base text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400"
                   />
                 </div>
                 <div className="relative">
@@ -115,7 +115,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                   <input
                     type="email"
                     placeholder={form.placeholders.email}
-                    className="w-full pl-10 pr-4 py-3 text-xs text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400"
+                    className="w-full pl-10 pr-4 py-3 text-base text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400"
                   />
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                 <input
                   type="tel"
                   placeholder={form.placeholders.phone}
-                  className="w-full pl-10 pr-4 py-3 text-xs text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400"
+                  className="w-full pl-10 pr-4 py-3 text-base text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400"
                 />
               </div>
 
@@ -137,7 +137,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400">
                   <Tag className="w-4 h-4" />
                 </div>
-                <select className="w-full pl-10 pr-10 py-3 text-xs text-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] appearance-none cursor-pointer">
+                <select className="w-full pl-10 pr-10 py-3 text-base text-gray-400 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] appearance-none cursor-pointer">
                   <option value="">{form.placeholders.subject}</option>
                   {form.subjectOptions.map(
                     (opt: { value: string; label: string }, idx: number) => (
@@ -162,7 +162,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                 <textarea
                   rows={4}
                   placeholder={form.placeholders.message}
-                  className="w-full pl-10 pr-4 py-3 text-xs text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400 resize-none"
+                  className="w-full pl-10 pr-4 py-3 text-base text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#e51d25] focus:border-[#e51d25] placeholder-gray-400 resize-none"
                 ></textarea>
               </div>
 
@@ -170,7 +170,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-5 py-3 rounded-xl text-xs font-bold transition shadow-sm"
+                  className="w-full inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-5 py-3 rounded-xl text-base font-bold transition shadow-sm"
                 >
                   <span>{form.submitButton}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -202,10 +202,10 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                         <Icon className="w-6 h-6 text-[#e51d25]" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-white mb-1">
+                        <h4 className="text-base font-bold text-white mb-1">
                           {feature.title}
                         </h4>
-                        <p className="text-xs text-gray-400 leading-relaxed max-w-xs">
+                        <p className="text-base text-gray-400 leading-relaxed max-w-xs">
                           {feature.description}
                         </p>
                       </div>
@@ -235,7 +235,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
                 <MapPin className="w-5 h-5 text-[#e51d25] fill-[#e51d25]/20" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-gray-900">
+                <h4 className="text-base font-bold text-gray-900">
                   {map.overlayTitle}
                 </h4>
                 <p className="text-[10px] text-gray-500 mt-0.5 leading-tight">
@@ -255,10 +255,10 @@ export default function ContactSection({ data, className }: SectionProps<Contact
             <h3 className="text-xl font-bold text-gray-900 mb-2">
               {bookRepairCard.title}
             </h3>
-            <p className="text-xs text-gray-500 mb-6 px-4">
+            <p className="text-base text-gray-500 mb-6 px-4">
               {bookRepairCard.description}
             </p>
-            <Link href="/bookrepair" className="inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-8 py-3 rounded-xl text-xs font-bold transition shadow-sm">
+            <Link href="/bookrepair" className="inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-8 py-3 rounded-xl text-base font-bold transition shadow-sm">
               <span>{bookRepairCard.buttonText}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>

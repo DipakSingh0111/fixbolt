@@ -41,7 +41,7 @@ export default function FaqSection({ data, className }: SectionProps<FAQData> = 
         <div className="text-center mb-10">
           <div className="inline-flex items-center space-x-2">
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
-            <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
+            <span className="text-base font-extrabold tracking-wider text-[#d32f2f] uppercase">
               {content.eyebrow || content.tagline}
             </span>
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
@@ -50,7 +50,7 @@ export default function FaqSection({ data, className }: SectionProps<FAQData> = 
             {content.title.split(titleHighlight)[0]}
             <span className="text-[#d32f2f]">{titleHighlight}</span>
           </h2>
-          <p className="site-container text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          <p className="site-container text-gray-500 text-base sm:text-base mt-2 leading-relaxed">
             {content.description}
           </p>
         </div>
@@ -75,7 +75,7 @@ export default function FaqSection({ data, className }: SectionProps<FAQData> = 
                       <HelpCircle className="w-5 h-5 text-[#e51d25] stroke-[1.5]" />
                     </div>
                     <span
-                      className={`text-[13px] sm:text-sm font-bold ${isOpen ? "text-[#111111]" : "text-gray-900"}`}
+                      className={`text-[13px] sm:text-base font-bold ${isOpen ? "text-[#111111]" : "text-gray-900"}`}
                     >
                       {faq.question}
                     </span>
@@ -107,7 +107,7 @@ export default function FaqSection({ data, className }: SectionProps<FAQData> = 
                     >
                       <div className="px-5 pb-5 pt-0">
                         <div className="p-4 rounded-xl bg-[#fff8f8] border border-red-50">
-                          <p className="text-xs text-gray-600 leading-relaxed">
+                          <p className="text-base text-gray-600 leading-relaxed">
                             {faq.answer}
                           </p>
                         </div>
@@ -130,7 +130,7 @@ export default function FaqSection({ data, className }: SectionProps<FAQData> = 
                   <div className="w-10 h-10 rounded-full bg-red-50 border border-red-100 flex items-center justify-center mb-2">
                     <Icon className="w-5 h-5 text-[#d32f2f]" />
                   </div>
-                  <h4 className="text-xs font-bold text-gray-900">
+                  <h4 className="text-base font-bold text-gray-900">
                     {feature.title}
                   </h4>
                   <p className="text-[10px] text-gray-400 mt-0.5">
@@ -145,14 +145,14 @@ export default function FaqSection({ data, className }: SectionProps<FAQData> = 
               <div className="w-8 h-8 rounded-full bg-red-50 border border-red-100 flex items-center justify-center mb-1">
                 {React.createElement(FeatureIconMap[support.icon] || Headphones, { className: "w-4 h-4 text-[#d32f2f]" })}
               </div>
-              <h4 className="text-xs font-bold text-gray-900">
+              <h4 className="text-base font-bold text-gray-900">
                 {support.title}
               </h4>
               <p className="text-[10px] text-gray-400 mb-2">
                 {support.description}
               </p>
 
-              <button className="inline-flex items-center space-x-1.5 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-4 py-2 rounded-lg text-xs font-bold transition shadow-sm">
+              <button className="inline-flex items-center space-x-1.5 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-4 py-2 rounded-lg text-base font-bold transition shadow-sm">
                 <span>{support.buttonText}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>

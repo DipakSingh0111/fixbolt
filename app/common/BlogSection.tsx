@@ -60,8 +60,8 @@ export default function BlogSection({ category, limit, data, className }: BlogSe
         <motion.div variants={fadeInUp} className="site-container relative z-10 text-center mb-14">
           <div className="flex items-center justify-center gap-4 mb-5">
             <div className="w-10 h-[2px] bg-[#c90f16]" />
-            <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.08em] text-[#c90f16]">
-              <Edit3 size={20} className="text-[#c90f16]" />
+            <div className="inline-flex items-center gap-2 text-base font-bold uppercase tracking-[0.08em] text-[#c90f16]">
+              <Edit3 size={32} className="text-[#c90f16]" />
               <span>{eyebrow || tagline}</span>
             </div>
             <div className="w-10 h-[2px] bg-[#c90f16]" />
@@ -82,7 +82,7 @@ export default function BlogSection({ category, limit, data, className }: BlogSe
 
           {category && (
             <div className="inline-flex items-center gap-3 bg-red-50 text-[#c90f16] px-4 py-2 rounded-full border border-red-100">
-              <span className="font-bold text-sm">Category: {category}</span>
+              <span className="font-bold text-base">Category: {category}</span>
               <Link href="/blog" className="text-gray-400 hover:text-[#c90f16] transition-colors" title="Clear filter">
                 &times;
               </Link>
@@ -142,7 +142,7 @@ export default function BlogSection({ category, limit, data, className }: BlogSe
                     </h3>
 
                     {/* Post Description Short Teaser */}
-                    <p className="text-gray-500 text-xs leading-relaxed line-clamp-3">
+                    <p className="text-gray-500 text-base leading-relaxed line-clamp-3">
                       {post.description}
                     </p>
                   </div>
@@ -151,10 +151,10 @@ export default function BlogSection({ category, limit, data, className }: BlogSe
                 {/* Read More Bottom Action Link */}
                 <div className="px-5 pb-5 pt-0 mt-auto">
                   <span
-                    className="inline-flex items-center gap-2 text-xs font-bold text-red-600 group-hover:text-red-700 transition-all duration-200 uppercase tracking-wider group-hover:translate-x-1"
+                    className="inline-flex items-center gap-2 text-base font-bold text-red-600 group-hover:text-red-700 transition-all duration-200 uppercase tracking-wider group-hover:translate-x-1"
                   >
                     <span>READ MORE</span>
-                    <ArrowRight size={14} className="stroke-[2.5]" />
+                    <ArrowRight size={32} className="stroke-[2.5]" />
                   </span>
                 </div>
               </Link>

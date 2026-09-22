@@ -28,7 +28,7 @@ export default function TestimonialsGrid({ data, className }: SectionProps<Testi
         <div className="text-center mb-8 md:mb-12">
           <div className="inline-flex items-center justify-center space-x-3">
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
-            <span className="text-xs font-bold tracking-wider text-[#e51d25] uppercase">
+            <span className="text-base font-bold tracking-wider text-[#e51d25] uppercase">
               {eyebrow || tagline}
             </span>
             <span className="w-8 h-[1.5px] bg-[#e51d25]"></span>
@@ -41,7 +41,7 @@ export default function TestimonialsGrid({ data, className }: SectionProps<Testi
             </span>{" "}
             {title.split(content.titleHighlight)[1]}
           </h2>
-          <p className="site-container text-gray-500 text-sm mt-4 leading-relaxed">
+          <p className="site-container text-gray-500 text-base mt-4 leading-relaxed">
             {description}
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function TestimonialsGrid({ data, className }: SectionProps<Testi
                   {[...Array(item.rating || 5)].map((_, i) => (
                     <Star
                       key={i}
-                      size={14}
+                      size={32}
                       className="fill-[#e51d25] text-[#e51d25]"
                     />
                   ))}
@@ -68,7 +68,7 @@ export default function TestimonialsGrid({ data, className }: SectionProps<Testi
               </div>
 
               {/* Review Text Body */}
-              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6 flex-1">
+              <p className="text-gray-600 text-base sm:text-base leading-relaxed mb-6 flex-1">
                 {item.review}
               </p>
 
@@ -95,7 +95,7 @@ export default function TestimonialsGrid({ data, className }: SectionProps<Testi
 
                 {/* Verified Badge */}
                 <div className="flex items-center gap-1.5">
-                  <ShieldCheck size={16} className="text-[#e51d25] shrink-0" />
+                  <ShieldCheck size={32} className="text-[#e51d25] shrink-0" />
                   <span className="text-[9px] sm:text-[10px] text-gray-500 uppercase font-bold leading-tight">
                     Verified<br />Customer
                   </span>

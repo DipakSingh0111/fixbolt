@@ -77,7 +77,7 @@ export default async function CareerDetailsPage({ params }: Props) {
       <div className="site-container mt-8 md:mt-12">
         
         {/* Back Link */}
-        <Link href="/career" className="inline-flex items-center gap-2 text-sm font-bold text-[#cc1616] hover:text-[#a51212] transition-colors mb-8">
+        <Link href="/career" className="inline-flex items-center gap-2 text-base font-bold text-[#cc1616] hover:text-[#a51212] transition-colors mb-8">
           <ArrowLeft className="w-4 h-4" />
           {detail.backLabel}
         </Link>
@@ -95,7 +95,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                 </div>
                 <div>
                   <h1 className="text-3xl font-extrabold text-gray-900 mb-4">{job.title}</h1>
-                  <div className="flex flex-wrap items-center gap-6 text-xs font-bold text-gray-600">
+                  <div className="flex flex-wrap items-center gap-6 text-sm font-bold text-gray-600">
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-[#cc1616]" />
                       {job.location}
@@ -123,7 +123,7 @@ export default async function CareerDetailsPage({ params }: Props) {
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-4">{detail.aboutTitle}</h3>
                 <div className="w-8 h-[2px] bg-[#cc1616] mb-4"></div>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-base text-gray-600 leading-relaxed">
                   {detail.aboutText}
                 </p>
               </div>
@@ -131,7 +131,7 @@ export default async function CareerDetailsPage({ params }: Props) {
               <div>
                 <h3 className="text-lg font-bold text-gray-900 mb-4">{detail.overviewTitle}</h3>
                 <div className="w-8 h-[2px] bg-[#cc1616] mb-4"></div>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-base text-gray-600 leading-relaxed">
                   {detail.overviewText.replace("{jobTitle}", job.title)}
                 </p>
               </div>
@@ -148,7 +148,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                   {detail.responsibilities.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-[#cc1616] shrink-0" />
-                      <span className="text-sm text-gray-600 leading-relaxed">{item}</span>
+                      <span className="text-base text-gray-600 leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -161,7 +161,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                   {detail.requirements.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-[#cc1616] shrink-0" />
-                      <span className="text-sm text-gray-600 leading-relaxed">{item}</span>
+                      <span className="text-base text-gray-600 leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -183,7 +183,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                       <div className="w-12 h-12 bg-red-50 text-[#cc1616] rounded-full flex items-center justify-center mb-4 shadow-[0_0_0_6px_rgba(204,22,22,0.05)] ring-1 ring-red-100">
                         <OfferIcon className="w-5 h-5" strokeWidth={2} />
                       </div>
-                      <h4 className="text-sm font-bold text-gray-900 mb-2">{offer.title}</h4>
+                      <h4 className="text-base font-bold text-gray-900 mb-2">{offer.title}</h4>
                       <p className="text-[11px] text-gray-500 leading-relaxed">{offer.description}</p>
                     </div>
                   );
@@ -200,7 +200,7 @@ export default async function CareerDetailsPage({ params }: Props) {
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
               <h3 className="text-xl font-extrabold text-gray-900 mb-2">{applyForm.title}</h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
-              <p className="text-xs text-gray-500 mb-6 leading-relaxed">
+              <p className="text-sm text-gray-500 mb-6 leading-relaxed">
                 {applyForm.description}
               </p>
               
@@ -209,25 +209,25 @@ export default async function CareerDetailsPage({ params }: Props) {
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <User className="w-4 h-4 text-gray-400" />
                   </div>
-                  <input type="text" placeholder={applyForm.placeholders.name} className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
+                  <input type="text" placeholder={applyForm.placeholders.name} className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
                 </div>
 
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <Mail className="w-4 h-4 text-gray-400" />
                   </div>
-                  <input type="email" placeholder={applyForm.placeholders.email} className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
+                  <input type="email" placeholder={applyForm.placeholders.email} className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
                 </div>
 
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <Phone className="w-4 h-4 text-gray-400" />
                   </div>
-                  <input type="tel" placeholder={applyForm.placeholders.phone} className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
+                  <input type="tel" placeholder={applyForm.placeholders.phone} className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" />
                 </div>
 
                 <div className="relative">
-                  <select className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-500 appearance-none focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all">
+                  <select className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-base text-gray-500 appearance-none focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all">
                     <option value="">{applyForm.placeholders.experience}</option>
                     {applyForm.experienceOptions.map((opt: any) => (
                       <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -236,15 +236,15 @@ export default async function CareerDetailsPage({ params }: Props) {
                 </div>
 
                 <div className="pt-2">
-                  <p className="text-xs font-bold text-gray-700 mb-2">{applyForm.resumeLabel}</p>
+                  <p className="text-sm font-bold text-gray-700 mb-2">{applyForm.resumeLabel}</p>
                   <div className="border-2 border-dashed border-red-200 bg-red-50/50 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:bg-red-50 transition-colors cursor-pointer group">
                     <UploadCloud className="w-8 h-8 text-[#cc1616] mb-3 group-hover:scale-110 transition-transform" />
-                    <span className="text-xs font-bold text-gray-900 mb-1">{applyForm.resumeHint}</span>
+                    <span className="text-sm font-bold text-gray-900 mb-1">{applyForm.resumeHint}</span>
                     <span className="text-[10px] text-gray-500">{applyForm.resumeMaxSize}</span>
                   </div>
                 </div>
 
-                <button type="button" className="w-full bg-[#cc1616] hover:bg-[#a51212] text-white font-bold py-4 px-4 rounded-xl transition shadow-md flex items-center justify-center gap-2 text-sm mt-4">
+                <button type="button" className="w-full bg-[#cc1616] hover:bg-[#a51212] text-white font-bold py-4 px-4 rounded-xl transition shadow-md flex items-center justify-center gap-2 text-base mt-4">
                   {applyForm.submitLabel}
                   <ArrowRight className="w-4 h-4" />
                 </button>
@@ -260,36 +260,36 @@ export default async function CareerDetailsPage({ params }: Props) {
                 <div className="flex gap-4">
                   <Briefcase className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
                   <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-xs font-bold text-gray-900">{detail.summaryLabels.jobTitle}</span>
-                    <span className="text-xs text-gray-600">{job.title}</span>
+                    <span className="text-sm font-bold text-gray-900">{detail.summaryLabels.jobTitle}</span>
+                    <span className="text-sm text-gray-600">{job.title}</span>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <MapPin className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
                   <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-xs font-bold text-gray-900">{detail.summaryLabels.location}</span>
-                    <span className="text-xs text-gray-600">{job.location}</span>
+                    <span className="text-sm font-bold text-gray-900">{detail.summaryLabels.location}</span>
+                    <span className="text-sm text-gray-600">{job.location}</span>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <Briefcase className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
                   <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-xs font-bold text-gray-900">{detail.summaryLabels.jobType}</span>
-                    <span className="text-xs text-gray-600">{job.type}</span>
+                    <span className="text-sm font-bold text-gray-900">{detail.summaryLabels.jobType}</span>
+                    <span className="text-sm text-gray-600">{job.type}</span>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <Clock className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
                   <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-xs font-bold text-gray-900">{detail.summaryLabels.experience}</span>
-                    <span className="text-xs text-gray-600">{job.experience}</span>
+                    <span className="text-sm font-bold text-gray-900">{detail.summaryLabels.experience}</span>
+                    <span className="text-sm text-gray-600">{job.experience}</span>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <Banknote className="w-4 h-4 text-[#cc1616] shrink-0 mt-0.5" />
                   <div className="grid grid-cols-2 w-full gap-2">
-                    <span className="text-xs font-bold text-gray-900">{detail.summaryLabels.salary}</span>
-                    <span className="text-xs text-gray-600">{job.salary || detail.salaryFallback}</span>
+                    <span className="text-sm font-bold text-gray-900">{detail.summaryLabels.salary}</span>
+                    <span className="text-sm text-gray-600">{job.salary || detail.salaryFallback}</span>
                   </div>
                 </div>
               </div>
@@ -299,7 +299,7 @@ export default async function CareerDetailsPage({ params }: Props) {
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
               <h3 className="text-lg font-bold text-gray-900 mb-2">{detail.shareTitle}</h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-4"></div>
-              <p className="text-xs text-gray-500 mb-6">{detail.shareDescription}</p>
+              <p className="text-sm text-gray-500 mb-6">{detail.shareDescription}</p>
               
               <div className="flex items-center gap-3">
                 <a 

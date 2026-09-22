@@ -49,7 +49,7 @@ export default function GallerySection({ data, className }: SectionProps<Gallery
         <div className="text-center mb-10">
           <div className="inline-flex items-center space-x-2">
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
-            <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
+            <span className="text-base font-extrabold tracking-wider text-[#d32f2f] uppercase">
               {content.eyebrow || content.tagline}
             </span>
             <span className="h-[1px] w-6 bg-[#d32f2f]"></span>
@@ -58,7 +58,7 @@ export default function GallerySection({ data, className }: SectionProps<Gallery
             {content.title.split(content.titleHighlight)[0]}
             <span className="text-[#d32f2f]">{content.titleHighlight}</span>
           </h2>
-          <p className="site-container text-gray-500 text-xs sm:text-sm mt-2 leading-relaxed">
+          <p className="site-container text-gray-500 text-base sm:text-base mt-2 leading-relaxed">
             {content.description}
           </p>
         </div>
@@ -158,7 +158,7 @@ export default function GallerySection({ data, className }: SectionProps<Gallery
                       {stat.title}
                     </h3>
                     {stat.subtitle && (
-                      <p className="text-xs font-bold text-gray-700">
+                      <p className="text-base font-bold text-gray-700">
                         {stat.subtitle}
                       </p>
                     )}
@@ -177,16 +177,16 @@ export default function GallerySection({ data, className }: SectionProps<Gallery
               <Calendar className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-gray-900">
+              <h4 className="text-base font-bold text-gray-900">
                 {banner.title}
               </h4>
-              <p className="text-xs text-gray-500 mt-0.5">
+              <p className="text-base text-gray-500 mt-0.5">
                 {banner.description}
               </p>
             </div>
           </div>
 
-          <Link href="/bookrepair" className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-6 py-2.5 rounded-xl text-xs font-bold transition shadow-sm">
+          <Link href="/bookrepair" className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-6 py-2.5 rounded-xl text-base font-bold transition shadow-sm">
             <span>{banner.buttonText}</span>
             <ArrowRight className="w-4 h-4 ml-1" />
           </Link>

@@ -65,7 +65,7 @@ export default async function BlogDetailsPage({ params }: Props) {
               </p>
 
               {/* Meta info row */}
-              <div className="flex flex-wrap items-center gap-6 text-sm font-medium text-gray-500 mb-8 border-b border-gray-100 pb-6">
+              <div className="flex flex-wrap items-center gap-6 text-base font-medium text-gray-500 mb-8 border-b border-gray-100 pb-6">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-gray-400" />
                   <span>{post.monthYear.replace(/(\d{4})/, '$1').replace(/([A-Z]+)/, (m) => m.charAt(0).toUpperCase() + m.slice(1).toLowerCase())} {post.date}, 2025</span>
@@ -101,7 +101,7 @@ export default async function BlogDetailsPage({ params }: Props) {
                   {site.blogDetail.shared.sections.map((section) => (
                     <div key={section.title}>
                       <h3 className="text-xl font-bold text-gray-900 mb-3 border-b-2 border-red-100 pb-2 inline-block">{section.title}</h3>
-                      <p className="text-sm leading-relaxed">
+                      <p className="text-base leading-relaxed">
                         {section.text}
                       </p>
                     </div>
@@ -131,7 +131,7 @@ export default async function BlogDetailsPage({ params }: Props) {
                       />
                     </div>
                     <div className="flex flex-col justify-center">
-                      <h4 className="font-bold text-sm text-gray-900 leading-snug group-hover:text-[#cc1616] transition-colors line-clamp-2 mb-2">
+                      <h4 className="font-bold text-base text-gray-900 leading-snug group-hover:text-[#cc1616] transition-colors line-clamp-2 mb-2">
                         {rp.title}
                       </h4>
                       <span className="text-[10px] font-medium text-gray-500 uppercase tracking-wider">
@@ -149,11 +149,11 @@ export default async function BlogDetailsPage({ params }: Props) {
                 <Wrench className="w-8 h-8" />
               </div>
               <h4 className="text-xl font-bold text-gray-900 mb-3">{site.blogDetail.shared.cta.title}</h4>
-              <p className="text-sm text-gray-500 mb-6 leading-relaxed">
+              <p className="text-base text-gray-500 mb-6 leading-relaxed">
                 {site.blogDetail.shared.cta.description}
               </p>
               <Link href={site.blogDetail.shared.cta.href}>
-                <button className="w-full bg-[#cc1616] hover:bg-[#a51212] text-white font-bold py-3.5 px-4 rounded-xl transition shadow-md flex items-center justify-center gap-2 text-sm">
+                <button className="w-full bg-[#cc1616] hover:bg-[#a51212] text-white font-bold py-3.5 px-4 rounded-xl transition shadow-md flex items-center justify-center gap-2 text-base">
                   {site.blogDetail.shared.cta.buttonText}
                   <ArrowRight className="w-4 h-4" />
                 </button>
@@ -185,7 +185,7 @@ export default async function BlogDetailsPage({ params }: Props) {
                   >
                     <div className="flex items-center gap-3">
                       <CategoryIcon className="w-4 h-4 text-red-400 group-hover:text-[#cc1616]" />
-                      <span className="font-bold text-xs capitalize">{catName.toLowerCase()}</span>
+                      <span className="font-bold text-sm capitalize">{catName.toLowerCase()}</span>
                     </div>
                     <span className="bg-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-gray-500 shadow-sm border border-gray-100 group-hover:text-[#cc1616] group-hover:border-red-100">
                       {count.toString().padStart(2, '0')}

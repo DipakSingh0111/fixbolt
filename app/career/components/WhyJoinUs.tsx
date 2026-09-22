@@ -40,7 +40,7 @@ export default function WhyJoinUs({ whyJoin }: { whyJoin: CareerData['whyJoin'] 
               <div className="flex items-center justify-center mb-5 text-[#cc1616]">
                 {Icon && <Icon strokeWidth={1.5} className="w-11 h-11" />}
               </div>
-              <h4 className="text-sm font-bold text-gray-900 mb-3 leading-tight">
+              <h4 className="text-base font-bold text-gray-900 mb-3 leading-tight">
                 {perk.title}
               </h4>
               <p className="text-[11px] text-gray-500 leading-relaxed max-w-[180px]">

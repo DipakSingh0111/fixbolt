@@ -33,7 +33,7 @@ export default function BrandsSection({ data, className }: SectionProps<BrandsSe
         {/* Section Header */}
         <div className="text-center mb-12">
           <div className="inline-block relative">
-            <span className="text-xs font-extrabold tracking-wider text-[#d32f2f] uppercase">
+            <span className="text-base font-extrabold tracking-wider text-[#d32f2f] uppercase">
               {eyebrow}
             </span>
             <div className="w-8 h-[2px] bg-[#d32f2f] mx-auto mt-1"></div>
@@ -42,7 +42,7 @@ export default function BrandsSection({ data, className }: SectionProps<BrandsSe
             {heading.split(highlight)[0]}
             <span className="text-[#d32f2f]">{highlight}</span>
           </h2>
-          <p className="site-container text-gray-500 text-sm mt-2 leading-relaxed">
+          <p className="site-container text-gray-500 text-base mt-2 leading-relaxed">
             {content.description}
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function BrandsSection({ data, className }: SectionProps<BrandsSe
               </div>
 
               {/* Brand Name */}
-              <h3 className="text-sm font-bold text-gray-900 text-center">
+              <h3 className="text-base font-bold text-gray-900 text-center">
                 {brand.name}
               </h3>
 
@@ -84,10 +84,10 @@ export default function BrandsSection({ data, className }: SectionProps<BrandsSe
                 <ShieldCheck className="w-5 h-5 text-[#d32f2f]" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-gray-900">
+                <h4 className="text-base font-bold text-gray-900">
                   100% Genuine Parts
                 </h4>
-                <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                <p className="text-base text-gray-500 mt-1 leading-relaxed">
                   We use only original and high-quality parts for every repair.
                 </p>
               </div>
@@ -99,10 +99,10 @@ export default function BrandsSection({ data, className }: SectionProps<BrandsSe
                 <Award className="w-5 h-5 text-[#d32f2f]" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-gray-900">
+                <h4 className="text-base font-bold text-gray-900">
                   Warranty on Every Repair
                 </h4>
-                <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                <p className="text-base text-gray-500 mt-1 leading-relaxed">
                   All our repairs come with a warranty for your peace of mind.
                 </p>
               </div>
@@ -114,8 +114,8 @@ export default function BrandsSection({ data, className }: SectionProps<BrandsSe
                 <Headphones className="w-5 h-5 text-[#d32f2f]" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-gray-900">Need Help?</h4>
-                <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                <h4 className="text-base font-bold text-gray-900">Need Help?</h4>
+                <p className="text-base text-gray-500 mt-1 leading-relaxed">
                   Can't find your brand? <br />
                   <span className="cursor-pointer hover:underline text-gray-700 font-medium">
                     Contact us — we can still help!

@@ -41,7 +41,7 @@ export default function SitemapPage() {
                   <li key={idx}>
                     <Link 
                       href={link.href}
-                      className="group flex items-center text-sm font-medium text-gray-600 hover:text-[#e51d25] transition-colors"
+                      className="group flex items-center text-base font-medium text-gray-600 hover:text-[#e51d25] transition-colors"
                     >
                       <ChevronRight className="w-4 h-4 text-[#e51d25] mr-2 transition-transform group-hover:translate-x-1" />
                       {link.label}

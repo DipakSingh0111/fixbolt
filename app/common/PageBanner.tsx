@@ -67,7 +67,7 @@ export default function PageBanner({
           transition={{ duration: 0.5, delay: 0.2 }}
           aria-label="Breadcrumb"
         >
-          <ol className="flex items-center space-x-2 text-sm font-medium text-white/80 md:text-base capitalize">
+          <ol className="flex items-center space-x-2 text-base font-medium text-white/80 md:text-base capitalize">
             {crumbs.map((crumb, index) => {
               const isLast = index === crumbs.length - 1;
 

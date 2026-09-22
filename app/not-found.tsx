@@ -27,14 +27,14 @@ export default function NotFound() {
             
             <div className="w-12 h-1 bg-[#d32f2f] rounded-full"></div>
             
-            <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-500 text-base sm:text-base leading-relaxed">
               {notFound.description}
             </p>
           </div>
           
           <div className="pt-4">
             <Link href={notFound.cta.href}>
-              <button className="inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-8 py-3.5 rounded-lg text-sm font-bold transition shadow-md">
+              <button className="inline-flex items-center justify-center space-x-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white px-8 py-3.5 rounded-lg text-base font-bold transition shadow-md">
                 <span>{notFound.cta.label}</span>
               </button>
             </Link>

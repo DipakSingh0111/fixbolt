@@ -125,7 +125,7 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
                     </div>
                     <div className="pt-1 text-left">
                       <h4 className="text-[15px] font-bold text-[#111] leading-tight mb-1">Email</h4>
-                      <p className="text-sm text-neutral-500 break-all">{contact.email}</p>
+                      <p className="text-base text-neutral-500 break-all">{contact.email}</p>
                     </div>
                   </div>
                   
@@ -136,7 +136,7 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
                     </div>
                     <div className="pt-1 text-left">
                       <h4 className="text-[15px] font-bold text-[#111] leading-tight mb-1">Phone</h4>
-                      <p className="text-sm text-neutral-500">{contact.phone}</p>
+                      <p className="text-base text-neutral-500">{contact.phone}</p>
                     </div>
                   </div>
 
@@ -147,7 +147,7 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
                     </div>
                     <div className="pt-1 text-left">
                       <h4 className="text-[15px] font-bold text-[#111] leading-tight mb-1">Location</h4>
-                      <p className="text-sm text-neutral-500">{contact.location}</p>
+                      <p className="text-base text-neutral-500">{contact.location}</p>
                     </div>
                   </div>
 
@@ -158,7 +158,7 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
                     </div>
                     <div className="pt-1 text-left">
                       <h4 className="text-[15px] font-bold text-[#111] leading-tight mb-1">Experience</h4>
-                      <p className="text-sm text-neutral-500">{contact.experience}</p>
+                      <p className="text-base text-neutral-500">{contact.experience}</p>
                     </div>
                   </div>
                 </div>

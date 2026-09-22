@@ -64,7 +64,7 @@ export default function Navbar({ data, className }: SectionProps<HeaderData> = {
                 >
                   <span className="flex items-center gap-1">
                     {link.label}
-                    {link.dropdownItems && <ChevronDown size={14} className="transition-transform group-hover:rotate-180" />}
+                    {link.dropdownItems && <ChevronDown size={32} className="transition-transform group-hover:rotate-180" />}
                   </span>
                   
                   <span
@@ -153,7 +153,7 @@ export default function Navbar({ data, className }: SectionProps<HeaderData> = {
                         onClick={() => setMobileDropdownOpen(isDropdownOpen ? null : link.label)}
                         className="p-2 text-white hover:text-brand-red"
                       >
-                        <ChevronDown size={18} className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
+                        <ChevronDown size={32} className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
                       </button>
                     )}
                   </div>

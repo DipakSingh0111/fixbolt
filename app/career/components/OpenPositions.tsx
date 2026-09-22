@@ -12,7 +12,7 @@ export default function OpenPositions({ openPositions }: { openPositions: Career
           <h2 className="text-3xl font-extrabold text-[#111111] mb-2">
             {openPositions.title}
           </h2>
-          <p className="text-sm text-gray-500 whitespace-pre-line">
+          <p className="text-base text-gray-500 whitespace-pre-line">
             {openPositions.description}
           </p>
         </div>
@@ -33,20 +33,20 @@ export default function OpenPositions({ openPositions }: { openPositions: Career
                 <h3 className="font-bold text-gray-900 text-base mb-1">
                   {job.title}
                 </h3>
-                <p className="text-xs text-gray-500">{job.experience}</p>
+                <p className="text-sm text-gray-500">{job.experience}</p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 w-full md:w-auto mt-4 md:mt-0 ml-16 md:ml-0">
-              <div className="flex items-center gap-2 text-gray-500 text-xs">
+              <div className="flex items-center gap-2 text-gray-500 text-sm">
                 <MapPin className="w-4 h-4 text-gray-400" />
                 {job.location}
               </div>
-              <div className="flex items-center gap-2 text-gray-500 text-xs">
+              <div className="flex items-center gap-2 text-gray-500 text-sm">
                 <Briefcase className="w-4 h-4 text-gray-400" />
                 {job.type}
               </div>
-              <button className="text-[#e51d25] border border-[#e51d25] hover:bg-[#e51d25] hover:text-white text-xs font-bold py-2 px-6 rounded-lg transition ml-auto sm:ml-0 flex items-center gap-2">
+              <button className="text-[#e51d25] border border-[#e51d25] hover:bg-[#e51d25] hover:text-white text-sm font-bold py-2 px-6 rounded-lg transition ml-auto sm:ml-0 flex items-center gap-2">
                 {openPositions.applyLabel || "Apply Now"}
                 <ArrowRight className="w-3 h-3" />
               </button>

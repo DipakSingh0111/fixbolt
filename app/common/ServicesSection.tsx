@@ -62,7 +62,7 @@ export default function ServicesSection({ limit, data, className }: ServicesSect
           {displayEyebrow && (
             <motion.span
               variants={fadeInUp}
-              className="text-[#d31c24] font-bold text-xs md:text-sm tracking-wider uppercase block mb-2"
+              className="text-[#d31c24] font-bold text-base md:text-base tracking-wider uppercase block mb-2"
             >
               {displayEyebrow}
             </motion.span>
@@ -116,7 +116,7 @@ export default function ServicesSection({ limit, data, className }: ServicesSect
                       </div>
                       {/* Floating Red Icon Badge */}
                       <div className="absolute -bottom-5 left-4 w-12 h-12 bg-[#c90f16] rounded-xl flex items-center justify-center text-white shadow-md z-10">
-                        <IconComponent size={22} />
+                        <IconComponent size={32} />
                       </div>
                     </div>
 
@@ -126,7 +126,7 @@ export default function ServicesSection({ limit, data, className }: ServicesSect
                         <h3 className="text-lg font-bold text-black mb-2">
                           {service.title}
                         </h3>
-                        <p className="text-gray-500 text-xs md:text-sm leading-relaxed">
+                        <p className="text-gray-500 text-base md:text-base leading-relaxed">
                           {service.description}
                         </p>
                       </div>
@@ -142,12 +142,12 @@ export default function ServicesSection({ limit, data, className }: ServicesSect
                       <h3 className="text-xl font-bold mb-3">
                         {service.title}
                       </h3>
-                      <p className="text-white/90 text-sm leading-relaxed max-w-[200px]">
+                      <p className="text-white/90 text-base leading-relaxed max-w-[200px]">
                         {service.description}
                       </p>
                     </div>
                     <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow hover:scale-110 transition-transform duration-300">
-                      <ArrowRight size={20} />
+                      <ArrowRight size={32} />
                     </div>
                   </div>
                 </Link>

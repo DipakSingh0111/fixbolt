@@ -31,7 +31,7 @@ export default function ServicesSection({ data, className }: SectionProps<Servic
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-12">
           <div className="inline-block relative">
-            <span className="text-xs font-bold tracking-wider text-[#d32f2f] uppercase">
+            <span className="text-base font-bold tracking-wider text-[#d32f2f] uppercase">
               {content.eyebrow || content.tagline}
             </span>
             <div className="w-8 h-[2px] bg-[#d32f2f] mx-auto mt-1"></div>
@@ -40,7 +40,7 @@ export default function ServicesSection({ data, className }: SectionProps<Servic
             {content.title.split(content.titleHighlight)[0]}
             <span className="text-[#d32f2f]">{content.titleHighlight}</span>
           </h2>
-          <p className="site-container text-gray-500 text-sm mt-2 leading-relaxed">
+          <p className="site-container text-gray-500 text-base mt-2 leading-relaxed">
             {content.description}
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function ServicesSection({ data, className }: SectionProps<Servic
                       <h3 className="text-base font-bold text-gray-900 mt-1">
                         {service.title}
                       </h3>
-                      <p className="text-xs text-gray-500 mt-2 leading-relaxed whitespace-pre-line">
+                      <p className="text-base text-gray-500 mt-2 leading-relaxed whitespace-pre-line">
                         {service.description}
                       </p>
                     </div>
@@ -101,7 +101,7 @@ export default function ServicesSection({ data, className }: SectionProps<Servic
                       <Icon className="w-5 h-5 text-white" />
                     </div>
                     <h3 className="text-lg font-bold">{service.title}</h3>
-                    <p className="text-xs text-white/90 mt-1 leading-relaxed whitespace-pre-line">
+                    <p className="text-base text-white/90 mt-1 leading-relaxed whitespace-pre-line">
                       {service.description}
                     </p>
                   </div>
