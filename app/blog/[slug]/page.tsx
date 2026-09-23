@@ -2,16 +2,16 @@ import PageBanner from "@/app/common/PageBanner";
 import { site } from "@/data";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { 
-  Calendar, 
-  Clock, 
-  Bookmark, 
-  Wrench, 
+import {
+  Calendar,
+  Clock,
+  Bookmark,
+  Wrench,
   ArrowRight,
   Smartphone,
   BatteryCharging,
   Settings,
-  MonitorSmartphone
+  MonitorSmartphone,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -21,31 +21,32 @@ type Props = {
 
 export default async function BlogDetailsPage({ params }: Props) {
   const { slug } = await params;
-  
+
   // Find the requested post
-  const post = site.blog.posts.find(p => p.slug === slug);
+  const post = site.blog.posts.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();
   }
 
   // Get recent posts (excluding current one)
-  const recentPosts = site.blog.posts.filter(p => p.slug !== slug).slice(0, 4);
+  const recentPosts = site.blog.posts
+    .filter((p) => p.slug !== slug)
+    .slice(0, 4);
 
   return (
     <main className="bg-[#fbfbfb] min-h-screen font-sans pb-24">
-      <PageBanner 
-        title={site.pages['blog-detail'].bannerTitle} 
+      <PageBanner
+        title={site.pages["blog-detail"].bannerTitle}
         breadcrumbs={[
           { label: site.pageBanner.homeLabel, href: "/" },
           { label: site.pages.blog.bannerTitle, href: "/blog" },
-          { label: post.title }
-        ]} 
+          { label: post.title },
+        ]}
       />
 
       <div className="site-container mt-8 md:mt-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-          
           {/* LEFT MAIN CONTENT */}
           <div className="lg:col-span-8 flex flex-col">
             <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm flex-grow">
@@ -61,14 +62,24 @@ export default async function BlogDetailsPage({ params }: Props) {
 
               {/* Intro summary */}
               <p className="text-gray-600 mb-6 leading-relaxed">
-                {post.description}{site.blogDetail.shared.introExtra}
+                {post.description}
+                {site.blogDetail.shared.introExtra}
               </p>
 
               {/* Meta info row */}
               <div className="flex flex-wrap items-center gap-6 text-base font-medium text-gray-500 mb-8 border-b border-gray-100 pb-6">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-gray-400" />
-                  <span>{post.monthYear.replace(/(\d{4})/, '$1').replace(/([A-Z]+)/, (m) => m.charAt(0).toUpperCase() + m.slice(1).toLowerCase())} {post.date}, 2025</span>
+                  <span>
+                    {post.monthYear
+                      .replace(/(\d{4})/, "$1")
+                      .replace(
+                        /([A-Z]+)/,
+                        (m) =>
+                          m.charAt(0).toUpperCase() + m.slice(1).toLowerCase(),
+                      )}{" "}
+                    {post.date}, 2025
+                  </span>
                 </div>
                 <div className="w-[1px] h-4 bg-red-200"></div>
                 <div className="flex items-center gap-2">
@@ -84,23 +95,23 @@ export default async function BlogDetailsPage({ params }: Props) {
 
               {/* Main Image */}
               <div className="w-full aspect-[16/9] md:aspect-[2/1] rounded-2xl overflow-hidden mb-10 bg-gray-100">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
+                <img
+                  src={post.image}
+                  alt={post.title}
                   className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Article Body */}
               <div className="prose prose-lg max-w-none text-gray-600">
-                <p className="mb-8">
-                  {site.blogDetail.shared.bodyIntro}
-                </p>
+                <p className="mb-8">{site.blogDetail.shared.bodyIntro}</p>
 
                 <div className="space-y-8">
                   {site.blogDetail.shared.sections.map((section) => (
                     <div key={section.title}>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3 border-b-2 border-red-100 pb-2 inline-block">{section.title}</h3>
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 border-b-2 border-red-100 pb-2 inline-block">
+                        {section.title}
+                      </h3>
                       <p className="text-base leading-relaxed">
                         {section.text}
                       </p>
@@ -108,26 +119,30 @@ export default async function BlogDetailsPage({ params }: Props) {
                   ))}
                 </div>
               </div>
-
             </div>
           </div>
 
           {/* RIGHT SIDEBAR */}
           <div className="lg:col-span-4 flex flex-col gap-8">
-            
             {/* Recent Posts */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-              <h3 className="text-lg font-extrabold text-gray-900 mb-2">{site.blogDetail.shared.recentPostsTitle}</h3>
+              <h3 className="text-lg font-extrabold text-gray-900 mb-2">
+                {site.blogDetail.shared.recentPostsTitle}
+              </h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
-              
+
               <div className="space-y-6">
                 {recentPosts.map((rp) => (
-                  <Link href={`/blog/${rp.slug}`} key={rp.id} className="flex gap-4 group cursor-pointer">
+                  <Link
+                    href={`/blog/${rp.slug}`}
+                    key={rp.id}
+                    className="flex gap-4 group cursor-pointer"
+                  >
                     <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0 bg-gray-100">
-                      <img 
-                        src={rp.image} 
-                        alt={rp.title} 
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" 
+                      <img
+                        src={rp.image}
+                        alt={rp.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       />
                     </div>
                     <div className="flex flex-col justify-center">
@@ -135,7 +150,15 @@ export default async function BlogDetailsPage({ params }: Props) {
                         {rp.title}
                       </h4>
                       <span className="text-[10px] font-medium text-gray-500 uppercase tracking-wider">
-                        {rp.monthYear.replace(/(\d{4})/, '$1').replace(/([A-Z]+)/, (m) => m.charAt(0).toUpperCase() + m.slice(1).toLowerCase())} {rp.date}, 2025
+                        {rp.monthYear
+                          .replace(/(\d{4})/, "$1")
+                          .replace(
+                            /([A-Z]+)/,
+                            (m) =>
+                              m.charAt(0).toUpperCase() +
+                              m.slice(1).toLowerCase(),
+                          )}{" "}
+                        {rp.date}, 2025
                       </span>
                     </div>
                   </Link>
@@ -148,7 +171,9 @@ export default async function BlogDetailsPage({ params }: Props) {
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-[#cc1616] shadow-sm">
                 <Wrench className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-3">{site.blogDetail.shared.cta.title}</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-3">
+                {site.blogDetail.shared.cta.title}
+              </h4>
               <p className="text-base text-gray-500 mb-6 leading-relaxed">
                 {site.blogDetail.shared.cta.description}
               </p>
@@ -162,40 +187,51 @@ export default async function BlogDetailsPage({ params }: Props) {
 
             {/* Categories */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex-grow">
-              <h3 className="text-lg font-extrabold text-gray-900 mb-2">{site.blogDetail.shared.categoriesTitle}</h3>
+              <h3 className="text-lg font-extrabold text-gray-900 mb-2">
+                {site.blogDetail.shared.categoriesTitle}
+              </h3>
               <div className="w-8 h-[2px] bg-[#cc1616] mb-6"></div>
-              
+
               <div className="space-y-2">
-                {Array.from(new Set(site.blog.posts.map(p => p.category))).map((catName, idx) => {
-                  const latestPost = site.blog.posts.find(p => p.category === catName);
-                  const count = site.blog.posts.filter(p => p.category === catName).length;
+                {Array.from(
+                  new Set(site.blog.posts.map((p) => p.category)),
+                ).map((catName, idx) => {
+                  const latestPost = site.blog.posts.find(
+                    (p) => p.category === catName,
+                  );
+                  const count = site.blog.posts.filter(
+                    (p) => p.category === catName,
+                  ).length;
                   const catNameLower = catName.toLowerCase();
-                  
+
                   // Pick an icon based on category name
                   let CategoryIcon = Settings;
-                  if (catNameLower.includes('repair')) CategoryIcon = Wrench;
-                  else if (catNameLower.includes('tech')) CategoryIcon = Smartphone;
-                  else if (catNameLower.includes('battery')) CategoryIcon = BatteryCharging;
-                  
+                  if (catNameLower.includes("repair")) CategoryIcon = Wrench;
+                  else if (catNameLower.includes("tech"))
+                    CategoryIcon = Smartphone;
+                  else if (catNameLower.includes("battery"))
+                    CategoryIcon = BatteryCharging;
+
                   return (
-                  <Link 
-                    key={idx} 
-                    href={latestPost ? `/blog/${latestPost.slug}` : "/blog"}
-                    className="flex items-center justify-between p-3 rounded-xl transition-all bg-gray-50 text-gray-700 hover:bg-red-50 hover:text-[#cc1616] group"
-                  >
-                    <div className="flex items-center gap-3">
-                      <CategoryIcon className="w-4 h-4 text-red-400 group-hover:text-[#cc1616]" />
-                      <span className="font-bold text-sm capitalize">{catName.toLowerCase()}</span>
-                    </div>
-                    <span className="bg-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-gray-500 shadow-sm border border-gray-100 group-hover:text-[#cc1616] group-hover:border-red-100">
-                      {count.toString().padStart(2, '0')}
-                    </span>
-                  </Link>
+                    <Link
+                      key={idx}
+                      href={latestPost ? `/blog/${latestPost.slug}` : "/blog"}
+                      className="flex items-center justify-between p-3 rounded-xl transition-all bg-gray-50 text-gray-700 hover:bg-red-50 hover:text-[#cc1616] group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <CategoryIcon className="w-4 h-4 text-red-400 group-hover:text-[#cc1616]" />
+                        <span className="font-bold text-sm capitalize">
+                          {catName.toLowerCase()}
+                        </span>
+                      </div>
+                      <span className="bg-white w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-gray-500 shadow-sm border border-gray-100 group-hover:text-[#cc1616] group-hover:border-red-100">
+                        {count.toString().padStart(2, "0")}
+                      </span>
+                    </Link>
                   );
                 })}
               </div>
             </div>
-            
           </div>
         </div>
       </div>

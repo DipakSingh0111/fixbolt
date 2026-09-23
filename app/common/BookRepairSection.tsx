@@ -37,7 +37,7 @@ export default function BookRepairSection({
     "w-full px-4 py-3 text-base text-[#111] bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-[#d32f2f] focus:border-[#d32f2f] placeholder:text-gray-500 transition [color-scheme:light]";
 
   return (
-    <section className={`bg-[#fbfbfb] py-10 md:py-14 font-sans ${className || ""}`}>
+    <section className={`section-pad bg-[#fbfbfb] font-sans ${className || ""}`}>
       <div className="site-container">
         <div className="w-full rounded-3xl border border-gray-100 bg-white p-6 shadow-[0_4px_25px_rgba(0,0,0,0.03)] sm:p-8 lg:p-10">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
@@ -217,7 +217,7 @@ export default function BookRepairSection({
           </div>
 
           <div className="mt-10 pt-6 border-t border-gray-100 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            <div className="md:col-span-7 flex items-center space-x-3">
+            <div className="md:col-span-6 flex items-center space-x-3">
               <div className="w-12 h-12 rounded-full bg-red-50 border border-red-100 flex items-center justify-center shrink-0">
                 <PhoneCall className="w-6 h-6 text-[#d32f2f]" />
               </div>
@@ -241,7 +241,7 @@ export default function BookRepairSection({
               </div>
             </div>
 
-            <div className="md:col-span-5 flex items-center space-x-3">
+            <div className="md:col-span-6 flex items-center space-x-3">
               <div className="w-12 h-12 rounded-full bg-red-50 border border-red-100 flex items-center justify-center shrink-0">
                 <Clock className="w-6 h-6 text-[#d32f2f]" />
               </div>

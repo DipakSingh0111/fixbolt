@@ -359,12 +359,12 @@ export default function HeroBanner({
         })}
       </div>
 
-      {/* Slide Navigation Icons */}
+      {/* Slide Navigation Icons (Desktop) */}
       <button
         type="button"
         aria-label="Previous slide"
         onClick={prev}
-        className="absolute left-3 top-1/2 z-[4] grid size-11 -translate-y-1/2 place-items-center rounded-full border-0 bg-transparent text-[#111]/45 transition-all duration-300 hover:bg-white hover:scale-110 hover:shadow-md hover:text-brand-red md:left-5 lg:left-8 group"
+        className="hidden md:grid absolute left-5 lg:left-8 top-1/2 z-[4] size-11 -translate-y-1/2 place-items-center rounded-full border-0 bg-transparent text-[#111]/45 transition-all duration-300 hover:bg-white hover:scale-110 hover:shadow-md hover:text-brand-red group"
       >
         <ChevronLeft />
       </button>
@@ -372,31 +372,50 @@ export default function HeroBanner({
         type="button"
         aria-label="Next slide"
         onClick={next}
-        className="absolute right-3 top-1/2 z-[4] grid size-11 -translate-y-1/2 place-items-center rounded-full border-0 bg-transparent text-[#111]/45 transition-all duration-300 hover:bg-white hover:scale-110 hover:shadow-md hover:text-brand-red md:right-5 lg:right-8 group"
+        className="hidden md:grid absolute right-5 lg:right-8 top-1/2 z-[4] size-11 -translate-y-1/2 place-items-center rounded-full border-0 bg-transparent text-[#111]/45 transition-all duration-300 hover:bg-white hover:scale-110 hover:shadow-md hover:text-brand-red group"
       >
         <ChevronRight />
       </button>
 
+      {/* Pagination & Mobile Navigation Icons */}
       <div
-        className="absolute bottom-5 md:bottom-6 left-1/2 z-[4] flex -translate-x-1/2 gap-3"
-        role="tablist"
-        aria-label="Choose slide"
+        className="absolute bottom-5 md:bottom-6 left-1/2 z-[4] flex -translate-x-1/2 items-center gap-4 md:gap-3"
       >
-        {slides.map((slide, i) => (
-          <button
-            key={slide.id}
-            type="button"
-            role="tab"
-            aria-selected={i === index}
-            aria-label={`Go to slide ${i + 1}`}
-            onClick={() => setIndex(i)}
-            className={`size-2.5 rounded-full border-0 p-0 transition-transform ${
-              i === index
-                ? "scale-110 bg-brand-red"
-                : "bg-[#b9bbbd] hover:bg-[#8d9092]"
-            }`}
-          />
-        ))}
+        <button
+          type="button"
+          aria-label="Previous slide"
+          onClick={prev}
+          className="md:hidden flex items-center justify-center text-[#111]/60 hover:text-brand-red scale-75"
+        >
+          <ChevronLeft />
+        </button>
+
+        <div className="flex gap-3" role="tablist" aria-label="Choose slide">
+          {slides.map((slide, i) => (
+            <button
+              key={slide.id}
+              type="button"
+              role="tab"
+              aria-selected={i === index}
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => setIndex(i)}
+              className={`size-2.5 rounded-full border-0 p-0 transition-transform ${
+                i === index
+                  ? "scale-110 bg-brand-red"
+                  : "bg-[#b9bbbd] hover:bg-[#8d9092]"
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          type="button"
+          aria-label="Next slide"
+          onClick={next}
+          className="md:hidden flex items-center justify-center text-[#111]/60 hover:text-brand-red scale-75"
+        >
+          <ChevronRight />
+        </button>
       </div>
     </section>
   );

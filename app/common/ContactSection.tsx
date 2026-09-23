@@ -39,7 +39,7 @@ export default function ContactSection({ data, className }: SectionProps<Contact
   const { contactCards, whyContact, map, bookRepairCard, form } = content;
 
   return (
-    <section className={`bg-[#fbfbfb] py-10 md:py-14 px-4 sm:px-6 lg:px-8 overflow-hidden font-sans ${className || ""}`}>
+    <section className={`section-pad overflow-hidden bg-[#fbfbfb] px-4 font-sans sm:px-6 lg:px-8 ${className || ""}`}>
       <div className="site-container">
         {/* Header Section */}
         <div className="mx-auto mb-8 max-w-3xl text-center md:mb-10">

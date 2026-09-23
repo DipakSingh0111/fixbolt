@@ -42,7 +42,7 @@ export default function TeamSection() {
   const router = useRouter();
 
   return (
-    <section className="bg-[#f8f9fa] pt-10 md:pt-16 pb-6 md:pb-10 text-center relative overflow-hidden">
+    <section className="section-pad relative overflow-hidden bg-[#f8f9fa] text-center">
       {/* Background Tech Line Decorators */}
       <div className="absolute top-8 left-8 opacity-15 pointer-events-none hidden md:block">
         <div className="grid grid-cols-4 gap-2">

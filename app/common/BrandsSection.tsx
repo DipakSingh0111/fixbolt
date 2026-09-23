@@ -10,7 +10,7 @@ export default function BrandsSection({ data, className }: SectionProps<BrandsSe
   const highlight = content.titleHighlight;
   const eyebrow = content.tagline || content.eyebrow;
   return (
-    <section className={`relative bg-[#fbfbfb] py-10 md:py-14 px-4 sm:px-6 lg:px-8 overflow-hidden font-sans ${className || ""}`}>
+    <section className={`section-pad relative overflow-hidden bg-[#fbfbfb] px-4 font-sans sm:px-6 lg:px-8 ${className || ""}`}>
       {/* Background Left Watermark Circles */}
       <div className="absolute -left-16 top-1/4 opacity-10 pointer-events-none hidden md:block">
         <div className="w-64 h-64 border-[1px] border-gray-400 rounded-full flex items-center justify-center">

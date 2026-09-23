@@ -1039,7 +1039,7 @@
               ],
               "description": "We deliver safe, efficient, and high-quality electrical services tailored to your needs with professionalism you can trust.",
               "image": {
-                "src": "/images/why-choose.png",
+                "src": "/images/why-choose-us.png",
                 "alt": "Electrical tools and circuit components on a technical blueprint"
               },
               "features": [
@@ -2618,7 +2618,7 @@
           "variants": {
             "FixBoltPageBanner1": {
               "homeLabel": "Home",
-              "backgroundImage": "/images/page_banner.jpg",
+              "backgroundImage": "/images/page_banner_01.webp",
               "about": {
                 "bannerTitle": "About Us",
                 "metaTitle": "About Us | FixBolt",

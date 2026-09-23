@@ -10,7 +10,7 @@ export default function ServicesSection({ data }: SectionProps<ServicesData> = {
   const content = data || site.services;
   const services = content.items;
   return (
-    <section className="relative bg-[#fbfbfb] py-10 md:py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col justify-center overflow-hidden">
+    <section className="section-pad relative overflow-hidden bg-[#fbfbfb] px-4 font-sans sm:px-6 lg:px-8">
       {/* Subtle Grid Dot Background */}
       <div className="absolute top-10 left-10 opacity-20 pointer-events-none hidden md:block">
         <div className="grid grid-cols-6 gap-2">

@@ -6,7 +6,7 @@ import { CareerData } from "@/data";
 
 export default function CareerCta({ bottomCta }: { bottomCta: CareerData['bottomCta'] }) {
   return (
-    <section className="site-container mb-10 md:mb-20">
+    <section className="site-container pt-4 md:pt-6 pb-10 md:pb-16">
       <div className="grid items-center gap-8 rounded-2xl bg-[#0a0a0a] px-6 py-8 sm:px-8 md:grid-cols-2 md:px-10 md:py-9 lg:px-12">
         <div className="flex items-start gap-5">
           <div className="mt-1 grid size-14 shrink-0 place-items-center rounded-full bg-[#d40000]">

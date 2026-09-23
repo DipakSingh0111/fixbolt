@@ -50,7 +50,7 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
         ]}
       />
 
-      <main className="bg-[#fcfcfc] pt-10 md:pt-16 lg:pt-20 pb-6 md:pb-8 px-5">
+      <main className="section-pad bg-[#fcfcfc] px-5">
         <div className="site-container">
           {/* Main Content Grid */}
           <div className="grid lg:grid-cols-[500px_1fr] xl:grid-cols-[560px_1fr] gap-8 lg:gap-16 items-start mb-10 md:mb-20">
@@ -204,7 +204,6 @@ export default async function TeamDetailsPage({ params }: { params: Promise<{ na
               <span>→</span>
             </Link>
           </div>
-          
         </div>
       </main>
     </>

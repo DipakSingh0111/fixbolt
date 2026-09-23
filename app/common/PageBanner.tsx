@@ -21,12 +21,12 @@ export default function PageBanner({
   breadcrumbs,
   bgImage,
   data,
-  className
+  className,
 }: PageBannerProps) {
   const content = data || site.pageBanner;
-  
+
   const finalBgImage =
-    bgImage || content.backgroundImage || "/images/page_banner.jpg";
+    bgImage || content.backgroundImage || "/images/page_banner_01.webp";
 
   const defaultBreadcrumbs: BreadcrumbItem[] = [
     { label: content.homeLabel, href: "/" },
@@ -51,9 +51,7 @@ export default function PageBanner({
 
       {/* Content */}
       <div className="site-container relative z-10 w-full">
-        <h1 
-          className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl capitalize"
-        >
+        <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl capitalize">
           {title}
         </h1>
 
@@ -63,7 +61,10 @@ export default function PageBanner({
               const isLast = index === crumbs.length - 1;
 
               return (
-                <li key={index} className="inline-flex max-w-full items-center gap-1.5">
+                <li
+                  key={index}
+                  className="inline-flex max-w-full items-center gap-1.5"
+                >
                   {crumb.href ? (
                     <Link
                       href={crumb.href}
@@ -81,7 +82,10 @@ export default function PageBanner({
                   )}
 
                   {!isLast && (
-                    <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/60 sm:h-4 sm:w-4" aria-hidden />
+                    <ChevronRight
+                      className="h-3.5 w-3.5 shrink-0 text-white/60 sm:h-4 sm:w-4"
+                      aria-hidden
+                    />
                   )}
                 </li>
               );

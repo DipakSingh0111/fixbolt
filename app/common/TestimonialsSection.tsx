@@ -41,7 +41,7 @@ export default function TestimonialsSection({
 }: SectionProps<TestimonialData> = {}) {
   const content = data || site.testimonial;
   return (
-    <section className="relative w-full bg-[#0d0e12] text-white pt-12 pb-6 md:pt-16 md:pb-8 overflow-hidden">
+    <section className="section-pad relative w-full overflow-hidden bg-[#0d0e12] text-white">
       {/* Background Dark Overlay Image Pattern */}
       <div
         className="absolute inset-0 opacity-20 pointer-events-none bg-cover bg-center"
@@ -138,7 +138,7 @@ export default function TestimonialsSection({
         {/* Slider Container */}
         <motion.div
           variants={fadeInUp}
-          className="site-container relative z-10 pb-12"
+          className="site-container relative z-10"
         >
           <Swiper
             modules={[Pagination, Autoplay]}

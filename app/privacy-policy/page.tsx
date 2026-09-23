@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="font-sans min-h-screen bg-white">
       <PageBanner title="Privacy Policy" />
-      <section className="site-container py-16 sm:py-20">
+      <section className="site-container section-pad">
         <div className="space-y-12 text-[#111111]">
           {dummySections.map((section: any) => (
             <div key={section.id} className="space-y-4">

@@ -35,7 +35,7 @@ export default function FaqSection({ data, className }: SectionProps<FAQData> = 
   };
 
   return (
-    <section className="bg-[#fbfbfb] py-16 font-sans">
+    <section className="section-pad bg-[#fbfbfb] font-sans">
       <div className="site-container">
         {/* Section Header */}
         <div className="text-center mb-10">

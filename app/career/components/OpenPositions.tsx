@@ -6,7 +6,7 @@ import { CareerData } from "@/data";
 
 export default function OpenPositions({ openPositions }: { openPositions: CareerData['openPositions'] }) {
   return (
-    <section className="site-container mb-10 md:mb-20">
+    <section className="site-container pt-10 md:pt-16 pb-2 md:pb-4">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 gap-4">
         <div>
           <h2 className="text-3xl font-extrabold text-[#111111] mb-2">

@@ -37,7 +37,7 @@ export default function BlogSection({ category, limit, data, className }: BlogSe
   }
 
   return (
-    <section className="bg-[#f8f9fa] pt-10 pb-10 md:pt-12 md:pb-12 relative overflow-hidden text-center">
+    <section className="section-pad relative overflow-hidden bg-[#f8f9fa] text-center">
       {/* Background Decorative Circuit/Dot Grid Accents */}
       <div className="absolute top-10 left-10 pointer-events-none hidden md:block">
         <div className="grid grid-cols-4 gap-3">

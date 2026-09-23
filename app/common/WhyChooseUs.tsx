@@ -30,7 +30,7 @@ export default function WhyChooseUs({ data, className }: SectionProps<WhyChooseU
   const { tagline, eyebrow, title, description, image, features } = content;
   const sectionEyebrow = eyebrow || tagline;
   return (
-    <section className={`relative w-full overflow-hidden bg-[#f7f8fa] pt-10 lg:pt-16 pb-12 lg:pb-16 ${className || ""}`}>
+    <section className={`section-pad relative w-full overflow-hidden bg-[#f7f8fa] ${className || ""}`}>
       {/* Background Dot Patterns */}
       <div className="absolute top-4 left-[45%] hidden lg:grid grid-cols-6 gap-1.5 opacity-20 pointer-events-none z-0">
         {Array.from({ length: 24 }).map((_, i) => (
@@ -59,7 +59,7 @@ export default function WhyChooseUs({ data, className }: SectionProps<WhyChooseU
       <div className="site-container relative z-10">
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
           {/* LEFT CONTENT AREA */}
-          <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-center z-10 pb-6 lg:pb-0">
+          <div className="z-10 flex flex-col justify-center lg:col-span-7 lg:pb-0 xl:col-span-7">
             <motion.div
               initial="hidden"
               whileInView="visible"

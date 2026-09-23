@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 export default function SmoothScrollProvider({
@@ -8,6 +9,8 @@ export default function SmoothScrollProvider({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -26,10 +29,13 @@ export default function SmoothScrollProvider({
 
     requestAnimationFrame(raf);
 
+    // Scroll to top on route change smoothly
+    lenis.scrollTo(0, { duration: 1.2 });
+
     return () => {
       lenis.destroy();
     };
-  }, []);
+  }, [pathname]);
 
   return <>{children}</>;
 }

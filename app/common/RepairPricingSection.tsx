@@ -164,7 +164,7 @@ export default function RepairPricingSection({ data, className }: SectionProps<P
   const pricing = content;
 
   return (
-    <section className={`bg-[#fbfbfb] py-16 min-h-screen font-sans ${className || ""}`}>
+    <section className={`section-pad bg-[#fbfbfb] font-sans ${className || ""}`}>
       <div className="site-container">
         {/* Section Header */}
         <div className="text-center mb-10">

@@ -111,7 +111,7 @@ export default async function ServiceDetailsPage({ params }: Props) {
   const details = site.serviceDetail.shared;
 
   return (
-    <div className="bg-white pb-20">
+    <div className="section-pad-b bg-white">
       <PageBanner
         title={site.pages['services-detail'].bannerTitle}
         breadcrumbs={[

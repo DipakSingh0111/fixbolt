@@ -18,7 +18,7 @@ export default function RefundPolicyPage() {
       <PageBanner title="Refund Policy" />
 
       {/* Content Section */}
-      <section className="site-container py-16 sm:py-20">
+      <section className="site-container section-pad">
         <div className="space-y-12 text-[#111111]">
           {sections.map((section: any) => (
             <div key={section.id} className="space-y-4">

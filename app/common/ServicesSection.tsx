@@ -33,7 +33,7 @@ export default function ServicesSection({ limit, data, className }: ServicesSect
   const displayServices = limit ? services.slice(0, limit) : services;
   
   return (
-    <section className="bg-[#f8f9fa] py-10 md:py-16 text-center relative overflow-hidden">
+    <section className="section-pad relative overflow-hidden bg-[#f8f9fa] text-center">
       {/* Background Dots Pattern */}
       <div className="absolute top-6 left-6 opacity-20 pointer-events-none hidden md:block">
         <div className="grid grid-cols-4 gap-2">

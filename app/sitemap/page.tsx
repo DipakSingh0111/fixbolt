@@ -24,7 +24,7 @@ export default function SitemapPage() {
       <PageBanner title="Sitemap" />
 
       {/* Sitemap Grid */}
-      <section className="site-container py-16 sm:py-20">
+      <section className="site-container section-pad">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {sitemapGroups.map((group) => (
             <div 

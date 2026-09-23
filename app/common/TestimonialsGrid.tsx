@@ -22,7 +22,7 @@ export default function TestimonialsGrid({ data, className }: SectionProps<Testi
   const content = data || site.testimonial;
   const { eyebrow, tagline, title, description, items: testimonials } = content;
   return (
-    <section className="bg-white py-10 md:py-16 px-4 sm:px-6 lg:px-8 font-sans">
+    <section className="section-pad bg-white px-4 font-sans sm:px-6 lg:px-8">
       <div className="site-container">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
