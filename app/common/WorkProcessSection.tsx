@@ -43,7 +43,7 @@ export default function WorkProcessSection({
     steps: processSteps,
   } = content;
   return (
-    <section className="relative w-full bg-gradient-to-r from-[#800000] via-[#a30000] to-[#520000] text-white py-16 md:py-16 overflow-hidden">
+    <section className="work-process-section relative w-full bg-gradient-to-r from-[#800000] via-[#a30000] to-[#520000] text-white py-16 md:py-16 overflow-hidden">
       {/* Background Technology Circuit Overlay Pattern */}
       <div
         className="absolute inset-0 opacity-15 pointer-events-none bg-cover bg-center"

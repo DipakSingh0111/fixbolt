@@ -49,7 +49,7 @@ textarea::placeholder {
   --section-pad-y: clamp(2.5rem, 3.2vw, 3rem);     /* ~40–48px inside */
   --section-pad-y-md: clamp(3rem, 4vw, 4rem);       /* ~48–64px inside */
   --section-gap: clamp(1.25rem, 2.5vw, 2rem);       /* BETWEEN sections */
-  --footer-deco-h: clamp(3.25rem, 5vw, 4.25rem);    /* footer transition strip */
+  --footer-deco-h: clamp(2rem, 3.2vw, 2.75rem); /* thin slant strip */
 }
 
 .section-pad {
@@ -74,15 +74,17 @@ textarea::placeholder {
 /* Space BETWEEN last content and footer (not inside section) */
 /* removed main margin-bottom — was creating odd gaps */
 
-/* Work Process — equal internal pad; force-hide any leftover top deco */
+/* Work Process — equal internal pad; gap (page bg) before footer deco */
 .work-process-section {
   padding-top: var(--section-pad-y) !important;
   padding-bottom: var(--section-pad-y) !important;
+  margin-bottom: var(--section-gap);
 }
 @media (min-width: 768px) {
   .work-process-section {
     padding-top: var(--section-pad-y-md) !important;
     padding-bottom: var(--section-pad-y-md) !important;
+    margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
   }
 }
 
@@ -132,48 +134,42 @@ html {
 .footer-deco {
   position: relative;
   width: 100%;
-  height: var(--footer-deco-h, 72px);
-  background: var(--color-page);
+  height: var(--footer-deco-h, 44px);
+  background: #fff;
   overflow: hidden;
 }
 
-.footer-deco-red {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 2;
-  width: 31%;
-  height: 32px;
-  background: var(--color-brand-deco-red);
-  clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+.footer-deco-line {
+  display: none;
 }
 
+/* Black strip under red — right edge \ into white */
 .footer-deco-dark {
   position: absolute;
   left: 0;
+  top: 0;
   bottom: 0;
   z-index: 1;
-  width: 70%;
-  height: 26px;
-  background: #161616;
-  clip-path: polygon(0 0, calc(100% - 21px) 0, 100% 100%, 0 100%);
+  width: 58%;
+  background: #0a0a0a;
+  clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 100%, 0 100%);
 }
 
-.footer-deco-dots {
+/* Red block left — same \ slant into black */
+.footer-deco-red {
   position: absolute;
-  right: 32px;
-  top: 6px;
-  display: grid;
-  grid-template-columns: repeat(8, 4px);
-  gap: 11px;
-  z-index: 1;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 28%;
+  background: var(--color-brand-deco-red);
+  clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 100%, 0 100%);
 }
 
+.footer-deco-dots,
 .footer-deco-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #d21a25;
+  display: none !important;
 }
 
 .footer-container {
@@ -392,13 +388,12 @@ html {
     gap: 40px 32px;
   }
 
-  .footer-deco {
-    height: var(--footer-deco-h, 64px);
+  .footer-deco-red {
+    width: 32%;
   }
 
-  .footer-deco-dots {
-    gap: 9px;
-    right: 20px;
+  .footer-deco-dark {
+    width: 64%;
   }
 }
 
@@ -432,21 +427,13 @@ html {
     justify-content: flex-start;
   }
 
-  .footer-deco {
-    height: clamp(2.75rem, 8vw, 3.5rem);
-  }
-
   .footer-deco-red {
-    height: 24px;
-    clip-path: polygon(0 0, 100% 0, calc(100% - 11px) 100%, 0 100%);
+    width: 36%;
+    clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 100%, 0 100%);
   }
 
   .footer-deco-dark {
-    height: 19px;
-    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 100%, 0 100%);
-  }
-
-  .footer-deco-dots {
-    display: none;
+    width: 72%;
+    clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 100%, 0 100%);
   }
 }
