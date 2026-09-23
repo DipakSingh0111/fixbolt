@@ -159,16 +159,7 @@ export default function TestimonialsSection({
               <SwiperSlide key={item.id} className="!h-auto flex">
                 <div className="bg-white text-black rounded-2xl p-6 flex flex-col justify-between shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 w-full h-full">
                   <div>
-                    {/* Star Rating Bar */}
-                    <div className="flex items-center gap-1 mb-3">
-                      {[...Array(item.rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          size={32}
-                          className="fill-red-600 text-red-600"
-                        />
-                      ))}
-                    </div>
+
 
                     {/* Quote Marks Top Bar */}
                     <div className="flex justify-between items-center text-red-500/30 mb-2">

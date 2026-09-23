@@ -184,12 +184,7 @@ export default function Footer({ data, className }: SectionProps<FooterData> = {
       <div className="footer-bottom">
         <div className="footer-bottom-inner">
           <p className="footer-copyright">
-            &copy; {copyright.year}{" "}
-            <Link href={copyright.brandHref} className="footer-brand-name">
-              {copyright.brand}
-            </Link>
-            .{" "}
-            <span className="footer-copyright-text">{copyright.text}</span>
+            CopyRight @ {copyright.year}All Rights Reserved. Powered by Lestow
           </p>
           <nav className="footer-bottom-links" aria-label="Legal">
             {[

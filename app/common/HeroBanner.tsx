@@ -110,7 +110,7 @@ function ChevronLeft() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className="h-7 w-7 opacity-60"
+      className="h-7 w-7 transition-opacity duration-300 group-hover:opacity-100 opacity-80"
     >
       <path d="M15 6 9 12l6 6" />
     </svg>
@@ -127,7 +127,7 @@ function ChevronRight() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className="h-7 w-7 opacity-60"
+      className="h-7 w-7 transition-opacity duration-300 group-hover:opacity-100 opacity-80"
     >
       <path d="m9 6 6 6-6 6" />
     </svg>
@@ -364,7 +364,7 @@ export default function HeroBanner({
         type="button"
         aria-label="Previous slide"
         onClick={prev}
-        className="absolute left-3 top-1/2 z-[4] grid size-11 -translate-y-1/2 place-items-center rounded-full border-0 bg-transparent text-[#111]/45 transition-all hover:text-[#111]/80 md:left-5 lg:left-8"
+        className="absolute left-3 top-1/2 z-[4] grid size-11 -translate-y-1/2 place-items-center rounded-full border-0 bg-transparent text-[#111]/45 transition-all duration-300 hover:bg-white hover:scale-110 hover:shadow-md hover:text-brand-red md:left-5 lg:left-8 group"
       >
         <ChevronLeft />
       </button>
@@ -372,7 +372,7 @@ export default function HeroBanner({
         type="button"
         aria-label="Next slide"
         onClick={next}
-        className="absolute right-3 top-1/2 z-[4] grid size-11 -translate-y-1/2 place-items-center rounded-full border-0 bg-transparent text-[#111]/45 transition-all hover:text-[#111]/80 md:right-5 lg:right-8"
+        className="absolute right-3 top-1/2 z-[4] grid size-11 -translate-y-1/2 place-items-center rounded-full border-0 bg-transparent text-[#111]/45 transition-all duration-300 hover:bg-white hover:scale-110 hover:shadow-md hover:text-brand-red md:right-5 lg:right-8 group"
       >
         <ChevronRight />
       </button>

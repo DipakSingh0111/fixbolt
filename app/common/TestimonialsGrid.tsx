@@ -56,15 +56,7 @@ export default function TestimonialsGrid({ data, className }: SectionProps<Testi
               {/* Top Row: Quotes & Stars */}
               <div className="flex justify-between items-start mb-5">
                 <QuoteIcon />
-                <div className="flex gap-1 pt-1">
-                  {[...Array(item.rating || 5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={32}
-                      className="fill-[#e51d25] text-[#e51d25]"
-                    />
-                  ))}
-                </div>
+
               </div>
 
               {/* Review Text Body */}
